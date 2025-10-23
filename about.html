@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Common Source of Precision</title>
+    <title>About - Reference Guides, Links, Primary Sources</title>
     <script src="translations.js"></script>
     <style>
         :root {
@@ -136,6 +136,9 @@
         .team-member {
             text-align: center;
             padding: 1.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
         }
         
         .team-member h4 {
@@ -172,6 +175,33 @@
             width: 100%;
             height: 100%;
         }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
         
         footer {
             background: var(--primary-blue);
@@ -190,13 +220,17 @@
             .team-grid {
                 grid-template-columns: 1fr;
             }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo" data-translate="siteTitle">Common Source of Precision</div>
+            <div class="logo" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
             <div class="tagline" data-translate="tagline">The Primary Reference</div>
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
@@ -218,34 +252,53 @@
 
     <main>
         <div class="about-content">
-            <h1 data-translate="about">About Common Source of Precision</h1>
+            <h1 data-translate="about">About Reference Guides, Links, Primary Sources</h1>
             
             <div class="mission-statement">
                 <h2 data-translate="missionTitle">Our Mission</h2>
-                <p data-translate="missionText">To be the definitive, curated repository for primary sources and reference data, providing uninterpreted and authoritative information to researchers, students, journalists, and the curious public.</p>
+                <p data-translate="missionText">To create a comprehensive collection of reference materials, verified links, and primary sources, providing direct access to original information without distortion.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label" data-translate="statSources">Primary Sources</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label" data-translate="statCategories">Categories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label" data-translate="statLanguages">Languages</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label" data-translate="statAccess">Access</div>
+                </div>
             </div>
             
             <div class="principles">
                 <h2 data-translate="principlesTitle">Our Principles</h2>
                 
                 <div class="principle-item">
-                    <h3 data-translate="principle1Title">Accuracy First</h3>
-                    <p data-translate="principle1Text">Every source is verified for authenticity and directly linked to its origin. We maintain the highest standards of data integrity.</p>
+                    <h3 data-translate="principle1Title">Source Verification</h3>
+                    <p data-translate="principle1Text">Every reference and link is thoroughly checked for authenticity and leads directly to the original source.</p>
                 </div>
                 
                 <div class="principle-item">
-                    <h3 data-translate="principle2Title">No Interpretation</h3>
-                    <p data-translate="principle2Text">We present sources in their original form, without editorial commentary, analysis, or political bias.</p>
+                    <h3 data-translate="principle2Title">No Distortion</h3>
+                    <p data-translate="principle2Text">We provide information in its original form, without editorial changes, interpretations, or abbreviations.</p>
                 </div>
                 
                 <div class="principle-item">
-                    <h3 data-translate="principle3Title">Universal Access</h3>
-                    <p data-translate="principle3Text">Knowledge should be accessible to everyone, regardless of background, affiliation, or geographical location.</p>
+                    <h3 data-translate="principle3Title">Comprehensive Coverage</h3>
+                    <p data-translate="principle3Text">A wide range of reference materials and links covering various fields of knowledge.</p>
                 </div>
                 
                 <div class="principle-item">
-                    <h3 data-translate="principle4Title">Source Transparency</h3>
-                    <p data-translate="principle4Text">Clear attribution, metadata, and provenance information for every document and dataset in our collection.</p>
+                    <h3 data-translate="principle4Title">Accessibility</h3>
+                    <p data-translate="principle4Text">Clear organization and convenient search through all reference materials and sources.</p>
                 </div>
             </div>
             
@@ -254,25 +307,25 @@
                 <div class="team-grid">
                     <div class="team-member">
                         <h4 data-translate="teamMember1">Dr. Elena Petrova</h4>
-                        <p class="team-role" data-translate="teamRole1">Lead Researcher & Archivist</p>
-                        <p data-translate="teamDesc1">Former university professor with 15 years in academic research</p>
+                        <p class="team-role" data-translate="teamRole1">Chief Reference Specialist</p>
+                        <p data-translate="teamDesc1">Expert in documentation and source verification with 15 years experience</p>
                     </div>
                     <div class="team-member">
                         <h4 data-translate="teamMember2">Marcus Johnson</h4>
-                        <p class="team-role" data-translate="teamRole2">Data Curator</p>
-                        <p data-translate="teamDesc2">Specialist in digital preservation and metadata standards</p>
+                        <p class="team-role" data-translate="teamRole2">Link Database Curator</p>
+                        <p data-translate="teamDesc2">Specialist in digital references and source links management</p>
                     </div>
                     <div class="team-member">
                         <h4 data-translate="teamMember3">Sarah Chen</h4>
                         <p class="team-role" data-translate="teamRole3">Technical Director</p>
-                        <p data-translate="teamDesc3">Expert in information systems and database architecture</p>
+                        <p data-translate="teamDesc3">Expert in reference systems and database architecture</p>
                     </div>
                 </div>
             </div>
 
             <div class="video-section">
                 <h2 data-translate="aboutVideo">About Our Project</h2>
-                <p data-translate="videoAboutDesc">Learn more about our mission and methodology</p>
+                <p data-translate="videoAboutDesc">Learn more about our mission and methodology in this introductory video</p>
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
                             frameborder="0" 
@@ -285,7 +338,7 @@
     </main>
 
     <footer>
-        <p data-translate="footerText">Common Source of Precision — Curating the foundation of knowledge.</p>
+        <p data-translate="footerText">Reference Guides, Links, Primary Sources — Direct access to verified information.</p>
     </footer>
 
     <script>
