@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Common Source of Precision - The Primary Reference</title>
+    <script src="translations.js"></script>
     <style>
         :root {
             --primary-blue: #1a365d;
@@ -82,7 +83,7 @@
             padding: 0.4rem 0.8rem;
             font-size: 0.9rem;
             cursor: pointer;
-            min-width: 120px;
+            min-width: 140px;
         }
         
         main {
@@ -175,6 +176,19 @@
         .category-card p {
             color: var(--dark-gray);
             font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .category-link {
+            display: inline-block;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .category-link:hover {
+            text-decoration: underline;
         }
         
         .featured-source {
@@ -251,12 +265,13 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Common Source of Precision</div>
-            <div class="tagline">The Primary Reference</div>
+            <div class="logo" data-translate="siteTitle">Common Source of Precision</div>
+            <div class="tagline" data-translate="tagline">The Primary Reference</div>
             <div class="nav-links">
-                <a href="#categories">Categories</a>
-                <a href="about.html">About</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="#categories" data-translate="categories">Categories</a>
+                <a href="about.html" data-translate="about">About</a>
+                <a href="#contact" data-translate="contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
                         <option value="en">English</option>
@@ -264,6 +279,7 @@
                         <option value="es">Español</option>
                         <option value="fr">Français</option>
                         <option value="de">Deutsch</option>
+                        <option value="hy">Հայերեն</option>
                     </select>
                 </div>
             </div>
@@ -272,67 +288,89 @@
 
     <main>
         <section class="hero">
-            <h1>Information at the Source</h1>
-            <p>Navigate the noise. Access the original data, documents, and primary references—curated, verified, and without interpretation.</p>
+            <h1 data-translate="heroTitle">Information at the Source</h1>
+            <p data-translate="heroText">Navigate the noise. Access the original data, documents, and primary references—curated, verified, and without interpretation.</p>
             
             <div class="search-bar">
-                <input type="text" placeholder="Search for a law, dataset, historical document, scientific paper...">
-                <button>Find Source</button>
+                <input type="text" data-translate="searchPlaceholder" placeholder="Search for a law, dataset, historical document, scientific paper...">
+                <button data-translate="searchButton">Find Source</button>
             </div>
         </section>
 
         <section class="categories" id="categories">
-            <h2>Browse by Category</h2>
+            <h2 data-translate="browseCategories">Browse by Category</h2>
             <div class="category-grid">
                 <div class="category-card">
-                    <h3>Law & Government</h3>
-                    <p>Statutes, regulations, official statistics</p>
+                    <h3 data-translate="lawGovernment">Law & Government</h3>
+                    <p data-translate="lawDesc">Statutes, regulations, official statistics</p>
+                    <a href="law-government.html" class="category-link" data-translate="viewDocument">Browse Sources →</a>
                 </div>
                 <div class="category-card">
-                    <h3>Science & Academia</h3>
-                    <p>Research papers, patents, datasets</p>
+                    <h3 data-translate="science">Science & Academia</h3>
+                    <p data-translate="scienceDesc">Research papers, patents, datasets</p>
+                    <a href="#" class="category-link" data-translate="viewDocument">Browse Sources →</a>
                 </div>
                 <div class="category-card">
-                    <h3>History & Archives</h3>
-                    <p>Primary documents, letters, historical records</p>
+                    <h3 data-translate="history">History & Archives</h3>
+                    <p data-translate="historyDesc">Primary documents, letters, historical records</p>
+                    <a href="#" class="category-link" data-translate="viewDocument">Browse Sources →</a>
                 </div>
                 <div class="category-card">
-                    <h3>Culture & Arts</h3>
-                    <p>Digital collections, public domain works</p>
+                    <h3 data-translate="culture">Culture & Arts</h3>
+                    <p data-translate="cultureDesc">Digital collections, public domain works</p>
+                    <a href="#" class="category-link" data-translate="viewDocument">Browse Sources →</a>
                 </div>
             </div>
         </section>
 
         <section class="featured-source">
-            <h2>Source of the Day</h2>
+            <h2 data-translate="sourceOfDay">Source of the Day</h2>
             <div class="source-card">
-                <h3>Universal Declaration of Human Rights</h3>
-                <p class="source-meta">Original Document, United Nations, 1948</p>
-                <p>The foundational text of international human rights law. This is the original, unedited version as proclaimed by the UN General Assembly.</p>
-                <a href="#" class="source-link">View Original Document →</a>
+                <h3 data-translate="declarationTitle">Universal Declaration of Human Rights</h3>
+                <p class="source-meta" data-translate="declarationMeta">Original Document, United Nations, 1948</p>
+                <p data-translate="declarationDesc">The foundational text of international human rights law. This is the original, unedited version as proclaimed by the UN General Assembly.</p>
+                <a href="#" class="source-link" data-translate="viewDocument">View Original Document →</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Common Source of Precision — Curating the foundation of knowledge.</p>
+        <p data-translate="footerText">Common Source of Precision — Curating the foundation of knowledge.</p>
     </footer>
 
     <script>
-        document.getElementById('languageSelect').addEventListener('change', function() {
-            const language = this.value;
-            console.log('Selected language:', language);
-            alert(`Language changed to ${this.options[this.selectedIndex].text}`);
-        });
-
-        const savedLanguage = localStorage.getItem('preferredLanguage');
-        if (savedLanguage) {
-            document.getElementById('languageSelect').value = savedLanguage;
+        function loadLanguage(language) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[language][key];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
+                }
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = language;
+            
+            // Update page title
+            if (translations[language] && translations[language]['siteTitle']) {
+                document.title = translations[language]['siteTitle'] + ' - ' + translations[language]['tagline'];
+            }
         }
 
         document.getElementById('languageSelect').addEventListener('change', function() {
-            localStorage.setItem('preferredLanguage', this.value);
+            const language = this.value;
+            loadLanguage(language);
+            localStorage.setItem('preferredLanguage', language);
         });
+
+        // Load saved language or default to English
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        document.getElementById('languageSelect').value = savedLanguage;
+        loadLanguage(savedLanguage);
     </script>
 </body>
 </html>
