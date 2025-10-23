@@ -5,28 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Common Source of Precision</title>
     <style>
-        .about-content {
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-        
-        .mission-statement {
-            background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            border-left: 4px solid var(--accent-blue);
-        }
-        
-        .principles {
-            margin: 3rem 0;
-        }
-        
-        .principle-item {
-            margin-bottom: 1.5rem;
-        }
-
-        /* Стили из главной страницы */
+        /* Все стили из index.html */
         :root {
             --primary-blue: #1a365d;
             --accent-blue: #2c5282;
@@ -110,7 +89,28 @@
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 2rem;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .mission-statement {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-blue);
+        }
+        
+        .principles {
+            margin: 3rem 0;
+        }
+        
+        .principle-item {
+            margin-bottom: 1.5rem;
         }
         
         footer {
@@ -136,7 +136,7 @@
             <div class="tagline">The Primary Reference</div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="law-government.html">Categories</a>
+                <a href="#categories">Categories</a>
                 <a href="#contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
@@ -183,16 +183,6 @@
                     <p>Clear attribution and metadata for every document and dataset.</p>
                 </div>
             </div>
-            
-            <h2>Why Primary Sources Matter</h2>
-            <p>In an age of information overload and misinformation, the ability to access and verify original sources is more critical than ever. Primary sources provide the foundation for:</p>
-            <ul>
-                <li>Academic research and citation</li>
-                <li>Evidence-based journalism</li>
-                <li>Legal and policy analysis</li>
-                <li>Historical understanding</li>
-                <li>Informed public discourse</li>
-            </ul>
         </div>
     </main>
 
@@ -204,7 +194,7 @@
         document.getElementById('languageSelect').addEventListener('change', function() {
             const language = this.value;
             console.log('Selected language:', language);
-            alert(`Language changed to ${this.options[this.selectedIndex].text}. Translation functionality would be implemented in a real application.`);
+            alert(`Language changed to ${this.options[this.selectedIndex].text}`);
         });
 
         const savedLanguage = localStorage.getItem('preferredLanguage');
