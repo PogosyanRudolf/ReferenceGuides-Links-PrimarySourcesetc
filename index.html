@@ -85,11 +85,6 @@
             min-width: 120px;
         }
         
-        .language-dropdown:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-        }
-        
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -326,16 +321,10 @@
     <script>
         document.getElementById('languageSelect').addEventListener('change', function() {
             const language = this.value;
-            // Здесь будет логика перевода контента
             console.log('Selected language:', language);
-            // В реальном приложении здесь будет:
-            // 1. Загрузка файла перевода
-            // 2. Обновление текста на странице
-            // 3. Обновление мета-тегов
-            alert(`Language changed to ${this.options[this.selectedIndex].text}. Translation functionality would be implemented in a real application.`);
+            alert(`Language changed to ${this.options[this.selectedIndex].text}`);
         });
 
-        // Сохранение выбора языка в localStorage
         const savedLanguage = localStorage.getItem('preferredLanguage');
         if (savedLanguage) {
             document.getElementById('languageSelect').value = savedLanguage;
