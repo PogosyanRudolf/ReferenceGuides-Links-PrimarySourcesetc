@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Common Source of Precision</title>
+    <script src="translations.js"></script>
     <style>
-        /* Все стили из index.html */
         :root {
             --primary-blue: #1a365d;
             --accent-blue: #2c5282;
@@ -83,7 +83,7 @@
             padding: 0.4rem 0.8rem;
             font-size: 0.9rem;
             cursor: pointer;
-            min-width: 120px;
+            min-width: 140px;
         }
         
         main {
@@ -110,7 +110,43 @@
         }
         
         .principle-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .principle-item h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-section {
+            margin: 4rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .team-member h4 {
+            color: var(--primary-blue);
+            margin: 1rem 0 0.5rem;
+        }
+        
+        .team-role {
+            color: var(--dark-gray);
+            font-style: italic;
+            margin-bottom: 0.5rem;
         }
         
         footer {
@@ -126,18 +162,22 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Common Source of Precision</div>
-            <div class="tagline">The Primary Reference</div>
+            <div class="logo" data-translate="siteTitle">Common Source of Precision</div>
+            <div class="tagline" data-translate="tagline">The Primary Reference</div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="#categories">Categories</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="law-government.html" data-translate="categories">Categories</a>
+                <a href="#contact" data-translate="contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
                         <option value="en">English</option>
@@ -145,6 +185,7 @@
                         <option value="es">Español</option>
                         <option value="fr">Français</option>
                         <option value="de">Deutsch</option>
+                        <option value="hy">Հայերեն</option>
                     </select>
                 </div>
             </div>
@@ -153,58 +194,94 @@
 
     <main>
         <div class="about-content">
-            <h1>About Common Source of Precision</h1>
+            <h1 data-translate="about">About Common Source of Precision</h1>
             
             <div class="mission-statement">
-                <h2>Our Mission</h2>
-                <p>To be the definitive, curated repository for primary sources and reference data, providing uninterpreted and authoritative information to researchers, students, journalists, and the curious public.</p>
+                <h2 data-translate="missionTitle">Our Mission</h2>
+                <p data-translate="missionText">To be the definitive, curated repository for primary sources and reference data, providing uninterpreted and authoritative information to researchers, students, journalists, and the curious public.</p>
             </div>
             
             <div class="principles">
-                <h2>Our Principles</h2>
+                <h2 data-translate="principlesTitle">Our Principles</h2>
                 
                 <div class="principle-item">
-                    <h3>Accuracy First</h3>
-                    <p>Every source is verified for authenticity and directly linked to its origin.</p>
+                    <h3 data-translate="principle1Title">Accuracy First</h3>
+                    <p data-translate="principle1Text">Every source is verified for authenticity and directly linked to its origin. We maintain the highest standards of data integrity.</p>
                 </div>
                 
                 <div class="principle-item">
-                    <h3>No Interpretation</h3>
-                    <p>We present sources in their original form, without editorial commentary or analysis.</p>
+                    <h3 data-translate="principle2Title">No Interpretation</h3>
+                    <p data-translate="principle2Text">We present sources in their original form, without editorial commentary, analysis, or political bias.</p>
                 </div>
                 
                 <div class="principle-item">
-                    <h3>Universal Access</h3>
-                    <p>Knowledge should be accessible to everyone, regardless of background or affiliation.</p>
+                    <h3 data-translate="principle3Title">Universal Access</h3>
+                    <p data-translate="principle3Text">Knowledge should be accessible to everyone, regardless of background, affiliation, or geographical location.</p>
                 </div>
                 
                 <div class="principle-item">
-                    <h3>Source Transparency</h3>
-                    <p>Clear attribution and metadata for every document and dataset.</p>
+                    <h3 data-translate="principle4Title">Source Transparency</h3>
+                    <p data-translate="principle4Text">Clear attribution, metadata, and provenance information for every document and dataset in our collection.</p>
+                </div>
+            </div>
+            
+            <div class="team-section">
+                <h2 data-translate="teamTitle">Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h4 data-translate="teamMember1">Dr. Elena Petrova</h4>
+                        <p class="team-role" data-translate="teamRole1">Lead Researcher & Archivist</p>
+                        <p data-translate="teamDesc1">Former university professor with 15 years in academic research</p>
+                    </div>
+                    <div class="team-member">
+                        <h4 data-translate="teamMember2">Marcus Johnson</h4>
+                        <p class="team-role" data-translate="teamRole2">Data Curator</p>
+                        <p data-translate="teamDesc2">Specialist in digital preservation and metadata standards</p>
+                    </div>
+                    <div class="team-member">
+                        <h4 data-translate="teamMember3">Sarah Chen</h4>
+                        <p class="team-role" data-translate="teamRole3">Technical Director</p>
+                        <p data-translate="teamDesc3">Expert in information systems and database architecture</p>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>Common Source of Precision — Curating the foundation of knowledge.</p>
+        <p data-translate="footerText">Common Source of Precision — Curating the foundation of knowledge.</p>
     </footer>
 
     <script>
-        document.getElementById('languageSelect').addEventListener('change', function() {
-            const language = this.value;
-            console.log('Selected language:', language);
-            alert(`Language changed to ${this.options[this.selectedIndex].text}`);
-        });
-
-        const savedLanguage = localStorage.getItem('preferredLanguage');
-        if (savedLanguage) {
-            document.getElementById('languageSelect').value = savedLanguage;
+        function loadLanguage(language) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[language][key];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
+                }
+            });
+            
+            document.documentElement.lang = language;
+            
+            if (translations[language] && translations[language]['siteTitle']) {
+                document.title = translations[language]['about'] + ' - ' + translations[language]['siteTitle'];
+            }
         }
 
         document.getElementById('languageSelect').addEventListener('change', function() {
-            localStorage.setItem('preferredLanguage', this.value);
+            const language = this.value;
+            loadLanguage(language);
+            localStorage.setItem('preferredLanguage', language);
         });
+
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        document.getElementById('languageSelect').value = savedLanguage;
+        loadLanguage(savedLanguage);
     </script>
 </body>
 </html>
