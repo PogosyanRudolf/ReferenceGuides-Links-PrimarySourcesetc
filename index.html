@@ -233,6 +233,30 @@
         .source-link:hover {
             text-decoration: underline;
         }
+
+        .video-section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
         
         footer {
             background: var(--primary-blue);
@@ -269,9 +293,9 @@
             <div class="tagline" data-translate="tagline">The Primary Reference</div>
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
-                <a href="#categories" data-translate="categories">Categories</a>
+                <a href="science-education.html" data-translate="categories">Categories</a>
                 <a href="about.html" data-translate="about">About</a>
-                <a href="#contact" data-translate="contact">Contact</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
                         <option value="en">English</option>
@@ -306,19 +330,19 @@
                     <a href="law-government.html" class="category-link" data-translate="viewDocument">Browse Sources →</a>
                 </div>
                 <div class="category-card">
-                    <h3 data-translate="science">Science & Academia</h3>
+                    <h3 data-translate="science">Science & Education</h3>
                     <p data-translate="scienceDesc">Research papers, patents, datasets</p>
-                    <a href="#" class="category-link" data-translate="viewDocument">Browse Sources →</a>
+                    <a href="science-education.html" class="category-link" data-translate="viewDocument">Browse Sources →</a>
                 </div>
                 <div class="category-card">
                     <h3 data-translate="history">History & Archives</h3>
                     <p data-translate="historyDesc">Primary documents, letters, historical records</p>
-                    <a href="#" class="category-link" data-translate="viewDocument">Browse Sources →</a>
+                    <a href="history-archives.html" class="category-link" data-translate="viewDocument">Browse Sources →</a>
                 </div>
                 <div class="category-card">
                     <h3 data-translate="culture">Culture & Arts</h3>
                     <p data-translate="cultureDesc">Digital collections, public domain works</p>
-                    <a href="#" class="category-link" data-translate="viewDocument">Browse Sources →</a>
+                    <a href="culture-arts.html" class="category-link" data-translate="viewDocument">Browse Sources →</a>
                 </div>
             </div>
         </section>
@@ -330,6 +354,18 @@
                 <p class="source-meta" data-translate="declarationMeta">Original Document, United Nations, 1948</p>
                 <p data-translate="declarationDesc">The foundational text of international human rights law. This is the original, unedited version as proclaimed by the UN General Assembly.</p>
                 <a href="#" class="source-link" data-translate="viewDocument">View Original Document →</a>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2 data-translate="tutorialVideo">Getting Started Tutorial</h2>
+            <p data-translate="videoDesc">Learn how to effectively use our platform to find primary sources</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
             </div>
         </section>
     </main>
@@ -352,10 +388,8 @@
                 }
             });
             
-            // Update HTML lang attribute
             document.documentElement.lang = language;
             
-            // Update page title
             if (translations[language] && translations[language]['siteTitle']) {
                 document.title = translations[language]['siteTitle'] + ' - ' + translations[language]['tagline'];
             }
@@ -367,7 +401,6 @@
             localStorage.setItem('preferredLanguage', language);
         });
 
-        // Load saved language or default to English
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         document.getElementById('languageSelect').value = savedLanguage;
         loadLanguage(savedLanguage);
