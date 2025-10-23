@@ -1,0 +1,7 @@
+title: "Common Source of Precision"
+description: "The Primary Reference"
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-sitemap
+include:
+  - .nojekyll
