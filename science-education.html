@@ -337,4 +337,79 @@
             <div class="video-grid">
                 <div class="video-card">
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/XNK6
+                        <iframe src="https://www.youtube.com/embed/XNK6IupA-44" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4 data-translate="video1Title">Introduction to Quantum Physics</h4>
+                        <p data-translate="video1Desc">Fundamental concepts of quantum mechanics explained</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/yAZgD3zqSCM" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4 data-translate="video2Title">Machine Learning Basics</h4>
+                        <p data-translate="video2Desc">Understanding AI and neural networks</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/f0tEcxK1qUo" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4 data-translate="video3Title">Language Learning Techniques</h4>
+                        <p data-translate="video3Desc">Effective methods for mastering new languages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p data-translate="footerText">Common Source of Precision — Curating the foundation of knowledge.</p>
+    </footer>
+
+    <script>
+        function loadLanguage(language) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+            
+            document.documentElement.lang = language;
+            
+            if (translations[language] && translations[language]['siteTitle']) {
+                document.title = translations[language]['science'] + ' - ' + translations[language]['siteTitle'];
+            }
+        }
+
+        document.getElementById('languageSelect').addEventListener('change', function() {
+            const language = this.value;
+            loadLanguage(language);
+            localStorage.setItem('preferredLanguage', language);
+        });
+
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        document.getElementById('languageSelect').value = savedLanguage;
+        loadLanguage(savedLanguage);
+    </script>
+</body>
+</html>
