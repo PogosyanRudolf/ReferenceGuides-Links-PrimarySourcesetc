@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science & Education - Common Source of Precision</title>
+    <title>Science & Education - Reference Guides, Links, Primary Sources</title>
     <script src="translations.js"></script>
     <style>
         :root {
-            --primary-blue: #1a365d;
-            --accent-blue: #2c5282;
+            --primary-green: #1a5d1a;
+            --accent-green: #2c822c;
             --light-gray: #f7fafc;
             --dark-gray: #4a5568;
             --text-color: #2d3748;
             --white: #ffffff;
+            --hover-green: #236823;
+            --light-green: #f0fff4;
         }
         
         * {
@@ -29,10 +31,13 @@
         }
         
         header {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             color: var(--white);
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         nav {
@@ -44,14 +49,22 @@
             padding: 0 2rem;
         }
         
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         
-        .tagline {
-            font-size: 0.9rem;
+        .main-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+        
+        .subtitle {
+            font-size: 0.8rem;
             opacity: 0.9;
+            color: #c6f6d5;
         }
         
         .nav-links {
@@ -64,10 +77,13 @@
             color: var(--white);
             text-decoration: none;
             font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
         
         .nav-links a:hover {
-            text-decoration: underline;
+            background-color: var(--hover-green);
         }
         
         .language-selector {
@@ -77,7 +93,7 @@
         
         .language-dropdown {
             background: var(--white);
-            color: var(--primary-blue);
+            color: var(--primary-green);
             border: 1px solid #e2e8f0;
             border-radius: 4px;
             padding: 0.4rem 0.8rem;
@@ -99,7 +115,7 @@
         }
         
         .breadcrumb a {
-            color: var(--accent-blue);
+            color: var(--accent-green);
             text-decoration: none;
         }
         
@@ -112,7 +128,7 @@
         
         .science-category {
             background: var(--white);
-            border: 1px solid #e2e8f0;
+            border: 2px solid #c6f6d5;
             border-radius: 10px;
             padding: 1.5rem;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -120,13 +136,14 @@
         
         .science-category:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(34, 104, 35, 0.1);
+            border-color: var(--accent-green);
         }
         
         .science-category h3 {
-            color: var(--primary-blue);
+            color: var(--primary-green);
             margin-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-blue);
+            border-bottom: 2px solid var(--accent-green);
             padding-bottom: 0.5rem;
         }
         
@@ -149,17 +166,19 @@
             display: flex;
             justify-content: between;
             align-items: center;
+            transition: color 0.3s;
         }
         
         .subjects-list a:hover {
-            color: var(--accent-blue);
+            color: var(--accent-green);
         }
         
         .video-section {
             margin: 4rem 0;
             padding: 2rem;
-            background: var(--light-gray);
+            background: var(--light-green);
             border-radius: 10px;
+            border: 2px solid #c6f6d5;
         }
         
         .video-grid {
@@ -174,6 +193,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #c6f6d5;
         }
         
         .video-container {
@@ -188,6 +208,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border: none;
         }
         
         .video-info {
@@ -196,11 +217,26 @@
         
         .video-info h4 {
             margin-bottom: 0.5rem;
-            color: var(--primary-blue);
+            color: var(--primary-green);
+        }
+
+        .classic-intro {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1a5d1a, #2c822c);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .classic-intro h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Georgia', serif;
         }
         
         footer {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             color: var(--white);
             text-align: center;
             padding: 2rem;
@@ -216,18 +252,24 @@
             .science-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo" data-translate="siteTitle">Common Source of Precision</div>
-            <div class="tagline" data-translate="tagline">The Primary Reference</div>
+            <div class="logo-container">
+                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
+                <div class="subtitle" data-translate="tagline">The Primary Reference</div>
+            </div>
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
-                <a href="contact.html" data-translate="contact">Contact</a>
                 <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
                         <option value="en">English</option>
@@ -277,6 +319,23 @@
                 </ul>
             </div>
             
+            <!-- Programming -->
+            <div class="science-category">
+                <h3>Programming & Development</h3>
+                <ul class="subjects-list">
+                    <li><a href="#">Web Development (HTML, CSS, JavaScript)</a></li>
+                    <li><a href="#">Python Programming</a></li>
+                    <li><a href="#">Java & JVM Languages</a></li>
+                    <li><a href="#">C++ & System Programming</a></li>
+                    <li><a href="#">Mobile Development (iOS/Android)</a></li>
+                    <li><a href="#">Database & SQL</a></li>
+                    <li><a href="#">DevOps & Cloud Computing</a></li>
+                    <li><a href="#">Game Development</a></li>
+                    <li><a href="#">Machine Learning Programming</a></li>
+                    <li><a href="#">Embedded Systems</a></li>
+                </ul>
+            </div>
+            
             <!-- Social Sciences -->
             <div class="science-category">
                 <h3 data-translate="socialSciences">Social Sciences</h3>
@@ -315,26 +374,33 @@
                     <li><a href="#" data-translate="nanotechnology">Nanotechnology</a></li>
                 </ul>
             </div>
-            
-            <!-- Humanities -->
-            <div class="science-category">
-                <h3 data-translate="humanities">Humanities</h3>
-                <ul class="subjects-list">
-                    <li><a href="#" data-translate="philosophy">Philosophy</a></li>
-                    <li><a href="#" data-translate="historyScience">History of Science</a></li>
-                    <li><a href="#" data-translate="literature">Literature Studies</a></li>
-                    <li><a href="#" data-translate="religiousStudies">Religious Studies</a></li>
-                    <li><a href="#" data-translate="artHistory">Art History</a></li>
-                    <li><a href="#" data-translate="culturalStudies">Cultural Studies</a></li>
-                </ul>
-            </div>
         </div>
         
         <div class="video-section">
-            <h2 data-translate="educationalVideos">Educational Videos</h2>
-            <p data-translate="videoScienceDesc">Learn through comprehensive video lectures and tutorials</p>
+            <div class="classic-intro">
+                <h3>🎬 Легендарная заставка "Хочу всё знать!"</h3>
+                <p>Знаменитый мультфильм с мальчиком, разбивающим молотком орех знаний</p>
+            </div>
+            
+            <h2>Обучающие материалы</h2>
+            <p>Классические образовательные фильмы и современные учебные ресурсы</p>
             
             <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/6OoNijn-D_0?start=5" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                title="Легендарная заставка Хочу все знать - мальчик с орехом">
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4>Легендарная заставка "Хочу всё знать!"</h4>
+                        <p>Мальчик разбивает молотком орех - символ познания мира</p>
+                    </div>
+                </div>
+                
                 <div class="video-card">
                     <div class="video-container">
                         <iframe src="https://www.youtube.com/embed/XNK6IupA-44" 
@@ -362,18 +428,18 @@
                         <p data-translate="video2Desc">Understanding AI and neural networks</p>
                     </div>
                 </div>
-                
+
                 <div class="video-card">
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/f0tEcxK1qUo" 
+                        <iframe src="https://www.youtube.com/embed/8mAITcNt710" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen>
                         </iframe>
                     </div>
                     <div class="video-info">
-                        <h4 data-translate="video3Title">Language Learning Techniques</h4>
-                        <p data-translate="video3Desc">Effective methods for mastering new languages</p>
+                        <h4>Python Programming for Beginners</h4>
+                        <p>Complete guide to start programming in Python</p>
                     </div>
                 </div>
             </div>
@@ -381,7 +447,7 @@
     </main>
 
     <footer>
-        <p data-translate="footerText">Common Source of Precision — Curating the foundation of knowledge.</p>
+        <p data-translate="footerText">Reference Guides, Links, Primary Sources — Curating the foundation of knowledge.</p>
     </footer>
 
     <script>
