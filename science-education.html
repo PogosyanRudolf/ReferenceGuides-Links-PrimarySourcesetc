@@ -91,75 +91,16 @@
             display: inline-block;
         }
         
-        .custom-select-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .custom-select-display {
-            padding: 0.5rem 2.5rem 0.5rem 0.8rem;
+        .language-dropdown {
+            background: var(--white);
+            color: var(--primary-green);
             border: 1px solid #e2e8f0;
             border-radius: 4px;
-            background: white;
-            cursor: pointer;
-            min-width: 180px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.7rem center;
-        }
-        
-        .custom-select-options {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            z-index: 1000;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .custom-option {
-            padding: 0.5rem 0.8rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .custom-option:hover {
-            background: var(--light-green);
-        }
-        
-        .country-name {
+            padding: 0.4rem 0.8rem;
             font-size: 0.9rem;
-            color: var(--text-color);
+            cursor: pointer;
+            min-width: 140px;
         }
-        
-        .flag-icon {
-            display: inline-block;
-            width: 20px;
-            height: 15px;
-            background-size: cover;
-            background-position: center;
-            border: 1px solid #ddd;
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
-        
-        .flag-en { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%2300247e" d="M0 0h60v30H0z"/><path stroke="%23fff" stroke-width="6" d="M0 0l60 30m0-30L0 30"/><path stroke="%23c8102e" stroke-width="4" d="M0 0l60 30m0-30L0 30"/><path stroke="%23fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="%23c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg>'); }
-        .flag-ru { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%23fff" d="M0 0h9v3H0z"/><path fill="%23d52b1e" d="M0 3h9v3H0z"/><path fill="%230039a6" d="M0 2h9v2H0z"/></svg>'); }
-        .flag-es { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%23aa151b" d="M0 0h9v6H0z"/><path fill="%23f1bf00" d="M0 1h9v4H0z"/><path fill="%23aa151b" d="M0 2h9v2H0z"/></svg>'); }
-        .flag-fr { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%2300287e" d="M0 0h3v6H0z"/><path fill="%23fff" d="M3 0h3v6H3z"/><path fill="%23ef4135" d="M6 0h3v6H6z"/></svg>'); }
-        .flag-de { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%23ff0000" d="M0 3h9v3H0z"/><path fill="%23ffcc00" d="M0 1h9v2H0z"/><path fill="%23000000" d="M0 0h9v1H0z"/></svg>'); }
-        .flag-hy { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%23f2a800" d="M0 0h9v2H0z"/><path fill="%23003366" d="M0 2h9v2H0z"/><path fill="%23d90012" d="M0 4h9v2H0z"/></svg>'); }
         
         main {
             max-width: 1200px;
@@ -294,10 +235,6 @@
             border: 2px solid #c6f6d5;
         }
         
-        .classic-intro-video {
-            margin-bottom: 2rem;
-        }
-        
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -387,15 +324,14 @@
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
-                    <select class="language-dropdown" id="languageSelect" style="display: none;">
-                        <option value="en">English (United Kingdom)</option>
-                        <option value="de">German (Germany)</option>
-                        <option value="es">Spanish (Spain)</option>
-                        <option value="fr">French (France)</option>
-                        <option value="hy">Armenian (Armenia)</option>
-                        <option value="ru">Russian (Russia)</option>
+                    <select class="language-dropdown" id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="ru">Русский</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="hy">Հայերեն</option>
                     </select>
-                    <div class="custom-select-wrapper" id="customSelectWrapper"></div>
                 </div>
             </div>
         </nav>
@@ -409,10 +345,52 @@
         <h1 data-translate="science">Science & Education</h1>
         <p data-translate="scienceDesc">Comprehensive collection of scientific references, educational resources, and research materials across all disciplines.</p>
         
+        <!-- Online Resources Section -->
+        <div class="online-resources-section">
+            <h2>Available Online Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-category">
+                    <h3>Top Universities</h3>
+                    <ul class="resources-list">
+                        <li><a href="https://ocw.mit.edu" target="_blank">MIT OpenCourseWare</a></li>
+                        <li><a href="https://online-learning.harvard.edu" target="_blank">Harvard Online Learning</a></li>
+                        <li><a href="https://www.coursera.org/stanford" target="_blank">Stanford Online</a></li>
+                        <li><a href="https://www.edx.org/schools-partners/uc-berkeley" target="_blank">UC Berkeley</a></li>
+                        <li><a href="https://www.cambridge.org" target="_blank">Cambridge University</a></li>
+                        <li><a href="https://www.ox.ac.uk" target="_blank">Oxford University</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-category">
+                    <h3>Learning Platforms</h3>
+                    <ul class="resources-list">
+                        <li><a href="https://www.coursera.org" target="_blank">Coursera</a></li>
+                        <li><a href="https://www.edx.org" target="_blank">edX</a></li>
+                        <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy</a></li>
+                        <li><a href="https://www.udemy.com" target="_blank">Udemy</a></li>
+                        <li><a href="https://www.udacity.com" target="_blank">Udacity</a></li>
+                        <li><a href="https://www.futurelearn.com" target="_blank">FutureLearn</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-category">
+                    <h3>Research & Academic</h3>
+                    <ul class="resources-list">
+                        <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
+                        <li><a href="https://www.researchgate.net" target="_blank">ResearchGate</a></li>
+                        <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
+                        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">PubMed Central</a></li>
+                        <li><a href="https://www.jstor.org" target="_blank">JSTOR</a></li>
+                        <li><a href="https://www.sciencedirect.com" target="_blank">ScienceDirect</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
         <div class="science-grid">
             <!-- Natural Sciences -->
             <div class="science-category">
-                <h3 data-translate="naturalSciences">Natural Sciences</h3>
+                <h3>Natural Sciences</h3>
                 <ul class="subjects-list">
                     <li><a href="https://ocw.mit.edu/courses/physics/" target="_blank">Physics & Astrophysics</a></li>
                     <li><a href="https://ocw.mit.edu/courses/chemistry/" target="_blank">Chemistry & Biochemistry</a></li>
@@ -420,17 +398,12 @@
                     <li><a href="https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/" target="_blank">Geology & Earth Sciences</a></li>
                     <li><a href="https://www.edx.org/course/introduction-to-astronomy" target="_blank">Astronomy & Space Science</a></li>
                     <li><a href="https://www.coursera.org/learn/global-environmental-management" target="_blank">Environmental Science</a></li>
-                    <li><a href="https://ocw.mit.edu/courses/12-001-introduction-to-geology-fall-2013/" target="_blank">Oceanography & Marine Science</a></li>
-                    <li><a href="https://www.edx.org/course/weather-climate" target="_blank">Meteorology & Climate Science</a></li>
-                    <li><a href="https://www.coursera.org/learn/dinosaurs" target="_blank">Paleontology & Evolutionary Biology</a></li>
-                    <li><a href="https://ocw.mit.edu/courses/7-03-genetics-fall-2004/" target="_blank">Botany & Plant Sciences</a></li>
-                    <li><a href="https://www.edx.org/course/introduction-to-biology" target="_blank">Zoology & Animal Sciences</a></li>
                 </ul>
             </div>
             
             <!-- Formal Sciences -->
             <div class="science-category">
-                <h3 data-translate="formalSciences">Formal Sciences</h3>
+                <h3>Formal Sciences</h3>
                 <ul class="subjects-list">
                     <li><a href="https://ocw.mit.edu/courses/mathematics/" target="_blank">Mathematics</a></li>
                     <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/" target="_blank">Computer Science</a></li>
@@ -438,28 +411,120 @@
                     <li><a href="https://plato.stanford.edu/entries/logic-philosophy/" target="_blank">Logic & Philosophy of Science</a></li>
                     <li><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">Artificial Intelligence</a></li>
                     <li><a href="https://www.edx.org/course/cybersecurity-fundamentals" target="_blank">Cybersecurity</a></li>
-                    <li><a href="https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/" target="_blank">Theoretical Computer Science</a></li>
-                    <li><a href="https://ocw.mit.edu/courses/18-330-introduction-to-numerical-analysis-spring-2012/" target="_blank">Computational Mathematics</a></li>
-                    <li><a href="https://ocw.mit.edu/courses/6-441-information-theory-spring-2016/" target="_blank">Information Theory</a></li>
-                    <li><a href="https://www.coursera.org/learn/game-theory-1" target="_blank">Game Theory</a></li>
-                    <li><a href="https://www.edx.org/course/cryptography" target="_blank">Cryptography</a></li>
                 </ul>
             </div>
             
             <!-- Programming -->
             <div class="science-category">
-                <h3 data-translate="programming">Programming & Development</h3>
+                <h3>Programming & Development</h3>
                 <ul class="subjects-list">
-                    <li><a href="https://www.coursera.org/specializations/web-design" target="_blank">Web Development (HTML, CSS, JavaScript)</a></li>
+                    <li><a href="https://www.coursera.org/specializations/web-design" target="_blank">Web Development</a></li>
                     <li><a href="https://www.edx.org/course/introduction-to-computer-science-and-programming-7" target="_blank">Python Programming</a></li>
                     <li><a href="https://ocw.mit.edu/courses/6-005-software-construction-spring-2016/" target="_blank">Java & JVM Languages</a></li>
                     <li><a href="https://www.coursera.org/specializations/coding-cpp" target="_blank">C++ & System Programming</a></li>
-                    <li><a href="https://www.edx.org/course/android-developer" target="_blank">Mobile Development (iOS/Android)</a></li>
+                    <li><a href="https://www.edx.org/course/android-developer" target="_blank">Mobile Development</a></li>
                     <li><a href="https://www.coursera.org/specializations/database-systems" target="_blank">Database & SQL</a></li>
-                    <li><a href="https://www.edx.org/course/introduction-to-devops" target="_blank">DevOps & Cloud Computing</a></li>
-                    <li><a href="https://www.coursera.org/specializations/game-design-and-development" target="_blank">Game Development</a></li>
-                    <li><a href="https://www.coursera.org/specializations/machine-learning" target="_blank">Machine Learning Programming</a></li>
-                    <li><a href="https://ocw.mit.edu/courses/6-004-computation-structures-spring-2009/" target="_blank">Embedded Systems</a></li>
-                    <li><a href="https://www.coursera.org/learn/programming-languages" target="_blank">Functional Programming</a></li>
-                    <li><a href="https://www.edx.org/course/software-architecture-design" target="_blank">Software Architecture</a></li>
-                    <li><a href="https://www.coursera.org/learn
+                </ul>
+            </div>
+            
+            <!-- Social Sciences -->
+            <div class="science-category">
+                <h3>Social Sciences</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.coursera.org/learn/introduction-psychology" target="_blank">Psychology</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/anthropology/" target="_blank">Sociology & Anthropology</a></li>
+                    <li><a href="https://www.edx.org/course/principles-of-economics" target="_blank">Economics</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/political-science/" target="_blank">Political Science</a></li>
+                    <li><a href="https://www.coursera.org/learn/linguistics" target="_blank">Linguistics</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/history/" target="_blank">History & Archaeology</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="video-section">
+            <h2>Educational Materials</h2>
+            <p>Classic educational films and modern learning resources</p>
+            
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/XNK6IupA-44" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4>Introduction to Quantum Physics</h4>
+                        <p>Fundamental concepts of quantum mechanics explained</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/yAZgD3zqSCM" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4>Machine Learning Basics</h4>
+                        <p>Understanding AI and neural networks</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/8mAITcNt710" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4>Python Programming for Beginners</h4>
+                        <p>Complete guide to start programming in Python</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p data-translate="footerText">Reference Guides, Links, Primary Sources — Curating the foundation of knowledge.</p>
+    </footer>
+
+    <script>
+        function loadLanguage(language) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[language][key];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
+                }
+            });
+            
+            document.documentElement.lang = language;
+            
+            if (translations[language] && translations[language]['siteTitle']) {
+                document.title = translations[language]['science'] + ' - ' + translations[language]['siteTitle'];
+            }
+        }
+
+        document.getElementById('languageSelect').addEventListener('change', function() {
+            const language = this.value;
+            loadLanguage(language);
+            localStorage.setItem('preferredLanguage', language);
+        });
+
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        document.getElementById('languageSelect').value = savedLanguage;
+        loadLanguage(savedLanguage);
+    </script>
+</body>
+</html>
