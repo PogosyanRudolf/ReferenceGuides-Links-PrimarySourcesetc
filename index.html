@@ -15,6 +15,8 @@
             --white: #ffffff;
             --hover-green: #236823;
             --light-green: #f0fff4;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 25px rgba(34, 104, 35, 0.15);
         }
         
         * {
@@ -28,13 +30,15 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--white);
+            font-size: 16px;
         }
         
+        /* Header & Navigation */
         header {
             background: var(--primary-green);
             color: var(--white);
             padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -46,7 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
         
         .logo-container {
@@ -56,28 +60,29 @@
         }
         
         .main-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.2rem;
+            line-height: 1.2;
         }
         
         .subtitle {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.9;
             color: #c6f6d5;
         }
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             align-items: center;
         }
         
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            font-size: 0.95rem;
-            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 4px;
             transition: background-color 0.3s;
         }
@@ -95,41 +100,106 @@
             color: var(--primary-green);
             border: 1px solid #e2e8f0;
             border-radius: 4px;
-            padding: 0.5rem 2.5rem 0.5rem 0.8rem;
-            font-size: 0.9rem;
+            padding: 0.4rem 2rem 0.4rem 0.8rem;
+            font-size: 0.85rem;
             cursor: pointer;
-            min-width: 160px;
+            min-width: 140px;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 0.7rem center;
         }
         
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: var(--primary-green);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .mobile-nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        
+        .mobile-nav-links a:hover {
+            background-color: var(--hover-green);
+        }
+        
+        .mobile-language-selector {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .mobile-language-selector select {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        /* Main Content */
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
         
         .hero {
             text-align: center;
-            padding: 4rem 0;
+            padding: 3rem 1rem;
             background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
-            border-radius: 15px;
-            margin: 2rem 0;
+            border-radius: 12px;
+            margin: 1rem 0 2rem;
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2rem;
             color: var(--primary-green);
             margin-bottom: 1rem;
+            line-height: 1.2;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--dark-gray);
             max-width: 600px;
             margin: 0 auto 2rem;
+            line-height: 1.5;
         }
         
         .cta-button {
@@ -141,6 +211,7 @@
             border-radius: 8px;
             font-weight: 600;
             transition: background-color 0.3s;
+            font-size: 1.1rem;
         }
         
         .cta-button:hover {
@@ -149,75 +220,206 @@
         
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
         }
         
         .category-card {
             background: var(--white);
             border: 2px solid #c6f6d5;
             border-radius: 10px;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             color: var(--text-color);
+            display: block;
         }
         
         .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(34, 104, 35, 0.1);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
             border-color: var(--accent-green);
         }
         
         .category-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
         
         .category-card h3 {
             color: var(--primary-green);
             margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .category-card p {
+            color: var(--dark-gray);
+            line-height: 1.5;
         }
         
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
+            gap: 1.5rem;
+            margin: 3rem 0;
         }
         
         .feature {
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
+            background: var(--light-green);
+            border-radius: 10px;
+            border: 1px solid #c6f6d5;
         }
         
         .feature h3 {
             color: var(--primary-green);
             margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .feature p {
+            color: var(--dark-gray);
+            line-height: 1.5;
         }
         
         footer {
             background: var(--primary-green);
             color: var(--white);
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
         
+        /* Mobile Styles */
         @media (max-width: 768px) {
             .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-title {
+                font-size: 1.1rem;
+            }
+            
+            .subtitle {
+                font-size: 0.7rem;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+                margin: 0.5rem 0 1.5rem;
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .cta-button {
+                padding: 0.9rem 1.8rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
             }
             
             .categories-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+                margin: 2rem 0;
+            }
+            
+            .category-card {
+                padding: 1.2rem;
+            }
+            
+            .category-icon {
+                font-size: 2rem;
+            }
+            
+            .category-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin: 2rem 0;
+            }
+            
+            .feature {
+                padding: 1.2rem;
+            }
+            
+            main {
+                padding: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 0.95rem;
+            }
+            
+            .category-card {
+                padding: 1rem;
+            }
+            
+            .feature {
+                padding: 1rem;
+            }
+            
+            nav {
+                padding: 0 0.5rem;
+            }
+        }
+        
+        /* Touch improvements */
+        @media (hover: none) {
+            .category-card:hover {
+                transform: none;
+            }
+            
+            .nav-links a:hover {
+                background-color: transparent;
+            }
+            
+            .cta-button:hover {
+                background: var(--accent-green);
+            }
+        }
+        
+        /* High contrast support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-green: #004400;
+                --accent-green: #006600;
+                --text-color: #000000;
+            }
+        }
+        
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+            
+            .category-card:hover {
+                transform: none;
             }
         }
     </style>
@@ -229,8 +431,11 @@
                 <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
                 <div class="subtitle" data-translate="tagline">The Primary Reference</div>
             </div>
+            
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html">Global Resources</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
@@ -244,13 +449,35 @@
                     </select>
                 </div>
             </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </nav>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-links">
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html">Global Resources</a>
+                <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
+            </div>
+            <div class="mobile-language-selector">
+                <select id="mobileLanguageSelect">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="hy">🇦🇲 Հայերեն</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                </select>
+            </div>
+        </div>
     </header>
 
     <main>
         <section class="hero">
             <h1 data-translate="siteTitle">Reference Guides, Links, Primary Sources</h1>
-            <p data-translate="tagline">Your comprehensive gateway to global educational resources and research materials</p>
+            <p>Your comprehensive gateway to global educational resources and research materials</p>
             <a href="educationandsciences.html" class="cta-button" data-translate="science">Explore Science & Education</a>
         </section>
 
@@ -299,6 +526,40 @@
     </footer>
 
     <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileLanguageSelect = document.getElementById('mobileLanguageSelect');
+        const desktopLanguageSelect = document.getElementById('languageSelect');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Sync language selects
+        function syncLanguageSelects(value) {
+            desktopLanguageSelect.value = value;
+            mobileLanguageSelect.value = value;
+        }
+
+        desktopLanguageSelect.addEventListener('change', function() {
+            syncLanguageSelects(this.value);
+            loadLanguage(this.value);
+        });
+
+        mobileLanguageSelect.addEventListener('change', function() {
+            syncLanguageSelects(this.value);
+            loadLanguage(this.value);
+        });
+
+        // Language loading function
         function loadLanguage(language) {
             const elements = document.querySelectorAll('[data-translate]');
             elements.forEach(element => {
@@ -313,17 +574,21 @@
             if (translations[language] && translations[language]['siteTitle']) {
                 document.title = translations[language]['siteTitle'] + ' - ' + translations[language]['tagline'];
             }
+            
+            localStorage.setItem('preferredLanguage', language);
         }
 
-        document.getElementById('languageSelect').addEventListener('change', function() {
-            const language = this.value;
-            loadLanguage(language);
-            localStorage.setItem('preferredLanguage', language);
-        });
-
+        // Initialize
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-        document.getElementById('languageSelect').value = savedLanguage;
+        syncLanguageSelects(savedLanguage);
         loadLanguage(savedLanguage);
+
+        // Handle resize - close mobile menu on larger screens
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileNav.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
