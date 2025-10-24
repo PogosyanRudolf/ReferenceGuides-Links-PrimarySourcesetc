@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources - Reference Guides, Links, Primary Sources</title>
+    <script src="translations.js"></script>
+    <style>
+        :root {
+            --primary-green: #1a5d1a;
+            --accent-green: #2c822c;
+            --light-gray: #f7fafc;
+            --dark-gray: #4a5568;
+            --text-color: #2d3748;
+            --white: #ffffff;
+            --hover-green: #236823;
+            --light-green: #f0fff4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+        
+        header {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .main-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+        
+        .subtitle {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            color: #c6f6d5;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--hover-green);
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            background: var(--white);
+            color: var(--primary-green);
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 0.5rem 2.5rem 0.5rem 0.8rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            min-width: 160px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .breadcrumb {
+            margin: 1rem 0;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .resource-category {
+            background: var(--white);
+            border: 2px solid #c6f6d5;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .resource-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(34, 104, 35, 0.1);
+            border-color: var(--accent-green);
+        }
+        
+        .resource-category h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 0.5rem;
+        }
+        
+        .resources-list {
+            list-style: none;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .resources-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .resources-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .resources-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 0.3rem 0;
+        }
+        
+        .resources-list a:hover {
+            color: var(--accent-green);
+        }
+        
+        .country-badge {
+            display: inline-block;
+            background: var(--light-green);
+            color: var(--primary-green);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            margin-left: 0.5rem;
+            border: 1px solid #c6f6d5;
+        }
+        
+        footer {
+            background: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .search-box {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: var(--light-green);
+            border-radius: 8px;
+            border: 2px solid #c6f6d5;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #c6f6d5;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
+                <div class="subtitle" data-translate="tagline">The Primary Reference</div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
+                <div class="language-selector">
+                    <select class="language-dropdown" id="languageSelect">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="hy">🇦🇲 Հայերեն</option>
+                        <option value="ru">🇷🇺 Русский</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html" data-translate="home">Home</a> > <a href="educationandsciences.html">Science & Education</a> > <span>Educational Resources</span>
+        </div>
+        
+        <h1>Global Educational Resources</h1>
+        <p>Comprehensive collection of universities, learning platforms, and academic resources from around the world</p>
+        
+        <div class="search-box">
+            <input type="text" id="resourceSearch" placeholder="Search universities, platforms, or resources..." onkeyup="searchResources()">
+        </div>
+        
+        <div class="resources-grid">
+            <!-- World Universities -->
+            <div class="resource-category">
+                <h3>🌍 World Universities</h3>
+                <ul class="resources-list" id="universities-list">
+                    <li><a href="https://ocw.mit.edu" target="_blank">MIT OpenCourseWare <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://online-learning.harvard.edu" target="_blank">Harvard Online Learning <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://online.stanford.edu" target="_blank">Stanford Online <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://www.coursera.org/princeton" target="_blank">Princeton University <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://www.cambridge.org" target="_blank">Cambridge University <span class="country-badge">UK</span></a></li>
+                    <li><a href="https://www.ox.ac.uk" target="_blank">Oxford University <span class="country-badge">UK</span></a></li>
+                    <li><a href="https://www.imperial.ac.uk" target="_blank">Imperial College London <span class="country-badge">UK</span></a></li>
+                    <li><a href="https://www.ucl.ac.uk" target="_blank">University College London <span class="country-badge">UK</span></a></li>
+                    <li><a href="https://www.ethz.ch" target="_blank">ETH Zurich <span class="country-badge">Switzerland</span></a></li>
+                    <li><a href="https://www.mcgill.ca" target="_blank">McGill University <span class="country-badge">Canada</span></a></li>
+                    <li><a href="https://www.utoronto.ca" target="_blank">University of Toronto <span class="country-badge">Canada</span></a></li>
+                    <li><a href="https://www.monash.edu" target="_blank">Monash University <span class="country-badge">Australia</span></a></li>
+                    <li><a href="https://www.sydney.edu.au" target="_blank">University of Sydney <span class="country-badge">Australia</span></a></li>
+                    <li><a href="https://www.ntu.edu.sg" target="_blank">Nanyang Technological University <span class="country-badge">Singapore</span></a></li>
+                    <li><a href="https://www.nus.edu.sg" target="_blank">National University of Singapore <span class="country-badge">Singapore</span></a></li>
+                    <li><a href="https://www.tokyo.ac.jp" target="_blank">University of Tokyo <span class="country-badge">Japan</span></a></li>
+                    <li><a href="https://www.kyoto-u.ac.jp" target="_blank">Kyoto University <span class="country-badge">Japan</span></a></li>
+                    <li><a href="https://www.tsinghua.edu.cn" target="_blank">Tsinghua University <span class="country-badge">China</span></a></li>
+                    <li><a href="https://www.pku.edu.cn" target="_blank">Peking University <span class="country-badge">China</span></a></li>
+                    <li><a href="https://www.iitb.ac.in" target="_blank">IIT Bombay <span class="country-badge">India</span></a></li>
+                    <li><a href="https://www.iitk.ac.in" target="_blank">IIT Kanpur <span class="country-badge">India</span></a></li>
+                    <li><a href="https://www.helsinki.fi" target="_blank">University of Helsinki <span class="country-badge">Finland</span></a></li>
+                    <li><a href="https://www.su.se" target="_blank">Stockholm University <span class="country-badge">Sweden</span></a></li>
+                    <li><a href="https://www.uio.no" target="_blank">University of Oslo <span class="country-badge">Norway</span></a></li>
+                    <li><a href="https://www.uni-bonn.de" target="_blank">University of Bonn <span class="country-badge">Germany</span></a></li>
+                    <li><a href="https://www.lmu.de" target="_blank">LMU Munich <span class="country-badge">Germany</span></a></li>
+                    <li><a href="https://www.sorbonne-universite.fr" target="_blank">Sorbonne University <span class="country-badge">France</span></a></li>
+                    <li><a href="https://www.ens.psl.eu" target="_blank">École Normale Supérieure <span class="country-badge">France</span></a></li>
+                    <li><a href="https://www.unimi.it" target="_blank">University of Milan <span class="country-badge">Italy</span></a></li>
+                    <li><a href="https://www.sapienza.it" target="_blank">Sapienza University of Rome <span class="country-badge">Italy</span></a></li>
+                    <li><a href="https://www.ceu.edu" target="_blank">Central European University <span class="country-badge">Hungary</span></a></li>
+                    <li><a href="https://www.msu.ru" target="_blank">Moscow State University <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://spbu.ru" target="_blank">St. Petersburg University <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://www.ysu.am" target="_blank">Yerevan State University <span class="country-badge">Armenia</span></a></li>
+                    <li><a href="https://www.rau.am" target="_blank">Russian-Armenian University <span class="country-badge">Armenia</span></a></li>
+                </ul>
+            </div>
+            
+            <!-- Learning Platforms -->
+            <div class="resource-category">
+                <h3>🎓 Learning Platforms</h3>
+                <ul class="resources-list" id="platforms-list">
+                    <li><a href="https://www.coursera.org" target="_blank">Coursera <span class="country-badge">International</span></a></li>
+                    <li><a href="https://www.edx.org" target="_blank">edX <span class="country-badge">International</span></a></li>
+                    <li><a href="https://www.udemy.com" target="_blank">Udemy <span class="country-badge">International</span></a></li>
+                    <li><a href="https://www.udacity.com" target="_blank">Udacity <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://www.futurelearn.com" target="_blank">FutureLearn <span class="country-badge">UK</span></a></li>
+                    <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy <span class="country-badge">International</span></a></li>
+                    <li><a href="https://www.alison.com" target="_blank">Alison <span class="country-badge">Ireland</span></a></li>
+                    <li><a href="https://www.classcentral.com" target="_blank">Class Central <span class="country-badge">Aggregator</span></a></li>
+                    <li><a href="https://www.academicearth.org" target="_blank">Academic Earth <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://www.open.edu" target="_blank">Open University <span class="country-badge">UK</span></a></li>
+                    <li><a href="https://oli.cmu.edu" target="_blank">CMU Open Learning <span class="country-badge">USA</span></a></li>
+                    
+                    <!-- Российские платформы -->
+                    <li><a href="https://foxford.ru" target="_blank">Foxford <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://uchi.ru" target="_blank">Uchi.ru <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://yaklass.ru" target="_blank">YaKlass <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://interneturok.ru" target="_blank">InternetUrok <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://openedu.ru" target="_blank">OpenEdu <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://universarium.org" target="_blank">Universarium <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://lectoriy.mipt.ru" target="_blank">MIPT Lectorium <span class="country-badge">Russia</span></a></li>
+                    
+                    <!-- Европейские платформы -->
+                    <li><a href="https://www.fun-mooc.fr" target="_blank">FUN MOOC <span class="country-badge">France</span></a></li>
+                    <li><a href="https://open.hpi.de" target="_blank">openHPI <span class="country-badge">Germany</span></a></li>
+                    <li><a href="https://online.tugraz.at" target="_blank">TU Graz Online <span class="country-badge">Austria</span></a></li>
+                    
+                    <!-- Азиатские платформы -->
+                    <li><a href="https://www.xuetangx.com" target="_blank">XuetangX <span class="country-badge">China</span></a></li>
+                    <li><a href="https://www.kmooc.kr" target="_blank">K-MOOC <span class="country-badge">South Korea</span></a></li>
+                    <li><a href="https://jmooc.jp" target="_blank">JMOOC <span class="country-badge">Japan</span></a></li>
+                    
+                    <!-- Специализированные -->
+                    <li><a href="https://www.datacamp.com" target="_blank">DataCamp <span class="country-badge">Data Science</span></a></li>
+                    <li><a href="https://www.codecademy.com" target="_blank">Codecademy <span class="country-badge">Programming</span></a></li>
+                    <li><a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp <span class="country-badge">Programming</span></a></li>
+                    <li><a href="https://www.pluralsight.com" target="_blank">Pluralsight <span class="country-badge">IT</span></a></li>
+                    <li><a href="https://www.skillshare.com" target="_blank">Skillshare <span class="country-badge">Creative</span></a></li>
+                    <li><a href="https://www.memrise.com" target="_blank">Memrise <span class="country-badge">Languages</span></a></li>
+                    <li><a href="https://www.duolingo.com" target="_blank">Duolingo <span class="country-badge">Languages</span></a></li>
+                </ul>
+            </div>
+            
+            <!-- Research Resources -->
+            <div class="resource-category">
+                <h3>🔬 Research & Academic</h3>
+                <ul class="resources-list" id="research-list">
+                    <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
+                    <li><a href="https://www.researchgate.net" target="_blank">ResearchGate</a></li>
+                    <li><a href="https://www.academia.edu" target="_blank">Academia.edu</a></li>
+                    <li><a href="https://arxiv.org" target="_blank">arXiv <span class="country-badge">Preprints</span></a></li>
+                    <li><a href="https://www.ssrn.com" target="_blank">SSRN <span class="country-badge">Social Sciences</span></a></li>
+                    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">PubMed Central <span class="country-badge">Medicine</span></a></li>
+                    <li><a href="https://www.jstor.org" target="_blank">JSTOR <span class="country-badge">Journals</span></a></li>
+                    <li><a href="https://www.sciencedirect.com" target="_blank">ScienceDirect</a></li>
+                    <li><a href="https://link.springer.com" target="_blank">SpringerLink</a></li>
+                    <li><a href="https://www.tandfonline.com" target="_blank">Taylor & Francis Online</a></li>
+                    <li><a href="https://www.wiley.com" target="_blank">Wiley Online Library</a></li>
+                    <li><a href="https://www.sagepub.com" target="_blank">SAGE Journals</a></li>
+                    <li><a href="https://www.nature.com" target="_blank">Nature</a></li>
+                    <li><a href="https://www.science.org" target="_blank">Science Magazine</a></li>
+                    <li><a href="https://www.cell.com" target="_blank">Cell Press</a></li>
+                    <li><a href="https://www.thelancet.com" target="_blank">The Lancet</a></li>
+                    <li><a href="https://www.elsevier.com" target="_blank">Elsevier</a></li>
+                    <li><a href="https://www.emerald.com" target="_blank">Emerald Insight</a></li>
+                    <li><a href="https://www.cambridge.org/core" target="_blank">Cambridge Core</a></li>
+                    <li><a href="https://www.oxfordjournals.org" target="_blank">Oxford Academic</a></li>
+                    <li><a href="https://www.pnas.org" target="_blank">PNAS</a></li>
+                    <li><a href="https://www.plos.org" target="_blank">PLOS</a></li>
+                    <li><a href="https://www.biorxiv.org" target="_blank">bioRxiv <span class="country-badge">Biology</span></a></li>
+                    <li><a href="https://www.medrxiv.org" target="_blank">medRxiv <span class="country-badge">Medicine</span></a></li>
+                    <li><a href="https://www.chemrxiv.org" target="_blank">chemRxiv <span class="country-badge">Chemistry</span></a></li>
+                    <li><a href="https://osf.io" target="_blank">Open Science Framework</a></li>
+                    <li><a href="https://www.zenodo.org" target="_blank">Zenodo <span class="country-badge">Research Data</span></a></li>
+                    <li><a href="https://figshare.com" target="_blank">Figshare</a></li>
+                    <li><a href="https://www.mendeley.com" target="_blank">Mendeley</a></li>
+                    <li><a href="https://www.zotero.org" target="_blank">Zotero</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Reference Guides, Links, Primary Sources — The Primary Reference</p>
+    </footer>
+
+    <script>
+        function searchResources() {
+            const searchTerm = document.getElementById('resourceSearch').value.toLowerCase();
+            const categories = ['universities-list', 'platforms-list', 'research-list'];
+            
+            categories.forEach(categoryId => {
+                const list = document.getElementById(categoryId);
+                const items = list.getElementsByTagName('li');
+                
+                for (let i = 0; i < items.length; i++) {
+                    const text = items[i].textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        items[i].style.display = '';
+                    } else {
+                        items[i].style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        function loadLanguage(language) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+            
+            document.documentElement.lang = language;
+        }
+
+        document.getElementById('languageSelect').addEventListener('change', function() {
+            const language = this.value;
+            loadLanguage(language);
+            localStorage.setItem('preferredLanguage', language);
+        });
+
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        document.getElementById('languageSelect').value = savedLanguage;
+        loadLanguage(savedLanguage);
+    </script>
+</body>
+</html>
