@@ -96,11 +96,38 @@
             color: var(--primary-green);
             border: 1px solid #e2e8f0;
             border-radius: 4px;
-            padding: 0.4rem 0.8rem;
+            padding: 0.4rem 2rem 0.4rem 0.8rem;
             font-size: 0.9rem;
             cursor: pointer;
-            min-width: 140px;
+            min-width: 160px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            background-size: 12px;
         }
+        
+        .language-dropdown option {
+            background: white;
+            color: var(--primary-green);
+            padding: 0.5rem;
+        }
+        
+        .flag-icon {
+            display: inline-block;
+            width: 16px;
+            height: 12px;
+            margin-right: 8px;
+            background-size: cover;
+            border: 1px solid #ddd;
+        }
+        
+        .flag-en { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%2300247e" d="M0 0h60v30H0z"/><path stroke="%23fff" stroke-width="6" d="M0 0l60 30m0-30L0 30"/><path stroke="%23c8102e" stroke-width="4" d="M0 0l60 30m0-30L0 30"/><path stroke="%23fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="%23c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg>'); }
+        .flag-ru { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%23fff" d="M0 0h9v3H0z"/><path fill="%23d52b1e" d="M0 3h9v3H0z"/><path fill="%230039a6" d="M0 2h9v2H0z"/></svg>'); }
+        .flag-es { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%23aa151b" d="M0 0h9v6H0z"/><path fill="%23f1bf00" d="M0 1h9v4H0z"/><path fill="%23aa151b" d="M0 2h9v2H0z"/></svg>'); }
+        .flag-fr { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%2300287e" d="M0 0h3v6H0z"/><path fill="%23fff" d="M3 0h3v6H3z"/><path fill="%23ef4135" d="M6 0h3v6H6z"/></svg>'); }
+        .flag-de { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%23ff0000" d="M0 3h9v3H0z"/><path fill="%23ffcc00" d="M0 1h9v2H0z"/><path fill="%23000000" d="M0 0h9v1H0z"/></svg>'); }
+        .flag-hy { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="%23f2a800" d="M0 0h9v2H0z"/><path fill="%23003366" d="M0 2h9v2H0z"/><path fill="%23d90012" d="M0 4h9v2H0z"/></svg>'); }
         
         main {
             max-width: 1200px;
@@ -181,6 +208,38 @@
             border: 2px solid #c6f6d5;
         }
         
+        .classic-intro-video {
+            margin-bottom: 2rem;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .video-info h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+        
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -196,43 +255,9 @@
             border: 1px solid #c6f6d5;
         }
         
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .video-info {
+        .video-card .video-info {
             padding: 1rem;
-        }
-        
-        .video-info h4 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-green);
-        }
-
-        .classic-intro {
-            text-align: center;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #1a5d1a, #2c822c);
-            color: white;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-        
-        .classic-intro h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-family: 'Georgia', serif;
+            text-align: left;
         }
         
         footer {
@@ -272,12 +297,12 @@
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
-                        <option value="en">English</option>
-                        <option value="ru">Русский</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                        <option value="hy">Հայերեն</option>
+                        <option value="en"><span class="flag-icon flag-en"></span> English</option>
+                        <option value="de"><span class="flag-icon flag-de"></span> Deutsch</option>
+                        <option value="es"><span class="flag-icon flag-es"></span> Español</option>
+                        <option value="fr"><span class="flag-icon flag-fr"></span> Français</option>
+                        <option value="hy"><span class="flag-icon flag-hy"></span> Հայերեն</option>
+                        <option value="ru"><span class="flag-icon flag-ru"></span> Русский</option>
                     </select>
                 </div>
             </div>
@@ -321,18 +346,18 @@
             
             <!-- Programming -->
             <div class="science-category">
-                <h3>Programming & Development</h3>
+                <h3 data-translate="programming">Programming & Development</h3>
                 <ul class="subjects-list">
-                    <li><a href="#">Web Development (HTML, CSS, JavaScript)</a></li>
-                    <li><a href="#">Python Programming</a></li>
-                    <li><a href="#">Java & JVM Languages</a></li>
-                    <li><a href="#">C++ & System Programming</a></li>
-                    <li><a href="#">Mobile Development (iOS/Android)</a></li>
-                    <li><a href="#">Database & SQL</a></li>
-                    <li><a href="#">DevOps & Cloud Computing</a></li>
-                    <li><a href="#">Game Development</a></li>
-                    <li><a href="#">Machine Learning Programming</a></li>
-                    <li><a href="#">Embedded Systems</a></li>
+                    <li><a href="#" data-translate="webDev">Web Development (HTML, CSS, JavaScript)</a></li>
+                    <li><a href="#" data-translate="python">Python Programming</a></li>
+                    <li><a href="#" data-translate="java">Java & JVM Languages</a></li>
+                    <li><a href="#" data-translate="cpp">C++ & System Programming</a></li>
+                    <li><a href="#" data-translate="mobileDev">Mobile Development (iOS/Android)</a></li>
+                    <li><a href="#" data-translate="databases">Database & SQL</a></li>
+                    <li><a href="#" data-translate="devops">DevOps & Cloud Computing</a></li>
+                    <li><a href="#" data-translate="gameDev">Game Development</a></li>
+                    <li><a href="#" data-translate="mlProgramming">Machine Learning Programming</a></li>
+                    <li><a href="#" data-translate="embedded">Embedded Systems</a></li>
                 </ul>
             </div>
             
@@ -348,59 +373,28 @@
                     <li><a href="#" data-translate="linguistics">Linguistics</a></li>
                 </ul>
             </div>
-            
-            <!-- Language Learning -->
-            <div class="science-category">
-                <h3 data-translate="languageLearning">Language Learning</h3>
-                <ul class="subjects-list">
-                    <li><a href="#" data-translate="englishLang">English Language</a></li>
-                    <li><a href="#" data-translate="russianLang">Russian Language</a></li>
-                    <li><a href="#" data-translate="spanishLang">Spanish Language</a></li>
-                    <li><a href="#" data-translate="frenchLang">French Language</a></li>
-                    <li><a href="#" data-translate="germanLang">German Language</a></li>
-                    <li><a href="#" data-translate="armenianLang">Armenian Language</a></li>
-                </ul>
-            </div>
-            
-            <!-- Applied Sciences -->
-            <div class="science-category">
-                <h3 data-translate="appliedSciences">Applied Sciences</h3>
-                <ul class="subjects-list">
-                    <li><a href="#" data-translate="engineering">Engineering</a></li>
-                    <li><a href="#" data-translate="medicine">Medicine & Healthcare</a></li>
-                    <li><a href="#" data-translate="agriculture">Agricultural Science</a></li>
-                    <li><a href="#" data-translate="architecture">Architecture</a></li>
-                    <li><a href="#" data-translate="materialsScience">Materials Science</a></li>
-                    <li><a href="#" data-translate="nanotechnology">Nanotechnology</a></li>
-                </ul>
-            </div>
         </div>
         
         <div class="video-section">
-            <div class="classic-intro">
-                <h3>🎬 Легендарная заставка "Хочу всё знать!"</h3>
-                <p>Знаменитый мультфильм с мальчиком, разбивающим молотком орех знаний</p>
+            <div class="classic-intro-video">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/6OoNijn-D_0?start=5&autoplay=1&mute=1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            title="Легендарная заставка Хочу все знать - мальчик с орехом">
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3 data-translate="classicIntro">Legendary 'I Want to Know Everything!' Intro</h3>
+                    <p data-translate="nutCrackerBoy">The boy cracking the nut of knowledge - symbol of exploring the world</p>
+                </div>
             </div>
             
-            <h2>Обучающие материалы</h2>
-            <p>Классические образовательные фильмы и современные учебные ресурсы</p>
+            <h2 data-translate="educationalMaterials">Educational Materials</h2>
+            <p>Classic educational films and modern learning resources</p>
             
             <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/6OoNijn-D_0?start=5" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                title="Легендарная заставка Хочу все знать - мальчик с орехом">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>Легендарная заставка "Хочу всё знать!"</h4>
-                        <p>Мальчик разбивает молотком орех - символ познания мира</p>
-                    </div>
-                </div>
-                
                 <div class="video-card">
                     <div class="video-container">
                         <iframe src="https://www.youtube.com/embed/XNK6IupA-44" 
@@ -473,9 +467,30 @@
             localStorage.setItem('preferredLanguage', language);
         });
 
+        // Initialize with saved language or default
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         document.getElementById('languageSelect').value = savedLanguage;
         loadLanguage(savedLanguage);
+
+        // Add flags to select options (workaround for HTML limitations)
+        document.addEventListener('DOMContentLoaded', function() {
+            const select = document.getElementById('languageSelect');
+            const options = select.options;
+            
+            // Sort options alphabetically by text
+            const sortedOptions = Array.from(options).sort((a, b) => 
+                a.text.localeCompare(b.text)
+            );
+            
+            // Clear and re-add sorted options
+            select.innerHTML = '';
+            sortedOptions.forEach(option => {
+                select.appendChild(option);
+            });
+            
+            // Set selected value back
+            select.value = savedLanguage;
+        });
     </script>
 </body>
 </html>
