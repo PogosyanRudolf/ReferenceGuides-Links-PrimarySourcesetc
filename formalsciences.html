@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formal Sciences - Reference Guides, Links, Primary Sources</title>
+    <script src="translations.js"></script>
+    <style>
+        :root {
+            --primary-green: #1a5d1a;
+            --accent-green: #2c822c;
+            --light-gray: #f7fafc;
+            --dark-gray: #4a5568;
+            --text-color: #2d3748;
+            --white: #ffffff;
+            --hover-green: #236823;
+            --light-green: #f0fff4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+        
+        header {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .main-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+        
+        .subtitle {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            color: #c6f6d5;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--hover-green);
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            background: var(--white);
+            color: var(--primary-green);
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 0.5rem 2.5rem 0.5rem 0.8rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            min-width: 160px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+        }
+        
+        .flag-icon {
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            margin-right: 8px;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            vertical-align: middle;
+        }
+        
+        .flag-en { background: linear-gradient(#012169 0%, #00247e 32%, #fff 33%, #fff 66%, #c8102e 67%, #c8102e 100%); }
+        .flag-ru { background: linear-gradient(#fff 0%, #fff 33%, #0039a6 34%, #0039a6 66%, #d52b1e 67%, #d52b1e 100%); }
+        .flag-es { background: linear-gradient(#aa151b 0%, #aa151b 25%, #f1bf00 26%, #f1bf00 75%, #aa151b 76%, #aa151b 100%); }
+        .flag-fr { background: linear-gradient(#00287e 0%, #00287e 33%, #fff 34%, #fff 66%, #ef4135 67%, #ef4135 100%); }
+        .flag-de { background: linear-gradient(#000 0%, #000 33%, #dd0000 34%, #dd0000 66%, #ffce00 67%, #ffce00 100%); }
+        .flag-hy { background: linear-gradient(#f2a800 0%, #f2a800 33%, #0033a6 34%, #0033a6 66%, #d90012 67%, #d90012 100%); }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .breadcrumb {
+            margin: 1rem 0;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+        
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .science-category {
+            background: var(--white);
+            border: 2px solid #c6f6d5;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .science-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(34, 104, 35, 0.1);
+            border-color: var(--accent-green);
+        }
+        
+        .science-category h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 0.5rem;
+        }
+        
+        .subjects-list {
+            list-style: none;
+        }
+        
+        .subjects-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .subjects-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .subjects-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .subjects-list a:hover {
+            color: var(--accent-green);
+        }
+        
+        footer {
+            background: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .science-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
+                <div class="subtitle" data-translate="tagline">The Primary Reference</div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
+                <div class="language-selector">
+                    <select class="language-dropdown" id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="de">Deutsch</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="hy">Հայերեն</option>
+                        <option value="ru">Русский</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html" data-translate="home">Home</a> > <a href="educationandsciences.html" data-translate="science">Science & Education</a> > <span>Formal Sciences</span>
+        </div>
+        
+        <h1>Formal Sciences</h1>
+        <p>Mathematical and computational sciences based on formal systems</p>
+        
+        <div class="science-grid">
+            <div class="science-category" id="mathematics">
+                <h3>Mathematics</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://ocw.mit.edu/courses/mathematics/" target="_blank">MIT Mathematics Courses</a></li>
+                    <li><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy Mathematics</a></li>
+                    <li><a href="https://www.coursera.org/browse/math-and-logic" target="_blank">Coursera Math & Logic</a></li>
+                    <li><a href="https://www.edx.org/learn/mathematics" target="_blank">edX Mathematics</a></li>
+                    <li><a href="https://brilliant.org/courses/#math-foundational" target="_blank">Brilliant.org Math</a></li>
+                </ul>
+            </div>
+            
+            <div class="science-category" id="computerscience">
+                <h3>Computer Science</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/" target="_blank">MIT Computer Science</a></li>
+                    <li><a href="https://www.edx.org/cs50" target="_blank">Harvard CS50</a></li>
+                    <li><a href="https://www.coursera.org/specializations/computer-fundamentals" target="_blank">Coursera Computer Science</a></li>
+                    <li><a href="https://www.khanacademy.org/computing/computer-science" target="_blank">Khan Academy CS</a></li>
+                    <li><a href="https://online.stanford.edu/courses/soe-ycscs101-sp-computer-science-101" target="_blank">Stanford CS101</a></li>
+                </ul>
+            </div>
+
+            <div class="science-category" id="ai">
+                <h3>Artificial Intelligence</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">Machine Learning Specialization</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/" target="_blank">MIT Artificial Intelligence</a></li>
+                    <li><a href="https://www.edx.org/learn/artificial-intelligence" target="_blank">edX AI Courses</a></li>
+                    <li><a href="https://www.khanacademy.org/computing/computer-science/artificial-intelligence" target="_blank">Khan Academy AI</a></li>
+                    <li><a href="https://online.stanford.edu/courses/xcs229i-machine-learning" target="_blank">Stanford Machine Learning</a></li>
+                </ul>
+            </div>
+
+            <div class="science-category" id="statistics">
+                <h3>Statistics & Data Science</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://ocw.mit.edu/courses/mathematics/18-650-statistics-for-applications-fall-2016/" target="_blank">MIT Statistics</a></li>
+                    <li><a href="https://www.coursera.org/specializations/jhu-data-science" target="_blank">Data Science Specialization</a></li>
+                    <li><a href="https://www.edx.org/learn/statistics" target="_blank">edX Statistics</a></li>
+                    <li><a href="https://www.khanacademy.org/math/statistics-probability" target="_blank">Khan Academy Statistics</a></li>
+                    <li><a href="https://online.stanford.edu/courses/soe-ycs0007-statistical-learning" target="_blank">Stanford Statistical Learning</a></li>
+                </ul>
+            </div>
+
+            <div class="science-category" id="cybersecurity">
+                <h3>Cybersecurity</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.coursera.org/specializations/cyber-security" target="_blank">Cybersecurity Specialization</a></li>
+                    <li><a href="https://www.edx.org/learn/cybersecurity" target="_blank">edX Cybersecurity</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-858-computer-systems-security-fall-2014/" target="_blank">MIT Computer Security</a></li>
+                    <li><a href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:online-data-security" target="_blank">Khan Academy Security</a></li>
+                    <li><a href="https://online.stanford.edu/courses/soeycscyber-introduction-cybersecurity" target="_blank">Stanford Cybersecurity</a></li>
+                </ul>
+            </div>
+
+            <div class="science-category" id="programming">
+                <h3>Programming</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.coursera.org/specializations/python" target="_blank">Python for Everybody</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/" target="_blank">MIT Python Programming</a></li>
+                    <li><a href="https://www.edx.org/learn/computer-programming" target="_blank">edX Programming</a></li>
+                    <li><a href="https://www.khanacademy.org/computing/computer-programming" target="_blank">Khan Academy Programming</a></li>
+                    <li><a href="https://online.stanford.edu/courses/soe-ycscs106a-programming-methodology" target="_blank">Stanford Programming Methodology</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Reference Guides, Links, Primary Sources — The Primary Reference</p>
+    </footer>
+
+    <script>
+        function addFlagsToLanguageSelect() {
+            const select = document.getElementById('languageSelect');
+            const options = [
+                { value: 'en', text: 'English', flag: 'flag-en' },
+                { value: 'de', text: 'Deutsch', flag: 'flag-de' },
+                { value: 'es', text: 'Español', flag: 'flag-es' },
+                { value: 'fr', text: 'Français', flag: 'flag-fr' },
+                { value: 'hy', text: 'Հայերեն', flag: 'flag-hy' },
+                { value: 'ru', text: 'Русский', flag: 'flag-ru' }
+            ];
+
+            options.sort((a, b) => a.text.localeCompare(b.text));
+            select.innerHTML = '';
+            options.forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option.value;
+                optionElement.innerHTML = `<span class="flag-icon ${option.flag}"></span> ${option.text}`;
+                select.appendChild(optionElement);
+            });
+        }
+
+        function loadLanguage(language) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+            
+            document.documentElement.lang = language;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            addFlagsToLanguageSelect();
+            
+            document.getElementById('languageSelect').addEventListener('change', function() {
+                const language = this.value;
+                loadLanguage(language);
+                localStorage.setItem('preferredLanguage', language);
+            });
+
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            document.getElementById('languageSelect').value = savedLanguage;
+            loadLanguage(savedLanguage);
+        });
+    </script>
+</body>
+</html>
