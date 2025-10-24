@@ -61,6 +61,12 @@
             margin-bottom: 0.2rem;
         }
         
+        .subtitle {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            color: #c6f6d5;
+        }
+        
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -328,6 +334,7 @@
         <nav>
             <div class="logo-container">
                 <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
+                <div class="subtitle" data-translate="tagline">The Primary Reference</div>
             </div>
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
@@ -407,13 +414,205 @@
             </div>
         </div>
         
-        <!-- Science Categories (остаются без изменений, как в предыдущем коде) -->
-        <!-- ... остальной код категорий ... -->
+        <div class="science-grid">
+            <!-- Applied Sciences -->
+            <div class="science-category">
+                <h3 data-translate="appliedSciences">Applied Sciences</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.edx.org/course/agricultural-science" target="_blank" data-translate="agriculture">Agricultural Science</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/architecture/" target="_blank" data-translate="architecture">Architecture</a></li>
+                    <li><a href="https://www.coursera.org/specializations/biotechnology" target="_blank" data-translate="biotechnology">Biotechnology</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/engineering/" target="_blank" data-translate="engineering">Engineering</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/1-101-introduction-to-civil-and-environmental-engineering-design-i-fall-2006/" target="_blank" data-translate="environmentalEngineering">Environmental Engineering</a></li>
+                    <li><a href="https://www.edx.org/course/food-science" target="_blank" data-translate="foodScience">Food Science</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/materials-science-and-engineering/" target="_blank" data-translate="materialsScience">Materials Science</a></li>
+                    <li><a href="https://www.coursera.org/specializations/healthcare" target="_blank" data-translate="medicine">Medicine & Healthcare</a></li>
+                    <li><a href="https://www.edx.org/course/nanotechnology" target="_blank" data-translate="nanotechnology">Nanotechnology</a></li>
+                    <li><a href="https://www.coursera.org/learn/pharmaceutical-science" target="_blank" data-translate="pharmaceuticalSciences">Pharmaceutical Sciences</a></li>
+                    <li><a href="https://www.coursera.org/specializations/robotics" target="_blank" data-translate="roboticsAutomation">Robotics & Automation</a></li>
+                </ul>
+            </div>
+
+            <!-- Formal Sciences -->
+            <div class="science-category">
+                <h3 data-translate="formalSciences">Formal Sciences</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" data-translate="ai">Artificial Intelligence</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/" target="_blank" data-translate="computerScience">Computer Science</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/18-330-introduction-to-numerical-analysis-spring-2012/" target="_blank" data-translate="computationalMathematics">Computational Mathematics</a></li>
+                    <li><a href="https://www.edx.org/course/cryptography" target="_blank" data-translate="cryptography">Cryptography</a></li>
+                    <li><a href="https://www.edx.org/course/cybersecurity-fundamentals" target="_blank" data-translate="cybersecurity">Cybersecurity</a></li>
+                    <li><a href="https://www.coursera.org/learn/game-theory-1" target="_blank" data-translate="gameTheory">Game Theory</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/6-441-information-theory-spring-2016/" target="_blank" data-translate="informationTheory">Information Theory</a></li>
+                    <li><a href="https://plato.stanford.edu/entries/logic-philosophy/" target="_blank" data-translate="logic">Logic & Philosophy of Science</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/mathematics/" target="_blank" data-translate="mathematics">Mathematics</a></li>
+                    <li><a href="https://www.edx.org/course/introduction-to-statistics" target="_blank" data-translate="statistics">Statistics & Data Science</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/" target="_blank" data-translate="theoreticalCS">Theoretical Computer Science</a></li>
+                </ul>
+            </div>
+
+            <!-- Humanities -->
+            <div class="science-category">
+                <h3 data-translate="humanities">Humanities</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://ocw.mit.edu/courses/architecture/" target="_blank" data-translate="artHistory">Art History</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/history/" target="_blank" data-translate="classicalStudies">Classical Studies</a></li>
+                    <li><a href="https://www.coursera.org/learn/cultural-studies" target="_blank" data-translate="culturalStudies">Cultural Studies</a></li>
+                    <li><a href="https://www.coursera.org/learn/film-studies" target="_blank" data-translate="filmStudies">Film Studies</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/history/" target="_blank" data-translate="history">History</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/literature/" target="_blank" data-translate="literature">Literature</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/music-and-theater-arts/" target="_blank" data-translate="musicology">Musicology</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/philosophy/" target="_blank" data-translate="philosophy">Philosophy</a></li>
+                    <li><a href="https://www.coursera.org/learn/religious-studies" target="_blank" data-translate="religiousStudies">Religious Studies</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/music-and-theater-arts/" target="_blank" data-translate="theatreStudies">Theatre Studies</a></li>
+                </ul>
+            </div>
+
+            <!-- Interdisciplinary Sciences -->
+            <div class="science-category">
+                <h3 data-translate="interdisciplinarySciences">Interdisciplinary Sciences</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.coursera.org/specializations/bioinformatics" target="_blank" data-translate="bioinformatics">Bioinformatics</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/physics/" target="_blank" data-translate="biophysics">Biophysics</a></li>
+                    <li><a href="https://www.coursera.org/learn/cognitive-science" target="_blank" data-translate="cognitiveScience">Cognitive Science</a></li>
+                    <li><a href="https://www.coursera.org/specializations/computational-biology" target="_blank" data-translate="computationalBiology">Computational Biology</a></li>
+                    <li><a href="https://www.coursera.org/learn/digital-humanities" target="_blank" data-translate="digitalHumanities">Digital Humanities</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/environmental-science-and-policy/" target="_blank" data-translate="environmentalStudies">Environmental Studies</a></li>
+                    <li><a href="https://www.coursera.org/specializations/neuroscience" target="_blank" data-translate="neuroscience">Neuroscience</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/science-technology-and-society/" target="_blank" data-translate="scienceTechnologyStudies">Science & Technology Studies</a></li>
+                    <li><a href="https://www.coursera.org/learn/sustainability" target="_blank" data-translate="sustainabilityScience">Sustainability Science</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/urban-studies-and-planning/" target="_blank" data-translate="urbanStudies">Urban Studies</a></li>
+                </ul>
+            </div>
+
+            <!-- Language Learning -->
+            <div class="science-category">
+                <h3 data-translate="languageLearning">Language Learning</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.coursera.org/learn/arabic-language" target="_blank" data-translate="arabic">Arabic</a></li>
+                    <li><a href="https://www.coursera.org/learn/armenian-language" target="_blank" data-translate="armenianLang">Armenian Language</a></li>
+                    <li><a href="https://www.coursera.org/specializations/learn-chinese" target="_blank" data-translate="chinese">Chinese (Mandarin)</a></li>
+                    <li><a href="https://www.coursera.org/specializations/learn-english" target="_blank" data-translate="englishLang">English Language</a></li>
+                    <li><a href="https://www.coursera.org/specializations/learn-french" target="_blank" data-translate="frenchLang">French Language</a></li>
+                    <li><a href="https://www.coursera.org/learn/german-language" target="_blank" data-translate="germanLang">German Language</a></li>
+                    <li><a href="https://www.coursera.org/learn/italian-language" target="_blank" data-translate="italian">Italian</a></li>
+                    <li><a href="https://www.coursera.org/learn/japanese" target="_blank" data-translate="japanese">Japanese</a></li>
+                    <li><a href="https://www.coursera.org/learn/portuguese-language" target="_blank" data-translate="portuguese">Portuguese</a></li>
+                    <li><a href="https://www.coursera.org/learn/russian-language" target="_blank" data-translate="russianLang">Russian Language</a></li>
+                    <li><a href="https://www.coursera.org/specializations/learn-spanish" target="_blank" data-translate="spanishLang">Spanish Language</a></li>
+                </ul>
+            </div>
+
+            <!-- Natural Sciences -->
+            <div class="science-category">
+                <h3 data-translate="naturalSciences">Natural Sciences</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.edx.org/course/introduction-to-astronomy" target="_blank" data-translate="astronomy">Astronomy & Space Science</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/biology/" target="_blank" data-translate="biology">Biology & Genetics</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/7-03-genetics-fall-2004/" target="_blank" data-translate="botany">Botany & Plant Sciences</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/chemistry/" target="_blank" data-translate="chemistry">Chemistry & Biochemistry</a></li>
+                    <li><a href="https://www.coursera.org/learn/global-environmental-management" target="_blank" data-translate="environmental">Environmental Science</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/" target="_blank" data-translate="geology">Geology & Earth Sciences</a></li>
+                    <li><a href="https://www.edx.org/course/weather-climate" target="_blank" data-translate="meteorology">Meteorology & Climate Science</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/12-001-introduction-to-geology-fall-2013/" target="_blank" data-translate="oceanography">Oceanography & Marine Science</a></li>
+                    <li><a href="https://www.coursera.org/learn/dinosaurs" target="_blank" data-translate="paleontology">Paleontology & Evolutionary Biology</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/physics/" target="_blank" data-translate="physics">Physics & Astrophysics</a></li>
+                    <li><a href="https://www.edx.org/course/introduction-to-biology" target="_blank" data-translate="zoology">Zoology & Animal Sciences</a></li>
+                </ul>
+            </div>
+            
+            <!-- Programming -->
+            <div class="science-category">
+                <h3 data-translate="programming">Programming & Development</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://www.coursera.org/specializations/coding-cpp" target="_blank" data-translate="cpp">C++ & System Programming</a></li>
+                    <li><a href="https://www.coursera.org/specializations/database-systems" target="_blank" data-translate="databases">Database & SQL</a></li>
+                    <li><a href="https://www.edx.org/course/introduction-to-devops" target="_blank" data-translate="devops">DevOps & Cloud Computing</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/6-004-computation-structures-spring-2009/" target="_blank" data-translate="embedded">Embedded Systems</a></li>
+                    <li><a href="https://www.coursera.org/learn/programming-languages" target="_blank" data-translate="functionalProgramming">Functional Programming</a></li>
+                    <li><a href="https://www.coursera.org/specializations/game-design-and-development" target="_blank" data-translate="gameDev">Game Development</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/6-005-software-construction-spring-2016/" target="_blank" data-translate="java">Java & JVM Languages</a></li>
+                    <li><a href="https://www.coursera.org/specializations/machine-learning" target="_blank" data-translate="mlProgramming">Machine Learning Programming</a></li>
+                    <li><a href="https://www.edx.org/course/android-developer" target="_blank" data-translate="mobileDev">Mobile Development (iOS/Android)</a></li>
+                    <li><a href="https://www.edx.org/course/introduction-to-computer-science-and-programming-7" target="_blank" data-translate="python">Python Programming</a></li>
+                    <li><a href="https://www.edx.org/course/software-architecture-design" target="_blank" data-translate="softwareArchitecture">Software Architecture</a></li>
+                    <li><a href="https://www.coursera.org/learn/software-testing" target="_blank" data-translate="testingQA">Testing & QA</a></li>
+                    <li><a href="https://www.coursera.org/learn/version-control-with-git" target="_blank" data-translate="versionControl">Version Control (Git)</a></li>
+                    <li><a href="https://www.coursera.org/specializations/web-design" target="_blank" data-translate="webDev">Web Development (HTML, CSS, JavaScript)</a></li>
+                </ul>
+            </div>
+            
+            <!-- Social Sciences -->
+            <div class="science-category">
+                <h3 data-translate="socialSciences">Social Sciences</h3>
+                <ul class="subjects-list">
+                    <li><a href="https://ocw.mit.edu/courses/anthropology/" target="_blank" data-translate="anthropology">Anthropology</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/history/" target="_blank" data-translate="archaeology">Archaeology</a></li>
+                    <li><a href="https://www.coursera.org/learn/communication-skills" target="_blank" data-translate="communicationStudies">Communication Studies</a></li>
+                    <li><a href="https://www.coursera.org/learn/population-health" target="_blank" data-translate="demography">Demography</a></li>
+                    <li><a href="https://www.edx.org/course/principles-of-economics" target="_blank" data-translate="economics">Economics</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/11-205-introduction-to-spatial-analysis-fall-2019/" target="_blank" data-translate="geography">Geography</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/political-science/" target="_blank" data-translate="internationalRelations">International Relations</a></li>
+                    <li><a href="https://www.coursera.org/learn/linguistics" target="_blank" data-translate="linguistics">Linguistics</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/political-science/" target="_blank" data-translate="politicalScience">Political Science</a></li>
+                    <li><a href="https://www.coursera.org/learn/introduction-psychology" target="_blank" data-translate="psychology">Psychology</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/anthropology/" target="_blank" data-translate="sociology">Sociology</a></li>
+                </ul>
+            </div>
+        </div>
         
+        <div class="video-section">
+            <h2 data-translate="educationalMaterials">Educational Materials</h2>
+            <p data-translate="educationalFilms">Classic educational films and modern learning resources</p>
+            
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/XNK6IupA-44" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4 data-translate="video1Title">Introduction to Quantum Physics</h4>
+                        <p data-translate="video1Desc">Fundamental concepts of quantum mechanics explained</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/yAZgD3zqSCM" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4 data-translate="video2Title">Machine Learning Basics</h4>
+                        <p data-translate="video2Desc">Understanding AI and neural networks</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/8mAITcNt710" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4 data-translate="video3Title">Python Programming for Beginners</h4>
+                        <p data-translate="video3Desc">Complete guide to start programming in Python</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p data-translate="footerText">Reference Guides, Links, Primary Sources</p>
+        <p data-translate="footerText">Reference Guides, Links, Primary Sources — The Primary Reference</p>
     </footer>
 
     <script>
