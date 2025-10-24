@@ -96,7 +96,7 @@
             color: var(--primary-green);
             border: 1px solid #e2e8f0;
             border-radius: 4px;
-            padding: 0.4rem 2rem 0.4rem 0.8rem;
+            padding: 0.5rem 2.5rem 0.5rem 0.8rem;
             font-size: 0.9rem;
             cursor: pointer;
             min-width: 160px;
@@ -107,19 +107,21 @@
             background-size: 12px;
         }
         
-        .language-dropdown option {
-            background: white;
-            color: var(--primary-green);
-            padding: 0.5rem;
+        .language-option {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .flag-icon {
             display: inline-block;
-            width: 16px;
-            height: 12px;
-            margin-right: 8px;
+            width: 20px;
+            height: 15px;
             background-size: cover;
+            background-position: center;
             border: 1px solid #ddd;
+            border-radius: 2px;
         }
         
         .flag-en { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%2300247e" d="M0 0h60v30H0z"/><path stroke="%23fff" stroke-width="6" d="M0 0l60 30m0-30L0 30"/><path stroke="%23c8102e" stroke-width="4" d="M0 0l60 30m0-30L0 30"/><path stroke="%23fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="%23c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg>'); }
@@ -219,6 +221,7 @@
             overflow: hidden;
             border-radius: 8px;
             background: #000;
+            margin-bottom: 1rem;
         }
         
         .video-container iframe {
@@ -297,12 +300,12 @@
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
-                        <option value="en"><span class="flag-icon flag-en"></span> English</option>
-                        <option value="de"><span class="flag-icon flag-de"></span> Deutsch</option>
-                        <option value="es"><span class="flag-icon flag-es"></span> Español</option>
-                        <option value="fr"><span class="flag-icon flag-fr"></span> Français</option>
-                        <option value="hy"><span class="flag-icon flag-hy"></span> Հայերեն</option>
-                        <option value="ru"><span class="flag-icon flag-ru"></span> Русский</option>
+                        <option value="de">Deutsch</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="hy">Հայերեն</option>
+                        <option value="ru">Русский</option>
                     </select>
                 </div>
             </div>
@@ -373,12 +376,38 @@
                     <li><a href="#" data-translate="linguistics">Linguistics</a></li>
                 </ul>
             </div>
+
+            <!-- Language Learning -->
+            <div class="science-category">
+                <h3 data-translate="languageLearning">Language Learning</h3>
+                <ul class="subjects-list">
+                    <li><a href="#" data-translate="englishLang">English Language</a></li>
+                    <li><a href="#" data-translate="russianLang">Russian Language</a></li>
+                    <li><a href="#" data-translate="spanishLang">Spanish Language</a></li>
+                    <li><a href="#" data-translate="frenchLang">French Language</a></li>
+                    <li><a href="#" data-translate="germanLang">German Language</a></li>
+                    <li><a href="#" data-translate="armenianLang">Armenian Language</a></li>
+                </ul>
+            </div>
+            
+            <!-- Applied Sciences -->
+            <div class="science-category">
+                <h3 data-translate="appliedSciences">Applied Sciences</h3>
+                <ul class="subjects-list">
+                    <li><a href="#" data-translate="engineering">Engineering</a></li>
+                    <li><a href="#" data-translate="medicine">Medicine & Healthcare</a></li>
+                    <li><a href="#" data-translate="agriculture">Agricultural Science</a></li>
+                    <li><a href="#" data-translate="architecture">Architecture</a></li>
+                    <li><a href="#" data-translate="materialsScience">Materials Science</a></li>
+                    <li><a href="#" data-translate="nanotechnology">Nanotechnology</a></li>
+                </ul>
+            </div>
         </div>
         
         <div class="video-section">
             <div class="classic-intro-video">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/6OoNijn-D_0?start=5&autoplay=1&mute=1" 
+                    <iframe src="https://www.youtube.com/embed/6OoNijn-D_0?start=5" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen
@@ -467,29 +496,118 @@
             localStorage.setItem('preferredLanguage', language);
         });
 
-        // Initialize with saved language or default
+        // Custom flags implementation
+        function createCustomSelect() {
+            const select = document.getElementById('languageSelect');
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-select-wrapper';
+            wrapper.style.position = 'relative';
+            wrapper.style.display = 'inline-block';
+            
+            const display = document.createElement('div');
+            display.className = 'custom-select-display';
+            display.style.padding = '0.5rem 2.5rem 0.5rem 0.8rem';
+            display.style.border = '1px solid #e2e8f0';
+            display.style.borderRadius = '4px';
+            display.style.background = 'white';
+            display.style.cursor = 'pointer';
+            display.style.minWidth = '160px';
+            display.style.display = 'flex';
+            display.style.alignItems = 'center';
+            display.style.gap = '8px';
+            
+            // Add dropdown arrow
+            display.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E\")";
+            display.style.backgroundRepeat = 'no-repeat';
+            display.style.backgroundPosition = 'right 0.7rem center';
+            
+            const optionsList = document.createElement('div');
+            optionsList.className = 'custom-select-options';
+            optionsList.style.display = 'none';
+            optionsList.style.position = 'absolute';
+            optionsList.style.top = '100%';
+            optionsList.style.left = '0';
+            optionsList.style.right = '0';
+            optionsList.style.background = 'white';
+            optionsList.style.border = '1px solid #e2e8f0';
+            optionsList.style.borderRadius = '4px';
+            optionsList.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+            optionsList.style.zIndex = '1000';
+            optionsList.style.maxHeight = '200px';
+            optionsList.style.overflowY = 'auto';
+            
+            // Create options
+            Array.from(select.options).forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'custom-option';
+                optionDiv.style.padding = '0.5rem 0.8rem';
+                optionDiv.style.cursor = 'pointer';
+                optionDiv.style.display = 'flex';
+                optionDiv.style.alignItems = 'center';
+                optionDiv.style.gap = '8px';
+                optionDiv.dataset.value = option.value;
+                
+                const flag = document.createElement('span');
+                flag.className = 'flag-icon flag-' + option.value;
+                flag.style.width = '20px';
+                flag.style.height = '15px';
+                
+                const text = document.createElement('span');
+                text.textContent = option.text;
+                
+                optionDiv.appendChild(flag);
+                optionDiv.appendChild(text);
+                
+                optionDiv.addEventListener('click', function() {
+                    select.value = this.dataset.value;
+                    display.innerHTML = '';
+                    display.appendChild(flag.cloneNode(true));
+                    display.appendChild(text.cloneNode(true));
+                    optionsList.style.display = 'none';
+                    select.dispatchEvent(new Event('change'));
+                });
+                
+                optionsList.appendChild(optionDiv);
+            });
+            
+            // Set initial display
+            const initialOption = select.options[select.selectedIndex];
+            const initialFlag = document.createElement('span');
+            initialFlag.className = 'flag-icon flag-' + initialOption.value;
+            initialFlag.style.width = '20px';
+            initialFlag.style.height = '15px';
+            
+            const initialText = document.createElement('span');
+            initialText.textContent = initialOption.text;
+            
+            display.appendChild(initialFlag);
+            display.appendChild(initialText);
+            
+            // Toggle dropdown
+            display.addEventListener('click', function(e) {
+                e.stopPropagation();
+                optionsList.style.display = optionsList.style.display === 'none' ? 'block' : 'none';
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                optionsList.style.display = 'none';
+            });
+            
+            wrapper.appendChild(display);
+            wrapper.appendChild(optionsList);
+            select.parentNode.insertBefore(wrapper, select);
+            select.style.display = 'none';
+        }
+
+        // Initialize
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         document.getElementById('languageSelect').value = savedLanguage;
         loadLanguage(savedLanguage);
-
-        // Add flags to select options (workaround for HTML limitations)
+        
+        // Create custom select after DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            const select = document.getElementById('languageSelect');
-            const options = select.options;
-            
-            // Sort options alphabetically by text
-            const sortedOptions = Array.from(options).sort((a, b) => 
-                a.text.localeCompare(b.text)
-            );
-            
-            // Clear and re-add sorted options
-            select.innerHTML = '';
-            sortedOptions.forEach(option => {
-                select.appendChild(option);
-            });
-            
-            // Set selected value back
-            select.value = savedLanguage;
+            createCustomSelect();
         });
     </script>
 </body>
