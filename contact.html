@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Common Source of Precision</title>
+    <title>Contact - The Primary Reference</title>
     <script src="translations.js"></script>
     <style>
         :root {
-            --primary-blue: #1a365d;
-            --accent-blue: #2c5282;
+            --primary-green: #1a5d1a;
+            --accent-green: #2c822c;
             --light-gray: #f7fafc;
             --dark-gray: #4a5568;
             --text-color: #2d3748;
             --white: #ffffff;
-            --success-green: #38a169;
-            --error-red: #e53e3e;
+            --hover-green: #236823;
+            --light-green: #f0fff4;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 25px rgba(34, 104, 35, 0.15);
         }
         
         * {
@@ -28,13 +30,18 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--white);
+            font-size: 16px;
         }
         
+        /* Header & Navigation */
         header {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             color: var(--white);
             padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         nav {
@@ -43,62 +50,232 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
         
-        .logo {
-            font-size: 1.5rem;
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .main-title {
+            font-size: 1.25rem;
             font-weight: 700;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
         }
         
-        .tagline {
-            font-size: 0.9rem;
+        .subtitle {
+            font-size: 0.75rem;
             opacity: 0.9;
+            color: #c6f6d5;
         }
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             align-items: center;
         }
         
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
         
         .nav-links a:hover {
-            text-decoration: underline;
+            background-color: var(--hover-green);
         }
         
         .language-selector {
             position: relative;
-            display: inline-block;
         }
         
         .language-dropdown {
             background: var(--white);
-            color: var(--primary-blue);
+            color: var(--primary-green);
             border: 1px solid #e2e8f0;
             border-radius: 4px;
-            padding: 0.4rem 0.8rem;
-            font-size: 0.9rem;
+            padding: 0.4rem 2rem 0.4rem 0.8rem;
+            font-size: 0.85rem;
             cursor: pointer;
             min-width: 140px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
         }
         
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: var(--primary-green);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .mobile-nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        
+        .mobile-nav-links a:hover {
+            background-color: var(--hover-green);
+        }
+        
+        .mobile-language-selector {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .mobile-language-selector select {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        /* Main Content */
         main {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .breadcrumb {
+            margin: 1rem 0;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+        
+        .contact-hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
+            border-radius: 12px;
+            margin: 1rem 0 3rem;
+        }
+        
+        .contact-hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-hero p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+        
+        .contact-info {
+            background: var(--light-green);
             padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #c6f6d5;
+        }
+        
+        .contact-info h2 {
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            background: var(--white);
+            padding: 0.8rem;
+            border-radius: 8px;
+            min-width: 50px;
+            text-align: center;
+            border: 1px solid #c6f6d5;
+        }
+        
+        .contact-details h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details p {
+            color: var(--dark-gray);
+            line-height: 1.5;
         }
         
         .contact-form {
             background: var(--white);
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            border: 2px solid #c6f6d5;
+        }
+        
+        .contact-form h2 {
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
         }
         
         .form-group {
@@ -108,26 +285,28 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
+            color: var(--dark-gray);
             font-weight: 600;
-            color: var(--primary-blue);
         }
         
         .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e2e8f0;
+            padding: 0.8rem;
+            border: 1px solid #c6f6d5;
             border-radius: 6px;
             font-size: 1rem;
             font-family: inherit;
+            transition: border-color 0.3s;
         }
         
         .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: var(--accent-blue);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(44, 130, 44, 0.1);
         }
         
         .form-group textarea {
@@ -136,82 +315,165 @@
         }
         
         .submit-btn {
-            background: var(--accent-blue);
+            background: var(--accent-green);
             color: var(--white);
-            border: none;
             padding: 1rem 2rem;
+            border: none;
             border-radius: 6px;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
+            transition: background-color 0.3s;
             width: 100%;
         }
         
         .submit-btn:hover {
-            background: var(--primary-blue);
+            background: var(--hover-green);
         }
         
-        .contact-info {
-            background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 2rem;
+        .faq-section {
+            background: var(--light-green);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin: 4rem 0;
         }
         
-        .video-section {
-            margin: 3rem 0;
-            padding: 2rem;
-            background: var(--light-gray);
-            border-radius: 10px;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            margin: 1rem 0;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 8px;
-        }
-        
-        .message {
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
+        .faq-section h2 {
             text-align: center;
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+            font-size: 2rem;
         }
         
-        .success {
-            background: #c6f6d5;
-            color: #22543d;
-            border: 1px solid #9ae6b4;
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
-        .error {
-            background: #fed7d7;
-            color: #742a2a;
-            border: 1px solid #feb2b2;
+        .faq-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #c6f6d5;
+        }
+        
+        .faq-item h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .faq-item p {
+            color: var(--dark-gray);
+            line-height: 1.5;
         }
         
         footer {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             color: var(--white);
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
         
+        /* Mobile Styles */
         @media (max-width: 768px) {
             .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-title {
+                font-size: 1.1rem;
+            }
+            
+            .subtitle {
+                font-size: 0.7rem;
+            }
+            
+            .contact-hero {
+                padding: 2rem 1rem;
+                margin: 0.5rem 0 2rem;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 2rem 0;
+            }
+            
+            .contact-info,
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .contact-info h2,
+            .contact-form h2 {
+                font-size: 1.5rem;
+            }
+            
+            .faq-section {
+                padding: 2rem 1rem;
+                margin: 2rem 0;
+            }
+            
+            .faq-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-item {
+                padding: 1.2rem;
+            }
+            
+            main {
+                padding: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-info,
+            .contact-form {
+                padding: 1.2rem;
+            }
+            
+            .contact-method {
                 flex-direction: column;
-                gap: 1rem;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .contact-icon {
+                align-self: center;
+            }
+            
+            nav {
+                padding: 0 0.5rem;
             }
         }
     </style>
@@ -219,109 +481,216 @@
 <body>
     <header>
         <nav>
-            <div class="logo" data-translate="siteTitle">Common Source of Precision</div>
-            <div class="tagline" data-translate="tagline">The Primary Reference</div>
+            <div class="logo-container">
+                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
+                <div class="subtitle" data-translate="tagline">The Primary Reference</div>
+            </div>
+            
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
-                <a href="science-education.html" data-translate="categories">Categories</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html">Global Resources</a>
                 <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
-                        <option value="en">English</option>
-                        <option value="ru">Русский</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                        <option value="hy">Հայերեն</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="hy">🇦🇲 Հայերեն</option>
+                        <option value="ru">🇷🇺 Русский</option>
                     </select>
                 </div>
             </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </nav>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-links">
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html">Global Resources</a>
+                <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
+            </div>
+            <div class="mobile-language-selector">
+                <select id="mobileLanguageSelect">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="hy">🇦🇲 Հայերեն</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                </select>
+            </div>
+        </div>
     </header>
 
     <main>
-        <h1 data-translate="contact">Contact Us</h1>
-        <p data-translate="contactDesc">Send us your questions, suggestions, or report issues with sources</p>
-        
-        <div id="formMessage"></div>
-        
-        <form class="contact-form" id="contactForm">
-            <div class="form-group">
-                <label for="name" data-translate="formName">Your Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email" data-translate="formEmail">Email Address</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="subject" data-translate="formSubject">Subject</label>
-                <select id="subject" name="subject" required>
-                    <option value="" data-translate="formSelectSubject">Select Subject</option>
-                    <option value="question" data-translate="formQuestion">Question about sources</option>
-                    <option value="suggestion" data-translate="formSuggestion">Source suggestion</option>
-                    <option value="error" data-translate="formError">Error report</option>
-                    <option value="collaboration" data-translate="formCollaboration">Collaboration</option>
-                    <option value="other" data-translate="formOther">Other</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="message" data-translate="formMessage">Message</label>
-                <textarea id="message" name="message" required data-translate="formMessagePlaceholder"></textarea>
-            </div>
-            
-            <button type="submit" class="submit-btn" data-translate="formSubmit">Send Message</button>
-        </form>
-        
-        <div class="contact-info">
-            <h2 data-translate="contactInfo">Contact Information</h2>
-            <p data-translate="contactResponse">We typically respond within 24 hours</p>
+        <div class="breadcrumb">
+            <a href="index.html" data-translate="home">Home</a> > <span data-translate="contact">Contact</span>
         </div>
         
-        <div class="video-section">
-            <h2 data-translate="tutorialVideo">Tutorial Video: How to Use Our Platform</h2>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
+        <section class="contact-hero">
+            <h1 data-translate="contact">Contact Us</h1>
+            <p>We'd love to hear from you. Get in touch with any questions, suggestions, or collaboration opportunities.</p>
+        </section>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>info@primaryreference.org<br>We typically respond within 24 hours</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <h3>Suggest Resources</h3>
+                            <p>Have a great educational resource to share? Let us know!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">🌍</div>
+                        <div class="contact-details">
+                            <h3>Collaboration</h3>
+                            <p>Interested in partnering with us? We're always open to new collaborations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">🐛</div>
+                        <div class="contact-details">
+                            <h3>Report Issues</h3>
+                            <p>Found a broken link or incorrect information? Help us improve</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p data-translate="videoDesc">Learn how to effectively search and use primary sources on our platform</p>
+            
+            <div class="contact-form">
+                <h2>Send Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="resource-suggestion">Resource Suggestion</option>
+                            <option value="collaboration">Collaboration Opportunity</option>
+                            <option value="technical-issue">Technical Issue</option>
+                            <option value="translation">Translation Help</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
         </div>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How can I suggest a resource?</h3>
+                    <p>Use the contact form above and select "Resource Suggestion" as the subject. Include the resource URL and a brief description.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do you offer translation services?</h3>
+                    <p>We're always looking for volunteer translators to help expand our multilingual content. Contact us if you'd like to contribute.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I use your resources for my institution?</h3>
+                    <p>Yes! All our curated resources are freely available for educational purposes. We encourage sharing and academic use.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How often is the content updated?</h3>
+                    <p>We regularly review and update our resource database to ensure all links are working and content remains relevant.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p data-translate="footerText">Common Source of Precision — Curating the foundation of knowledge.</p>
+        <p data-translate="footerText">Reference Guides, Links, Primary Sources — The Primary Reference</p>
     </footer>
 
     <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileLanguageSelect = document.getElementById('mobileLanguageSelect');
+        const desktopLanguageSelect = document.getElementById('languageSelect');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Sync language selects
+        function syncLanguageSelects(value) {
+            desktopLanguageSelect.value = value;
+            mobileLanguageSelect.value = value;
+        }
+
+        desktopLanguageSelect.addEventListener('change', function() {
+            syncLanguageSelects(this.value);
+            loadLanguage(this.value);
+        });
+
+        mobileLanguageSelect.addEventListener('change', function() {
+            syncLanguageSelects(this.value);
+            loadLanguage(this.value);
+        });
+
+        // Language loading function
         function loadLanguage(language) {
             const elements = document.querySelectorAll('[data-translate]');
             elements.forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[language] && translations[language][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT') {
-                        if (element.type !== 'submit') {
-                            if (element.tagName === 'SELECT' && element.id === 'subject') {
-                                // Special handling for select options
-                                const options = element.querySelectorAll('option');
-                                options.forEach(option => {
-                                    const optionKey = option.getAttribute('data-translate');
-                                    if (optionKey && translations[language][optionKey]) {
-                                        option.textContent = translations[language][optionKey];
-                                    }
-                                });
-                            } else {
-                                element.placeholder = translations[language][key];
-                            }
-                        }
-                    } else {
-                        element.textContent = translations[language][key];
-                    }
+                    element.textContent = translations[language][key];
                 }
             });
             
@@ -330,40 +699,21 @@
             if (translations[language] && translations[language]['siteTitle']) {
                 document.title = translations[language]['contact'] + ' - ' + translations[language]['siteTitle'];
             }
+            
+            localStorage.setItem('preferredLanguage', language);
         }
 
-        // Contact form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Simulate form submission
-            const messageDiv = document.getElementById('formMessage');
-            messageDiv.className = 'message success';
-            messageDiv.textContent = 'Thank you! Your message has been sent successfully.';
-            
-            // Reset form
-            document.getElementById('contactForm').reset();
-            
-            // In real implementation, you would send data to server here
-            console.log('Form submitted:', formData);
-        });
-
-        document.getElementById('languageSelect').addEventListener('change', function() {
-            const language = this.value;
-            loadLanguage(language);
-            localStorage.setItem('preferredLanguage', language);
-        });
-
+        // Initialize
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-        document.getElementById('languageSelect').value = savedLanguage;
+        syncLanguageSelects(savedLanguage);
         loadLanguage(savedLanguage);
+
+        // Handle resize - close mobile menu on larger screens
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileNav.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
