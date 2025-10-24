@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Reference Guides, Links, Primary Sources</title>
+    <title>About - The Primary Reference</title>
     <script src="translations.js"></script>
     <style>
         :root {
-            --primary-blue: #1a365d;
-            --accent-blue: #2c5282;
+            --primary-green: #1a5d1a;
+            --accent-green: #2c822c;
             --light-gray: #f7fafc;
             --dark-gray: #4a5568;
             --text-color: #2d3748;
             --white: #ffffff;
+            --hover-green: #236823;
+            --light-green: #f0fff4;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 25px rgba(34, 104, 35, 0.15);
         }
         
         * {
@@ -26,13 +30,18 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--white);
+            font-size: 16px;
         }
         
+        /* Header & Navigation */
         header {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             color: var(--white);
             padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         nav {
@@ -41,188 +50,361 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
         
-        .logo {
-            font-size: 1.5rem;
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .main-title {
+            font-size: 1.25rem;
             font-weight: 700;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
         }
         
-        .tagline {
-            font-size: 0.9rem;
+        .subtitle {
+            font-size: 0.75rem;
             opacity: 0.9;
+            color: #c6f6d5;
         }
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             align-items: center;
         }
         
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
         
         .nav-links a:hover {
-            text-decoration: underline;
+            background-color: var(--hover-green);
         }
         
         .language-selector {
             position: relative;
-            display: inline-block;
         }
         
         .language-dropdown {
             background: var(--white);
-            color: var(--primary-blue);
+            color: var(--primary-green);
             border: 1px solid #e2e8f0;
             border-radius: 4px;
-            padding: 0.4rem 0.8rem;
-            font-size: 0.9rem;
+            padding: 0.4rem 2rem 0.4rem 0.8rem;
+            font-size: 0.85rem;
             cursor: pointer;
             min-width: 140px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
         }
         
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: var(--primary-green);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .mobile-nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        
+        .mobile-nav-links a:hover {
+            background-color: var(--hover-green);
+        }
+        
+        .mobile-language-selector {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .mobile-language-selector select {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        /* Main Content */
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
         
-        .about-content {
-            max-width: 800px;
+        .breadcrumb {
+            margin: 1rem 0;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+        
+        .about-hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
+            border-radius: 12px;
+            margin: 1rem 0 3rem;
+        }
+        
+        .about-hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 600px;
             margin: 0 auto;
+            line-height: 1.6;
         }
         
-        .mission-statement {
-            background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            border-left: 4px solid var(--accent-blue);
+        .mission-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+            align-items: center;
         }
         
-        .principles {
-            margin: 3rem 0;
+        .mission-content h2 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
         }
         
-        .principle-item {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--white);
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
+        .mission-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
         }
         
-        .principle-item h3 {
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
+        .mission-image {
+            text-align: center;
         }
         
-        .team-section {
+        .mission-icon {
+            font-size: 8rem;
+            opacity: 0.8;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             margin: 4rem 0;
         }
         
-        .team-grid {
+        .feature-card {
+            background: var(--white);
+            border: 2px solid #c6f6d5;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-green);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .stats-section {
+            background: var(--light-green);
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            margin: 4rem 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
         
-        .team-member {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--white);
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .team-member h4 {
-            color: var(--primary-blue);
-            margin: 1rem 0 0.5rem;
-        }
-        
-        .team-role {
-            color: var(--dark-gray);
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        .video-section {
-            margin: 4rem 0;
-            padding: 2rem;
-            background: var(--light-gray);
-            border-radius: 10px;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            margin: 1rem 0;
-            border-radius: 8px;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-        
-        .stat-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .stat-number {
+        .stat-item h3 {
             font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--accent-blue);
+            color: var(--primary-green);
             margin-bottom: 0.5rem;
         }
         
-        .stat-label {
+        .stat-item p {
             color: var(--dark-gray);
-            font-size: 0.9rem;
+            font-weight: 600;
         }
         
         footer {
-            background: var(--primary-blue);
+            background: var(--primary-green);
             color: var(--white);
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
         
+        /* Mobile Styles */
         @media (max-width: 768px) {
             .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
             }
             
-            .team-grid {
-                grid-template-columns: 1fr;
+            .mobile-menu-btn {
+                display: block;
             }
-
+            
+            .main-title {
+                font-size: 1.1rem;
+            }
+            
+            .subtitle {
+                font-size: 0.7rem;
+            }
+            
+            .about-hero {
+                padding: 2rem 1rem;
+                margin: 0.5rem 0 2rem;
+            }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .mission-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 2rem 0;
+            }
+            
+            .mission-content h2 {
+                font-size: 1.75rem;
+            }
+            
+            .mission-icon {
+                font-size: 6rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .stats-section {
+                padding: 2rem 1rem;
+                margin: 2rem 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+            
+            main {
+                padding: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .about-hero p {
+                font-size: 1rem;
+            }
+            
+            .mission-icon {
+                font-size: 4rem;
+            }
+            
             .stats-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                padding: 1.2rem;
+            }
+            
+            nav {
+                padding: 0 0.5rem;
             }
         }
     </style>
@@ -230,118 +412,163 @@
 <body>
     <header>
         <nav>
-            <div class="logo" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
-            <div class="tagline" data-translate="tagline">The Primary Reference</div>
+            <div class="logo-container">
+                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
+                <div class="subtitle" data-translate="tagline">The Primary Reference</div>
+            </div>
+            
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
-                <a href="science-education.html" data-translate="categories">Categories</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html">Global Resources</a>
+                <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
-                        <option value="en">English</option>
-                        <option value="ru">Русский</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                        <option value="hy">Հայերեն</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="hy">🇦🇲 Հայերեն</option>
+                        <option value="ru">🇷🇺 Русский</option>
                     </select>
                 </div>
             </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </nav>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-links">
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html">Global Resources</a>
+                <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
+            </div>
+            <div class="mobile-language-selector">
+                <select id="mobileLanguageSelect">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="hy">🇦🇲 Հայերեն</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                </select>
+            </div>
+        </div>
     </header>
 
     <main>
-        <div class="about-content">
-            <h1 data-translate="about">About Reference Guides, Links, Primary Sources</h1>
-            
-            <div class="mission-statement">
-                <h2 data-translate="missionTitle">Our Mission</h2>
-                <p data-translate="missionText">To create a comprehensive collection of reference materials, verified links, and primary sources, providing direct access to original information without distortion.</p>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">10,000+</div>
-                    <div class="stat-label" data-translate="statSources">Primary Sources</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label" data-translate="statCategories">Categories</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">6</div>
-                    <div class="stat-label" data-translate="statLanguages">Languages</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label" data-translate="statAccess">Access</div>
-                </div>
-            </div>
-            
-            <div class="principles">
-                <h2 data-translate="principlesTitle">Our Principles</h2>
-                
-                <div class="principle-item">
-                    <h3 data-translate="principle1Title">Source Verification</h3>
-                    <p data-translate="principle1Text">Every reference and link is thoroughly checked for authenticity and leads directly to the original source.</p>
-                </div>
-                
-                <div class="principle-item">
-                    <h3 data-translate="principle2Title">No Distortion</h3>
-                    <p data-translate="principle2Text">We provide information in its original form, without editorial changes, interpretations, or abbreviations.</p>
-                </div>
-                
-                <div class="principle-item">
-                    <h3 data-translate="principle3Title">Comprehensive Coverage</h3>
-                    <p data-translate="principle3Text">A wide range of reference materials and links covering various fields of knowledge.</p>
-                </div>
-                
-                <div class="principle-item">
-                    <h3 data-translate="principle4Title">Accessibility</h3>
-                    <p data-translate="principle4Text">Clear organization and convenient search through all reference materials and sources.</p>
-                </div>
-            </div>
-            
-            <div class="team-section">
-                <h2 data-translate="teamTitle">Our Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <h4 data-translate="teamMember1">Dr. Elena Petrova</h4>
-                        <p class="team-role" data-translate="teamRole1">Chief Reference Specialist</p>
-                        <p data-translate="teamDesc1">Expert in documentation and source verification with 15 years experience</p>
-                    </div>
-                    <div class="team-member">
-                        <h4 data-translate="teamMember2">Marcus Johnson</h4>
-                        <p class="team-role" data-translate="teamRole2">Link Database Curator</p>
-                        <p data-translate="teamDesc2">Specialist in digital references and source links management</p>
-                    </div>
-                    <div class="team-member">
-                        <h4 data-translate="teamMember3">Sarah Chen</h4>
-                        <p class="team-role" data-translate="teamRole3">Technical Director</p>
-                        <p data-translate="teamDesc3">Expert in reference systems and database architecture</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video-section">
-                <h2 data-translate="aboutVideo">About Our Project</h2>
-                <p data-translate="videoAboutDesc">Learn more about our mission and methodology in this introductory video</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
+        <div class="breadcrumb">
+            <a href="index.html" data-translate="home">Home</a> > <span data-translate="about">About</span>
         </div>
+        
+        <section class="about-hero">
+            <h1 data-translate="about">About The Primary Reference</h1>
+            <p>Empowering learners worldwide with comprehensive access to educational resources and research materials</p>
+        </section>
+
+        <section class="mission-section">
+            <div class="mission-content">
+                <h2>Our Mission</h2>
+                <p>The Primary Reference was created to bridge the gap between learners and high-quality educational resources. In an era of information overload, we curate and organize the most valuable academic materials, making them easily accessible to students, researchers, and lifelong learners worldwide.</p>
+                <p>We believe that education should be borderless, multilingual, and freely accessible to everyone. Our platform serves as a centralized hub connecting users with universities, research databases, learning platforms, and primary sources across all major disciplines.</p>
+                <p>By providing organized, verified, and multilingual access to educational resources, we aim to support academic excellence and foster global knowledge sharing.</p>
+            </div>
+            <div class="mission-image">
+                <div class="mission-icon">🌍</div>
+            </div>
+        </section>
+
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Curated Quality</h3>
+                <p>Every resource is carefully selected and verified for academic credibility and educational value</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Global Reach</h3>
+                <p>Resources from top institutions worldwide, accessible in multiple languages</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🆓</div>
+                <h3>Free Access</h3>
+                <p>All resources are freely available, supporting open education initiatives</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Always Growing</h3>
+                <p>Regular updates with new resources and expanded subject coverage</p>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <h2>Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Educational Resources</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Countries Represented</p>
+                </div>
+                <div class="stat-item">
+                    <h3>6</h3>
+                    <p>Languages Supported</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Global Access</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p data-translate="footerText">Reference Guides, Links, Primary Sources — Direct access to verified information.</p>
+        <p data-translate="footerText">Reference Guides, Links, Primary Sources — The Primary Reference</p>
     </footer>
 
     <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileLanguageSelect = document.getElementById('mobileLanguageSelect');
+        const desktopLanguageSelect = document.getElementById('languageSelect');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Sync language selects
+        function syncLanguageSelects(value) {
+            desktopLanguageSelect.value = value;
+            mobileLanguageSelect.value = value;
+        }
+
+        desktopLanguageSelect.addEventListener('change', function() {
+            syncLanguageSelects(this.value);
+            loadLanguage(this.value);
+        });
+
+        mobileLanguageSelect.addEventListener('change', function() {
+            syncLanguageSelects(this.value);
+            loadLanguage(this.value);
+        });
+
+        // Language loading function
         function loadLanguage(language) {
             const elements = document.querySelectorAll('[data-translate]');
             elements.forEach(element => {
@@ -356,17 +583,21 @@
             if (translations[language] && translations[language]['siteTitle']) {
                 document.title = translations[language]['about'] + ' - ' + translations[language]['siteTitle'];
             }
+            
+            localStorage.setItem('preferredLanguage', language);
         }
 
-        document.getElementById('languageSelect').addEventListener('change', function() {
-            const language = this.value;
-            loadLanguage(language);
-            localStorage.setItem('preferredLanguage', language);
-        });
-
+        // Initialize
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-        document.getElementById('languageSelect').value = savedLanguage;
+        syncLanguageSelects(savedLanguage);
         loadLanguage(savedLanguage);
+
+        // Handle resize - close mobile menu on larger screens
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileNav.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
