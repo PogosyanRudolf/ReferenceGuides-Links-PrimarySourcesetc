@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science & Education - Reference Guides, Links, Primary Sources</title>
+    <title>Science & Education - Standard Reference</title>
     <script src="translations.js"></script>
     <style>
         :root {
@@ -15,6 +15,8 @@
             --white: #ffffff;
             --hover-green: #236823;
             --light-green: #f0fff4;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 25px rgba(34, 104, 35, 0.15);
         }
         
         * {
@@ -28,13 +30,15 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--white);
+            font-size: 16px;
         }
         
+        /* Header & Navigation */
         header {
             background: var(--primary-green);
             color: var(--white);
             padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -46,7 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
         
         .logo-container {
@@ -56,28 +60,29 @@
         }
         
         .main-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.2rem;
+            line-height: 1.2;
         }
         
         .subtitle {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.9;
             color: #c6f6d5;
         }
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             align-items: center;
         }
         
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            font-size: 0.95rem;
-            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 4px;
             transition: background-color 0.3s;
         }
@@ -95,21 +100,83 @@
             color: var(--primary-green);
             border: 1px solid #e2e8f0;
             border-radius: 4px;
-            padding: 0.5rem 2.5rem 0.5rem 0.8rem;
-            font-size: 0.9rem;
+            padding: 0.4rem 2rem 0.4rem 0.8rem;
+            font-size: 0.85rem;
             cursor: pointer;
-            min-width: 160px;
+            min-width: 140px;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 0.7rem center;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
         }
         
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: var(--primary-green);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .mobile-nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        
+        .mobile-nav-links a:hover {
+            background-color: var(--hover-green);
+        }
+        
+        .mobile-language-selector {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .mobile-language-selector select {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        /* Main Content */
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
         
         .breadcrumb {
@@ -123,77 +190,47 @@
             text-decoration: none;
         }
         
-        .science-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .science-category {
-            background: var(--white);
-            border: 2px solid #c6f6d5;
-            border-radius: 10px;
-            padding: 1.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .science-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(34, 104, 35, 0.1);
-            border-color: var(--accent-green);
-        }
-        
-        .science-category h3 {
+        h1 {
+            font-size: 2rem;
             color: var(--primary-green);
             margin-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-green);
-            padding-bottom: 0.5rem;
         }
         
-        .subjects-list {
-            list-style: none;
+        .page-description {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
         
-        .subjects-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .subjects-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .subjects-list a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .subjects-list a:hover {
-            color: var(--accent-green);
-        }
-        
+        /* Online Resources Section */
         .online-resources-section {
-            margin: 4rem 0;
-            padding: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
             background: var(--light-green);
             border-radius: 10px;
             border: 2px solid #c6f6d5;
         }
         
+        .online-resources-section h2 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         
         .resource-category {
             background: var(--white);
             border-radius: 8px;
             padding: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            border: 1px solid #c6f6d5;
         }
         
         .resource-category h3 {
@@ -201,6 +238,7 @@
             margin-bottom: 1rem;
             border-bottom: 1px solid #c6f6d5;
             padding-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
         
         .resources-list {
@@ -221,18 +259,105 @@
             text-decoration: none;
             transition: color 0.3s;
             display: block;
+            font-size: 0.95rem;
         }
         
         .resources-list a:hover {
             color: var(--accent-green);
         }
         
+        /* Science Grid */
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .science-category {
+            background: var(--white);
+            border: 2px solid #c6f6d5;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .science-category:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-green);
+        }
+        
+        .science-category h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .science-category h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .subjects-list {
+            list-style: none;
+        }
+        
+        .subjects-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .subjects-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .subjects-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .subjects-list a:hover {
+            color: var(--accent-green);
+        }
+        
+        /* Video Section */
         .video-section {
-            margin: 4rem 0;
-            padding: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
             background: var(--light-green);
             border-radius: 10px;
             border: 2px solid #c6f6d5;
+        }
+        
+        .video-section h2 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .video-section > p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .video-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #c6f6d5;
         }
         
         .video-container {
@@ -240,9 +365,7 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
             background: #000;
-            margin-bottom: 1rem;
         }
         
         .video-container iframe {
@@ -255,57 +378,122 @@
         }
         
         .video-info {
-            padding: 1rem 0;
+            padding: 1rem;
         }
         
-        .video-info h3 {
+        .video-info h4 {
             color: var(--primary-green);
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
         
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .video-card {
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border: 1px solid #c6f6d5;
-        }
-        
-        .video-card .video-info {
-            padding: 1rem;
+        .video-info p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
         
         footer {
             background: var(--primary-green);
             color: var(--white);
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
         
+        /* Mobile Styles */
         @media (max-width: 768px) {
             .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
             }
             
-            .science-grid {
-                grid-template-columns: 1fr;
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .video-grid {
-                grid-template-columns: 1fr;
+            .main-title {
+                font-size: 1.1rem;
+            }
+            
+            .subtitle {
+                font-size: 0.7rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .page-description {
+                font-size: 1rem;
+            }
+            
+            .online-resources-section {
+                padding: 1rem;
+                margin: 1.5rem 0;
+            }
+            
+            .online-resources-section h2 {
+                font-size: 1.3rem;
             }
             
             .resources-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .resource-category {
+                padding: 1.2rem;
+            }
+            
+            .science-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .science-category {
+                padding: 1.2rem;
+            }
+            
+            .video-section {
+                padding: 1rem;
+                margin: 1.5rem 0;
+            }
+            
+            .video-section h2 {
+                font-size: 1.3rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            main {
+                padding: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .online-resources-section,
+            .video-section {
+                padding: 1rem;
+            }
+            
+            .resource-category,
+            .science-category {
+                padding: 1rem;
+            }
+            
+            nav {
+                padding: 0 0.5rem;
+            }
+            
+            .breadcrumb {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -315,10 +503,13 @@
         <nav>
             <div class="logo-container">
                 <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
-                <div class="subtitle" data-translate="tagline">The Primary Reference</div>
+                <div class="subtitle" data-translate="tagline">Standard Reference</div>
             </div>
+            
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
@@ -332,7 +523,29 @@
                     </select>
                 </div>
             </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </nav>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-links">
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
+                <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
+            </div>
+            <div class="mobile-language-selector">
+                <select id="mobileLanguageSelect">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="hy">🇦🇲 Հայերեն</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                </select>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -341,7 +554,7 @@
         </div>
         
         <h1 data-translate="science">Science & Education</h1>
-        <p data-translate="scienceDesc">Collection of reference guides, links to available online educational resources and research materials across several main disciplines.</p>
+        <p class="page-description" data-translate="scienceDesc">Collection of reference guides, links to available online educational resources and research materials across several main disciplines.</p>
         
         <!-- Online Resources Section -->
         <div class="online-resources-section">
@@ -353,205 +566,4 @@
                         <li><a href="https://ocw.mit.edu" target="_blank">MIT OpenCourseWare</a></li>
                         <li><a href="https://online-learning.harvard.edu" target="_blank">Harvard Online Learning</a></li>
                         <li><a href="https://online.stanford.edu" target="_blank">Stanford Online</a></li>
-                        <li><a href="https://www.coursera.org/princeton" target="_blank">Princeton University</a></li>
-                        <li><a href="https://www.cambridge.org" target="_blank">Cambridge University</a></li>
-                        <li><a href="https://www.ox.ac.uk" target="_blank">Oxford University</a></li>
-                    </ul>
-                </div>
-                
-                <div class="resource-category">
-                    <h3 data-translate="learningPlatforms">Learning Platforms</h3>
-                    <ul class="resources-list">
-                        <li><a href="https://www.coursera.org" target="_blank">Coursera</a></li>
-                        <li><a href="https://www.edx.org" target="_blank">edX</a></li>
-                        <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy</a></li>
-                        <li><a href="https://foxford.ru" target="_blank">Foxford - Online School</a></li>
-                        <li><a href="https://uchi.ru" target="_blank">Uchi.ru - Interactive Learning</a></li>
-                        <li><a href="https://yaklass.ru" target="_blank">YaKlass - Digital Education</a></li>
-                        <li><a href="https://interneturok.ru" target="_blank">InternetUrok - Video Lessons</a></li>
-                        <li><a href="https://www.udemy.com" target="_blank">Udemy</a></li>
-                        <li><a href="https://www.udacity.com" target="_blank">Udacity</a></li>
-                        <li><a href="https://www.futurelearn.com" target="_blank">FutureLearn</a></li>
-                    </ul>
-                </div>
-                
-                <div class="resource-category">
-                    <h3 data-translate="researchAcademic">Research & Academic</h3>
-                    <ul class="resources-list">
-                        <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
-                        <li><a href="https://www.researchgate.net" target="_blank">ResearchGate</a></li>
-                        <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
-                        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">PubMed Central</a></li>
-                        <li><a href="https://www.jstor.org" target="_blank">JSTOR</a></li>
-                        <li><a href="https://www.sciencedirect.com" target="_blank">ScienceDirect</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <div class="science-grid">
-            <!-- Applied Sciences -->
-            <div class="science-category">
-                <h3><a href="applied-sciences.html" style="color: var(--primary-green); text-decoration: none;">Applied Sciences</a></h3>
-                <ul class="subjects-list">
-                    <li><a href="applied-sciences.html#engineering">Engineering</a></li>
-                    <li><a href="applied-sciences.html#medicine">Medicine & Healthcare</a></li>
-                    <li><a href="applied-sciences.html#architecture">Architecture</a></li>
-                    <li><a href="applied-sciences.html#agriculture">Agricultural Science</a></li>
-                    <li><a href="applied-sciences.html#materials">Materials Science</a></li>
-                    <li><a href="applied-sciences.html#robotics">Robotics & Automation</a></li>
-                </ul>
-            </div>
-
-            <!-- Formal Sciences -->
-            <div class="science-category">
-                <h3><a href="formal-sciences.html" style="color: var(--primary-green); text-decoration: none;">Formal Sciences</a></h3>
-                <ul class="subjects-list">
-                    <li><a href="formal-sciences.html#mathematics">Mathematics</a></li>
-                    <li><a href="formal-sciences.html#computerscience">Computer Science</a></li>
-                    <li><a href="formal-sciences.html#ai">Artificial Intelligence</a></li>
-                    <li><a href="formal-sciences.html#statistics">Statistics & Data Science</a></li>
-                    <li><a href="formal-sciences.html#cybersecurity">Cybersecurity</a></li>
-                    <li><a href="formal-sciences.html#programming">Programming</a></li>
-                </ul>
-            </div>
-
-            <!-- Natural Sciences -->
-            <div class="science-category">
-                <h3><a href="natural-sciences.html" style="color: var(--primary-green); text-decoration: none;">Natural Sciences</a></h3>
-                <ul class="subjects-list">
-                    <li><a href="natural-sciences.html#physics">Physics & Astrophysics</a></li>
-                    <li><a href="natural-sciences.html#chemistry">Chemistry & Biochemistry</a></li>
-                    <li><a href="natural-sciences.html#biology">Biology & Genetics</a></li>
-                    <li><a href="natural-sciences.html#astronomy">Astronomy & Space Science</a></li>
-                    <li><a href="natural-sciences.html#geology">Geology & Earth Sciences</a></li>
-                    <li><a href="natural-sciences.html#environmental">Environmental Science</a></li>
-                </ul>
-            </div>
-
-            <!-- Social Sciences & Humanities -->
-            <div class="science-category">
-                <h3><a href="social-sciences.html" style="color: var(--primary-green); text-decoration: none;">Social Sciences & Humanities</a></h3>
-                <ul class="subjects-list">
-                    <li><a href="social-sciences.html#economics">Economics</a></li>
-                    <li><a href="social-sciences.html#psychology">Psychology</a></li>
-                    <li><a href="social-sciences.html#history">History</a></li>
-                    <li><a href="social-sciences.html#linguistics">Linguistics</a></li>
-                    <li><a href="social-sciences.html#philosophy">Philosophy</a></li>
-                    <li><a href="social-sciences.html#languages">Language Learning</a></li>
-                </ul>
-            </div>
-
-            <!-- Languages -->
-            <div class="science-category">
-                <h3><a href="languages.html" style="color: var(--primary-green); text-decoration: none;">Languages</a></h3>
-                <ul class="subjects-list">
-                    <li><a href="languages.html#english">English Language</a></li>
-                    <li><a href="languages.html#russian">Russian Language</a></li>
-                    <li><a href="languages.html#spanish">Spanish Language</a></li>
-                    <li><a href="languages.html#french">French Language</a></li>
-                    <li><a href="languages.html#german">German Language</a></li>
-                    <li><a href="languages.html#armenian">Armenian Language</a></li>
-                </ul>
-            </div>
-
-            <!-- Arts & Culture -->
-            <div class="science-category">
-                <h3><a href="arts-culture.html" style="color: var(--primary-green); text-decoration: none;">Arts & Culture</a></h3>
-                <ul class="subjects-list">
-                    <li><a href="arts-culture.html#arthistory">Art History</a></li>
-                    <li><a href="arts-culture.html#literature">Literature</a></li>
-                    <li><a href="arts-culture.html#music">Musicology</a></li>
-                    <li><a href="arts-culture.html#film">Film Studies</a></li>
-                    <li><a href="arts-culture.html#theatre">Theatre Studies</a></li>
-                    <li><a href="arts-culture.html#cultural">Cultural Studies</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="video-section">
-            <h2>Educational Video Materials</h2>
-            <p>University lectures and educational content from top institutions</p>
-            
-            <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/0jFL6l2g3q4" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                title="Harvard CS50 - Introduction to Computer Science">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>Harvard CS50 - Computer Science</h4>
-                        <p>Introduction to Computer Science from Harvard University</p>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/7IQSK7n8REY" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                title="MIT Quantum Physics Lecture">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>MIT - Quantum Physics</h4>
-                        <p>Quantum mechanics lecture from Massachusetts Institute of Technology</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/bHX_8L6d-t0" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                title="Stanford Machine Learning Course">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>Stanford - Machine Learning</h4>
-                        <p>Machine learning course from Stanford University</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p>Reference Guides, Links, Primary Sources — The Primary Reference</p>
-    </footer>
-
-    <script>
-        function loadLanguage(language) {
-            const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[language] && translations[language][key]) {
-                    element.textContent = translations[language][key];
-                }
-            });
-            
-            document.documentElement.lang = language;
-            
-            if (translations[language] && translations[language]['siteTitle']) {
-                document.title = translations[language]['science'] + ' - ' + translations[language]['siteTitle'];
-            }
-        }
-
-        document.getElementById('languageSelect').addEventListener('change', function() {
-            const language = this.value;
-            loadLanguage(language);
-            localStorage.setItem('preferredLanguage', language);
-        });
-
-        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-        document.getElementById('languageSelect').value = savedLanguage;
-        loadLanguage(savedLanguage);
-    </script>
-</body>
-</html>
+                        <li><a href="https://www.coursera.org/princeton
