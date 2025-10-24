@@ -107,11 +107,51 @@
             background-size: 12px;
         }
         
-        .language-option {
-            padding: 8px;
+        .custom-select-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .custom-select-display {
+            padding: 0.5rem 2.5rem 0.5rem 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            min-width: 160px;
             display: flex;
             align-items: center;
             gap: 8px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+        }
+        
+        .custom-select-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .custom-option {
+            padding: 0.5rem 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .custom-option:hover {
+            background: var(--light-green);
         }
         
         .flag-icon {
@@ -299,7 +339,7 @@
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
-                    <select class="language-dropdown" id="languageSelect">
+                    <select class="language-dropdown" id="languageSelect" style="display: none;">
                         <option value="de">Deutsch</option>
                         <option value="en">English</option>
                         <option value="es">Español</option>
@@ -307,6 +347,7 @@
                         <option value="hy">Հայերեն</option>
                         <option value="ru">Русский</option>
                     </select>
+                    <div class="custom-select-wrapper" id="customSelectWrapper"></div>
                 </div>
             </div>
         </nav>
@@ -407,7 +448,7 @@
         <div class="video-section">
             <div class="classic-intro-video">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/6OoNijn-D_0?start=5" 
+                    <iframe src="https://ya.ru/video/preview/9674936585598779539" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen
@@ -490,67 +531,25 @@
             }
         }
 
-        document.getElementById('languageSelect').addEventListener('change', function() {
-            const language = this.value;
-            loadLanguage(language);
-            localStorage.setItem('preferredLanguage', language);
-        });
-
-        // Custom flags implementation
+        // Custom select with flags
         function createCustomSelect() {
             const select = document.getElementById('languageSelect');
-            const wrapper = document.createElement('div');
-            wrapper.className = 'custom-select-wrapper';
-            wrapper.style.position = 'relative';
-            wrapper.style.display = 'inline-block';
+            const wrapper = document.getElementById('customSelectWrapper');
             
             const display = document.createElement('div');
             display.className = 'custom-select-display';
-            display.style.padding = '0.5rem 2.5rem 0.5rem 0.8rem';
-            display.style.border = '1px solid #e2e8f0';
-            display.style.borderRadius = '4px';
-            display.style.background = 'white';
-            display.style.cursor = 'pointer';
-            display.style.minWidth = '160px';
-            display.style.display = 'flex';
-            display.style.alignItems = 'center';
-            display.style.gap = '8px';
-            
-            // Add dropdown arrow
-            display.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E\")";
-            display.style.backgroundRepeat = 'no-repeat';
-            display.style.backgroundPosition = 'right 0.7rem center';
             
             const optionsList = document.createElement('div');
             optionsList.className = 'custom-select-options';
-            optionsList.style.display = 'none';
-            optionsList.style.position = 'absolute';
-            optionsList.style.top = '100%';
-            optionsList.style.left = '0';
-            optionsList.style.right = '0';
-            optionsList.style.background = 'white';
-            optionsList.style.border = '1px solid #e2e8f0';
-            optionsList.style.borderRadius = '4px';
-            optionsList.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-            optionsList.style.zIndex = '1000';
-            optionsList.style.maxHeight = '200px';
-            optionsList.style.overflowY = 'auto';
             
             // Create options
             Array.from(select.options).forEach(option => {
                 const optionDiv = document.createElement('div');
                 optionDiv.className = 'custom-option';
-                optionDiv.style.padding = '0.5rem 0.8rem';
-                optionDiv.style.cursor = 'pointer';
-                optionDiv.style.display = 'flex';
-                optionDiv.style.alignItems = 'center';
-                optionDiv.style.gap = '8px';
                 optionDiv.dataset.value = option.value;
                 
                 const flag = document.createElement('span');
                 flag.className = 'flag-icon flag-' + option.value;
-                flag.style.width = '20px';
-                flag.style.height = '15px';
                 
                 const text = document.createElement('span');
                 text.textContent = option.text;
@@ -574,8 +573,6 @@
             const initialOption = select.options[select.selectedIndex];
             const initialFlag = document.createElement('span');
             initialFlag.className = 'flag-icon flag-' + initialOption.value;
-            initialFlag.style.width = '20px';
-            initialFlag.style.height = '15px';
             
             const initialText = document.createElement('span');
             initialText.textContent = initialOption.text;
@@ -596,8 +593,6 @@
             
             wrapper.appendChild(display);
             wrapper.appendChild(optionsList);
-            select.parentNode.insertBefore(wrapper, select);
-            select.style.display = 'none';
         }
 
         // Initialize
@@ -605,6 +600,13 @@
         document.getElementById('languageSelect').value = savedLanguage;
         loadLanguage(savedLanguage);
         
+        // Event listener for language change
+        document.getElementById('languageSelect').addEventListener('change', function() {
+            const language = this.value;
+            loadLanguage(language);
+            localStorage.setItem('preferredLanguage', language);
+        });
+
         // Create custom select after DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             createCustomSelect();
