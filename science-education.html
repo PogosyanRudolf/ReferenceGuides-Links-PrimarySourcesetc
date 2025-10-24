@@ -91,22 +91,6 @@
             display: inline-block;
         }
         
-        .language-dropdown {
-            background: var(--white);
-            color: var(--primary-green);
-            border: 1px solid #e2e8f0;
-            border-radius: 4px;
-            padding: 0.5rem 2.5rem 0.5rem 0.8rem;
-            font-size: 0.9rem;
-            cursor: pointer;
-            min-width: 160px;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.7rem center;
-            background-size: 12px;
-        }
-        
         .custom-select-wrapper {
             position: relative;
             display: inline-block;
@@ -118,7 +102,7 @@
             border-radius: 4px;
             background: white;
             cursor: pointer;
-            min-width: 160px;
+            min-width: 180px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -138,7 +122,7 @@
             border-radius: 4px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             z-index: 1000;
-            max-height: 200px;
+            max-height: 300px;
             overflow-y: auto;
         }
         
@@ -154,6 +138,11 @@
             background: var(--light-green);
         }
         
+        .country-name {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
         .flag-icon {
             display: inline-block;
             width: 20px;
@@ -162,6 +151,7 @@
             background-position: center;
             border: 1px solid #ddd;
             border-radius: 2px;
+            flex-shrink: 0;
         }
         
         .flag-en { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%2300247e" d="M0 0h60v30H0z"/><path stroke="%23fff" stroke-width="6" d="M0 0l60 30m0-30L0 30"/><path stroke="%23c8102e" stroke-width="4" d="M0 0l60 30m0-30L0 30"/><path stroke="%23fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="%23c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg>'); }
@@ -340,12 +330,12 @@
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect" style="display: none;">
-                        <option value="de">Deutsch</option>
-                        <option value="en">English</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="hy">Հայերեն</option>
-                        <option value="ru">Русский</option>
+                        <option value="en">English (United Kingdom)</option>
+                        <option value="de">German (Germany)</option>
+                        <option value="es">Spanish (Spain)</option>
+                        <option value="fr">French (France)</option>
+                        <option value="hy">Armenian (Armenia)</option>
+                        <option value="ru">Russian (Russia)</option>
                     </select>
                     <div class="custom-select-wrapper" id="customSelectWrapper"></div>
                 </div>
@@ -372,6 +362,11 @@
                     <li><a href="#" data-translate="geology">Geology & Earth Sciences</a></li>
                     <li><a href="#" data-translate="astronomy">Astronomy & Space Science</a></li>
                     <li><a href="#" data-translate="environmental">Environmental Science</a></li>
+                    <li><a href="#">Oceanography & Marine Science</a></li>
+                    <li><a href="#">Meteorology & Climate Science</a></li>
+                    <li><a href="#">Paleontology & Evolutionary Biology</a></li>
+                    <li><a href="#">Botany & Plant Sciences</a></li>
+                    <li><a href="#">Zoology & Animal Sciences</a></li>
                 </ul>
             </div>
             
@@ -385,6 +380,11 @@
                     <li><a href="#" data-translate="logic">Logic & Philosophy of Science</a></li>
                     <li><a href="#" data-translate="ai">Artificial Intelligence</a></li>
                     <li><a href="#" data-translate="cybersecurity">Cybersecurity</a></li>
+                    <li><a href="#">Theoretical Computer Science</a></li>
+                    <li><a href="#">Computational Mathematics</a></li>
+                    <li><a href="#">Information Theory</a></li>
+                    <li><a href="#">Game Theory</a></li>
+                    <li><a href="#">Cryptography</a></li>
                 </ul>
             </div>
             
@@ -402,6 +402,10 @@
                     <li><a href="#" data-translate="gameDev">Game Development</a></li>
                     <li><a href="#" data-translate="mlProgramming">Machine Learning Programming</a></li>
                     <li><a href="#" data-translate="embedded">Embedded Systems</a></li>
+                    <li><a href="#">Functional Programming</a></li>
+                    <li><a href="#">Software Architecture</a></li>
+                    <li><a href="#">Testing & QA</a></li>
+                    <li><a href="#">Version Control (Git)</a></li>
                 </ul>
             </div>
             
@@ -415,6 +419,11 @@
                     <li><a href="#" data-translate="politicalScience">Political Science</a></li>
                     <li><a href="#" data-translate="anthropology">Anthropology</a></li>
                     <li><a href="#" data-translate="linguistics">Linguistics</a></li>
+                    <li><a href="#">Archaeology</a></li>
+                    <li><a href="#">Geography</a></li>
+                    <li><a href="#">Demography</a></li>
+                    <li><a href="#">International Relations</a></li>
+                    <li><a href="#">Communication Studies</a></li>
                 </ul>
             </div>
 
@@ -428,6 +437,11 @@
                     <li><a href="#" data-translate="frenchLang">French Language</a></li>
                     <li><a href="#" data-translate="germanLang">German Language</a></li>
                     <li><a href="#" data-translate="armenianLang">Armenian Language</a></li>
+                    <li><a href="#">Chinese (Mandarin)</a></li>
+                    <li><a href="#">Japanese</a></li>
+                    <li><a href="#">Arabic</a></li>
+                    <li><a href="#">Italian</a></li>
+                    <li><a href="#">Portuguese</a></li>
                 </ul>
             </div>
             
@@ -441,6 +455,45 @@
                     <li><a href="#" data-translate="architecture">Architecture</a></li>
                     <li><a href="#" data-translate="materialsScience">Materials Science</a></li>
                     <li><a href="#" data-translate="nanotechnology">Nanotechnology</a></li>
+                    <li><a href="#">Biotechnology</a></li>
+                    <li><a href="#">Pharmaceutical Sciences</a></li>
+                    <li><a href="#">Food Science</a></li>
+                    <li><a href="#">Environmental Engineering</a></li>
+                    <li><a href="#">Robotics & Automation</a></li>
+                </ul>
+            </div>
+
+            <!-- Humanities -->
+            <div class="science-category">
+                <h3>Humanities</h3>
+                <ul class="subjects-list">
+                    <li><a href="#">Philosophy</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Literature</a></li>
+                    <li><a href="#">Religious Studies</a></li>
+                    <li><a href="#">Art History</a></li>
+                    <li><a href="#">Cultural Studies</a></li>
+                    <li><a href="#">Musicology</a></li>
+                    <li><a href="#">Theatre Studies</a></li>
+                    <li><a href="#">Film Studies</a></li>
+                    <li><a href="#">Classical Studies</a></li>
+                </ul>
+            </div>
+
+            <!-- Interdisciplinary Sciences -->
+            <div class="science-category">
+                <h3>Interdisciplinary Sciences</h3>
+                <ul class="subjects-list">
+                    <li><a href="#">Cognitive Science</a></li>
+                    <li><a href="#">Bioinformatics</a></li>
+                    <li><a href="#">Environmental Studies</a></li>
+                    <li><a href="#">Neuroscience</a></li>
+                    <li><a href="#">Biophysics</a></li>
+                    <li><a href="#">Computational Biology</a></li>
+                    <li><a href="#">Science & Technology Studies</a></li>
+                    <li><a href="#">Digital Humanities</a></li>
+                    <li><a href="#">Urban Studies</a></li>
+                    <li><a href="#">Sustainability Science</a></li>
                 </ul>
             </div>
         </div>
@@ -515,6 +568,16 @@
     </footer>
 
     <script>
+        // Language data with countries and sorting
+        const languageData = [
+            { code: 'en', name: 'English', country: 'United Kingdom', flag: 'flag-en' },
+            { code: 'de', name: 'German', country: 'Germany', flag: 'flag-de' },
+            { code: 'es', name: 'Spanish', country: 'Spain', flag: 'flag-es' },
+            { code: 'fr', name: 'French', country: 'France', flag: 'flag-fr' },
+            { code: 'hy', name: 'Armenian', country: 'Armenia', flag: 'flag-hy' },
+            { code: 'ru', name: 'Russian', country: 'Russia', flag: 'flag-ru' }
+        ].sort((a, b) => a.name.localeCompare(b.name));
+
         function loadLanguage(language) {
             const elements = document.querySelectorAll('[data-translate]');
             elements.forEach(element => {
@@ -529,68 +592,84 @@
             if (translations[language] && translations[language]['siteTitle']) {
                 document.title = translations[language]['science'] + ' - ' + translations[language]['siteTitle'];
             }
+            
+            // Update custom select display
+            updateCustomSelectDisplay(language);
         }
 
-        // Custom select with flags
+        function updateCustomSelectDisplay(languageCode) {
+            const language = languageData.find(lang => lang.code === languageCode);
+            if (language && document.getElementById('customDisplay')) {
+                const display = document.getElementById('customDisplay');
+                display.innerHTML = '';
+                
+                const flag = document.createElement('span');
+                flag.className = 'flag-icon ' + language.flag;
+                
+                const text = document.createElement('span');
+                text.className = 'country-name';
+                text.textContent = `${language.name} (${language.country})`;
+                
+                display.appendChild(flag);
+                display.appendChild(text);
+            }
+        }
+
+        // Custom select with flags and countries
         function createCustomSelect() {
             const select = document.getElementById('languageSelect');
             const wrapper = document.getElementById('customSelectWrapper');
-            
+            wrapper.innerHTML = '';
+
             const display = document.createElement('div');
             display.className = 'custom-select-display';
-            
+            display.id = 'customDisplay';
+
             const optionsList = document.createElement('div');
             optionsList.className = 'custom-select-options';
-            
-            // Create options
-            Array.from(select.options).forEach(option => {
+            optionsList.id = 'customOptions';
+
+            // Create options from sorted language data
+            languageData.forEach(lang => {
                 const optionDiv = document.createElement('div');
                 optionDiv.className = 'custom-option';
-                optionDiv.dataset.value = option.value;
+                optionDiv.dataset.value = lang.code;
                 
                 const flag = document.createElement('span');
-                flag.className = 'flag-icon flag-' + option.value;
+                flag.className = 'flag-icon ' + lang.flag;
                 
                 const text = document.createElement('span');
-                text.textContent = option.text;
+                text.className = 'country-name';
+                text.textContent = `${lang.name} (${lang.country})`;
                 
                 optionDiv.appendChild(flag);
                 optionDiv.appendChild(text);
                 
                 optionDiv.addEventListener('click', function() {
                     select.value = this.dataset.value;
-                    display.innerHTML = '';
-                    display.appendChild(flag.cloneNode(true));
-                    display.appendChild(text.cloneNode(true));
+                    updateCustomSelectDisplay(this.dataset.value);
                     optionsList.style.display = 'none';
                     select.dispatchEvent(new Event('change'));
                 });
                 
                 optionsList.appendChild(optionDiv);
             });
-            
+
             // Set initial display
-            const initialOption = select.options[select.selectedIndex];
-            const initialFlag = document.createElement('span');
-            initialFlag.className = 'flag-icon flag-' + initialOption.value;
-            
-            const initialText = document.createElement('span');
-            initialText.textContent = initialOption.text;
-            
-            display.appendChild(initialFlag);
-            display.appendChild(initialText);
-            
+            const initialLang = languageData.find(lang => lang.code === select.value) || languageData[0];
+            updateCustomSelectDisplay(initialLang.code);
+
             // Toggle dropdown
             display.addEventListener('click', function(e) {
                 e.stopPropagation();
                 optionsList.style.display = optionsList.style.display === 'none' ? 'block' : 'none';
             });
-            
+
             // Close dropdown when clicking outside
             document.addEventListener('click', function() {
                 optionsList.style.display = 'none';
             });
-            
+
             wrapper.appendChild(display);
             wrapper.appendChild(optionsList);
         }
@@ -598,7 +677,6 @@
         // Initialize
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         document.getElementById('languageSelect').value = savedLanguage;
-        loadLanguage(savedLanguage);
         
         // Event listener for language change
         document.getElementById('languageSelect').addEventListener('change', function() {
@@ -610,6 +688,7 @@
         // Create custom select after DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             createCustomSelect();
+            loadLanguage(savedLanguage);
         });
     </script>
 </body>
