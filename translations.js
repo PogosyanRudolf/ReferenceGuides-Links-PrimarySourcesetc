@@ -1,19 +1,17 @@
 const translations = {
     en: {
         "siteTitle": "Reference Guides, Links, Primary Sources",
-        "tagline": "The Primary Reference",
+        "tagline": "The Primary Reference", 
         "home": "Home",
-        "about": "About", 
+        "about": "About",
         "contact": "Contact",
         "science": "Science & Education",
         "scienceDesc": "Collection of scientific references, educational resources, and research materials across all disciplines.",
-        
         "onlineResources": "Available Online Resources",
         "topUniversities": "Top Universities",
-        "russianEducation": "Russian Education", 
+        "russianEducation": "Russian Education",
         "learningPlatforms": "Learning Platforms",
         "researchAcademic": "Research & Academic",
-
         "appliedSciences": "Applied Sciences",
         "agriculture": "Agricultural Science",
         "architecture": "Architecture",
@@ -26,7 +24,6 @@ const translations = {
         "nanotechnology": "Nanotechnology",
         "pharmaceuticalSciences": "Pharmaceutical Sciences",
         "roboticsAutomation": "Robotics & Automation",
-
         "formalSciences": "Formal Sciences",
         "ai": "Artificial Intelligence",
         "computerScience": "Computer Science",
@@ -39,7 +36,6 @@ const translations = {
         "mathematics": "Mathematics",
         "statistics": "Statistics & Data Science",
         "theoreticalCS": "Theoretical Computer Science",
-
         "humanities": "Humanities",
         "artHistory": "Art History",
         "classicalStudies": "Classical Studies",
@@ -51,7 +47,6 @@ const translations = {
         "philosophy": "Philosophy",
         "religiousStudies": "Religious Studies",
         "theatreStudies": "Theatre Studies",
-
         "interdisciplinarySciences": "Interdisciplinary Sciences",
         "bioinformatics": "Bioinformatics",
         "biophysics": "Biophysics",
@@ -63,7 +58,6 @@ const translations = {
         "scienceTechnologyStudies": "Science & Technology Studies",
         "sustainabilityScience": "Sustainability Science",
         "urbanStudies": "Urban Studies",
-
         "languageLearning": "Language Learning",
         "arabic": "Arabic",
         "armenianLang": "Armenian Language",
@@ -76,7 +70,6 @@ const translations = {
         "portuguese": "Portuguese",
         "russianLang": "Russian Language",
         "spanishLang": "Spanish Language",
-
         "naturalSciences": "Natural Sciences",
         "astronomy": "Astronomy & Space Science",
         "biology": "Biology & Genetics",
@@ -89,7 +82,6 @@ const translations = {
         "paleontology": "Paleontology & Evolutionary Biology",
         "physics": "Physics & Astrophysics",
         "zoology": "Zoology & Animal Sciences",
-
         "programming": "Programming & Development",
         "cpp": "C++ & System Programming",
         "databases": "Database & SQL",
@@ -105,7 +97,6 @@ const translations = {
         "testingQA": "Testing & QA",
         "versionControl": "Version Control (Git)",
         "webDev": "Web Development (HTML, CSS, JavaScript)",
-
         "socialSciences": "Social Sciences",
         "anthropology": "Anthropology",
         "archaeology": "Archaeology",
@@ -118,7 +109,6 @@ const translations = {
         "politicalScience": "Political Science",
         "psychology": "Psychology",
         "sociology": "Sociology",
-
         "educationalMaterials": "Educational Materials",
         "educationalFilms": "Classic educational films and modern learning resources",
         "video1Title": "Introduction to Quantum Physics",
@@ -127,7 +117,6 @@ const translations = {
         "video2Desc": "Understanding AI and neural networks",
         "video3Title": "Python Programming for Beginners",
         "video3Desc": "Complete guide to start programming in Python",
-
         "footerText": "Reference Guides, Links, Primary Sources — The Primary Reference"
     },
 
@@ -135,17 +124,15 @@ const translations = {
         "siteTitle": "Տեղեկատու Ձեռնարկներ, Հղումներ, Առաջնային Աղբյուրներ",
         "tagline": "Հիմնական Տեղեկատու",
         "home": "Գլխավոր",
-        "about": "Մեր մասին", 
+        "about": "Մեր մասին",
         "contact": "Կապ",
         "science": "Գիտություն և Կրթություն",
         "scienceDesc": "Բոլոր առարկաների գիտական հղումների, կրթական ռեսուրսների և հետազոտական նյութերի հավաքածու:",
-        
         "onlineResources": "Առցանց Ռեսուրսներ",
         "topUniversities": "Լավագույն Համալսարաններ",
         "russianEducation": "Ռուսական Կրթություն",
         "learningPlatforms": "Ուսումնական Պլատֆորմներ",
         "researchAcademic": "Հետազոտություն և Ակադեմիա",
-
         "appliedSciences": "Կիրառական Գիտություններ",
         "agriculture": "Գյուղատնտեսական Գիտություն",
         "architecture": "Ճարտարապետություն",
@@ -158,7 +145,6 @@ const translations = {
         "nanotechnology": "Նանոտեխնոլոգիա",
         "pharmaceuticalSciences": "Դեղագիտական Գիտություններ",
         "roboticsAutomation": "Ռոբոտաշինություն և Ավտոմատացում",
-
         "formalSciences": "Ֆորմալ Գիտություններ",
         "ai": "Արհեստական Բանականություն",
         "computerScience": "Համակարգչային Գիտություն",
@@ -171,7 +157,6 @@ const translations = {
         "mathematics": "Մաթեմատիկա",
         "statistics": "Վիճակագրություն և Տվյալների Գիտություն",
         "theoreticalCS": "Տեսական Համակարգչային Գիտություն",
-
         "humanities": "Հումանիտար Գիտություններ",
         "artHistory": "Արվեստի Պատմություն",
         "classicalStudies": "Դասական Ուսումնասիրություններ",
@@ -183,7 +168,6 @@ const translations = {
         "philosophy": "Փիլիսոփայություն",
         "religiousStudies": "Կրոնի Ուսումնասիրություններ",
         "theatreStudies": "Թատրոնի Ուսումնասիրություններ",
-
         "interdisciplinarySciences": "Ինտերդիսցիպլինար Գիտություններ",
         "bioinformatics": "Կենսաինֆորմատիկա",
         "biophysics": "Կենսաֆիզիկա",
@@ -195,7 +179,6 @@ const translations = {
         "scienceTechnologyStudies": "Գիտության և Տեխնոլոգիայի Ուսումնասիրություններ",
         "sustainabilityScience": "Կայունության Գիտություն",
         "urbanStudies": "Քաղաքային Ուսումնասիրություններ",
-
         "languageLearning": "Լեզվի Սովորում",
         "arabic": "Արաբերեն",
         "armenianLang": "Հայերեն Լեզու",
@@ -208,7 +191,6 @@ const translations = {
         "portuguese": "Պորտուգալերեն",
         "russianLang": "Ռուսերեն Լեզու",
         "spanishLang": "Իսպաներեն Լեզու",
-
         "naturalSciences": "Բնական Գիտություններ",
         "astronomy": "Աստղագիտություն և Տիեզերական Գիտություն",
         "biology": "Կենսաբանություն և Գենետիկա",
@@ -221,7 +203,6 @@ const translations = {
         "paleontology": "Հնագիտություն և Էվոլյուցիոն Կենսաբանություն",
         "physics": "Ֆիզիկա և Աստղաֆիզիկա",
         "zoology": "Կենդանաբանություն և Կենդանիների Գիտություն",
-
         "programming": "Ծրագրավորում և Մշակում",
         "cpp": "C++ և Համակարգային Ծրագրավորում",
         "databases": "Տվյալների Բազաներ և SQL",
@@ -237,7 +218,6 @@ const translations = {
         "testingQA": "Փորձարկում և Որակի Ապահովում",
         "versionControl": "Տարբերակների Կառավարում (Git)",
         "webDev": "Վեբ Մշակում (HTML, CSS, JavaScript)",
-
         "socialSciences": "Հասարակական Գիտություններ",
         "anthropology": "Անթրոպոլոգիա",
         "archaeology": "Հնագիտություն",
@@ -250,7 +230,6 @@ const translations = {
         "politicalScience": "Քաղաքագիտություն",
         "psychology": "Հոգեբանություն",
         "sociology": "Սոցիոլոգիա",
-
         "educationalMaterials": "Ուսումնական Նյութեր",
         "educationalFilms": "Դասական ուսումնական ֆիլմեր և ժամանակակից ուսումնական ռեսուրսներ",
         "video1Title": "Քվանտային Ֆիզիկայի Ներածություն",
@@ -259,7 +238,6 @@ const translations = {
         "video2Desc": "Արհեստական բանականության և նեյրոնային ցանցերի հասկացողություն",
         "video3Title": "Python Ծրագրավորում Սկսնակների Համար",
         "video3Desc": "Ամբողջական ուղեցույց Python-ով ծրագրավորում սկսելու համար",
-
         "footerText": "Տեղեկատու Ձեռնարկներ, Հղումներ, Առաջնային Աղբյուրներ — Հիմնական Տեղեկատու"
     },
 
@@ -268,16 +246,14 @@ const translations = {
         "tagline": "Основной Справочник",
         "home": "Главная",
         "about": "О нас",
-        "contact": "Контакты", 
+        "contact": "Контакты",
         "science": "Наука и Образование",
         "scienceDesc": "Коллекция научных ссылок, образовательных ресурсов и исследовательских материалов по всем дисциплинам.",
-        
         "onlineResources": "Доступные онлайн ресурсы",
         "topUniversities": "Лучшие университеты",
         "russianEducation": "Российское образование",
-        "learningPlatforms": "Образовательные платформы", 
+        "learningPlatforms": "Образовательные платформы",
         "researchAcademic": "Исследования и академия",
-
         "appliedSciences": "Прикладные науки",
         "agriculture": "Сельскохозяйственные науки",
         "architecture": "Архитектура",
@@ -290,7 +266,6 @@ const translations = {
         "nanotechnology": "Нанотехнологии",
         "pharmaceuticalSciences": "Фармацевтические науки",
         "roboticsAutomation": "Робототехника и автоматизация",
-
         "formalSciences": "Формальные науки",
         "ai": "Искусственный интеллект",
         "computerScience": "Информатика",
@@ -303,7 +278,6 @@ const translations = {
         "mathematics": "Математика",
         "statistics": "Статистика и наука о данных",
         "theoreticalCS": "Теоретическая информатика",
-
         "humanities": "Гуманитарные науки",
         "artHistory": "История искусства",
         "classicalStudies": "Классические исследования",
@@ -315,7 +289,6 @@ const translations = {
         "philosophy": "Философия",
         "religiousStudies": "Религиоведение",
         "theatreStudies": "Театроведение",
-
         "interdisciplinarySciences": "Междисциплинарные науки",
         "bioinformatics": "Биоинформатика",
         "biophysics": "Биофизика",
@@ -327,7 +300,6 @@ const translations = {
         "scienceTechnologyStudies": "Исследования науки и технологий",
         "sustainabilityScience": "Наука об устойчивом развитии",
         "urbanStudies": "Городские исследования",
-
         "languageLearning": "Изучение языков",
         "arabic": "Арабский",
         "armenianLang": "Армянский язык",
@@ -340,7 +312,6 @@ const translations = {
         "portuguese": "Португальский",
         "russianLang": "Русский язык",
         "spanishLang": "Испанский язык",
-
         "naturalSciences": "Естественные науки",
         "astronomy": "Астрономия и космические науки",
         "biology": "Биология и генетика",
@@ -353,7 +324,6 @@ const translations = {
         "paleontology": "Палеонтология и эволюционная биология",
         "physics": "Физика и астрофизика",
         "zoology": "Зоология и науки о животных",
-
         "programming": "Программирование и разработка",
         "cpp": "C++ и системное программирование",
         "databases": "Базы данных и SQL",
@@ -369,7 +339,6 @@ const translations = {
         "testingQA": "Тестирование и обеспечение качества",
         "versionControl": "Контроль версий (Git)",
         "webDev": "Веб-разработка (HTML, CSS, JavaScript)",
-
         "socialSciences": "Социальные науки",
         "anthropology": "Антропология",
         "archaeology": "Археология",
@@ -382,7 +351,6 @@ const translations = {
         "politicalScience": "Политология",
         "psychology": "Психология",
         "sociology": "Социология",
-
         "educationalMaterials": "Обучающие материалы",
         "educationalFilms": "Классические образовательные фильмы и современные учебные ресурсы",
         "video1Title": "Введение в квантовую физику",
@@ -391,7 +359,6 @@ const translations = {
         "video2Desc": "Понимание ИИ и нейронных сетей",
         "video3Title": "Python программирование для начинающих",
         "video3Desc": "Полное руководство для начала программирования на Python",
-
         "footerText": "Справочники, Ссылки, Первоисточники — Основной Справочник"
     },
 
@@ -401,7 +368,7 @@ const translations = {
         "home": "Startseite",
         "about": "Über uns",
         "contact": "Kontakt",
-        "science": "Wissenschaft und Bildung", 
+        "science": "Wissenschaft und Bildung",
         "scienceDesc": "Sammlung wissenschaftlicher Referenzen, Bildungsressourcen und Forschungsmaterialien aller Disziplinen.",
         "onlineResources": "Verfügbare Online-Ressourcen",
         "topUniversities": "Top-Universitäten",
@@ -413,7 +380,7 @@ const translations = {
 
     es: {
         "siteTitle": "Guías de Referencia, Enlaces, Fuentes Primarias",
-        "tagline": "La Referencia Principal", 
+        "tagline": "La Referencia Principal",
         "home": "Inicio",
         "about": "Acerca de",
         "contact": "Contacto",
@@ -431,14 +398,14 @@ const translations = {
         "siteTitle": "Guides de Référence, Liens, Sources Primaires",
         "tagline": "La Référence Principale",
         "home": "Accueil",
-        "about": "À propos", 
+        "about": "À propos",
         "contact": "Contact",
         "science": "Science et Éducation",
         "scienceDesc": "Collection de références scientifiques, ressources éducatives et matériels de recherche dans toutes les disciplines.",
         "onlineResources": "Ressources en Ligne Disponibles",
         "topUniversities": "Meilleures Universités",
         "russianEducation": "Éducation Russe",
-        "learningPlatforms": "Plateformes d'Apprentissage", 
+        "learningPlatforms": "Plateformes d'Apprentissage",
         "researchAcademic": "Recherche et Académie",
         "footerText": "Guides de Référence, Liens, Sources Primaires — La Référence Principale"
     }
