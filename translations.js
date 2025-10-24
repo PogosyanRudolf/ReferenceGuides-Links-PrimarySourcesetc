@@ -1,8 +1,20 @@
 const translations = {
     en: {
-        // ... существующие переводы ...
-
-        // Science & Education subjects
+        "siteTitle": "Reference Guides, Links, Primary Sources",
+        "tagline": "The Primary Reference",
+        "home": "Home",
+        "about": "About", 
+        "contact": "Contact",
+        "categories": "Categories",
+        "science": "Science & Education",
+        "scienceDesc": "Comprehensive collection of scientific references, educational resources, and research materials across all disciplines.",
+        "naturalSciences": "Natural Sciences",
+        "formalSciences": "Formal Sciences",
+        "socialSciences": "Social Sciences",
+        "languageLearning": "Language Learning",
+        "appliedSciences": "Applied Sciences",
+        
+        // Science subjects
         "programming": "Programming & Development",
         "webDev": "Web Development",
         "python": "Python Programming", 
@@ -14,17 +26,66 @@ const translations = {
         "gameDev": "Game Development",
         "mlProgramming": "Machine Learning Programming",
         "embedded": "Embedded Systems",
+        "physics": "Physics & Astrophysics",
+        "chemistry": "Chemistry & Biochemistry",
+        "biology": "Biology & Genetics",
+        "geology": "Geology & Earth Sciences",
+        "astronomy": "Astronomy & Space Science",
+        "environmental": "Environmental Science",
+        "mathematics": "Mathematics",
+        "computerScience": "Computer Science",
+        "statistics": "Statistics & Data Science",
+        "logic": "Logic & Philosophy of Science",
+        "ai": "Artificial Intelligence",
+        "cybersecurity": "Cybersecurity",
+        "psychology": "Psychology",
+        "sociology": "Sociology",
+        "economics": "Economics",
+        "politicalScience": "Political Science",
+        "anthropology": "Anthropology",
+        "linguistics": "Linguistics",
+        "englishLang": "English Language",
+        "russianLang": "Russian Language",
+        "spanishLang": "Spanish Language",
+        "frenchLang": "French Language",
+        "germanLang": "German Language",
+        "armenianLang": "Armenian Language",
+        "engineering": "Engineering",
+        "medicine": "Medicine & Healthcare",
+        "agriculture": "Agricultural Science",
+        "architecture": "Architecture",
+        "materialsScience": "Materials Science",
+        "nanotechnology": "Nanotechnology",
 
         // Video sections
-        "classicIntro": "Legendary 'I Want to Know Everything!' Intro",
-        "nutCrackerBoy": "The boy cracking the nut of knowledge",
-        "educationalMaterials": "Educational Materials"
+        "classicIntro": "Classic Educational Intro",
+        "nutCrackerBoy": "Exploring the world of knowledge",
+        "educationalMaterials": "Educational Materials",
+        "video1Title": "Introduction to Quantum Physics",
+        "video1Desc": "Fundamental concepts of quantum mechanics explained",
+        "video2Title": "Machine Learning Basics", 
+        "video2Desc": "Understanding AI and neural networks",
+
+        // Footer
+        "footerText": "Reference Guides, Links, Primary Sources — Curating the foundation of knowledge."
     },
 
     ru: {
-        // ... существующие переводы ...
+        "siteTitle": "Справочники, Ссылки, Первоисточники",
+        "tagline": "Основной Справочник",
+        "home": "Главная",
+        "about": "О нас",
+        "contact": "Контакты",
+        "categories": "Категории",
+        "science": "Наука и Образование",
+        "scienceDesc": "Полная коллекция научных ссылок, образовательных ресурсов и исследовательских материалов по всем дисциплинам.",
+        "naturalSciences": "Естественные науки",
+        "formalSciences": "Формальные науки", 
+        "socialSciences": "Социальные науки",
+        "languageLearning": "Изучение языков",
+        "appliedSciences": "Прикладные науки",
 
-        // Science & Education subjects  
+        // Science subjects
         "programming": "Программирование и Разработка",
         "webDev": "Веб-разработка",
         "python": "Программирование на Python",
@@ -36,12 +97,91 @@ const translations = {
         "gameDev": "Разработка игр",
         "mlProgramming": "Программирование машинного обучения",
         "embedded": "Встроенные системы",
+        "physics": "Физика и Астрофизика",
+        "chemistry": "Химия и Биохимия",
+        "biology": "Биология и Генетика",
+        "geology": "Геология и Науки о Земле",
+        "astronomy": "Астрономия и Космические науки",
+        "environmental": "Экология",
+        "mathematics": "Математика",
+        "computerScience": "Информатика",
+        "statistics": "Статистика и Наука о данных",
+        "logic": "Логика и Философия науки",
+        "ai": "Искусственный интеллект",
+        "cybersecurity": "Кибербезопасность",
+        "psychology": "Психология",
+        "sociology": "Социология",
+        "economics": "Экономика",
+        "politicalScience": "Политология",
+        "anthropology": "Антропология",
+        "linguistics": "Лингвистика",
+        "englishLang": "Английский язык",
+        "russianLang": "Русский язык",
+        "spanishLang": "Испанский язык",
+        "frenchLang": "Французский язык",
+        "germanLang": "Немецкий язык",
+        "armenianLang": "Армянский язык",
+        "engineering": "Инженерия",
+        "medicine": "Медицина и Здравоохранение",
+        "agriculture": "Сельскохозяйственные науки",
+        "architecture": "Архитектура",
+        "materialsScience": "Материаловедение",
+        "nanotechnology": "Нанотехнологии",
 
         // Video sections
-        "classicIntro": "Легендарная заставка 'Хочу всё знать!'",
-        "nutCrackerBoy": "Мальчик, разбивающий орех знаний",
-        "educationalMaterials": "Обучающие материалы"
+        "classicIntro": "Классическая образовательная заставка",
+        "nutCrackerBoy": "Исследуя мир знаний",
+        "educationalMaterials": "Обучающие материалы",
+        "video1Title": "Введение в квантовую физику",
+        "video1Desc": "Основные концепции квантовой механики",
+        "video2Title": "Основы машинного обучения",
+        "video2Desc": "Понимание ИИ и нейронных сетей",
+
+        // Footer
+        "footerText": "Справочники, Ссылки, Первоисточники — Сохраняем основу знаний."
     },
 
-    // ... добавьте аналогичные переводы для других языков ...
+    es: {
+        "siteTitle": "Guías de Referencia, Enlaces, Fuentes Primarias",
+        "tagline": "La Referencia Principal",
+        "home": "Inicio",
+        "about": "Acerca de",
+        "contact": "Contacto",
+        "science": "Ciencia y Educación",
+        "scienceDesc": "Colección completa de referencias científicas, recursos educativos y materiales de investigación en todas las disciplinas.",
+        "footerText": "Guías de Referencia, Enlaces, Fuentes Primarias — Curando la base del conocimiento."
+    },
+
+    fr: {
+        "siteTitle": "Guides de Référence, Liens, Sources Primaires", 
+        "tagline": "La Référence Principale",
+        "home": "Accueil",
+        "about": "À propos",
+        "contact": "Contact",
+        "science": "Science et Éducation",
+        "scienceDesc": "Collection complète de références scientifiques, ressources éducatives et matériels de recherche dans toutes les disciplines.",
+        "footerText": "Guides de Référence, Liens, Sources Primaires — Curateur de la base de connaissances."
+    },
+
+    de: {
+        "siteTitle": "Referenzleitfäden, Links, Primärquellen",
+        "tagline": "Die Hauptreferenz",
+        "home": "Startseite",
+        "about": "Über uns",
+        "contact": "Kontakt",
+        "science": "Wissenschaft und Bildung", 
+        "scienceDesc": "Umfassende Sammlung wissenschaftlicher Referenzen, Bildungsressourcen und Forschungsmaterialien aller Disziplinen.",
+        "footerText": "Referenzleitfäden, Links, Primärquellen — Kuratiert das Fundament des Wissens."
+    },
+
+    hy: {
+        "siteTitle": "Տեղեկատու Ձեռնարկներ, Հղումներ, Առաջնային Աղբյուրներ",
+        "tagline": "Հիմնական Տեղեկատու",
+        "home": "Գլխավոր",
+        "about": "Մեր մասին",
+        "contact": "Կապ",
+        "science": "Գիտություն և Կրթություն",
+        "scienceDesc": "Բոլոր առարկաների գիտական հղումների, կրթական ռեսուրսների և հետազոտական նյութերի ամբողջական հավաքածու:",
+        "footerText": "Տեղեկատու Ձեռնարկներ, Հղումներ, Առաջնային Աղբյուրներ — Պահպանելով գիտելիքների հիմքը:"
+    }
 };
