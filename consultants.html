@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="consultants">Our Consultants - Standard Reference</title>
+    <script src="translations.js"></script>
+    <style>
+        :root {
+            --primary-green: #1a5d1a;
+            --accent-green: #2c822c;
+            --accent-yellow: #ffc107;
+            --light-yellow: #fff8e1;
+            --light-gray: #f7fafc;
+            --dark-gray: #4a5568;
+            --text-color: #2d3748;
+            --white: #ffffff;
+            --hover-green: #236823;
+            --hover-yellow: #ffb300;
+            --light-green: #f0fff4;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 25px rgba(34, 104, 35, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            font-size: 16px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #2c822c 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .main-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            color: #c6f6d5;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--hover-green);
+            transform: translateY(-2px);
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            background: var(--white);
+            color: var(--primary-green);
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 0.4rem 2rem 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            min-width: 140px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: linear-gradient(135deg, var(--primary-green) 0%, #2c822c 100%);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .mobile-nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        
+        .mobile-nav-links a:hover {
+            background-color: var(--hover-green);
+        }
+        
+        .mobile-language-selector {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .mobile-language-selector select {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .breadcrumb {
+            margin: 1rem 0;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--accent-green);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--hover-green);
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--light-yellow) 100%);
+            border-radius: 12px;
+            margin: 1rem 0 3rem;
+            border: 3px solid var(--accent-yellow);
+            box-shadow: var(--shadow);
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary-green), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Consultants Grid */
+        .consultants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .consultant-card {
+            background: var(--white);
+            border: 3px solid var(--light-green);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .consultant-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
+        }
+        
+        .consultant-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-yellow);
+        }
+        
+        .consultant-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--light-yellow) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--primary-green);
+            border: 4px solid var(--accent-yellow);
+            overflow: hidden;
+        }
+        
+        .consultant-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .consultant-info h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+        
+        .consultant-title {
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            background: var(--light-yellow);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .consultant-education {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .expertise-tag {
+            background: linear-gradient(135deg, var(--light-green) 0%, #e8f5e9 100%);
+            color: var(--primary-green);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--accent-yellow);
+            font-weight: 500;
+        }
+        
+        .consultant-description {
+            color: var(--dark-gray);
+            margin: 1rem 0;
+            line-height: 1.6;
+            text-align: left;
+        }
+        
+        .consultant-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            padding: 1rem 0;
+            border-top: 2px solid var(--light-green);
+            border-bottom: 2px solid var(--light-green);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+            margin-top: 0.3rem;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--primary-green) 100%);
+            color: var(--white);
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(44, 130, 44, 0.3);
+        }
+        
+        .contact-btn:hover {
+            background: linear-gradient(135deg, var(--hover-green) 0%, #2c822c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 130, 44, 0.4);
+        }
+        
+        /* Consultation Areas */
+        .areas-section {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--light-yellow) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin: 4rem 0;
+            border: 3px solid var(--accent-yellow);
+        }
+        
+        .areas-section h2 {
+            text-align: center;
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+        
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .area-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--light-green);
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+        
+        .area-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-yellow);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .area-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .area-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .area-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #2c822c 100%);
+            color: var(--white);
+            padding: 3rem 1rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #c6f6d5;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: #c6f6d5;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-title {
+                font-size: 1.1rem;
+            }
+            
+            .subtitle {
+                font-size: 0.7rem;
+            }
+            
+            .page-header {
+                padding: 2rem 1rem;
+                margin: 0.5rem 0 2rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .page-header p {
+                font-size: 1.1rem;
+            }
+            
+            .consultants-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .consultant-card {
+                padding: 1.5rem;
+            }
+            
+            .consultant-photo {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+            
+            .areas-section {
+                padding: 2rem 1rem;
+                margin: 2rem 0;
+            }
+            
+            .areas-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .areas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .consultant-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            main {
+                padding: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .consultant-card {
+                padding: 1.2rem;
+            }
+            
+            .consultant-photo {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+            
+            .consultant-info h3 {
+                font-size: 1.2rem;
+            }
+            
+            nav {
+                padding: 0 0.5rem;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .consultant-card,
+            .area-card,
+            .contact-btn,
+            .nav-links a {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+        
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-green: #004400;
+                --accent-green: #006600;
+                --accent-yellow: #996600;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
+                <div class="subtitle" data-translate="tagline">Standard Reference</div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
+                <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
+                <div class="language-selector">
+                    <select class="language-dropdown" id="languageSelect">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="hy">🇦🇲 Հայերեն</option>
+                        <option value="ru">🇷🇺 Русский</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </nav>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-links">
+                <a href="index.html" data-translate="home">Home</a>
+                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
+                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
+                <a href="about.html" data-translate="about">About</a>
+                <a href="contact.html" data-translate="contact">Contact</a>
+            </div>
+            <div class="mobile-language-selector">
+                <select id="mobileLanguageSelect">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="hy">🇦🇲 Հայերեն</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html" data-translate="home">Home</a> > <span data-translate="consultants">Our Consultants</span>
+        </div>
+        
+        <section class="page-header">
+            <h1 data-translate="ourExperts">Our Expert Consultants</h1>
+            <p data-translate="consultantsDesc">Meet our team of specialists who provide guidance and expertise across various disciplines</p>
+        </section>
+
+        <div class="consultants-grid">
+            <!-- Consultant 1: Scientific Research -->
+            <div class="consultant-card">
+                <div class="consultant-photo">👨‍🔬</div>
+                <div class="consultant-info">
+                    <h3>Dr. Alexander Petrov</h3>
+                    <div class="consultant-title" data-translate="science">Science & Research Director</div>
+                    <div class="consultant-education">PhD in Molecular Biology, Moscow State University</div>
+                    
+                    <div class="expertise-tags">
+                        <span class="expertise-tag">Biotechnology</span>
+                        <span class="expertise-tag">Genetics</span>
+                        <span class="expertise-tag">Bioinformatics</span>
+                        <span class="expertise-tag">Research Methods</span>
+                    </div>
+                    
+                    <p class="consultant-description">
+                        15+ years experience in academic research and scientific consulting. Published over 50 peer-reviewed papers. 
+                        Expert in grant writing, experimental design, and data analysis for biological sciences.
+                    </p>
+                    
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">15+</span>
+                            <span class="stat-label" data-translate="experience">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">50+</span>
+                            <span class="stat-label">Publications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">100+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html?consultant=petrov" class="contact-btn" data-translate="contactExpert">Contact Expert</a>
+                </div>
+            </div>
+
+            <!-- Consultant 2: IT & Computer Science -->
+            <div class="consultant-card">
+                <div class="consultant-photo">👩‍💻</div>
+                <div class="consultant-info">
+                    <h3>Maria Ivanova</h3>
+                    <div class="consultant-title" data-translate="computerscience">IT & Systems Architect</div>
+                    <div class="consultant-education">MSc in Computer Science, Yerevan State University</div>
+                    
+                    <div class="expertise-tags">
+                        <span class="expertise-tag" data-translate="ai">AI & ML</span>
+                        <span class="expertise-tag">Cloud Computing</span>
+                        <span class="expertise-tag" data-translate="cybersecurity">Cybersecurity</span>
+                        <span class="expertise-tag">DevOps</span>
+                    </div>
+                    
+                    <p class="consultant-description">
+                        Enterprise software architect with expertise in AI implementation and cloud infrastructure. 
+                        Specializes in digital transformation projects and scalable system design for educational institutions.
+                    </p>
+                    
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">12+</span>
+                            <span class="stat-label" data-translate="experience">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">30+</span>
+                            <span class="stat-label">Systems</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">500+</span>
+                            <span class="stat-label">Clients</span>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html?consultant=ivanova" class="contact-btn" data-translate="contactExpert">Contact Expert</a>
+                </div>
+            </div>
+
+            <!-- Consultant 3: Education & Linguistics -->
+            <div class="consultant-card">
+                <div class="consultant-photo">👨‍🏫</div>
+                <div class="consultant-info">
+                    <h3>Prof. Sergei Volkov</h3>
+                    <div class="consultant-title" data-translate="languages">Language & Education Specialist</div>
+                    <div class="consultant-education">PhD in Linguistics, St. Petersburg University</div>
+                    
+                    <div class="expertise-tags">
+                        <span class="expertise-tag" data-translate="russian">Russian</span>
+                        <span class="expertise-tag" data-translate="english">English</span>
+                        <span class="expertise-tag">Curriculum Design</span>
+                        <span class="expertise-tag">E-Learning</span>
+                    </div>
+                    
+                    <p class="consultant-description">
+                        Expert in language acquisition, curriculum development, and educational technology. 
+                        Consultant for universities and language schools worldwide. Author of language textbooks and online courses.
+                    </p>
+                    
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">20+</span>
+                            <span class="stat-label" data-translate="experience">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">15+</span>
+                            <span class="stat-label">Books</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">10k+</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html?consultant=volkov" class="contact-btn" data-translate="contactExpert">Contact Expert</a>
+                </div>
+            </div>
+
+            <!-- Consultant 4: Cultural Heritage -->
+            <div class="consultant-card">
+                <div class="consultant-photo">👩‍🎨</div>
+                <div class="consultant-info">
+                    <h3>Dr. Anahit Karapetyan</h3>
+                    <div class="consultant-title" data-translate="artsCulture">Cultural Heritage Expert</div>
+                    <div class="consultant-education">PhD in Art History, Armenian Academy of Sciences</div>
+                    
+                    <div class="expertise-tags">
+                        <span class="expertise-tag" data-translate="artHistory">Art History</span>
+                        <span class="expertise-tag">Museum Studies</span>
+                        <span class="expertise-tag">Cultural Policy</span>
+                        <span class="expertise-tag">Heritage Preservation</span>
+                    </div>
+                    
+                    <p class="consultant-description">
+                        Specialist in Armenian and Caucasus cultural heritage. Consultant for UNESCO projects, 
+                        museum exhibitions, and cultural institution development. Expert in digital archiving of cultural artifacts.
+                    </p>
+                    
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">18+</span>
+                            <span class="stat-label" data-translate="experience">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">25+</span>
+                            <span class="stat-label">Exhibitions</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">8</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html?consultant=karapetyan" class="contact-btn" data-translate="contactExpert">Contact Expert</a>
+                </div>
+            </div>
+
+            <!-- Consultant 5: Data Science -->
+            <div class="consultant-card">
+                <div class="consultant-photo">👨‍🔧</div>
+                <div class="consultant-info">
+                    <h3>David Harutyunyan</h3>
+                    <div class="consultant-title" data-translate="statistics">Data Science & Analytics</div>
+                    <div class="consultant-education">MSc in Statistics, American University of Armenia</div>
+                    
+                    <div class="expertise-tags">
+                        <span class="expertise-tag" data-translate="statistics">Data Analysis</span>
+                        <span class="expertise-tag">Statistical Modeling</span>
+                        <span class="expertise-tag">Business Intelligence</span>
+                        <span class="expertise-tag">Research Design</span>
+                    </div>
+                    
+                    <p class="consultant-description">
+                        Data scientist specializing in educational research analytics and institutional assessment. 
+                        Expert in survey design, statistical analysis, and data visualization for academic institutions.
+                    </p>
+                    
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">10+</span>
+                            <span class="stat-label" data-translate="experience">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">200+</span>
+                            <span class="stat-label">Studies</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">50+</span>
+                            <span class="stat-label">Institutions</span>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html?consultant=harutyunyan" class="contact-btn" data-translate="contactExpert">Contact Expert</a>
+                </div>
+            </div>
+
+            <!-- Consultant 6: Academic Publishing -->
+            <div class="consultant-card">
+                <div class="consultant-photo">👩‍💼</div>
+                <div class="consultant-info">
+                    <h3>Elena Smirnova</h3>
+                    <div class="consultant-title">Academic Publishing Advisor</div>
+                    <div class="consultant-education">PhD in Philology, Russian Academy of Sciences</div>
+                    
+                    <div class="expertise-tags">
+                        <span class="expertise-tag">Journal Publishing</span>
+                        <span class="expertise-tag">Peer Review</span>
+                        <span class="expertise-tag">Scientific Writing</span>
+                        <span class="expertise-tag">Research Ethics</span>
+                    </div>
+                    
+                    <p class="consultant-description">
+                        Editor-in-chief of international scientific journals. Expert in academic publishing, 
+                        citation metrics, and research impact assessment. Consultant for early-career researchers and institutions.
+                    </p>
+                    
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">15+</span>
+                            <span class="stat-label" data-translate="experience">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">5</span>
+                            <span class="stat-label">Journals</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">1000+</span>
+                            <span class="stat-label">Articles</span>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html?consultant=smirnova" class="contact-btn" data-translate="contactExpert">Contact Expert</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="areas-section">
+            <h2 data-translate="consultationAreas">Consultation Areas</h2>
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-icon">📚</div>
+                    <h3>Academic Research</h3>
+                    <p>Research design, methodology, grant writing, publication strategy, and project management</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">💻</div>
+                    <h3 data-translate="computerscience">Technology & IT</h3>
+                    <p>Digital transformation, system architecture, cybersecurity, AI implementation, and data management</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">🌍</div>
+                    <h3>International Education</h3>
+                    <p>Curriculum development, accreditation, international partnerships, and student mobility programs</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">🎨</div>
+                    <h3 data-translate="artsCulture">Culture & Arts</h3>
+                    <p>Cultural projects, heritage preservation, museum management, and creative industry development</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">📊</div>
+                    <h3 data-translate="statistics">Data & Analytics</h3>
+                    <p>Statistical analysis, institutional research, assessment design, and data-driven decision making</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">📝</div>
+                    <h3>Publishing & Media</h3>
+                    <p>Academic publishing, scientific communication, media strategy, and content development</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="siteTitle">Reference Guides, Links, Primary Sources</h3>
+                <p data-translate="tagline">Standard Reference</p>
+                <p>Comprehensive knowledge database and expert consulting services</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-translate="quickLinks">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" data-translate="home">Home</a></li>
+                    <li><a href="educationandsciences.html" data-translate="science">Science & Education</a></li>
+                    <li><a href="consultants.html" data-translate="consultants">Our Consultants</a></li>
+                    <li><a href="culture-news.html" data-translate="cultureNews">Culture News</a></li>
+                    <li><a href="about.html" data-translate="about">About</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-translate="contactInfo">Contact Information</h3>
+                <ul class="footer-links">
+                    <li>Email: info@standardreference.org</li>
+                    <li>Phone: +374 10 123456</li>
+                    <li>Yerevan, Armenia</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-translate="followUs">Follow Us</h3>
+                <ul class="footer-links">
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p data-translate="footerText">Reference Guides, Links, Primary Sources — Standard Reference</p>
+            <p data-translate="allRightsReserved">© 2024 All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileLanguageSelect = document.getElementById('mobileLanguageSelect');
+        const desktopLanguageSelect = document.getElementById('languageSelect');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Sync language selects
+        function syncLanguageSelects(value) {
+            desktopLanguageSelect.value = value;
+            mobileLanguageSelect.value = value;
+        }
+
+        desktopLanguageSelect.addEventListener('change', function() {
+            syncLanguageSelects(this.value);
+            loadLanguage(this.value);
+        });
+
+        mobileLanguageSelect.addEventListener('change', function() {
+            syncLanguageSelects(this.value);
+            loadLanguage(this.value);
+        });
+
+        // Language loading function
+        function loadLanguage(language) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    element.textContent = translations[language][key];
+                } else if (translations['en'] && translations['en'][key]) {
+                    // Fallback to English if translation missing
+                    element.textContent = translations['en'][key];
+                }
+            });
+            
+            document.documentElement.lang = language;
+            
+            // Update page title
+            if (translations[language] && translations[language]['consultants'] && translations[language]['siteTitle']) {
+                document.title = translations[language]['consultants'] + ' - ' + translations[language]['siteTitle'];
+            } else {
+                document.title = 'Our Consultants - Standard Reference';
+            }
+            
+            localStorage.setItem('preferredLanguage', language);
+        }
+
+        // Initialize
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        syncLanguageSelects(savedLanguage);
+        loadLanguage(savedLanguage);
+
+        // Handle resize - close mobile menu on larger screens
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Consultant card hover effects
+        document.querySelectorAll('.consultant-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+    </script>
+</body>
+</html>
