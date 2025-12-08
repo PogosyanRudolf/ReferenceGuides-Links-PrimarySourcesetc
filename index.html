@@ -9,6 +9,7 @@
         :root {
             --primary-green: #1a5d1a;
             --accent-green: #2c822c;
+            --accent-yellow: #FFD700;
             --light-gray: #f7fafc;
             --dark-gray: #4a5568;
             --text-color: #2d3748;
@@ -285,6 +286,100 @@
             line-height: 1.5;
         }
         
+        /* News Preview Section */
+        .news-preview {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 3rem 1rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .news-preview h2 {
+            text-align: center;
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            position: relative;
+        }
+        
+        .news-preview h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-yellow);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .news-grid-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .news-item {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .news-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-green);
+        }
+        
+        .news-item h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            line-height: 1.3;
+        }
+        
+        .news-item p {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .news-item a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.2s;
+        }
+        
+        .news-item a:hover {
+            color: var(--hover-green);
+        }
+        
+        .view-all-btn {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: 2px solid var(--primary-green);
+        }
+        
+        .view-all-btn:hover {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+        
         footer {
             background: var(--primary-green);
             color: var(--white);
@@ -360,6 +455,25 @@
                 padding: 1.2rem;
             }
             
+            .news-preview {
+                padding: 2rem 1rem;
+                margin: 2rem 0;
+            }
+            
+            .news-preview h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .news-grid-preview {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .news-item {
+                padding: 1.2rem;
+            }
+            
             main {
                 padding: 0.5rem;
             }
@@ -382,6 +496,14 @@
                 padding: 1rem;
             }
             
+            .news-item {
+                padding: 1rem;
+            }
+            
+            .news-item h3 {
+                font-size: 1.1rem;
+            }
+            
             nav {
                 padding: 0 0.5rem;
             }
@@ -389,7 +511,8 @@
         
         /* Touch improvements */
         @media (hover: none) {
-            .category-card:hover {
+            .category-card:hover,
+            .news-item:hover {
                 transform: none;
             }
             
@@ -397,8 +520,11 @@
                 background-color: transparent;
             }
             
-            .cta-button:hover {
+            .cta-button:hover,
+            .view-all-btn:hover {
                 background: var(--accent-green);
+                color: var(--white);
+                border-color: var(--accent-green);
             }
         }
         
@@ -418,7 +544,8 @@
                 animation: none !important;
             }
             
-            .category-card:hover {
+            .category-card:hover,
+            .news-item:hover {
                 transform: none;
             }
         }
@@ -436,6 +563,8 @@
                 <a href="index.html" data-translate="home">Home</a>
                 <a href="educationandsciences.html" data-translate="science">Science & Education</a>
                 <a href="educationalresources.html">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
@@ -458,6 +587,8 @@
                 <a href="index.html" data-translate="home">Home</a>
                 <a href="educationandsciences.html" data-translate="science">Science & Education</a>
                 <a href="educationalresources.html">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
             </div>
@@ -474,7 +605,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="hero">
             <h1 data-translate="siteTitle">Reference Guides, Links, Primary Sources</h1>
             <p>Your comprehensive gateway to global educational resources and research materials</p>
@@ -499,6 +630,23 @@
                 <h3 data-translate="formalSciences">Formal Sciences</h3>
                 <p>Mathematics, Computer Science, AI, and Data Science</p>
             </a>
+        </section>
+
+        <section class="news-preview">
+            <h2 data-translate="latestNews">Latest Cultural News</h2>
+            <div class="news-grid-preview">
+                <div class="news-item">
+                    <h3>Armenian Chronicles Exhibition</h3>
+                    <p>Major retrospective at National Museum features rare artifacts...</p>
+                    <a href="culture-news.html" data-translate="readMore">Read More →</a>
+                </div>
+                <div class="news-item">
+                    <h3>New Ballet Adaptation Premieres</h3>
+                    <p>Moscow Bolshoi Theatre presents innovative adaptation...</p>
+                    <a href="culture-news.html" data-translate="readMore">Read More →</a>
+                </div>
+            </div>
+            <a href="culture-news.html" class="view-all-btn" data-translate="viewAllNews">View All News</a>
         </section>
 
         <section class="features">
@@ -587,6 +735,21 @@
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 mobileNav.classList.remove('active');
+            }
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Add keyboard navigation for mobile menu
+        mobileMenuBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenuBtn.click();
             }
         });
     </script>
