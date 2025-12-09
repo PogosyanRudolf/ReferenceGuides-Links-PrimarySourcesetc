@@ -51,6 +51,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 1rem;
+            gap: 15px;
         }
         
         .logo-container {
@@ -70,6 +71,44 @@
             font-size: 0.75rem;
             opacity: 0.9;
             color: #c6f6d5;
+        }
+        
+        /* Добавлен контейнер поиска */
+        .search-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #c6f6d5;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 8px 12px;
+            min-width: 180px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-btn {
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--hover-green);
         }
         
         .nav-links {
@@ -203,7 +242,7 @@
             line-height: 1.6;
         }
         
-        .search-box {
+        .search-box-content {
             margin: 2rem 0;
             padding: 1rem;
             background: var(--light-green);
@@ -211,7 +250,7 @@
             border: 2px solid #c6f6d5;
         }
         
-        .search-box input {
+        .search-box-content input {
             width: 100%;
             padding: 0.8rem;
             border: 1px solid #c6f6d5;
@@ -219,7 +258,7 @@
             font-size: 1rem;
         }
         
-        .search-box input:focus {
+        .search-box-content input:focus {
             outline: none;
             border-color: var(--accent-green);
         }
@@ -292,6 +331,51 @@
             border: 1px solid #c6f6d5;
         }
         
+        /* GitHub Card */
+        .github-card {
+            background: linear-gradient(135deg, #24292e 0%, #2f363d 100%);
+            border: 2px solid #444d56;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: white;
+            grid-column: span 2;
+        }
+        
+        .github-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(36, 41, 46, 0.3);
+            border-color: #58a6ff;
+        }
+        
+        .github-card h3 {
+            color: #f0f6fc;
+            border-bottom: 2px solid #58a6ff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .github-card p {
+            color: #c9d1d9;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .github-link {
+            display: inline-block;
+            background: #238636;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .github-link:hover {
+            background: #2ea043;
+        }
+        
         footer {
             background: var(--primary-green);
             color: var(--white);
@@ -301,7 +385,11 @@
         }
         
         /* Mobile Styles */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            .search-container {
+                display: none;
+            }
+            
             .nav-links {
                 display: none;
             }
@@ -310,6 +398,12 @@
                 display: block;
             }
             
+            .github-card {
+                grid-column: span 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
             .main-title {
                 font-size: 1.1rem;
             }
@@ -326,7 +420,7 @@
                 font-size: 1rem;
             }
             
-            .search-box {
+            .search-box-content {
                 margin: 1.5rem 0;
                 padding: 0.8rem;
             }
@@ -369,6 +463,10 @@
             .breadcrumb {
                 font-size: 0.8rem;
             }
+            
+            .github-card {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -380,10 +478,24 @@
                 <div class="subtitle" data-translate="tagline">Standard Reference</div>
             </div>
             
+            <!-- Добавлен поиск -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="siteSearch" data-translate="searchPlaceholderSite" placeholder="Search this site...">
+                    <button class="search-btn" data-translate="searchButton" onclick="searchSite()">Search</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="webSearch" data-translate="searchPlaceholderWeb" placeholder="Search the web...">
+                    <button class="search-btn" data-translate="searchButton" onclick="searchWeb()">Search</button>
+                </div>
+            </div>
+            
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
                 <a href="educationandsciences.html" data-translate="science">Science & Education</a>
                 <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
@@ -406,6 +518,8 @@
                 <a href="index.html" data-translate="home">Home</a>
                 <a href="educationandsciences.html" data-translate="science">Science & Education</a>
                 <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
             </div>
@@ -430,7 +544,7 @@
         <h1 data-translate="globalResources">Global Educational Resources</h1>
         <p class="page-description" data-translate="globalResourcesDesc">Comprehensive collection of universities, learning platforms, and academic resources from around the world</p>
         
-        <div class="search-box">
+        <div class="search-box-content">
             <input type="text" id="resourceSearch" placeholder="Search universities, platforms, or resources..." onkeyup="searchResources()" data-translate="searchPlaceholder">
         </div>
         
@@ -439,14 +553,14 @@
             <div class="resource-category">
                 <h3>🌍 <span data-translate="universities">World Universities</span></h3>
                 <ul class="resources-list" id="universities-list">
-                    <li><a href="https://ocw.mit.edu" target="_blank">MIT OpenCourseWare <span class="country-badge">USA</span></a></li>
-                    <li><a href="https://online-learning.harvard.edu" target="_blank">Harvard Online Learning <span class="country-badge">USA</span></a></li>
-                    <li><a href="https://online.stanford.edu" target="_blank">Stanford Online <span class="country-badge">USA</span></a></li>
-                    <li><a href="https://www.coursera.org/princeton" target="_blank">Princeton University <span class="country-badge">USA</span></a></li>
-                    <li><a href="https://www.cambridge.org" target="_blank">Cambridge University <span class="country-badge">UK</span></a></li>
-                    <li><a href="https://www.ox.ac.uk" target="_blank">Oxford University <span class="country-badge">UK</span></a></li>
-                    <li><a href="https://www.ysu.am" target="_blank">Yerevan State University <span class="country-badge">Armenia</span></a></li>
-                    <li><a href="https://www.msu.ru" target="_blank">Moscow State University <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://ocw.mit.edu" target="_blank" rel="noopener">MIT OpenCourseWare <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://online-learning.harvard.edu" target="_blank" rel="noopener">Harvard Online Learning <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://online.stanford.edu" target="_blank" rel="noopener">Stanford Online <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://www.princeton.edu" target="_blank" rel="noopener">Princeton University <span class="country-badge">USA</span></a></li>
+                    <li><a href="https://www.cam.ac.uk" target="_blank" rel="noopener">Cambridge University <span class="country-badge">UK</span></a></li>
+                    <li><a href="https://www.ox.ac.uk" target="_blank" rel="noopener">Oxford University <span class="country-badge">UK</span></a></li>
+                    <li><a href="https://www.ysu.am" target="_blank" rel="noopener">Yerevan State University <span class="country-badge">Armenia</span></a></li>
+                    <li><a href="https://www.msu.ru" target="_blank" rel="noopener">Moscow State University <span class="country-badge">Russia</span></a></li>
                 </ul>
             </div>
             
@@ -454,13 +568,13 @@
             <div class="resource-category">
                 <h3>🎓 <span data-translate="learningPlatforms">Learning Platforms</span></h3>
                 <ul class="resources-list" id="platforms-list">
-                    <li><a href="https://www.coursera.org" target="_blank">Coursera <span class="country-badge">International</span></a></li>
-                    <li><a href="https://www.edx.org" target="_blank">edX <span class="country-badge">International</span></a></li>
-                    <li><a href="https://www.udemy.com" target="_blank">Udemy <span class="country-badge">International</span></a></li>
-                    <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy <span class="country-badge">International</span></a></li>
-                    <li><a href="https://foxford.ru" target="_blank">Foxford <span class="country-badge">Russia</span></a></li>
-                    <li><a href="https://uchi.ru" target="_blank">Uchi.ru <span class="country-badge">Russia</span></a></li>
-                    <li><a href="https://www.futurelearn.com" target="_blank">FutureLearn <span class="country-badge">UK</span></a></li>
+                    <li><a href="https://www.coursera.org" target="_blank" rel="noopener">Coursera <span class="country-badge">International</span></a></li>
+                    <li><a href="https://www.edx.org" target="_blank" rel="noopener">edX <span class="country-badge">International</span></a></li>
+                    <li><a href="https://www.udemy.com" target="_blank" rel="noopener">Udemy <span class="country-badge">International</span></a></li>
+                    <li><a href="https://www.khanacademy.org" target="_blank" rel="noopener">Khan Academy <span class="country-badge">International</span></a></li>
+                    <li><a href="https://foxford.ru" target="_blank" rel="noopener">Foxford <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://uchi.ru" target="_blank" rel="noopener">Uchi.ru <span class="country-badge">Russia</span></a></li>
+                    <li><a href="https://www.futurelearn.com" target="_blank" rel="noopener">FutureLearn <span class="country-badge">UK</span></a></li>
                 </ul>
             </div>
             
@@ -468,15 +582,30 @@
             <div class="resource-category">
                 <h3>🔬 <span data-translate="researchAcademic">Research & Academic</span></h3>
                 <ul class="resources-list" id="research-list">
-                    <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
-                    <li><a href="https://www.researchgate.net" target="_blank">ResearchGate</a></li>
-                    <li><a href="https://arxiv.org" target="_blank">arXiv <span class="country-badge">Preprints</span></a></li>
-                    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">PubMed Central <span class="country-badge">Medicine</span></a></li>
-                    <li><a href="https://www.jstor.org" target="_blank">JSTOR <span class="country-badge">Journals</span></a></li>
-                    <li><a href="https://www.sciencedirect.com" target="_blank">ScienceDirect</a></li>
-                    <li><a href="https://www.nature.com" target="_blank">Nature</a></li>
-                    <li><a href="https://www.science.org" target="_blank">Science Magazine</a></li>
+                    <li><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></li>
+                    <li><a href="https://www.researchgate.net" target="_blank" rel="noopener">ResearchGate</a></li>
+                    <li><a href="https://arxiv.org" target="_blank" rel="noopener">arXiv <span class="country-badge">Preprints</span></a></li>
+                    <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" rel="noopener">PubMed <span class="country-badge">Medicine</span></a></li>
+                    <li><a href="https://www.jstor.org" target="_blank" rel="noopener">JSTOR <span class="country-badge">Journals</span></a></li>
+                    <li><a href="https://www.sciencedirect.com" target="_blank" rel="noopener">ScienceDirect</a></li>
+                    <li><a href="https://www.nature.com" target="_blank" rel="noopener">Nature</a></li>
+                    <li><a href="https://www.science.org" target="_blank" rel="noopener">Science Magazine</a></li>
                 </ul>
+            </div>
+
+            <!-- GitHub Resources -->
+            <div class="github-card">
+                <h3><span data-translate="githubResources">GitHub Repositories</span> 💻</h3>
+                <p data-translate="githubDesc">Open source projects, code samples, and developer resources from GitHub</p>
+                <ul class="resources-list">
+                    <li><a href="https://github.com/trending" target="_blank" rel="noopener">GitHub Trending Repositories</a></li>
+                    <li><a href="https://github.com/topics/education" target="_blank" rel="noopener">GitHub Education Topics</a></li>
+                    <li><a href="https://github.com/microsoft/vscode" target="_blank" rel="noopener">VS Code Editor</a></li>
+                    <li><a href="https://github.com/freeCodeCamp/freeCodeCamp" target="_blank" rel="noopener">freeCodeCamp</a></li>
+                    <li><a href="https://github.com/EbookFoundation/free-programming-books" target="_blank" rel="noopener">Free Programming Books</a></li>
+                </ul>
+                <br>
+                <a href="https://github.com" target="_blank" rel="noopener" class="github-link" data-translate="githubLink">Visit GitHub</a>
             </div>
         </div>
     </main>
@@ -503,6 +632,23 @@
                     }
                 }
             });
+        }
+
+        // Search functions
+        function searchSite() {
+            const query = document.getElementById('siteSearch').value;
+            if (query.trim()) {
+                // Поиск по текущему сайту
+                const searchUrl = `https://www.google.com/search?q=site:${window.location.hostname}+${encodeURIComponent(query)}`;
+                window.open(searchUrl, '_blank');
+            }
+        }
+
+        function searchWeb() {
+            const query = document.getElementById('webSearch').value;
+            if (query.trim()) {
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+            }
         }
 
         // Mobile menu functionality
@@ -578,9 +724,22 @@
 
         // Handle resize - close mobile menu on larger screens
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 1024) {
                 mobileNav.classList.remove('active');
             }
+        });
+
+        // Add keyboard support for search
+        document.getElementById('siteSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchSite();
+        });
+
+        document.getElementById('webSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchWeb();
+        });
+
+        document.getElementById('resourceSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchResources();
         });
     </script>
 </body>
