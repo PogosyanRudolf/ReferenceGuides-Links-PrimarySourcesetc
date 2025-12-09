@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formal Sciences - Standard Reference</title>
+    <title data-translate="formalSciences">Formal Sciences - Standard Reference</title>
     <script src="translations.js"></script>
     <style>
         :root {
@@ -303,6 +303,36 @@
             margin-top: 3rem;
         }
         
+        /* Стили для результатов поиска */
+        .search-results {
+            background: var(--light-green);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #c6f6d5;
+            display: none;
+        }
+        
+        .search-results.active {
+            display: block;
+        }
+        
+        .search-result-item {
+            padding: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .no-results {
+            color: var(--dark-gray);
+            font-style: italic;
+            text-align: center;
+            padding: 1rem;
+        }
+        
         /* Mobile Styles */
         @media (max-width: 1024px) {
             .search-container {
@@ -380,7 +410,7 @@
             <div class="search-container">
                 <div class="search-box">
                     <input type="text" id="siteSearch" data-translate="searchPlaceholderSite" placeholder="Search this site...">
-                    <button class="search-btn" data-translate="searchButton" onclick="searchSite()">Search</button>
+                    <button class="search-btn" data-translate="searchButton" onclick="searchSiteContent()">Search</button>
                 </div>
                 <div class="search-box">
                     <input type="text" id="webSearch" data-translate="searchPlaceholderWeb" placeholder="Search the web...">
@@ -440,7 +470,13 @@
         </div>
         
         <h1 data-translate="formalSciences">Formal Sciences</h1>
-        <p class="page-description">Mathematical and computational sciences based on formal systems</p>
+        <p class="page-description" data-translate="formalSciencesDesc">Mathematical and computational sciences based on formal systems</p>
+        
+        <!-- Контейнер для результатов поиска -->
+        <div class="search-results" id="searchResults">
+            <h3 data-translate="searchResults">Search Results</h3>
+            <div id="searchResultsContent"></div>
+        </div>
         
         <div class="science-grid">
             <div class="science-category" id="mathematics">
@@ -516,98 +552,470 @@
     </footer>
 
     <script>
-        // Search functions
-        function searchSite() {
-            const query = document.getElementById('siteSearch').value;
-            if (query.trim()) {
-                // Поиск по текущему сайту - можно реализовать через JavaScript поиск по контенту
-                alert(`Searching site for: ${query}`);
-                // Реальная реализация будет искать по контенту страницы
+        // РЕАЛЬНЫЙ ПОИСК ПО САЙТУ
+        function searchSiteContent() {
+            const query = document.getElementById('siteSearch').value.trim().toLowerCase();
+            const searchResults = document.getElementById('searchResults');
+            const searchResultsContent = document.getElementById('searchResultsContent');
+            
+            if (!query) {
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            // Собираем все данные для поиска
+            const searchData = [];
+            
+            // Поиск по заголовкам категорий
+            document.querySelectorAll('.science-category h3').forEach(category => {
+                const categoryText = category.textContent.toLowerCase();
+                if (categoryText.includes(query)) {
+                    searchData.push({
+                        type: 'category',
+                        element: category.closest('.science-category'),
+                        text: categoryText,
+                        relevance: 10 // Высокая релевантность
+                    });
+                }
+            });
+            
+            // Поиск по ссылкам
+            document.querySelectorAll('.subjects-list a').forEach(link => {
+                const linkText = link.textContent.toLowerCase();
+                if (linkText.includes(query)) {
+                    searchData.push({
+                        type: 'link',
+                        element: link,
+                        text: linkText,
+                        relevance: 5
+                    });
+                }
+            });
+            
+            // Поиск по описанию
+            const descriptionText = document.querySelector('.page-description').textContent.toLowerCase();
+            if (descriptionText.includes(query)) {
+                searchData.push({
+                    type: 'description',
+                    element: document.querySelector('.page-description'),
+                    text: descriptionText,
+                    relevance: 3
+                });
+            }
+            
+            // Сортировка по релевантности
+            searchData.sort((a, b) => b.relevance - a.relevance);
+            
+            // Отображение результатов
+            if (searchData.length > 0) {
+                let html = '';
+                
+                searchData.forEach((result, index) => {
+                    if (index < 10) { // Ограничиваем 10 результатами
+                        const highlightedText = highlightText(result.text, query);
+                        
+                        html += `
+                            <div class="search-result-item">
+                                <strong>${result.type === 'category' ? '📁 Category:' : result.type === 'link' ? '🔗 Link:' : '📝 Description:'}</strong>
+                                <br>
+                                ${highlightedText}
+                                <br>
+                                <small style="color: var(--accent-green); cursor: pointer;" onclick="scrollToElement('${result.element.id || getElementId(result.element)}')">
+                                    Go to result →
+                                </small>
+                            </div>
+                        `;
+                    }
+                });
+                
+                searchResultsContent.innerHTML = html;
+                searchResults.classList.add('active');
+                
+                // Скроллим к результатам
+                searchResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                searchResultsContent.innerHTML = '<div class="no-results" data-translate="noResults">No results found</div>';
+                searchResults.classList.add('active');
             }
         }
-
+        
+        function getElementId(element) {
+            if (element.id) return element.id;
+            if (element.parentElement && element.parentElement.id) return element.parentElement.id;
+            return '';
+        }
+        
+        function scrollToElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Подсветка элемента
+                element.style.boxShadow = '0 0 0 3px var(--accent-green)';
+                setTimeout(() => {
+                    element.style.boxShadow = '';
+                }, 2000);
+            }
+        }
+        
+        function highlightText(text, query) {
+            const regex = new RegExp(`(${query})`, 'gi');
+            return text.replace(regex, '<mark style="background-color: #FFD700; padding: 2px;">$1</mark>');
+        }
+        
+        // Поиск в интернете
         function searchWeb() {
-            const query = document.getElementById('webSearch').value;
-            if (query.trim()) {
+            const query = document.getElementById('webSearch').value.trim();
+            if (query) {
                 window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
             }
         }
-
+        
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
         const mobileLanguageSelect = document.getElementById('mobileLanguageSelect');
         const desktopLanguageSelect = document.getElementById('languageSelect');
-
+        
         mobileMenuBtn.addEventListener('click', () => {
             mobileNav.classList.toggle('active');
         });
-
+        
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('nav') && mobileNav.classList.contains('active')) {
                 mobileNav.classList.remove('active');
             }
         });
-
+        
         // Sync language selects
         function syncLanguageSelects(value) {
             desktopLanguageSelect.value = value;
             mobileLanguageSelect.value = value;
         }
-
+        
         desktopLanguageSelect.addEventListener('change', function() {
             syncLanguageSelects(this.value);
             loadLanguage(this.value);
         });
-
+        
         mobileLanguageSelect.addEventListener('change', function() {
             syncLanguageSelects(this.value);
             loadLanguage(this.value);
         });
-
-        // Improved language loading function
+        
+        // УЛУЧШЕННАЯ функция загрузки языка
         function loadLanguage(language) {
             const elements = document.querySelectorAll('[data-translate]');
             elements.forEach(element => {
                 const key = element.getAttribute('data-translate');
+                
                 if (translations[language] && translations[language][key]) {
-                    element.textContent = translations[language][key];
+                    if (element.placeholder) {
+                        element.placeholder = translations[language][key];
+                    } else if (element.tagName === 'TITLE') {
+                        document.title = translations[language]['formalSciences'] + ' - ' + translations[language]['siteTitle'];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
                 } else if (translations['en'] && translations['en'][key]) {
                     // Fallback to English if translation missing
-                    element.textContent = translations['en'][key];
+                    if (element.placeholder) {
+                        element.placeholder = translations['en'][key];
+                    } else if (element.tagName === 'TITLE') {
+                        document.title = 'Formal Sciences - Standard Reference';
+                    } else {
+                        element.textContent = translations['en'][key];
+                    }
                 }
             });
             
+            // Также обновляем все текстовые элементы без data-translate
+            updateStaticTexts(language);
+            
             document.documentElement.lang = language;
-            
-            // Update page title
-            if (translations[language] && translations[language]['formalSciences'] && translations[language]['siteTitle']) {
-                document.title = translations[language]['formalSciences'] + ' - ' + translations[language]['siteTitle'];
-            } else {
-                document.title = 'Formal Sciences - Standard Reference';
-            }
-            
             localStorage.setItem('preferredLanguage', language);
         }
-
+        
+        // Обновление статического текста на странице
+        function updateStaticTexts(language) {
+            const staticTexts = {
+                'Mathematical and computational sciences based on formal systems': {
+                    en: 'Mathematical and computational sciences based on formal systems',
+                    ru: 'Математические и вычислительные науки, основанные на формальных системах',
+                    hy: 'Ֆորմալ համակարգերի վրա հիմնված մաթեմատիկական և հաշվողական գիտություններ',
+                    de: 'Mathematische und rechnerische Wissenschaften basierend auf formalen Systemen',
+                    es: 'Ciencias matemáticas y computacionales basadas en sistemas formales',
+                    fr: 'Sciences mathématiques et informatiques basées sur des systèmes formels'
+                },
+                'MIT Mathematics Courses': {
+                    en: 'MIT Mathematics Courses',
+                    ru: 'Математические курсы MIT',
+                    hy: 'MIT մաթեմատիկայի դասընթացներ',
+                    de: 'MIT Mathematik-Kurse',
+                    es: 'Cursos de Matemáticas del MIT',
+                    fr: 'Cours de Mathématiques du MIT'
+                },
+                'Khan Academy Mathematics': {
+                    en: 'Khan Academy Mathematics',
+                    ru: 'Математика от Khan Academy',
+                    hy: 'Khan Academy մաթեմատիկա',
+                    de: 'Khan Academy Mathematik',
+                    es: 'Matemáticas de Khan Academy',
+                    fr: 'Mathématiques de Khan Academy'
+                },
+                'Coursera Math & Logic': {
+                    en: 'Coursera Math & Logic',
+                    ru: 'Математика и логика на Coursera',
+                    hy: 'Coursera մաթեմատիկա և տրամաբանություն',
+                    de: 'Coursera Mathematik & Logik',
+                    es: 'Matemáticas y Lógica de Coursera',
+                    fr: 'Mathématiques et Logique de Coursera'
+                },
+                'edX Mathematics': {
+                    en: 'edX Mathematics',
+                    ru: 'Математика на edX',
+                    hy: 'edX մաթեմատիկա',
+                    de: 'edX Mathematik',
+                    es: 'Matemáticas de edX',
+                    fr: 'Mathématiques de edX'
+                },
+                'Brilliant.org Math': {
+                    en: 'Brilliant.org Math',
+                    ru: 'Математика на Brilliant.org',
+                    hy: 'Brilliant.org մաթեմատիկա',
+                    de: 'Brilliant.org Mathematik',
+                    es: 'Matemáticas de Brilliant.org',
+                    fr: 'Mathématiques de Brilliant.org'
+                },
+                'MIT Computer Science': {
+                    en: 'MIT Computer Science',
+                    ru: 'Информатика MIT',
+                    hy: 'MIT ինֆորմատիկա',
+                    de: 'MIT Informatik',
+                    es: 'Ciencias de la Computación del MIT',
+                    fr: 'Informatique du MIT'
+                },
+                'Harvard CS50': {
+                    en: 'Harvard CS50',
+                    ru: 'Гарвардский CS50',
+                    hy: 'Հարվարդ CS50',
+                    de: 'Harvard CS50',
+                    es: 'Harvard CS50',
+                    fr: 'Harvard CS50'
+                },
+                'Coursera Computer Science': {
+                    en: 'Coursera Computer Science',
+                    ru: 'Информатика на Coursera',
+                    hy: 'Coursera ինֆորմատիկա',
+                    de: 'Coursera Informatik',
+                    es: 'Ciencias de la Computación de Coursera',
+                    fr: 'Informatique de Coursera'
+                },
+                'Khan Academy CS': {
+                    en: 'Khan Academy CS',
+                    ru: 'Информатика от Khan Academy',
+                    hy: 'Khan Academy ինֆորմատիկա',
+                    de: 'Khan Academy Informatik',
+                    es: 'Ciencias de la Computación de Khan Academy',
+                    fr: 'Informatique de Khan Academy'
+                },
+                'Stanford CS101': {
+                    en: 'Stanford CS101',
+                    ru: 'Стэнфордский CS101',
+                    hy: 'Սթենֆորդ CS101',
+                    de: 'Stanford CS101',
+                    es: 'Stanford CS101',
+                    fr: 'Stanford CS101'
+                },
+                'Stanford Machine Learning': {
+                    en: 'Stanford Machine Learning',
+                    ru: 'Машинное обучение Стэнфорда',
+                    hy: 'Սթենֆորդ մեքենայական ուսուցում',
+                    de: 'Stanford Maschinelles Lernen',
+                    es: 'Aprendizaje Automático de Stanford',
+                    fr: 'Apprentissage Automatique de Stanford'
+                },
+                'MIT Artificial Intelligence': {
+                    en: 'MIT Artificial Intelligence',
+                    ru: 'Искусственный интеллект MIT',
+                    hy: 'MIT արհեստական բանականություն',
+                    de: 'MIT Künstliche Intelligenz',
+                    es: 'Inteligencia Artificial del MIT',
+                    fr: 'Intelligence Artificielle du MIT'
+                },
+                'edX AI Courses': {
+                    en: 'edX AI Courses',
+                    ru: 'Курсы ИИ на edX',
+                    hy: 'edX AI դասընթացներ',
+                    de: 'edX KI-Kurse',
+                    es: 'Cursos de IA de edX',
+                    fr: 'Cours d\'IA de edX'
+                },
+                'Khan Academy AI': {
+                    en: 'Khan Academy AI',
+                    ru: 'ИИ от Khan Academy',
+                    hy: 'Khan Academy AI',
+                    de: 'Khan Academy KI',
+                    es: 'IA de Khan Academy',
+                    fr: 'IA de Khan Academy'
+                },
+                'Stanford ML': {
+                    en: 'Stanford ML',
+                    ru: 'Стэнфорд ML',
+                    hy: 'Սթենֆորդ ML',
+                    de: 'Stanford ML',
+                    es: 'Stanford ML',
+                    fr: 'Stanford ML'
+                },
+                'MIT Statistics': {
+                    en: 'MIT Statistics',
+                    ru: 'Статистика MIT',
+                    hy: 'MIT վիճակագրություն',
+                    de: 'MIT Statistik',
+                    es: 'Estadísticas del MIT',
+                    fr: 'Statistiques du MIT'
+                },
+                'Data Science Specialization': {
+                    en: 'Data Science Specialization',
+                    ru: 'Специализация по науке о данных',
+                    hy: 'Տվյալների գիտության մասնագիտացում',
+                    de: 'Data Science Spezialisierung',
+                    es: 'Especialización en Ciencia de Datos',
+                    fr: 'Spécialisation en Science des Données'
+                },
+                'edX Statistics': {
+                    en: 'edX Statistics',
+                    ru: 'Статистика на edX',
+                    hy: 'edX վիճակագրություն',
+                    de: 'edX Statistik',
+                    es: 'Estadísticas de edX',
+                    fr: 'Statistiques de edX'
+                },
+                'Khan Academy Statistics': {
+                    en: 'Khan Academy Statistics',
+                    ru: 'Статистика от Khan Academy',
+                    hy: 'Khan Academy վիճակագրություն',
+                    de: 'Khan Academy Statistik',
+                    es: 'Estadísticas de Khan Academy',
+                    fr: 'Statistiques de Khan Academy'
+                },
+                'Stanford Statistical Learning': {
+                    en: 'Stanford Statistical Learning',
+                    ru: 'Статистическое обучение Стэнфорда',
+                    hy: 'Սթենֆորդ վիճակագրական ուսուցում',
+                    de: 'Stanford Statistik Lernen',
+                    es: 'Aprendizaje Estadístico de Stanford',
+                    fr: 'Apprentissage Statistique de Stanford'
+                },
+                'Cybersecurity Specialization': {
+                    en: 'Cybersecurity Specialization',
+                    ru: 'Специализация по кибербезопасности',
+                    hy: 'Կիբերանվտանգության մասնագիտացում',
+                    de: 'Cybersicherheit Spezialisierung',
+                    es: 'Especialización en Ciberseguridad',
+                    fr: 'Spécialisation en Cybersécurité'
+                },
+                'edX Cybersecurity': {
+                    en: 'edX Cybersecurity',
+                    ru: 'Кибербезопасность на edX',
+                    hy: 'edX կիբերանվտանգություն',
+                    de: 'edX Cybersicherheit',
+                    es: 'Ciberseguridad de edX',
+                    fr: 'Cybersécurité de edX'
+                },
+                'MIT Computer Security': {
+                    en: 'MIT Computer Security',
+                    ru: 'Компьютерная безопасность MIT',
+                    hy: 'MIT համակարգչային անվտանգություն',
+                    de: 'MIT Computersicherheit',
+                    es: 'Seguridad Informática del MIT',
+                    fr: 'Sécurité Informatique du MIT'
+                },
+                'Khan Academy Security': {
+                    en: 'Khan Academy Security',
+                    ru: 'Безопасность от Khan Academy',
+                    hy: 'Khan Academy անվտանգություն',
+                    de: 'Khan Academy Sicherheit',
+                    es: 'Seguridad de Khan Academy',
+                    fr: 'Sécurité de Khan Academy'
+                },
+                'Stanford Cybersecurity': {
+                    en: 'Stanford Cybersecurity',
+                    ru: 'Кибербезопасность Стэнфорда',
+                    hy: 'Սթենֆորդ կիբերանվտանգություն',
+                    de: 'Stanford Cybersicherheit',
+                    es: 'Ciberseguridad de Stanford',
+                    fr: 'Cybersécurité de Stanford'
+                },
+                'Python for Everybody': {
+                    en: 'Python for Everybody',
+                    ru: 'Python для всех',
+                    hy: 'Python բոլորի համար',
+                    de: 'Python für alle',
+                    es: 'Python para todos',
+                    fr: 'Python pour tous'
+                },
+                'MIT Python Programming': {
+                    en: 'MIT Python Programming',
+                    ru: 'Программирование на Python от MIT',
+                    hy: 'MIT Python ծրագրավորում',
+                    de: 'MIT Python Programmierung',
+                    es: 'Programación Python del MIT',
+                    fr: 'Programmation Python du MIT'
+                },
+                'edX Programming': {
+                    en: 'edX Programming',
+                    ru: 'Программирование на edX',
+                    hy: 'edX ծրագրավորում',
+                    de: 'edX Programmierung',
+                    es: 'Programación de edX',
+                    fr: 'Programmation de edX'
+                },
+                'Khan Academy Programming': {
+                    en: 'Khan Academy Programming',
+                    ru: 'Программирование от Khan Academy',
+                    hy: 'Khan Academy ծրագրավորում',
+                    de: 'Khan Academy Programmierung',
+                    es: 'Programación de Khan Academy',
+                    fr: 'Programmation de Khan Academy'
+                },
+                'Stanford Programming Methodology': {
+                    en: 'Stanford Programming Methodology',
+                    ru: 'Методология программирования Стэнфорда',
+                    hy: 'Սթենֆորդ ծրագրավորման մեթոդաբանություն',
+                    de: 'Stanford Programmier Methodik',
+                    es: 'Metodología de Programación de Stanford',
+                    fr: 'Méthodologie de Programmation de Stanford'
+                }
+            };
+            
+            // Обновляем статические тексты
+            document.querySelectorAll('.subjects-list a, .page-description').forEach(element => {
+                const text = element.textContent.trim();
+                if (staticTexts[text] && staticTexts[text][language]) {
+                    element.textContent = staticTexts[text][language];
+                }
+            });
+        }
+        
         // Initialize
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         syncLanguageSelects(savedLanguage);
         loadLanguage(savedLanguage);
-
+        
         // Handle resize - close mobile menu on larger screens
         window.addEventListener('resize', () => {
             if (window.innerWidth > 1024) {
                 mobileNav.classList.remove('active');
             }
         });
-
+        
         // Add keyboard support for search
         document.getElementById('siteSearch').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') searchSite();
+            if (e.key === 'Enter') searchSiteContent();
         });
-
+        
         document.getElementById('webSearch').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') searchWeb();
         });
