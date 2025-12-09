@@ -15,7 +15,7 @@ const translations = {
         "heroTitle": "Comprehensive Knowledge Database",
         "heroText": "Access curated educational resources, research materials, and primary sources from around the world",
         "exploreResources": "Explore Resources",
-        "latestNews": "Latest News",
+        "latestNews": "Culture News, Events, Facts",
         "viewAllNews": "View All News",
         
         // Categories
@@ -98,7 +98,7 @@ const translations = {
         "contactExpert": "Contact Expert",
         "consultationAreas": "Consultation Areas",
         
-        // Culture News page - изменено
+        // Culture News page
         "latestCulturalNews": "Culture News, Events, Facts",
         "culturalEvents": "Cultural Events",
         "exhibitions": "Exhibitions",
@@ -106,6 +106,7 @@ const translations = {
         "publications": "Publications",
         "readMore": "Read More",
         "film": "Film",
+        "cultureDescription": "Discover exhibitions, performances, literature, and cultural events from around the world",
         
         // Common
         "learnMore": "Learn More",
@@ -220,7 +221,7 @@ const translations = {
         "contactExpert": "Связаться с экспертом",
         "consultationAreas": "Области консультаций",
         
-        // Culture News page - ИЗМЕНЕНО: убрано "Последние", добавлены недостающие переводы
+        // Culture News page
         "latestCulturalNews": "Новости культуры, события, факты",
         "culturalEvents": "Культурные события",
         "exhibitions": "Выставки",
@@ -228,6 +229,7 @@ const translations = {
         "publications": "Публикации",
         "readMore": "Читать далее",
         "film": "Кино",
+        "cultureDescription": "Выставки, спектакли, литература и культурные события со всего мира",
         
         // Common
         "learnMore": "Узнать больше",
@@ -350,6 +352,7 @@ const translations = {
         "publications": "Հրապարակումներ",
         "readMore": "Կարդալ ավելին",
         "film": "Ֆիլմ",
+        "cultureDescription": "Ցուցահանդեսներ, բեմադրություններ, գրականություն և մշակութային իրադարձություններ ամբողջ աշխարհից",
         
         // Common
         "learnMore": "Իմանալ ավելին",
@@ -382,6 +385,7 @@ const translations = {
         "publications": "Veröffentlichungen",
         "readMore": "Weiterlesen",
         "film": "Film",
+        "cultureDescription": "Entdecken Sie Ausstellungen, Aufführungen, Literatur und kulturelle Veranstaltungen aus der ganzen Welt",
         "footerText": "Referenzleitfäden, Links, Primärquellen — Standard-Referenz",
         "latestNews": "Kulturnachrichten, Ereignisse, Fakten"
     },
@@ -403,6 +407,7 @@ const translations = {
         "publications": "Publicaciones",
         "readMore": "Leer Más",
         "film": "Cine",
+        "cultureDescription": "Descubra exposiciones, actuaciones, literatura y eventos culturales de todo el mundo",
         "footerText": "Guías de Referencia, Enlaces, Fuentes Primarias — Referencia Estándar",
         "latestNews": "Noticias Culturales, Eventos, Hechos"
     },
@@ -424,6 +429,7 @@ const translations = {
         "publications": "Publications",
         "readMore": "Lire la suite",
         "film": "Cinéma",
+        "cultureDescription": "Découvrez des expositions, des spectacles, de la littérature et des événements culturels du monde entier",
         "footerText": "Guides de Référence, Liens, Sources Primaires — Référence Standard",
         "latestNews": "Actualités Culturelles, Événements, Faits"
     }
