@@ -265,6 +265,18 @@
             line-height: 1.5;
         }
         
+        .email-link {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .email-link:hover {
+            color: var(--hover-green);
+            text-decoration: underline;
+        }
+        
         .contact-form {
             background: var(--white);
             padding: 2rem;
@@ -331,6 +343,11 @@
             background: var(--hover-green);
         }
         
+        .submit-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        
         .faq-section {
             background: var(--light-green);
             padding: 3rem 2rem;
@@ -369,6 +386,26 @@
         .faq-item p {
             color: var(--dark-gray);
             line-height: 1.5;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border: 1px solid #f5c6cb;
+            display: none;
         }
         
         footer {
@@ -490,6 +527,8 @@
                 <a href="index.html" data-translate="home">Home</a>
                 <a href="educationandsciences.html" data-translate="science">Science & Education</a>
                 <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
@@ -512,6 +551,8 @@
                 <a href="index.html" data-translate="home">Home</a>
                 <a href="educationandsciences.html" data-translate="science">Science & Education</a>
                 <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
             </div>
@@ -546,7 +587,10 @@
                         <div class="contact-icon">📧</div>
                         <div class="contact-details">
                             <h3 data-translate="emailUs">Email Us</h3>
-                            <p>info@primaryreference.org<br><span data-translate="emailResponse">We typically respond within 24 hours</span></p>
+                            <p>
+                                <a href="mailto:PogosyanRudolf@gmail.com" class="email-link">PogosyanRudolf@gmail.com</a><br>
+                                <span data-translate="emailResponse">We typically respond within 24 hours</span>
+                            </p>
                         </div>
                     </div>
                     
@@ -578,6 +622,8 @@
             
             <div class="contact-form">
                 <h2 data-translate="sendMessage">Send Message</h2>
+                <div class="success-message" id="successMessage"></div>
+                <div class="error-message" id="errorMessage"></div>
                 <form id="contactForm">
                     <div class="form-group">
                         <label for="name" data-translate="fullName">Full Name</label>
@@ -607,7 +653,7 @@
                         <textarea id="message" name="message" required></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn" data-translate="sendMessage">Send Message</button>
+                    <button type="submit" class="submit-btn" id="submitBtn" data-translate="sendMessage">Send Message</button>
                 </form>
             </div>
         </div>
@@ -640,6 +686,7 @@
 
     <footer>
         <p data-translate="footerText">Reference Guides, Links, Primary Sources — The Primary Reference</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #c6f6d5;">Contact: <a href="mailto:PogosyanRudolf@gmail.com" style="color: #ffffff;">PogosyanRudolf@gmail.com</a></p>
     </footer>
 
     <script>
@@ -660,13 +707,83 @@
             }
         });
 
+        // Show message function
+        function showMessage(type, message) {
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (type === 'success') {
+                successMessage.textContent = message;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            } else {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+
         // Contact form handling
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
+        const submitBtn = document.getElementById('submitBtn');
+        
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            try {
+                // Send email using Formspree
+                const response = await fetch('https://formspree.io/f/mnqezwlw', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        ...data,
+                        _replyto: data.email,
+                        _subject: `Website Contact: ${data.subject}`,
+                        _to: 'PogosyanRudolf@gmail.com'
+                    })
+                });
+                
+                if (response.ok) {
+                    showMessage('success', 'Thank you for your message! We will get back to you soon.');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('error', 'Sorry, there was an error sending your message. Please try again or email us directly at PogosyanRudolf@gmail.com');
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = getTranslation('sendMessage') || 'Send Message';
+            }
         });
+
+        // Helper function to get translation
+        function getTranslation(key) {
+            const currentLang = desktopLanguageSelect.value;
+            return translations[currentLang] && translations[currentLang][key] ? 
+                   translations[currentLang][key] : 
+                   translations['en'][key];
+        }
 
         // Sync language selects
         function syncLanguageSelects(value) {
@@ -690,10 +807,31 @@
             elements.forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[language] && translations[language][key]) {
-                    element.textContent = translations[language][key];
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT') {
+                        if (element.type !== 'submit') {
+                            if (element.tagName === 'SELECT') {
+                                Array.from(element.options).forEach(option => {
+                                    const optionKey = option.getAttribute('data-translate');
+                                    if (optionKey && translations[language][optionKey]) {
+                                        option.textContent = translations[language][optionKey];
+                                    }
+                                });
+                            } else {
+                                element.placeholder = translations[language][key];
+                            }
+                        }
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
                 } else if (translations['en'] && translations['en'][key]) {
                     // Fallback to English if translation missing
-                    element.textContent = translations['en'][key];
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT') {
+                        if (element.type !== 'submit') {
+                            element.placeholder = translations['en'][key];
+                        }
+                    } else {
+                        element.textContent = translations['en'][key];
+                    }
                 }
             });
             
@@ -707,6 +845,11 @@
             }
             
             localStorage.setItem('preferredLanguage', language);
+            
+            // Update submit button text
+            if (submitBtn) {
+                submitBtn.textContent = getTranslation('sendMessage');
+            }
         }
 
         // Initialize
@@ -717,6 +860,13 @@
         // Handle resize - close mobile menu on larger screens
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Add keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
                 mobileNav.classList.remove('active');
             }
         });
