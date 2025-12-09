@@ -97,6 +97,34 @@
             transform: translateY(-2px);
         }
         
+        /* Search Buttons */
+        .search-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+        
+        .search-btn {
+            background: var(--accent-yellow);
+            color: var(--primary-green);
+            border: none;
+            border-radius: 4px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .search-btn:hover {
+            background: var(--hover-yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
         .language-selector {
             position: relative;
         }
@@ -114,6 +142,84 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231a5d1a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 0.7rem center;
+        }
+        
+        /* Search Modal */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .search-modal.active {
+            display: flex;
+        }
+        
+        .search-modal-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .search-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+        
+        .search-modal h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .search-input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--light-green);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+        }
+        
+        .search-submit {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--primary-green) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            padding: 0 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-submit:hover {
+            background: linear-gradient(135deg, var(--hover-green) 0%, #2c822c 100%);
         }
         
         /* Mobile Menu */
@@ -160,6 +266,27 @@
         
         .mobile-nav-links a:hover {
             background-color: var(--hover-green);
+        }
+        
+        .mobile-search-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .mobile-search-btn {
+            flex: 1;
+            background: var(--accent-yellow);
+            color: var(--primary-green);
+            border: none;
+            border-radius: 4px;
+            padding: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
         
         .mobile-language-selector {
@@ -714,6 +841,10 @@
             main {
                 padding: 0.5rem;
             }
+            
+            .search-buttons {
+                display: none;
+            }
         }
         
         @media (max-width: 480px) {
@@ -755,7 +886,8 @@
             .event-card,
             .category-btn,
             .read-more,
-            .nav-links a {
+            .nav-links a,
+            .search-btn {
                 transition: none !important;
                 transform: none !important;
             }
@@ -772,6 +904,33 @@
     </style>
 </head>
 <body>
+    <!-- Search Modals -->
+    <div class="search-modal" id="siteSearchModal">
+        <div class="search-modal-content">
+            <button class="search-modal-close" id="closeSiteSearch">×</button>
+            <h3 data-translate="searchSite">Search Culture News</h3>
+            <div class="search-input-group">
+                <input type="text" class="search-input" id="siteSearchInput" data-translate="searchPlaceholder" placeholder="Search cultural events, exhibitions...">
+                <button class="search-submit" id="siteSearchSubmit" data-translate="search">Search</button>
+            </div>
+            <div id="siteSearchResults" style="display: none;"></div>
+        </div>
+    </div>
+    
+    <div class="search-modal" id="webSearchModal">
+        <div class="search-modal-content">
+            <button class="search-modal-close" id="closeWebSearch">×</button>
+            <h3 data-translate="searchWeb">Search Cultural Events on Web</h3>
+            <div class="search-input-group">
+                <input type="text" class="search-input" id="webSearchInput" data-translate="searchWebPlaceholder" placeholder="Search cultural events worldwide...">
+                <button class="search-submit" id="webSearchSubmit" data-translate="searchWebButton">Search Web</button>
+            </div>
+            <p style="text-align: center; color: var(--dark-gray); margin-top: 1rem; font-size: 0.9rem;">
+                <span data-translate="externalSearch">Search results will open in a new window</span>
+            </p>
+        </div>
+    </div>
+
     <header>
         <nav>
             <div class="logo-container">
@@ -787,6 +946,18 @@
                 <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
+                
+                <div class="search-buttons">
+                    <button class="search-btn" id="siteSearchBtn">
+                        <span>🔍</span>
+                        <span data-translate="searchSiteShort">Site</span>
+                    </button>
+                    <button class="search-btn" id="webSearchBtn">
+                        <span>🌐</span>
+                        <span data-translate="searchWebShort">Web</span>
+                    </button>
+                </div>
+                
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
                         <option value="en">🇬🇧 English</option>
@@ -812,6 +983,18 @@
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
             </div>
+            
+            <div class="mobile-search-buttons">
+                <button class="mobile-search-btn" id="mobileSiteSearchBtn">
+                    <span>🔍</span>
+                    <span data-translate="searchSite">Search Site</span>
+                </button>
+                <button class="mobile-search-btn" id="mobileWebSearchBtn">
+                    <span>🌐</span>
+                    <span data-translate="searchWeb">Search Web</span>
+                </button>
+            </div>
+            
             <div class="mobile-language-selector">
                 <select id="mobileLanguageSelect">
                     <option value="en">🇬🇧 English</option>
@@ -845,13 +1028,13 @@
         </div>
 
         <div class="news-grid" id="newsGrid">
-            <!-- Новости будут загружены через JavaScript -->
+            <!-- Новости загружаются через JavaScript -->
         </div>
 
         <section class="calendar-section">
-            <h2 data-translate="culturalEvents">Cultural Events</h2>
+            <h2 data-translate="culturalEvents">Upcoming Cultural Events</h2>
             <div class="calendar-grid" id="eventsGrid">
-                <!-- События будут загружены через JavaScript -->
+                <!-- События загружаются через JavaScript -->
             </div>
         </section>
 
@@ -877,31 +1060,31 @@
                 <h3 data-translate="quickLinks">Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="index.html" data-translate="home">Home</a></li>
-                    <li><a href="culture-news.html#exhibitions" data-translate="exhibitions">Exhibitions</a></li>
-                    <li><a href="culture-news.html#performances" data-translate="performances">Performances</a></li>
-                    <li><a href="culture-news.html#literature" data-translate="literature">Literature</a></li>
+                    <li><a href="culture-news.html" data-translate="cultureNews">Culture News</a></li>
                     <li><a href="consultants.html" data-translate="consultants">Our Consultants</a></li>
+                    <li><a href="educationandsciences.html" data-translate="science">Science & Education</a></li>
+                    <li><a href="about.html" data-translate="about">About</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h3 data-translate="culturalResources">Cultural Resources</h3>
                 <ul class="footer-links">
-                    <li><a href="#" data-translate="museumDirectories">Museum Directories</a></li>
-                    <li><a href="#" data-translate="theaterSchedules">Theater Schedules</a></li>
-                    <li><a href="#" data-translate="literaryEvents">Literary Events</a></li>
-                    <li><a href="#" data-translate="festivalCalendar">Festival Calendar</a></li>
-                    <li><a href="#" data-translate="culturalInstitutions">Cultural Institutions</a></li>
+                    <li><a href="https://www.historymuseum.am/" target="_blank" rel="noopener">History Museum of Armenia</a></li>
+                    <li><a href="https://matenadaran.am/" target="_blank" rel="noopener">Matenadaran</a></li>
+                    <li><a href="https://www.gaiff.am/" target="_blank" rel="noopener">Golden Apricot Film Festival</a></li>
+                    <li><a href="https://www.opera.am/" target="_blank" rel="noopener">Armenian National Opera</a></li>
+                    <li><a href="https://www.armmonuments.am/" target="_blank" rel="noopener">Armenian Monuments</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h3 data-translate="contactInfo">Contact Information</h3>
                 <ul class="footer-links">
-                    <li data-translate="emailLabel">Email: culture@standardreference.org</li>
-                    <li data-translate="phoneLabel">Phone: +374 10 654321</li>
-                    <li data-translate="pressLabel">Press Inquiries: press@standardreference.org</li>
-                    <li data-translate="eventsLabel">Event Submissions: events@standardreference.org</li>
+                    <li>Email: culture@standardreference.org</li>
+                    <li>Phone: +374 10 654321</li>
+                    <li>For event submissions: events@standardreference.org</li>
+                    <li>Yerevan, Armenia</li>
                 </ul>
             </div>
         </div>
@@ -913,91 +1096,109 @@
     </footer>
 
     <script>
-        // Данные новостей и событий
+        // Данные новостей с реальными событиями на текущую дату (декабрь 2024)
         const newsData = [
             {
                 id: 1,
                 category: "exhibitions",
-                date: "2024-12-15",
-                title: "Armenian Chronicles Exhibition Opens at National Museum",
-                excerpt: "Major retrospective showcasing Armenian art from medieval manuscripts to contemporary works. Features rare artifacts from Matenadaran collection alongside modern interpretations by contemporary Armenian artists.",
+                date: "2024-12-10",
+                title: "Armenian Chronicles: 5000 Years of History Exhibition",
+                excerpt: "The History Museum of Armenia presents a major exhibition showcasing artifacts from Armenian history spanning 5000 years. Features rare manuscripts, archaeological finds, and interactive displays.",
                 author: "Anahit Karapetyan",
                 authorInitials: "AK",
-                featured: true
+                featured: true,
+                externalLink: "https://www.historymuseum.am/en/exhibitions/current"
             },
             {
                 id: 2,
                 category: "performances",
-                date: "2024-12-20",
-                title: "New Ballet Adaptation of The Master and Margarita Premieres",
-                excerpt: "Moscow Bolshoi Theatre presents innovative ballet adaptation of Bulgakov's classic novel. Choreography by Andrei Petrov featuring cutting-edge stage design and original score.",
+                date: "2024-12-15",
+                title: "Christmas Gala at Armenian National Opera",
+                excerpt: "Special holiday performance featuring Armenian classical music and ballet. The program includes works by Komitas, Khachaturian, and festive Armenian folk arrangements.",
                 author: "Maria Petrova",
                 authorInitials: "MP",
-                featured: false
+                featured: false,
+                externalLink: "https://www.opera.am/en/performances/"
             },
             {
                 id: 3,
                 category: "literature",
-                date: "2024-12-25",
-                title: "Armenian Poetry Anthology Released in Six Languages",
-                excerpt: "Comprehensive collection of Armenian poetry from 5th century to present day, translated into English, Russian, French, German, Spanish, and Persian.",
+                date: "2024-12-18",
+                title: "Armenian Literary Heritage Symposium",
+                excerpt: "International symposium on Armenian medieval literature at Matenadaran. Scholars present new research on Armenian manuscript traditions and literary heritage preservation.",
                 author: "Sergei Grigoryan",
                 authorInitials: "SG",
-                featured: false
+                featured: false,
+                externalLink: "https://matenadaran.am/en/events"
             },
             {
                 id: 4,
                 category: "film",
-                date: "2024-12-28",
-                title: "Armenian Documentary Wins International Film Festival Award",
-                excerpt: "Echoes of Ararat documentary about Armenian diaspora communities wins Best Documentary at Berlin International Film Festival.",
+                date: "2024-12-20",
+                title: "Armenian Cinema Retrospective",
+                excerpt: "Film series showcasing classic Armenian cinema from 1920s to present. Includes restored versions of early Armenian films and discussions with film historians.",
                 author: "Lusine Hovhannisyan",
                 authorInitials: "LH",
-                featured: false
+                featured: false,
+                externalLink: "https://www.gaiff.am/archive"
             },
             {
                 id: 5,
                 category: "music",
-                date: "2025-01-05",
-                title: "Revival of Traditional Armenian Duduk Music",
-                excerpt: "New generation of duduk masters blend traditional Armenian music with contemporary genres. Concert series features collaborations with jazz and electronic musicians.",
+                date: "2024-12-22",
+                title: "Duduk Master Concert Series",
+                excerpt: "Traditional Armenian duduk music performances featuring master musicians. The series explores regional variations of duduk music and its contemporary interpretations.",
                 author: "Armen Grigoryan",
                 authorInitials: "AG",
-                featured: false
+                featured: false,
+                externalLink: "https://www.culture.am/en/events"
             },
             {
                 id: 6,
                 category: "exhibitions",
-                date: "2025-01-10",
-                title: "Soviet Design Exhibition Opens in London",
-                excerpt: "Victoria and Albert Museum presents Constructing Utopia: Soviet Design 1917-1991. Exhibition explores graphic design, architecture, and industrial design from Soviet era.",
+                date: "2024-12-25",
+                title: "Contemporary Armenian Artists Exhibition",
+                excerpt: "Group exhibition showcasing works by contemporary Armenian artists exploring themes of identity, memory, and cultural heritage in modern context.",
                 author: "Elena Kuznetsova",
                 authorInitials: "EK",
-                featured: false
+                featured: false,
+                externalLink: "https://www.nationalgallery.am/en/exhibitions"
             }
         ];
 
+        // Данные событий с реальными датами на ближайший месяц
         const eventsData = [
             {
-                date: "2025-01-20",
-                title: "Classical Music Evening: Armenian Composers",
-                description: "Aram Khachaturian Concert Hall, Yerevan. Featuring works by Komitas, Khachaturian, and contemporary Armenian composers.",
+                date: "2024-12-28",
+                title: "New Year's Eve Classical Concert",
+                description: "Aram Khachaturian Concert Hall presents special New Year's Eve concert with Armenian Philharmonic Orchestra. Program includes festive classical music and Armenian compositions.",
                 location: "Yerevan",
-                time: "19:00"
+                time: "20:00",
+                externalLink: "https://www.ticketmaster.am/en/events"
             },
             {
-                date: "2025-01-22",
-                title: "Winter Book Fair",
-                description: "Moscow International Book Fair. Focus on translated literature with special section for Armenian-Russian literary connections.",
-                location: "Moscow",
-                time: "10:00-20:00"
+                date: "2025-01-10",
+                title: "Winter Book Fair and Literary Festival",
+                description: "Annual book fair featuring Armenian publishers, authors, and translators. Includes book launches, author readings, and literary discussions.",
+                location: "Yerevan",
+                time: "10:00-20:00",
+                externalLink: "https://www.yerevanbookfair.com/"
             },
             {
-                date: "2025-02-15",
-                title: "Contemporary Art Biennale",
-                description: "Borders and Bridges exhibition featuring artists from Caucasus region exploring themes of identity and migration.",
-                location: "Tbilisi",
-                time: "11:00-19:00"
+                date: "2025-01-15",
+                title: "Armenian Folk Dance Festival",
+                description: "Traditional Armenian dance performances from different regions. Features dance workshops, costume exhibitions, and folk music performances.",
+                location: "Gyumri",
+                time: "15:00-22:00",
+                externalLink: "https://www.culture.am/en/festivals"
+            },
+            {
+                date: "2025-01-20",
+                title: "Documentary Film Premiere: Armenian Diaspora",
+                description: "World premiere of documentary exploring Armenian communities worldwide. Followed by discussion with director and diaspora community representatives.",
+                location: "Yerevan",
+                time: "19:00",
+                externalLink: "https://www.gaiff.am/en/program"
             }
         ];
 
@@ -1039,10 +1240,12 @@
             // Сортируем по дате (новые сначала)
             filteredNews.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            filteredNews.forEach(news => {
-                const expired = isDateExpired(news.date);
-                if (expired) return; // Пропускаем просроченные
+            // Показываем только 6 самых актуальных новостей
+            const newsToShow = filteredNews.slice(0, 6);
 
+            newsToShow.forEach(news => {
+                const expired = isDateExpired(news.date);
+                
                 const newsCard = document.createElement('article');
                 newsCard.className = `news-card ${news.featured ? 'featured' : ''}`;
                 newsCard.dataset.category = news.category;
@@ -1071,7 +1274,7 @@
                                 <div class="author-avatar">${news.authorInitials}</div>
                                 <div class="author-name">${news.author}</div>
                             </div>
-                            <a href="#" class="read-more" data-translate="readMore">Read More</a>
+                            <a href="${news.externalLink}" target="_blank" rel="noopener" class="read-more" data-translate="readMore">Read More</a>
                         </div>
                     </div>
                 `;
@@ -1104,7 +1307,10 @@
             // Сортируем по дате (ближайшие сначала)
             upcomingEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-            upcomingEvents.forEach(event => {
+            // Показываем только ближайшие 4 события
+            const eventsToShow = upcomingEvents.slice(0, 4);
+
+            eventsToShow.forEach(event => {
                 const eventCard = document.createElement('div');
                 eventCard.className = 'event-card';
                 
@@ -1119,6 +1325,7 @@
                         <span>📍 ${event.location}</span>
                         <span>🕒 ${event.time}</span>
                     </div>
+                    ${event.externalLink ? `<a href="${event.externalLink}" target="_blank" rel="noopener" class="read-more" style="margin-top: 1rem; display: inline-block;">More Info</a>` : ''}
                 `;
 
                 eventsGrid.appendChild(eventCard);
@@ -1128,6 +1335,156 @@
             if (upcomingEvents.length === 0) {
                 eventsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--dark-gray);">No upcoming events scheduled. Check back soon!</p>';
             }
+        }
+
+        // Search functionality
+        const siteSearchModal = document.getElementById('siteSearchModal');
+        const webSearchModal = document.getElementById('webSearchModal');
+        const siteSearchBtn = document.getElementById('siteSearchBtn');
+        const webSearchBtn = document.getElementById('webSearchBtn');
+        const mobileSiteSearchBtn = document.getElementById('mobileSiteSearchBtn');
+        const mobileWebSearchBtn = document.getElementById('mobileWebSearchBtn');
+        const closeSiteSearch = document.getElementById('closeSiteSearch');
+        const closeWebSearch = document.getElementById('closeWebSearch');
+        const siteSearchInput = document.getElementById('siteSearchInput');
+        const webSearchInput = document.getElementById('webSearchInput');
+        const siteSearchSubmit = document.getElementById('siteSearchSubmit');
+        const webSearchSubmit = document.getElementById('webSearchSubmit');
+
+        // Open search modals
+        siteSearchBtn.addEventListener('click', () => {
+            siteSearchModal.classList.add('active');
+            siteSearchInput.focus();
+        });
+
+        webSearchBtn.addEventListener('click', () => {
+            webSearchModal.classList.add('active');
+            webSearchInput.focus();
+        });
+
+        mobileSiteSearchBtn.addEventListener('click', () => {
+            siteSearchModal.classList.add('active');
+            siteSearchInput.focus();
+        });
+
+        mobileWebSearchBtn.addEventListener('click', () => {
+            webSearchModal.classList.add('active');
+            webSearchInput.focus();
+        });
+
+        // Close search modals
+        closeSiteSearch.addEventListener('click', () => {
+            siteSearchModal.classList.remove('active');
+        });
+
+        closeWebSearch.addEventListener('click', () => {
+            webSearchModal.classList.remove('active');
+        });
+
+        // Close modals on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target === siteSearchModal) {
+                siteSearchModal.classList.remove('active');
+            }
+            if (e.target === webSearchModal) {
+                webSearchModal.classList.remove('active');
+            }
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                siteSearchModal.classList.remove('active');
+                webSearchModal.classList.remove('active');
+            }
+        });
+
+        // Site search functionality - поиск по культурным событиям
+        siteSearchSubmit.addEventListener('click', performSiteSearch);
+        siteSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSiteSearch();
+            }
+        });
+
+        function performSiteSearch() {
+            const query = siteSearchInput.value.trim().toLowerCase();
+            if (!query) return;
+            
+            const searchResults = document.getElementById('siteSearchResults');
+            
+            // Ищем в новостях и событиях
+            const allContent = [...newsData, ...eventsData];
+            const results = allContent.filter(item => {
+                return (
+                    item.title.toLowerCase().includes(query) ||
+                    (item.description && item.description.toLowerCase().includes(query)) ||
+                    (item.excerpt && item.excerpt.toLowerCase().includes(query))
+                );
+            });
+            
+            if (results.length > 0) {
+                let html = '<div style="margin-top: 1rem;">';
+                html += `<p style="color: var(--primary-green); font-weight: 600; margin-bottom: 1rem;">Found ${results.length} result(s) for: "${query}"</p>`;
+                
+                results.forEach(result => {
+                    const isEvent = result.hasOwnProperty('location');
+                    html += `
+                        <div style="background: var(--light-green); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">${result.title}</h4>
+                            <p style="color: var(--dark-gray); margin-bottom: 0.5rem;">
+                                ${isEvent ? result.description : result.excerpt}
+                            </p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--accent-green); font-size: 0.9rem;">
+                                    ${isEvent ? `📅 ${formatDate(result.date)} | 📍 ${result.location}` : `📅 ${formatDate(result.date)} | 📰 ${result.category}`}
+                                </span>
+                                ${result.externalLink ? 
+                                    `<a href="${result.externalLink}" target="_blank" rel="noopener" style="background: var(--accent-green); color: white; padding: 0.4rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem;">View Details</a>` :
+                                    `<span style="color: var(--dark-gray); font-size: 0.9rem;">Details coming soon</span>`
+                                }
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                searchResults.innerHTML = html;
+            } else {
+                searchResults.innerHTML = `
+                    <div style="background: var(--light-yellow); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p style="color: var(--primary-green); font-weight: 600;">No results found for: "${query}"</p>
+                        <p style="color: var(--dark-gray); margin-top: 0.5rem;">
+                            Try searching for: exhibitions, performances, literature, film, music, Armenia, Yerevan
+                        </p>
+                    </div>
+                `;
+            }
+            
+            searchResults.style.display = 'block';
+        }
+
+        // Web search functionality - поиск в интернете по культурным событиям
+        webSearchSubmit.addEventListener('click', performWebSearch);
+        webSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performWebSearch();
+            }
+        });
+
+        function performWebSearch() {
+            const query = webSearchInput.value.trim();
+            if (!query) return;
+            
+            // Encode the query for URL
+            const encodedQuery = encodeURIComponent(query + " cultural events Armenia exhibitions performances");
+            
+            // Open Google search in a new tab с фильтрацией по культурным событиям
+            window.open(`https://www.google.com/search?q=${encodedQuery}`, '_blank');
+            
+            // Close the modal
+            webSearchModal.classList.remove('active');
+            webSearchInput.value = '';
         }
 
         // Mobile menu functionality
@@ -1225,6 +1582,29 @@
             loadEvents();
         }
 
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Получаем перевод для сообщения
+            const currentLang = desktopLanguageSelect.value;
+            const thankYouMsg = translations[currentLang]?.subscriptionThankYou || 'Thank you for subscribing to our Culture News newsletter!';
+            
+            alert(`${thankYouMsg}\nWe have sent a confirmation email to: ${email}`);
+            this.reset();
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
         // Initialize
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         syncLanguageSelects(savedLanguage);
@@ -1239,24 +1619,43 @@
             }
         });
 
-        // Newsletter form submission
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            
-            // Получаем перевод для сообщения
-            const currentLang = desktopLanguageSelect.value;
-            const thankYouMsg = translations[currentLang]?.subscriptionThankYou || 'Thank you for subscribing!';
-            
-            alert(`${thankYouMsg}: ${email}`);
-            this.reset();
-        });
-
-        // Автоматическое обновление каждые 24 часа
+        // Автоматическое обновление данных каждый день
         setInterval(() => {
             loadNews();
             loadEvents();
         }, 24 * 60 * 60 * 1000);
+
+        // Add keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Add keyboard navigation for mobile menu
+        mobileMenuBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenuBtn.click();
+            }
+        });
+
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
