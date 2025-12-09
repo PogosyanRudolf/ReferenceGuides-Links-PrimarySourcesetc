@@ -38,7 +38,7 @@
             font-size: 16px;
         }
         
-        /* Header & Navigation - Same as consultants page */
+        /* Header & Navigation */
         header {
             background: var(--gradient-green);
             color: var(--white);
@@ -374,6 +374,11 @@
             content: '📅';
         }
         
+        .news-date.expired {
+            color: #dc3545;
+            opacity: 0.7;
+        }
+        
         .news-title {
             font-size: 1.5rem;
             color: var(--primary-green);
@@ -491,6 +496,11 @@
             margin-bottom: 1rem;
         }
         
+        .event-date.upcoming {
+            background: var(--gradient-green);
+            color: var(--white);
+        }
+        
         .event-card h3 {
             color: var(--primary-green);
             margin-bottom: 0.8rem;
@@ -566,7 +576,7 @@
             transform: translateY(-2px);
         }
         
-        /* Footer - Same as consultants */
+        /* Footer */
         footer {
             background: var(--gradient-green);
             color: var(--white);
@@ -821,12 +831,12 @@
         </div>
         
         <section class="page-header">
-            <h1 data-translate="latestCulturalNews">Latest Cultural News</h1>
-            <p>Discover exhibitions, performances, literature, and cultural events from around the world</p>
+            <h1 data-translate="latestCulturalNews">Culture News, Events, Facts</h1>
+            <p data-translate="cultureDescription">Discover exhibitions, performances, literature, and cultural events from around the world</p>
         </section>
 
         <div class="category-nav">
-            <a href="#all" class="category-btn active" data-category="all">All News</a>
+            <a href="#all" class="category-btn active" data-category="all" data-translate="latestNews">Culture News</a>
             <a href="#exhibitions" class="category-btn" data-category="exhibitions" data-translate="exhibitions">Exhibitions</a>
             <a href="#performances" class="category-btn" data-category="performances" data-translate="performances">Performances</a>
             <a href="#literature" class="category-btn" data-category="literature" data-translate="literature">Literature</a>
@@ -834,198 +844,23 @@
             <a href="#music" class="category-btn" data-category="music" data-translate="music">Music</a>
         </div>
 
-        <div class="news-grid">
-            <!-- Featured News -->
-            <article class="news-card featured" data-category="exhibitions">
-                <div class="news-image">
-                    <div class="image-overlay">
-                        <span class="category-badge" data-translate="exhibitions">Exhibition</span>
-                    </div>
-                </div>
-                <div class="news-content">
-                    <div class="news-date">December 15, 2024</div>
-                    <h2 class="news-title">"Armenian Chronicles" Exhibition Opens at National Museum</h2>
-                    <p class="news-excerpt">
-                        Major retrospective showcasing Armenian art from medieval manuscripts to contemporary works. 
-                        Features rare artifacts from Matenadaran collection alongside modern interpretations by 
-                        contemporary Armenian artists. Curated by Dr. Anahit Karapetyan.
-                    </p>
-                    <div class="news-meta">
-                        <div class="author-info">
-                            <div class="author-avatar">AK</div>
-                            <div class="author-name">Anahit Karapetyan</div>
-                        </div>
-                        <a href="#" class="read-more" data-translate="readMore">Read Full Article</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- News 2 -->
-            <article class="news-card" data-category="performances">
-                <div class="news-image">
-                    <div class="image-overlay">
-                        <span class="category-badge" data-translate="performances">Performance</span>
-                    </div>
-                </div>
-                <div class="news-content">
-                    <div class="news-date">December 12, 2024</div>
-                    <h2 class="news-title">New Ballet Adaptation of "The Master and Margarita" Premieres</h2>
-                    <p class="news-excerpt">
-                        Moscow Bolshoi Theatre presents innovative ballet adaptation of Bulgakov's classic novel. 
-                        Choreography by Andrei Petrov featuring cutting-edge stage design and original score.
-                    </p>
-                    <div class="news-meta">
-                        <div class="author-info">
-                            <div class="author-avatar">MP</div>
-                            <div class="author-name">Maria Petrova</div>
-                        </div>
-                        <a href="#" class="read-more" data-translate="readMore">Read More</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- News 3 -->
-            <article class="news-card" data-category="literature">
-                <div class="news-image">
-                    <div class="image-overlay">
-                        <span class="category-badge" data-translate="literature">Literature</span>
-                    </div>
-                </div>
-                <div class="news-content">
-                    <div class="news-date">December 10, 2024</div>
-                    <h2 class="news-title">Armenian Poetry Anthology Released in Six Languages</h2>
-                    <p class="news-excerpt">
-                        Comprehensive collection of Armenian poetry from 5th century to present day, translated into 
-                        English, Russian, French, German, Spanish, and Persian. Includes works by 50 poets with 
-                        critical essays and historical context.
-                    </p>
-                    <div class="news-meta">
-                        <div class="author-info">
-                            <div class="author-avatar">SG</div>
-                            <div class="author-name">Sergei Grigoryan</div>
-                        </div>
-                        <a href="#" class="read-more" data-translate="readMore">Read More</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- News 4 -->
-            <article class="news-card" data-category="film">
-                <div class="news-image">
-                    <div class="image-overlay">
-                        <span class="category-badge" data-translate="film">Film</span>
-                    </div>
-                </div>
-                <div class="news-content">
-                    <div class="news-date">December 8, 2024</div>
-                    <h2 class="news-title">Armenian Documentary Wins International Film Festival Award</h2>
-                    <p class="news-excerpt">
-                        "Echoes of Ararat" documentary about Armenian diaspora communities wins Best Documentary 
-                        at Berlin International Film Festival. Director Lusine Hovhannisyan explores cultural 
-                        preservation across three continents.
-                    </p>
-                    <div class="news-meta">
-                        <div class="author-info">
-                            <div class="author-avatar">LH</div>
-                            <div class="author-name">Lusine H.</div>
-                        </div>
-                        <a href="#" class="read-more" data-translate="readMore">Read More</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- News 5 -->
-            <article class="news-card" data-category="music">
-                <div class="news-image">
-                    <div class="image-overlay">
-                        <span class="category-badge" data-translate="music">Music</span>
-                    </div>
-                </div>
-                <div class="news-content">
-                    <div class="news-date">December 5, 2024</div>
-                    <h2 class="news-title">Revival of Traditional Armenian Duduk Music</h2>
-                    <p class="news-excerpt">
-                        New generation of duduk masters blend traditional Armenian music with contemporary genres. 
-                        Concert series features collaborations with jazz and electronic musicians, preserving ancient 
-                        techniques while exploring new musical territories.
-                    </p>
-                    <div class="news-meta">
-                        <div class="author-info">
-                            <div class="author-avatar">AG</div>
-                            <div class="author-name">Armen Grigoryan</div>
-                        </div>
-                        <a href="#" class="read-more" data-translate="readMore">Read More</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- News 6 -->
-            <article class="news-card" data-category="exhibitions">
-                <div class="news-image">
-                    <div class="image-overlay">
-                        <span class="category-badge" data-translate="exhibitions">Exhibition</span>
-                    </div>
-                </div>
-                <div class="news-content">
-                    <div class="news-date">December 3, 2024</div>
-                    <h2 class="news-title">Soviet Design Exhibition Opens in London</h2>
-                    <p class="news-excerpt">
-                        Victoria and Albert Museum presents "Constructing Utopia: Soviet Design 1917-1991". 
-                        Exhibition explores graphic design, architecture, and industrial design from Soviet era, 
-                        featuring rarely seen propaganda posters and architectural models.
-                    </p>
-                    <div class="news-meta">
-                        <div class="author-info">
-                            <div class="author-avatar">EK</div>
-                            <div class="author-name">Elena Kuznetsova</div>
-                        </div>
-                        <a href="#" class="read-more" data-translate="readMore">Read More</a>
-                    </div>
-                </div>
-            </article>
+        <div class="news-grid" id="newsGrid">
+            <!-- Новости будут загружены через JavaScript -->
         </div>
 
         <section class="calendar-section">
-            <h2 data-translate="culturalEvents">Upcoming Cultural Events</h2>
-            <div class="calendar-grid">
-                <div class="event-card">
-                    <div class="event-date">Dec 20, 2024</div>
-                    <h3>Classical Music Evening: Armenian Composers</h3>
-                    <p>Aram Khachaturian Concert Hall, Yerevan. Featuring works by Komitas, Khachaturian, and contemporary Armenian composers.</p>
-                    <div class="event-details">
-                        <span>📍 Yerevan</span>
-                        <span>🕒 19:00</span>
-                    </div>
-                </div>
-                
-                <div class="event-card">
-                    <div class="event-date">Dec 22-30, 2024</div>
-                    <h3>Winter Book Fair</h3>
-                    <p>Moscow International Book Fair. Focus on translated literature with special section for Armenian-Russian literary connections.</p>
-                    <div class="event-details">
-                        <span>📍 Moscow</span>
-                        <span>🕒 10:00-20:00</span>
-                    </div>
-                </div>
-                
-                <div class="event-card">
-                    <div class="event-date">Jan 15-30, 2025</div>
-                    <h3>Contemporary Art Biennale</h3>
-                    <p>"Borders and Bridges" exhibition featuring artists from Caucasus region exploring themes of identity and migration.</p>
-                    <div class="event-details">
-                        <span>📍 Tbilisi</span>
-                        <span>🕒 11:00-19:00</span>
-                    </div>
-                </div>
+            <h2 data-translate="culturalEvents">Cultural Events</h2>
+            <div class="calendar-grid" id="eventsGrid">
+                <!-- События будут загружены через JavaScript -->
             </div>
         </section>
 
         <section class="newsletter-section">
-            <h2>Stay Updated with Culture News</h2>
-            <p>Subscribe to our weekly newsletter for the latest updates on exhibitions, performances, and cultural events worldwide</p>
+            <h2 data-translate="stayUpdated">Stay Updated with Culture News</h2>
+            <p data-translate="newsletterDescription">Subscribe to our weekly newsletter for the latest updates on exhibitions, performances, and cultural events worldwide</p>
             <form class="newsletter-form">
-                <input type="email" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
+                <input type="email" data-translate="emailPlaceholder" placeholder="Your email address" required>
+                <button type="submit" data-translate="subscribe">Subscribe</button>
             </form>
         </section>
     </main>
@@ -1035,7 +870,7 @@
             <div class="footer-section">
                 <h3 data-translate="siteTitle">Reference Guides, Links, Primary Sources</h3>
                 <p data-translate="tagline">Standard Reference</p>
-                <p>Cultural news, exhibitions, performances, and literary updates</p>
+                <p data-translate="cultureDescription">Discover exhibitions, performances, literature, and cultural events from around the world</p>
             </div>
             
             <div class="footer-section">
@@ -1050,23 +885,23 @@
             </div>
             
             <div class="footer-section">
-                <h3 data-translate="culturalEvents">Cultural Resources</h3>
+                <h3 data-translate="culturalResources">Cultural Resources</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Museum Directories</a></li>
-                    <li><a href="#">Theater Schedules</a></li>
-                    <li><a href="#">Literary Events</a></li>
-                    <li><a href="#">Festival Calendar</a></li>
-                    <li><a href="#">Cultural Institutions</a></li>
+                    <li><a href="#" data-translate="museumDirectories">Museum Directories</a></li>
+                    <li><a href="#" data-translate="theaterSchedules">Theater Schedules</a></li>
+                    <li><a href="#" data-translate="literaryEvents">Literary Events</a></li>
+                    <li><a href="#" data-translate="festivalCalendar">Festival Calendar</a></li>
+                    <li><a href="#" data-translate="culturalInstitutions">Cultural Institutions</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h3 data-translate="contactInfo">Contact Information</h3>
                 <ul class="footer-links">
-                    <li>Email: culture@standardreference.org</li>
-                    <li>Phone: +374 10 654321</li>
-                    <li>Press Inquiries: press@standardreference.org</li>
-                    <li>Event Submissions: events@standardreference.org</li>
+                    <li data-translate="emailLabel">Email: culture@standardreference.org</li>
+                    <li data-translate="phoneLabel">Phone: +374 10 654321</li>
+                    <li data-translate="pressLabel">Press Inquiries: press@standardreference.org</li>
+                    <li data-translate="eventsLabel">Event Submissions: events@standardreference.org</li>
                 </ul>
             </div>
         </div>
@@ -1078,6 +913,223 @@
     </footer>
 
     <script>
+        // Данные новостей и событий
+        const newsData = [
+            {
+                id: 1,
+                category: "exhibitions",
+                date: "2024-12-15",
+                title: "Armenian Chronicles Exhibition Opens at National Museum",
+                excerpt: "Major retrospective showcasing Armenian art from medieval manuscripts to contemporary works. Features rare artifacts from Matenadaran collection alongside modern interpretations by contemporary Armenian artists.",
+                author: "Anahit Karapetyan",
+                authorInitials: "AK",
+                featured: true
+            },
+            {
+                id: 2,
+                category: "performances",
+                date: "2024-12-20",
+                title: "New Ballet Adaptation of The Master and Margarita Premieres",
+                excerpt: "Moscow Bolshoi Theatre presents innovative ballet adaptation of Bulgakov's classic novel. Choreography by Andrei Petrov featuring cutting-edge stage design and original score.",
+                author: "Maria Petrova",
+                authorInitials: "MP",
+                featured: false
+            },
+            {
+                id: 3,
+                category: "literature",
+                date: "2024-12-25",
+                title: "Armenian Poetry Anthology Released in Six Languages",
+                excerpt: "Comprehensive collection of Armenian poetry from 5th century to present day, translated into English, Russian, French, German, Spanish, and Persian.",
+                author: "Sergei Grigoryan",
+                authorInitials: "SG",
+                featured: false
+            },
+            {
+                id: 4,
+                category: "film",
+                date: "2024-12-28",
+                title: "Armenian Documentary Wins International Film Festival Award",
+                excerpt: "Echoes of Ararat documentary about Armenian diaspora communities wins Best Documentary at Berlin International Film Festival.",
+                author: "Lusine Hovhannisyan",
+                authorInitials: "LH",
+                featured: false
+            },
+            {
+                id: 5,
+                category: "music",
+                date: "2025-01-05",
+                title: "Revival of Traditional Armenian Duduk Music",
+                excerpt: "New generation of duduk masters blend traditional Armenian music with contemporary genres. Concert series features collaborations with jazz and electronic musicians.",
+                author: "Armen Grigoryan",
+                authorInitials: "AG",
+                featured: false
+            },
+            {
+                id: 6,
+                category: "exhibitions",
+                date: "2025-01-10",
+                title: "Soviet Design Exhibition Opens in London",
+                excerpt: "Victoria and Albert Museum presents Constructing Utopia: Soviet Design 1917-1991. Exhibition explores graphic design, architecture, and industrial design from Soviet era.",
+                author: "Elena Kuznetsova",
+                authorInitials: "EK",
+                featured: false
+            }
+        ];
+
+        const eventsData = [
+            {
+                date: "2025-01-20",
+                title: "Classical Music Evening: Armenian Composers",
+                description: "Aram Khachaturian Concert Hall, Yerevan. Featuring works by Komitas, Khachaturian, and contemporary Armenian composers.",
+                location: "Yerevan",
+                time: "19:00"
+            },
+            {
+                date: "2025-01-22",
+                title: "Winter Book Fair",
+                description: "Moscow International Book Fair. Focus on translated literature with special section for Armenian-Russian literary connections.",
+                location: "Moscow",
+                time: "10:00-20:00"
+            },
+            {
+                date: "2025-02-15",
+                title: "Contemporary Art Biennale",
+                description: "Borders and Bridges exhibition featuring artists from Caucasus region exploring themes of identity and migration.",
+                location: "Tbilisi",
+                time: "11:00-19:00"
+            }
+        ];
+
+        // Функция для форматирования даты
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Функция проверки, истекла ли дата
+        function isDateExpired(dateString) {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const newsDate = new Date(dateString);
+            return newsDate < today;
+        }
+
+        // Функция загрузки новостей
+        function loadNews() {
+            const newsGrid = document.getElementById('newsGrid');
+            if (!newsGrid) return;
+
+            newsGrid.innerHTML = '';
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Фильтруем только актуальные новости (не старше 30 дней и не будущие)
+            const filteredNews = newsData.filter(news => {
+                const newsDate = new Date(news.date);
+                const daysDiff = Math.floor((newsDate - today) / (1000 * 60 * 60 * 24));
+                return daysDiff >= -30 && daysDiff <= 90; // Новости от -30 до +90 дней
+            });
+
+            // Сортируем по дате (новые сначала)
+            filteredNews.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            filteredNews.forEach(news => {
+                const expired = isDateExpired(news.date);
+                if (expired) return; // Пропускаем просроченные
+
+                const newsCard = document.createElement('article');
+                newsCard.className = `news-card ${news.featured ? 'featured' : ''}`;
+                newsCard.dataset.category = news.category;
+                newsCard.dataset.id = news.id;
+
+                const categoryTranslations = {
+                    'exhibitions': document.querySelector('[data-translate="exhibitions"]')?.textContent || 'Exhibitions',
+                    'performances': document.querySelector('[data-translate="performances"]')?.textContent || 'Performances',
+                    'literature': document.querySelector('[data-translate="literature"]')?.textContent || 'Literature',
+                    'film': document.querySelector('[data-translate="film"]')?.textContent || 'Film',
+                    'music': document.querySelector('[data-translate="music"]')?.textContent || 'Music'
+                };
+
+                newsCard.innerHTML = `
+                    <div class="news-image">
+                        <div class="image-overlay">
+                            <span class="category-badge">${categoryTranslations[news.category]}</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date ${expired ? 'expired' : ''}">${formatDate(news.date)}</div>
+                        <h2 class="news-title">${news.title}</h2>
+                        <p class="news-excerpt">${news.excerpt}</p>
+                        <div class="news-meta">
+                            <div class="author-info">
+                                <div class="author-avatar">${news.authorInitials}</div>
+                                <div class="author-name">${news.author}</div>
+                            </div>
+                            <a href="#" class="read-more" data-translate="readMore">Read More</a>
+                        </div>
+                    </div>
+                `;
+
+                newsGrid.appendChild(newsCard);
+            });
+
+            // Если нет новостей
+            if (filteredNews.length === 0) {
+                newsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--dark-gray);">No current news available. Check back soon!</p>';
+            }
+        }
+
+        // Функция загрузки событий
+        function loadEvents() {
+            const eventsGrid = document.getElementById('eventsGrid');
+            if (!eventsGrid) return;
+
+            eventsGrid.innerHTML = '';
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Фильтруем только предстоящие события
+            const upcomingEvents = eventsData.filter(event => {
+                const eventDate = new Date(event.date);
+                return eventDate >= today;
+            });
+
+            // Сортируем по дате (ближайшие сначала)
+            upcomingEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            upcomingEvents.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                
+                const eventDate = new Date(event.date);
+                const isUpcoming = eventDate >= today;
+
+                eventCard.innerHTML = `
+                    <div class="event-date ${isUpcoming ? 'upcoming' : ''}">${formatDate(event.date)}</div>
+                    <h3>${event.title}</h3>
+                    <p>${event.description}</p>
+                    <div class="event-details">
+                        <span>📍 ${event.location}</span>
+                        <span>🕒 ${event.time}</span>
+                    </div>
+                `;
+
+                eventsGrid.appendChild(eventCard);
+            });
+
+            // Если нет событий
+            if (upcomingEvents.length === 0) {
+                eventsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--dark-gray);">No upcoming events scheduled. Check back soon!</p>';
+            }
+        }
+
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
@@ -1149,10 +1201,11 @@
             elements.forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[language] && translations[language][key]) {
-                    element.textContent = translations[language][key];
-                } else if (translations['en'] && translations['en'][key]) {
-                    // Fallback to English if translation missing
-                    element.textContent = translations['en'][key];
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[language][key];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
                 }
             });
             
@@ -1166,12 +1219,18 @@
             }
             
             localStorage.setItem('preferredLanguage', language);
+            
+            // Перезагружаем новости и события с новыми переводами
+            loadNews();
+            loadEvents();
         }
 
         // Initialize
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         syncLanguageSelects(savedLanguage);
         loadLanguage(savedLanguage);
+        loadNews();
+        loadEvents();
 
         // Handle resize - close mobile menu on larger screens
         window.addEventListener('resize', () => {
@@ -1184,33 +1243,20 @@
         document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('input[type="email"]').value;
-            alert(`Thank you for subscribing with: ${email}`);
+            
+            // Получаем перевод для сообщения
+            const currentLang = desktopLanguageSelect.value;
+            const thankYouMsg = translations[currentLang]?.subscriptionThankYou || 'Thank you for subscribing!';
+            
+            alert(`${thankYouMsg}: ${email}`);
             this.reset();
         });
 
-        // Add parallax effect to featured news image
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const featuredImage = document.querySelector('.featured .news-image');
-            if (featuredImage) {
-                featuredImage.style.transform = `translateY(${scrolled * 0.05}px)`;
-            }
-        });
-
-        // Lazy loading for images
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('.news-image img').forEach(img => {
-            imageObserver.observe(img);
-        });
+        // Автоматическое обновление каждые 24 часа
+        setInterval(() => {
+            loadNews();
+            loadEvents();
+        }, 24 * 60 * 60 * 1000);
     </script>
 </body>
 </html>
