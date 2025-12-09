@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Primary Reference - Reference Guides, Links, Primary Sources</title>
+    <title data-translate="siteTitle">Reference Guides, Links, Primary Sources - Standard Reference</title>
     <script src="translations.js"></script>
     <style>
         :root {
             --primary-green: #1a5d1a;
             --accent-green: #2c822c;
-            --accent-yellow: #FFD700;
+            --accent-yellow: #ffc107;
+            --light-yellow: #fff8e1;
             --light-gray: #f7fafc;
             --dark-gray: #4a5568;
             --text-color: #2d3748;
             --white: #ffffff;
             --hover-green: #236823;
+            --hover-yellow: #ffb300;
             --light-green: #f0fff4;
             --shadow: 0 2px 10px rgba(0,0,0,0.1);
             --shadow-hover: 0 10px 25px rgba(34, 104, 35, 0.15);
@@ -36,7 +38,7 @@
         
         /* Header & Navigation */
         header {
-            background: var(--primary-green);
+            background: linear-gradient(135deg, var(--primary-green) 0%, #2c822c 100%);
             color: var(--white);
             padding: 1rem 0;
             box-shadow: var(--shadow);
@@ -85,11 +87,12 @@
             font-size: 0.9rem;
             padding: 0.5rem 0.8rem;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
         
         .nav-links a:hover {
             background-color: var(--hover-green);
+            transform: translateY(-2px);
         }
         
         .language-selector {
@@ -124,7 +127,7 @@
         
         .mobile-nav {
             display: none;
-            background: var(--primary-green);
+            background: linear-gradient(135deg, var(--primary-green) 0%, #2c822c 100%);
             position: absolute;
             top: 100%;
             left: 0;
@@ -183,106 +186,130 @@
         .hero {
             text-align: center;
             padding: 3rem 1rem;
-            background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--light-yellow) 100%);
             border-radius: 12px;
-            margin: 1rem 0 2rem;
+            margin: 1rem 0 3rem;
+            border: 3px solid var(--accent-yellow);
+            box-shadow: var(--shadow);
         }
         
         .hero h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-green);
             margin-bottom: 1rem;
-            line-height: 1.2;
+            background: linear-gradient(45deg, var(--primary-green), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--dark-gray);
             max-width: 600px;
             margin: 0 auto 2rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
         .cta-button {
             display: inline-block;
-            background: var(--accent-green);
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--primary-green) 100%);
             color: var(--white);
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(44, 130, 44, 0.3);
+            border: none;
+            cursor: pointer;
         }
         
         .cta-button:hover {
-            background: var(--hover-green);
+            background: linear-gradient(135deg, var(--hover-green) 0%, #2c822c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 130, 44, 0.4);
         }
         
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin: 3rem 0;
         }
         
         .category-card {
             background: var(--white);
-            border: 2px solid #c6f6d5;
-            border-radius: 10px;
-            padding: 1.5rem;
+            border: 3px solid var(--light-green);
+            border-radius: 15px;
+            padding: 2rem;
             text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
             text-decoration: none;
             color: var(--text-color);
             display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
         }
         
         .category-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: var(--shadow-hover);
-            border-color: var(--accent-green);
+            border-color: var(--accent-yellow);
         }
         
         .category-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .category-card h3 {
             color: var(--primary-green);
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
         
         .category-card p {
             color: var(--dark-gray);
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
         /* News Preview Section */
         .news-preview {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 3rem 1rem;
-            border-radius: 12px;
-            margin: 3rem 0;
-            border: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--light-yellow) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin: 4rem 0;
+            border: 3px solid var(--accent-yellow);
         }
         
         .news-preview h2 {
             text-align: center;
             color: var(--primary-green);
             margin-bottom: 2rem;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             position: relative;
         }
         
         .news-preview h2::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 3px;
-            background: var(--accent-yellow);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
             margin: 0.5rem auto 0;
             border-radius: 2px;
         }
@@ -290,35 +317,36 @@
         .news-grid-preview {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
         }
         
         .news-item {
             background: var(--white);
-            border-radius: 10px;
-            padding: 1.5rem;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 2px solid var(--light-green);
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
         }
         
         .news-item:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            border-color: var(--accent-yellow);
             box-shadow: var(--shadow-hover);
-            border-color: var(--accent-green);
         }
         
         .news-item h3 {
             color: var(--primary-green);
-            margin-bottom: 0.75rem;
-            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
             line-height: 1.3;
         }
         
         .news-item p {
             color: var(--dark-gray);
-            margin-bottom: 1rem;
-            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
         
         .news-item a {
@@ -327,8 +355,8 @@
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
-            transition: color 0.2s;
+            gap: 0.5rem;
+            transition: color 0.3s;
         }
         
         .news-item a:hover {
@@ -339,27 +367,116 @@
             display: block;
             width: fit-content;
             margin: 0 auto;
-            background: var(--primary-green);
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--primary-green) 100%);
             color: var(--white);
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: 600;
-            transition: background-color 0.3s;
-            border: 2px solid var(--primary-green);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 15px rgba(44, 130, 44, 0.3);
         }
         
         .view-all-btn:hover {
-            background: var(--white);
-            color: var(--primary-green);
+            background: linear-gradient(135deg, var(--hover-green) 0%, #2c822c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 130, 44, 0.4);
+            border-color: var(--accent-yellow);
         }
         
+        /* Footer */
         footer {
-            background: var(--primary-green);
+            background: linear-gradient(135deg, var(--primary-green) 0%, #2c822c 100%);
             color: var(--white);
+            padding: 3rem 1rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #c6f6d5;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .copyright {
             text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: #c6f6d5;
+            font-size: 0.9rem;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 3rem 1rem;
+            margin: 3rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            border: 2px solid var(--light-green);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--accent-yellow);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
         }
         
         /* Mobile Styles */
@@ -382,37 +499,35 @@
             
             .hero {
                 padding: 2rem 1rem;
-                margin: 0.5rem 0 1.5rem;
+                margin: 0.5rem 0 2rem;
             }
             
             .hero h1 {
-                font-size: 1.75rem;
+                font-size: 2rem;
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
                 margin-bottom: 1.5rem;
             }
             
             .cta-button {
                 padding: 0.9rem 1.8rem;
                 font-size: 1rem;
-                width: 100%;
-                max-width: 300px;
             }
             
             .categories-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                gap: 1.5rem;
                 margin: 2rem 0;
             }
             
             .category-card {
-                padding: 1.2rem;
+                padding: 1.5rem;
             }
             
             .category-icon {
-                font-size: 2rem;
+                font-size: 3rem;
             }
             
             .category-card h3 {
@@ -425,17 +540,26 @@
             }
             
             .news-preview h2 {
-                font-size: 1.5rem;
-                margin-bottom: 1.5rem;
+                font-size: 1.75rem;
             }
             
             .news-grid-preview {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                gap: 1.5rem;
             }
             
             .news-item {
-                padding: 1.2rem;
+                padding: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .view-all-btn {
+                width: 100%;
+                text-align: center;
             }
             
             main {
@@ -445,19 +569,19 @@
         
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
             }
             
             .hero p {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
             
             .category-card {
-                padding: 1rem;
+                padding: 1.2rem;
             }
             
             .news-item {
-                padding: 1rem;
+                padding: 1.2rem;
             }
             
             .news-item h3 {
@@ -469,41 +593,29 @@
             }
         }
         
-        /* Touch improvements */
-        @media (hover: none) {
-            .category-card:hover,
-            .news-item:hover {
-                transform: none;
-            }
-            
-            .nav-links a:hover {
-                background-color: transparent;
-            }
-            
-            .cta-button:hover,
-            .view-all-btn:hover {
-                background: var(--accent-green);
-                color: var(--white);
-                border-color: var(--accent-green);
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .category-card,
+            .news-item,
+            .cta-button,
+            .view-all-btn,
+            .nav-links a {
+                transition: none !important;
+                transform: none !important;
             }
         }
         
-        /* High contrast support */
+        /* High contrast mode */
         @media (prefers-contrast: high) {
             :root {
                 --primary-green: #004400;
                 --accent-green: #006600;
-                --text-color: #000000;
+                --accent-yellow: #996600;
             }
         }
         
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                transition: none !important;
-                animation: none !important;
-            }
-            
+        /* Touch improvements */
+        @media (hover: none) {
             .category-card:hover,
             .news-item:hover {
                 transform: none;
@@ -568,7 +680,7 @@
     <main id="main-content">
         <section class="hero">
             <h1 data-translate="siteTitle">Reference Guides, Links, Primary Sources</h1>
-            <p data-translate="heroDescription">Your comprehensive gateway to global educational resources and research materials</p>
+            <p data-translate="heroDescription">Your comprehensive gateway to global educational resources, expert consulting, and research materials</p>
             <a href="educationandsciences.html" class="cta-button" data-translate="science">Explore Science & Education</a>
         </section>
 
@@ -576,7 +688,7 @@
             <a href="educationandsciences.html" class="category-card">
                 <div class="category-icon">🔬</div>
                 <h3 data-translate="science">Science & Education</h3>
-                <p data-translate="scienceDesc">Comprehensive collection across all scientific disciplines</p>
+                <p data-translate="scienceDesc">Comprehensive collection across all scientific disciplines with expert guidance</p>
             </a>
             
             <a href="educationalresources.html" class="category-card">
@@ -588,8 +700,45 @@
             <a href="formalsciences.html" class="category-card">
                 <div class="category-icon">🧮</div>
                 <h3 data-translate="formalSciences">Formal Sciences</h3>
-                <p data-translate="formalSciencesDesc">Mathematics, Computer Science, AI, and Data Science</p>
+                <p data-translate="formalSciencesDesc">Mathematics, Computer Science, AI, and Data Science resources</p>
             </a>
+            
+            <a href="consultants.html" class="category-card">
+                <div class="category-icon">👨‍💼</div>
+                <h3 data-translate="consultants">Expert Consultants</h3>
+                <p data-translate="consultantsDesc">Professional guidance and consulting services across various disciplines</p>
+            </a>
+        </section>
+
+        <section class="features-section">
+            <h2 style="text-align: center; color: var(--primary-green); margin-bottom: 1rem; font-size: 2rem;" data-translate="whyChooseUs">Why Choose Standard Reference</h2>
+            <p style="text-align: center; color: var(--dark-gray); max-width: 600px; margin: 0 auto 2rem;" data-translate="featuresDesc">Comprehensive resources and expert support for all your educational and research needs</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3 data-translate="feature1Title">Curated Resources</h3>
+                    <p data-translate="feature1Desc">Carefully selected and organized educational materials</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3 data-translate="feature2Title">Expert Guidance</h3>
+                    <p data-translate="feature2Desc">Access to professional consultants across disciplines</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 data-translate="feature3Title">Multilingual</h3>
+                    <p data-translate="feature3Desc">Available in multiple languages for global accessibility</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 data-translate="feature4Title">Quality Content</h3>
+                    <p data-translate="feature4Desc">Verified and reliable information from trusted sources</p>
+                </div>
+            </div>
         </section>
 
         <section class="news-preview">
@@ -597,22 +746,52 @@
             <div class="news-grid-preview">
                 <div class="news-item">
                     <h3 data-translate="news1Title">Armenian Chronicles Exhibition</h3>
-                    <p data-translate="news1Desc">Major retrospective at National Museum features rare artifacts...</p>
+                    <p data-translate="news1Desc">Major retrospective at National Museum features rare artifacts and historical documents from Armenian heritage collections.</p>
                     <a href="culture-news.html" data-translate="readMore">Read More →</a>
                 </div>
                 <div class="news-item">
                     <h3 data-translate="news2Title">New Ballet Adaptation Premieres</h3>
-                    <p data-translate="news2Desc">Moscow Bolshoi Theatre presents innovative adaptation...</p>
+                    <p data-translate="news2Desc">Moscow Bolshoi Theatre presents innovative adaptation of classical ballet with modern choreography and cultural influences.</p>
                     <a href="culture-news.html" data-translate="readMore">Read More →</a>
                 </div>
             </div>
             <a href="culture-news.html" class="view-all-btn" data-translate="viewAllNews">View All News</a>
         </section>
-        
     </main>
 
     <footer>
-        <p data-translate="footerText">Reference Guides, Links, Primary Sources — The Primary Reference</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="siteTitle">Reference Guides, Links, Primary Sources</h3>
+                <p data-translate="tagline">Standard Reference</p>
+                <p>Comprehensive knowledge database and expert consulting services</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-translate="quickLinks">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" data-translate="home">Home</a></li>
+                    <li><a href="educationandsciences.html" data-translate="science">Science & Education</a></li>
+                    <li><a href="consultants.html" data-translate="consultants">Our Consultants</a></li>
+                    <li><a href="culture-news.html" data-translate="cultureNews">Culture News</a></li>
+                    <li><a href="about.html" data-translate="about">About</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-translate="contactInfo">Contact Information</h3>
+                <ul class="footer-links">
+                    <li>Email: info@standardreference.org</li>
+                    <li>Phone: +374 10 123456</li>
+                    <li>Yerevan, Armenia</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p data-translate="footerText">Reference Guides, Links, Primary Sources — Standard Reference</p>
+            <p data-translate="allRightsReserved">© 2024 All rights reserved</p>
+        </div>
     </footer>
 
     <script>
@@ -656,13 +835,19 @@
                 const key = element.getAttribute('data-translate');
                 if (translations[language] && translations[language][key]) {
                     element.textContent = translations[language][key];
+                } else if (translations['en'] && translations['en'][key]) {
+                    // Fallback to English if translation missing
+                    element.textContent = translations['en'][key];
                 }
             });
             
             document.documentElement.lang = language;
             
-            if (translations[language] && translations[language]['siteTitle']) {
+            // Update page title
+            if (translations[language] && translations[language]['siteTitle'] && translations[language]['tagline']) {
                 document.title = translations[language]['siteTitle'] + ' - ' + translations[language]['tagline'];
+            } else {
+                document.title = 'Reference Guides, Links, Primary Sources - Standard Reference';
             }
             
             localStorage.setItem('preferredLanguage', language);
@@ -678,6 +863,34 @@
             if (window.innerWidth > 768) {
                 mobileNav.classList.remove('active');
             }
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Card hover effects
+        document.querySelectorAll('.category-card, .news-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '5';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
         });
 
         // Accessibility improvements
