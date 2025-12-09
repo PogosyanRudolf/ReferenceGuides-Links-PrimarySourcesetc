@@ -326,25 +326,12 @@
             border-bottom: none;
         }
         
-        .search-result-item button {
-            background: none;
-            border: none;
-            color: var(--accent-green);
-            cursor: pointer;
-            padding: 0;
-            font-size: 0.9em;
-            text-decoration: none;
-            display: inline;
-        }
-        
-        .search-result-item button:hover {
-            text-decoration: underline;
-        }
-        
         .search-result-item a {
             color: var(--accent-green);
             text-decoration: none;
             cursor: pointer;
+            display: block;
+            padding: 5px 0;
         }
         
         .search-result-item a:hover {
@@ -577,7 +564,7 @@
     </footer>
 
     <script>
-        // РЕАЛЬНЫЙ ПОИСК ПО САЙТУ
+        // РЕАЛЬНЫЙ ПОИСК ПО САЙТУ - УПРОЩЕННАЯ ВЕРСИЯ
         function searchSiteContent() {
             const query = document.getElementById('siteSearch').value.trim().toLowerCase();
             const searchResults = document.getElementById('searchResults');
@@ -588,91 +575,37 @@
                 return;
             }
             
-            // Собираем все данные для поиска
-            const searchData = [];
+            // Ищем все ссылки на странице
+            const allLinks = document.querySelectorAll('.subjects-list a');
+            const foundLinks = [];
             
-            // Поиск по заголовкам категорий
-            document.querySelectorAll('.science-category').forEach(category => {
-                const categoryTitle = category.querySelector('h3').textContent.toLowerCase();
-                const categoryId = category.id || 'category-' + Math.random().toString(36).substr(2, 9);
+            allLinks.forEach(link => {
+                const linkText = link.textContent.toLowerCase();
+                const linkHref = link.href;
                 
-                if (!category.id) {
-                    category.id = categoryId;
-                }
-                
-                if (categoryTitle.includes(query)) {
-                    searchData.push({
-                        type: 'category',
-                        element: category,
-                        text: categoryTitle,
-                        id: categoryId
-                    });
-                }
-                
-                // Поиск по ссылкам внутри категории
-                category.querySelectorAll('.subjects-list a').forEach((link, index) => {
-                    const linkText = link.textContent.toLowerCase();
-                    if (linkText.includes(query)) {
-                        const linkId = link.id || `link-${categoryId}-${index}`;
-                        
-                        if (!link.id) {
-                            link.id = linkId;
-                        }
-                        
-                        searchData.push({
-                            type: 'link',
-                            element: link,
-                            text: linkText,
-                            id: linkId,
-                            href: link.href
-                        });
-                    }
-                });
-            });
-            
-            // Поиск по описанию
-            const description = document.querySelector('.page-description');
-            const descriptionText = description.textContent.toLowerCase();
-            if (descriptionText.includes(query)) {
-                const descId = description.id || 'description-' + Math.random().toString(36).substr(2, 9);
-                
-                if (!description.id) {
-                    description.id = descId;
-                }
-                
-                searchData.push({
-                    type: 'description',
-                    element: description,
-                    text: descriptionText,
-                    id: descId
-                });
-            }
-            
-            // Отображение результатов
-            if (searchData.length > 0) {
-                let html = '';
-                
-                searchData.forEach((result, index) => {
-                    if (index < 10) {
-                        const highlightedText = result.text.replace(
+                if (linkText.includes(query)) {
+                    foundLinks.push({
+                        text: link.textContent,
+                        href: linkHref,
+                        highlightedText: linkText.replace(
                             new RegExp(`(${query})`, 'gi'),
                             '<mark style="background-color: #FFD700; padding: 2px;">$1</mark>'
-                        );
-                        let actionText = '';
-                        
-                        if (result.type === 'link') {
-                            actionText = `<a href="${result.href}" target="_blank">Open link →</a>`;
-                        } else {
-                            actionText = `<button onclick="scrollToResult('${result.id}')">Go to result →</button>`;
-                        }
-                        
+                        )
+                    });
+                }
+            });
+            
+            // Отображение результатов
+            if (foundLinks.length > 0) {
+                let html = '';
+                
+                foundLinks.forEach((link, index) => {
+                    if (index < 10) {
                         html += `
                             <div class="search-result-item">
-                                <strong>${result.type === 'category' ? '📁 Category:' : result.type === 'link' ? '🔗 Link:' : '📝 Description:'}</strong>
-                                <br>
-                                ${highlightedText}
-                                <br>
-                                ${actionText}
+                                <a href="${link.href}" target="_blank" rel="noopener">
+                                    🔗 ${link.highlightedText}
+                                </a>
                             </div>
                         `;
                     }
@@ -683,41 +616,16 @@
                 
                 // Скроллим к результатам
                 searchResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Если нашли только одну ссылку - сразу открываем её
+                if (foundLinks.length === 1) {
+                    setTimeout(() => {
+                        window.open(foundLinks[0].href, '_blank');
+                    }, 100);
+                }
             } else {
                 searchResultsContent.innerHTML = '<div class="no-results" data-translate="noResults">No results found</div>';
                 searchResults.classList.add('active');
-            }
-        }
-
-        // Функция для скролла к результату
-        function scrollToResult(elementId) {
-            const element = document.getElementById(elementId);
-            if (element) {
-                // Для ссылок открываем в новой вкладке
-                if (element.tagName === 'A') {
-                    element.click();
-                } else {
-                    // Для других элементов - скроллим к ним
-                    const yOffset = -80;
-                    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                    
-                    window.scrollTo({
-                        top: y,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Подсветка элемента
-                    const originalBackground = element.style.backgroundColor;
-                    element.style.backgroundColor = '#e6f7e6';
-                    element.style.transition = 'background-color 0.5s ease';
-                    
-                    setTimeout(() => {
-                        element.style.backgroundColor = originalBackground;
-                    }, 2000);
-                    
-                    // Скрываем результаты поиска после клика
-                    document.getElementById('searchResults').classList.remove('active');
-                }
             }
         }
 
