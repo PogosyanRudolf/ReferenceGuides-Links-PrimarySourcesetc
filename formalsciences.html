@@ -326,6 +326,31 @@
             border-bottom: none;
         }
         
+        .search-result-item button {
+            background: none;
+            border: none;
+            color: var(--accent-green);
+            cursor: pointer;
+            padding: 0;
+            font-size: 0.9em;
+            text-decoration: none;
+            display: inline;
+        }
+        
+        .search-result-item button:hover {
+            text-decoration: underline;
+        }
+        
+        .search-result-item a {
+            color: var(--accent-green);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .search-result-item a:hover {
+            text-decoration: underline;
+        }
+        
         .no-results {
             color: var(--dark-gray);
             font-style: italic;
@@ -567,52 +592,79 @@
             const searchData = [];
             
             // Поиск по заголовкам категорий
-            document.querySelectorAll('.science-category h3').forEach(category => {
-                const categoryText = category.textContent.toLowerCase();
-                if (categoryText.includes(query)) {
+            document.querySelectorAll('.science-category').forEach(category => {
+                const categoryTitle = category.querySelector('h3').textContent.toLowerCase();
+                const categoryId = category.id || 'category-' + Math.random().toString(36).substr(2, 9);
+                
+                if (!category.id) {
+                    category.id = categoryId;
+                }
+                
+                if (categoryTitle.includes(query)) {
                     searchData.push({
                         type: 'category',
-                        element: category.closest('.science-category'),
-                        text: categoryText,
-                        relevance: 10 // Высокая релевантность
+                        element: category,
+                        text: categoryTitle,
+                        id: categoryId
                     });
                 }
-            });
-            
-            // Поиск по ссылкам
-            document.querySelectorAll('.subjects-list a').forEach(link => {
-                const linkText = link.textContent.toLowerCase();
-                if (linkText.includes(query)) {
-                    searchData.push({
-                        type: 'link',
-                        element: link,
-                        text: linkText,
-                        relevance: 5
-                    });
-                }
+                
+                // Поиск по ссылкам внутри категории
+                category.querySelectorAll('.subjects-list a').forEach((link, index) => {
+                    const linkText = link.textContent.toLowerCase();
+                    if (linkText.includes(query)) {
+                        const linkId = link.id || `link-${categoryId}-${index}`;
+                        
+                        if (!link.id) {
+                            link.id = linkId;
+                        }
+                        
+                        searchData.push({
+                            type: 'link',
+                            element: link,
+                            text: linkText,
+                            id: linkId,
+                            href: link.href
+                        });
+                    }
+                });
             });
             
             // Поиск по описанию
-            const descriptionText = document.querySelector('.page-description').textContent.toLowerCase();
+            const description = document.querySelector('.page-description');
+            const descriptionText = description.textContent.toLowerCase();
             if (descriptionText.includes(query)) {
+                const descId = description.id || 'description-' + Math.random().toString(36).substr(2, 9);
+                
+                if (!description.id) {
+                    description.id = descId;
+                }
+                
                 searchData.push({
                     type: 'description',
-                    element: document.querySelector('.page-description'),
+                    element: description,
                     text: descriptionText,
-                    relevance: 3
+                    id: descId
                 });
             }
-            
-            // Сортировка по релевантности
-            searchData.sort((a, b) => b.relevance - a.relevance);
             
             // Отображение результатов
             if (searchData.length > 0) {
                 let html = '';
                 
                 searchData.forEach((result, index) => {
-                    if (index < 10) { // Ограничиваем 10 результатами
-                        const highlightedText = highlightText(result.text, query);
+                    if (index < 10) {
+                        const highlightedText = result.text.replace(
+                            new RegExp(`(${query})`, 'gi'),
+                            '<mark style="background-color: #FFD700; padding: 2px;">$1</mark>'
+                        );
+                        let actionText = '';
+                        
+                        if (result.type === 'link') {
+                            actionText = `<a href="${result.href}" target="_blank">Open link →</a>`;
+                        } else {
+                            actionText = `<button onclick="scrollToResult('${result.id}')">Go to result →</button>`;
+                        }
                         
                         html += `
                             <div class="search-result-item">
@@ -620,9 +672,7 @@
                                 <br>
                                 ${highlightedText}
                                 <br>
-                                <small style="color: var(--accent-green); cursor: pointer;" onclick="scrollToElement('${result.element.id || getElementId(result.element)}')">
-                                    Go to result →
-                                </small>
+                                ${actionText}
                             </div>
                         `;
                     }
@@ -638,31 +688,39 @@
                 searchResults.classList.add('active');
             }
         }
-        
-        function getElementId(element) {
-            if (element.id) return element.id;
-            if (element.parentElement && element.parentElement.id) return element.parentElement.id;
-            return '';
-        }
-        
-        function scrollToElement(elementId) {
+
+        // Функция для скролла к результату
+        function scrollToResult(elementId) {
             const element = document.getElementById(elementId);
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-                // Подсветка элемента
-                element.style.boxShadow = '0 0 0 3px var(--accent-green)';
-                setTimeout(() => {
-                    element.style.boxShadow = '';
-                }, 2000);
+                // Для ссылок открываем в новой вкладке
+                if (element.tagName === 'A') {
+                    element.click();
+                } else {
+                    // Для других элементов - скроллим к ним
+                    const yOffset = -80;
+                    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    
+                    window.scrollTo({
+                        top: y,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Подсветка элемента
+                    const originalBackground = element.style.backgroundColor;
+                    element.style.backgroundColor = '#e6f7e6';
+                    element.style.transition = 'background-color 0.5s ease';
+                    
+                    setTimeout(() => {
+                        element.style.backgroundColor = originalBackground;
+                    }, 2000);
+                    
+                    // Скрываем результаты поиска после клика
+                    document.getElementById('searchResults').classList.remove('active');
+                }
             }
         }
-        
-        function highlightText(text, query) {
-            const regex = new RegExp(`(${query})`, 'gi');
-            return text.replace(regex, '<mark style="background-color: #FFD700; padding: 2px;">$1</mark>');
-        }
-        
+
         // Поиск в интернете
         function searchWeb() {
             const query = document.getElementById('webSearch').value.trim();
@@ -719,7 +777,6 @@
                         element.textContent = translations[language][key];
                     }
                 } else if (translations['en'] && translations['en'][key]) {
-                    // Fallback to English if translation missing
                     if (element.placeholder) {
                         element.placeholder = translations['en'][key];
                     } else if (element.tagName === 'TITLE') {
@@ -730,15 +787,7 @@
                 }
             });
             
-            // Также обновляем все текстовые элементы без data-translate
-            updateStaticTexts(language);
-            
-            document.documentElement.lang = language;
-            localStorage.setItem('preferredLanguage', language);
-        }
-        
-        // Обновление статического текста на странице
-        function updateStaticTexts(language) {
+            // Обновление статического текста на странице
             const staticTexts = {
                 'Mathematical and computational sciences based on formal systems': {
                     en: 'Mathematical and computational sciences based on formal systems',
@@ -997,6 +1046,9 @@
                     element.textContent = staticTexts[text][language];
                 }
             });
+            
+            document.documentElement.lang = language;
+            localStorage.setItem('preferredLanguage', language);
         }
         
         // Initialize
