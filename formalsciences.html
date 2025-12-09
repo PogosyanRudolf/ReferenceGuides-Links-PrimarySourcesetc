@@ -51,6 +51,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 1rem;
+            gap: 15px;
         }
         
         .logo-container {
@@ -70,6 +71,44 @@
             font-size: 0.75rem;
             opacity: 0.9;
             color: #c6f6d5;
+        }
+        
+        /* Добавлен контейнер поиска */
+        .search-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #c6f6d5;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 8px 12px;
+            min-width: 180px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-btn {
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--hover-green);
         }
         
         .nav-links {
@@ -265,7 +304,11 @@
         }
         
         /* Mobile Styles */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            .search-container {
+                display: none;
+            }
+            
             .nav-links {
                 display: none;
             }
@@ -273,7 +316,9 @@
             .mobile-menu-btn {
                 display: block;
             }
-            
+        }
+        
+        @media (max-width: 768px) {
             .main-title {
                 font-size: 1.1rem;
             }
@@ -331,10 +376,24 @@
                 <div class="subtitle" data-translate="tagline">Standard Reference</div>
             </div>
             
+            <!-- Добавлен поиск -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="siteSearch" data-translate="searchPlaceholderSite" placeholder="Search this site...">
+                    <button class="search-btn" data-translate="searchButton" onclick="searchSite()">Search</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="webSearch" data-translate="searchPlaceholderWeb" placeholder="Search the web...">
+                    <button class="search-btn" data-translate="searchButton" onclick="searchWeb()">Search</button>
+                </div>
+            </div>
+            
             <div class="nav-links">
                 <a href="index.html" data-translate="home">Home</a>
                 <a href="educationandsciences.html" data-translate="science">Science & Education</a>
                 <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
                 <div class="language-selector">
@@ -357,6 +416,8 @@
                 <a href="index.html" data-translate="home">Home</a>
                 <a href="educationandsciences.html" data-translate="science">Science & Education</a>
                 <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
+                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
+                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
             </div>
@@ -385,66 +446,66 @@
             <div class="science-category" id="mathematics">
                 <h3 data-translate="mathematics">Mathematics</h3>
                 <ul class="subjects-list">
-                    <li><a href="https://ocw.mit.edu/courses/mathematics/" target="_blank">MIT Mathematics Courses</a></li>
-                    <li><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy Mathematics</a></li>
-                    <li><a href="https://www.coursera.org/browse/math-and-logic" target="_blank">Coursera Math & Logic</a></li>
-                    <li><a href="https://www.edx.org/learn/mathematics" target="_blank">edX Mathematics</a></li>
-                    <li><a href="https://brilliant.org/courses/#math-foundational" target="_blank">Brilliant.org Math</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/mathematics/" target="_blank" rel="noopener">MIT Mathematics Courses</a></li>
+                    <li><a href="https://www.khanacademy.org/math" target="_blank" rel="noopener">Khan Academy Mathematics</a></li>
+                    <li><a href="https://www.coursera.org/browse/math-and-logic" target="_blank" rel="noopener">Coursera Math & Logic</a></li>
+                    <li><a href="https://www.edx.org/learn/mathematics" target="_blank" rel="noopener">edX Mathematics</a></li>
+                    <li><a href="https://brilliant.org/courses/math-foundations" target="_blank" rel="noopener">Brilliant.org Math</a></li>
                 </ul>
             </div>
             
             <div class="science-category" id="computerscience">
                 <h3 data-translate="computerscience">Computer Science</h3>
                 <ul class="subjects-list">
-                    <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/" target="_blank">MIT Computer Science</a></li>
-                    <li><a href="https://www.edx.org/cs50" target="_blank">Harvard CS50</a></li>
-                    <li><a href="https://www.coursera.org/specializations/computer-fundamentals" target="_blank">Coursera Computer Science</a></li>
-                    <li><a href="https://www.khanacademy.org/computing/computer-science" target="_blank">Khan Academy CS</a></li>
-                    <li><a href="https://online.stanford.edu/courses/soe-ycscs101-sp-computer-science-101" target="_blank">Stanford CS101</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/" target="_blank" rel="noopener">MIT Computer Science</a></li>
+                    <li><a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank" rel="noopener">Harvard CS50</a></li>
+                    <li><a href="https://www.coursera.org/browse/computer-science" target="_blank" rel="noopener">Coursera Computer Science</a></li>
+                    <li><a href="https://www.khanacademy.org/computing/computer-science" target="_blank" rel="noopener">Khan Academy CS</a></li>
+                    <li><a href="https://online.stanford.edu/courses/soe-ycscs101-sp-computer-science-101" target="_blank" rel="noopener">Stanford CS101</a></li>
                 </ul>
             </div>
 
             <div class="science-category" id="ai">
                 <h3 data-translate="ai">Artificial Intelligence</h3>
                 <ul class="subjects-list">
-                    <li><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">Machine Learning Specialization</a></li>
-                    <li><a href="https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/" target="_blank">MIT Artificial Intelligence</a></li>
-                    <li><a href="https://www.edx.org/learn/artificial-intelligence" target="_blank">edX AI Courses</a></li>
-                    <li><a href="https://www.khanacademy.org/computing/computer-science/artificial-intelligence" target="_blank">Khan Academy AI</a></li>
-                    <li><a href="https://online.stanford.edu/courses/xcs229i-machine-learning" target="_blank">Stanford Machine Learning</a></li>
+                    <li><a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener">Stanford Machine Learning</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/" target="_blank" rel="noopener">MIT Artificial Intelligence</a></li>
+                    <li><a href="https://www.edx.org/learn/artificial-intelligence" target="_blank" rel="noopener">edX AI Courses</a></li>
+                    <li><a href="https://www.khanacademy.org/computing/computer-science/artificial-intelligence" target="_blank" rel="noopener">Khan Academy AI</a></li>
+                    <li><a href="https://online.stanford.edu/courses/cs229-machine-learning" target="_blank" rel="noopener">Stanford ML</a></li>
                 </ul>
             </div>
 
             <div class="science-category" id="statistics">
                 <h3 data-translate="statistics">Statistics & Data Science</h3>
                 <ul class="subjects-list">
-                    <li><a href="https://ocw.mit.edu/courses/mathematics/18-650-statistics-for-applications-fall-2016/" target="_blank">MIT Statistics</a></li>
-                    <li><a href="https://www.coursera.org/specializations/jhu-data-science" target="_blank">Data Science Specialization</a></li>
-                    <li><a href="https://www.edx.org/learn/statistics" target="_blank">edX Statistics</a></li>
-                    <li><a href="https://www.khanacademy.org/math/statistics-probability" target="_blank">Khan Academy Statistics</a></li>
-                    <li><a href="https://online.stanford.edu/courses/soe-ycs0007-statistical-learning" target="_blank">Stanford Statistical Learning</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/18-650-statistics-for-applications-fall-2016/" target="_blank" rel="noopener">MIT Statistics</a></li>
+                    <li><a href="https://www.coursera.org/specializations/jhu-data-science" target="_blank" rel="noopener">Data Science Specialization</a></li>
+                    <li><a href="https://www.edx.org/learn/statistics" target="_blank" rel="noopener">edX Statistics</a></li>
+                    <li><a href="https://www.khanacademy.org/math/statistics-probability" target="_blank" rel="noopener">Khan Academy Statistics</a></li>
+                    <li><a href="https://online.stanford.edu/courses/soe-ycs0007-statistical-learning" target="_blank" rel="noopener">Stanford Statistical Learning</a></li>
                 </ul>
             </div>
 
             <div class="science-category" id="cybersecurity">
                 <h3 data-translate="cybersecurity">Cybersecurity</h3>
                 <ul class="subjects-list">
-                    <li><a href="https://www.coursera.org/specializations/cyber-security" target="_blank">Cybersecurity Specialization</a></li>
-                    <li><a href="https://www.edx.org/learn/cybersecurity" target="_blank">edX Cybersecurity</a></li>
-                    <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-858-computer-systems-security-fall-2014/" target="_blank">MIT Computer Security</a></li>
-                    <li><a href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:online-data-security" target="_blank">Khan Academy Security</a></li>
-                    <li><a href="https://online.stanford.edu/courses/soeycscyber-introduction-cybersecurity" target="_blank">Stanford Cybersecurity</a></li>
+                    <li><a href="https://www.coursera.org/specializations/cyber-security" target="_blank" rel="noopener">Cybersecurity Specialization</a></li>
+                    <li><a href="https://www.edx.org/learn/cybersecurity" target="_blank" rel="noopener">edX Cybersecurity</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/" target="_blank" rel="noopener">MIT Computer Security</a></li>
+                    <li><a href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:online-data-security" target="_blank" rel="noopener">Khan Academy Security</a></li>
+                    <li><a href="https://online.stanford.edu/courses/soeycscyber-introduction-cybersecurity" target="_blank" rel="noopener">Stanford Cybersecurity</a></li>
                 </ul>
             </div>
 
             <div class="science-category" id="programming">
                 <h3 data-translate="programming">Programming</h3>
                 <ul class="subjects-list">
-                    <li><a href="https://www.coursera.org/specializations/python" target="_blank">Python for Everybody</a></li>
-                    <li><a href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/" target="_blank">MIT Python Programming</a></li>
-                    <li><a href="https://www.edx.org/learn/computer-programming" target="_blank">edX Programming</a></li>
-                    <li><a href="https://www.khanacademy.org/computing/computer-programming" target="_blank">Khan Academy Programming</a></li>
-                    <li><a href="https://online.stanford.edu/courses/soe-ycscs106a-programming-methodology" target="_blank">Stanford Programming Methodology</a></li>
+                    <li><a href="https://www.coursera.org/specializations/python" target="_blank" rel="noopener">Python for Everybody</a></li>
+                    <li><a href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/" target="_blank" rel="noopener">MIT Python Programming</a></li>
+                    <li><a href="https://www.edx.org/learn/computer-programming" target="_blank" rel="noopener">edX Programming</a></li>
+                    <li><a href="https://www.khanacademy.org/computing/computer-programming" target="_blank" rel="noopener">Khan Academy Programming</a></li>
+                    <li><a href="https://online.stanford.edu/courses/soe-ycscs106a-programming-methodology" target="_blank" rel="noopener">Stanford Programming Methodology</a></li>
                 </ul>
             </div>
         </div>
@@ -455,6 +516,23 @@
     </footer>
 
     <script>
+        // Search functions
+        function searchSite() {
+            const query = document.getElementById('siteSearch').value;
+            if (query.trim()) {
+                // Поиск по текущему сайту - можно реализовать через JavaScript поиск по контенту
+                alert(`Searching site for: ${query}`);
+                // Реальная реализация будет искать по контенту страницы
+            }
+        }
+
+        function searchWeb() {
+            const query = document.getElementById('webSearch').value;
+            if (query.trim()) {
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+            }
+        }
+
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
@@ -520,9 +598,18 @@
 
         // Handle resize - close mobile menu on larger screens
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 1024) {
                 mobileNav.classList.remove('active');
             }
+        });
+
+        // Add keyboard support for search
+        document.getElementById('siteSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchSite();
+        });
+
+        document.getElementById('webSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchWeb();
         });
     </script>
 </body>
