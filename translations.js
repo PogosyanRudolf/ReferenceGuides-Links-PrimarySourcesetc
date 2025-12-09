@@ -1,6 +1,5 @@
 const translations = {
     en: {
-        // Basic navigation
         "siteTitle": "Reference Guides, Links, Primary Sources",
         "tagline": "Standard Reference",
         "home": "Home",
@@ -10,16 +9,12 @@ const translations = {
         "globalResources": "Global Resources",
         "consultants": "Our Consultants",
         "cultureNews": "Culture News",
-        
-        // Main page
         "heroTitle": "Comprehensive Knowledge Database",
         "heroText": "Access curated educational resources, research materials, and primary sources from around the world",
         "heroDescription": "Your comprehensive gateway to global educational resources and research materials",
         "exploreResources": "Explore Resources",
         "latestNews": "Culture News, Events, Facts",
         "viewAllNews": "View All News",
-        
-        // Categories
         "categories": "Categories",
         "formalSciences": "Formal Sciences",
         "formalSciencesDesc": "Mathematics, Computer Science, AI, and Data Science",
@@ -29,15 +24,11 @@ const translations = {
         "languages": "Languages",
         "artsCulture": "Arts & Culture",
         "lawGovernment": "Law & Government",
-        
-        // Science page
         "scienceDesc": "Collection of reference guides, links to available online educational resources and research materials across several main disciplines.",
         "onlineResources": "Available Online Resources",
         "universities": "Universities",
         "learningPlatforms": "Learning Platforms",
         "researchAcademic": "Research & Academic",
-        
-        // Science subjects
         "mathematics": "Mathematics",
         "computerscience": "Computer Science",
         "ai": "Artificial Intelligence",
@@ -58,29 +49,21 @@ const translations = {
         "literature": "Literature",
         "music": "Music",
         "artHistory": "Art History",
-        
-        // Language learning
         "english": "English",
         "russian": "Russian",
         "spanish": "Spanish",
         "french": "French",
         "german": "German",
         "armenian": "Armenian",
-        
-        // Global Resources page
         "globalResourcesDesc": "Universities, learning platforms, and research databases worldwide",
         "searchPlaceholder": "Search universities, platforms, or resources...",
         "searchButton": "Search",
         "filterByCountry": "Filter by Country",
         "allCountries": "All Countries",
-        
-        // About page
         "ourMission": "Our Mission",
         "missionText": "Empowering learners worldwide with comprehensive access to educational resources and research materials",
         "ourTeam": "Our Team",
         "achievements": "Achievements",
-        
-        // Contact page
         "contactUs": "Contact Us",
         "contactDescription": "We'd love to hear from you. Get in touch with any questions, suggestions, or collaboration opportunities.",
         "getInTouch": "Get In Touch",
@@ -117,16 +100,12 @@ const translations = {
         "successMessage": "Thank you for your message! We will get back to you soon.",
         "errorMessage": "Sorry, there was an error sending your message. Please try again or email us directly at PogosyanRudolf@gmail.com",
         "sending": "Sending...",
-        
-        // Consultants page
         "ourExperts": "Our Expert Consultants",
         "consultantsDesc": "Meet our team of specialists who provide guidance and expertise across various disciplines",
         "expertise": "Expertise",
         "experience": "Experience",
         "contactExpert": "Contact Expert",
         "consultationAreas": "Consultation Areas",
-        
-        // Culture News page
         "latestCulturalNews": "Culture News, Events, Facts",
         "culturalEvents": "Cultural Events",
         "exhibitions": "Exhibitions",
@@ -155,31 +134,22 @@ const translations = {
         "news1Desc": "Major retrospective at National Museum features rare artifacts...",
         "news2Title": "New Ballet Adaptation Premieres",
         "news2Desc": "Moscow Bolshoi Theatre presents innovative adaptation...",
-        
-        // Common
         "learnMore": "Learn More",
         "viewDetails": "View Details",
         "backToHome": "Back to Home",
         "allRightsReserved": "All rights reserved",
         "followUs": "Follow Us",
-        
-        // Footer
         "footerText": "Reference Guides, Links, Primary Sources — Standard Reference",
         "quickLinks": "Quick Links",
         "resources": "Resources",
         "contactInfo": "Contact Information",
-        
-        // NEW: Search functionality
         "searchSite": "Search Site",
         "searchWeb": "Search Web",
         "searchPlaceholderSite": "Search this site...",
         "searchPlaceholderWeb": "Search the web...",
-        "searchButton": "Search",
         "searchResults": "Search Results",
         "noResults": "No results found",
         "searchTips": "Search tips: Try different keywords",
-        
-        // NEW: GitHub in resources
         "githubResources": "GitHub Repositories",
         "githubDesc": "Open source projects, code samples, and developer resources",
         "githubLink": "Visit GitHub",
@@ -189,7 +159,6 @@ const translations = {
     },
 
     ru: {
-        // Basic navigation
         "siteTitle": "Справочники, Ссылки, Первоисточники",
         "tagline": "Стандартный Справочник",
         "home": "Главная",
@@ -199,16 +168,12 @@ const translations = {
         "globalResources": "Глобальные ресурсы",
         "consultants": "Наши консультанты",
         "cultureNews": "Новости культуры",
-        
-        // Main page
         "heroTitle": "Комплексная база знаний",
         "heroText": "Доступ к курируемым образовательным ресурсам, исследовательским материалам и первоисточникам со всего мира",
         "heroDescription": "Ваш всеобъемлющий доступ к глобальным образовательным ресурсам и исследовательским материалам",
         "exploreResources": "Исследовать ресурсы",
         "latestNews": "Новости культуры, события, факты",
         "viewAllNews": "Все новости",
-        
-        // Categories
         "categories": "Категории",
         "formalSciences": "Формальные науки",
         "formalSciencesDesc": "Математика, информатика, искусственный интеллект и наука о данных",
@@ -218,15 +183,11 @@ const translations = {
         "languages": "Языки",
         "artsCulture": "Искусство и культура",
         "lawGovernment": "Право и государство",
-        
-        // Science page
         "scienceDesc": "Коллекция справочников, ссылок на доступные онлайн образовательные ресурсы и исследовательские материалы",
         "onlineResources": "Доступные онлайн ресурсы",
         "universities": "Университеты",
         "learningPlatforms": "Образовательные платформы",
         "researchAcademic": "Исследования и академия",
-        
-        // Science subjects
         "mathematics": "Математика",
         "computerscience": "Информатика",
         "ai": "Искусственный интеллект",
@@ -239,7 +200,7 @@ const translations = {
         "physics": "Физика",
         "chemistry": "Химия",
         "biology": "Биология",
-        "astronomy": "Астрономия",
+        "astronomy": "Астрономомия",
         "economics": "Экономика",
         "psychology": "Психология",
         "history": "История",
@@ -247,29 +208,20 @@ const translations = {
         "literature": "Литература",
         "music": "Музыка",
         "artHistory": "История искусства",
-        
-        // Language learning
         "english": "Английский",
         "russian": "Русский",
         "spanish": "Испанский",
         "french": "Французский",
         "german": "Немецкий",
         "armenian": "Армянский",
-        
-        // Global Resources page
         "globalResourcesDesc": "Университеты, образовательные платформы и исследовательские базы данных по всему миру",
         "searchPlaceholder": "Поиск университетов, платформ или ресурсов...",
-        "searchButton": "Поиск",
         "filterByCountry": "Фильтр по стране",
         "allCountries": "Все страны",
-        
-        // About page
         "ourMission": "Наша миссия",
         "missionText": "Предоставление доступа к образовательным ресурсам и исследовательским материалам по всему миру",
         "ourTeam": "Наша команда",
         "achievements": "Достижения",
-        
-        // Contact page
         "contactUs": "Связаться с нами",
         "contactDescription": "Мы будем рады услышать вас. Свяжитесь с нами по любым вопросам, предложениям или возможностям сотрудничества.",
         "getInTouch": "Связаться",
@@ -306,16 +258,12 @@ const translations = {
         "successMessage": "Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.",
         "errorMessage": "Извините, произошла ошибка при отправке вашего сообщения. Пожалуйста, попробуйте еще раз или напишите нам напрямую на PogosyanRudolf@gmail.com",
         "sending": "Отправка...",
-        
-        // Consultants page
         "ourExperts": "Наши эксперты-консультанты",
         "consultantsDesc": "Познакомьтесь с нашей командой специалистов, которые предоставляют консультации и экспертизу по различным дисциплинам",
         "expertise": "Экспертиза",
         "experience": "Опыт",
         "contactExpert": "Связаться с экспертом",
         "consultationAreas": "Области консультаций",
-        
-        // Culture News page
         "latestCulturalNews": "Новости культуры, события, факты",
         "culturalEvents": "Культурные события",
         "exhibitions": "Выставки",
@@ -344,21 +292,15 @@ const translations = {
         "news1Desc": "Крупная ретроспектива в Национальном музее представляет редкие артефакты...",
         "news2Title": "Премьера новой балетной адаптации",
         "news2Desc": "Московский Большой театр представляет инновационную адаптацию...",
-        
-        // Common
         "learnMore": "Узнать больше",
         "viewDetails": "Подробнее",
         "backToHome": "На главную",
         "allRightsReserved": "Все права защищены",
         "followUs": "Подпишитесь на нас",
-        
-        // Footer
         "footerText": "Справочники, Ссылки, Первоисточники — Стандартный Справочник",
         "quickLinks": "Быстрые ссылки",
         "resources": "Ресурсы",
         "contactInfo": "Контактная информация",
-        
-        // NEW: Search functionality
         "searchSite": "Поиск по сайту",
         "searchWeb": "Поиск в интернете",
         "searchPlaceholderSite": "Поиск по сайту...",
@@ -367,8 +309,6 @@ const translations = {
         "searchResults": "Результаты поиска",
         "noResults": "Ничего не найдено",
         "searchTips": "Советы по поиску: Попробуйте другие ключевые слова",
-        
-        // NEW: GitHub in resources
         "githubResources": "Репозитории GitHub",
         "githubDesc": "Открытые проекты, примеры кода и ресурсы для разработчиков",
         "githubLink": "Перейти на GitHub",
@@ -378,7 +318,6 @@ const translations = {
     },
 
     hy: {
-        // Basic navigation
         "siteTitle": "Տեղեկատու Ձեռնարկներ, Հղումներ, Առաջնային Աղբյուրներ",
         "tagline": "Ստանդարտ Տեղեկատու",
         "home": "Գլխավոր",
@@ -388,16 +327,12 @@ const translations = {
         "globalResources": "Գլոբալ ռեսուրսներ",
         "consultants": "Մեր խորհրդատուները",
         "cultureNews": "Մշակույթի նորություններ",
-        
-        // Main page
         "heroTitle": "Համապարփակ գիտելիքների բազա",
         "heroText": "Մուտք դեպի համաշխարհային կրթական ռեսուրսներ, հետազոտական նյութեր և առաջնային աղբյուրներ",
         "heroDescription": "Ձեր համապարփակ մուտքը դեպի գլոբալ կրթական ռեսուրսներ և հետազոտական նյութեր",
         "exploreResources": "Դիտել ռեսուրսները",
         "latestNews": "Մշակույթի նորություններ, իրադարձություններ, փաստեր",
         "viewAllNews": "Բոլոր նորությունները",
-        
-        // Categories
         "categories": "Կատեգորիաներ",
         "formalSciences": "Ֆորմալ գիտություններ",
         "formalSciencesDesc": "Մաթեմատիկա, ինֆորմատիկա, արհեստական բանականություն և տվյալների գիտություն",
@@ -407,15 +342,11 @@ const translations = {
         "languages": "Լեզուներ",
         "artsCulture": "Արվեստ և մշակույթ",
         "lawGovernment": "Իրավունք և պետություն",
-        
-        // Science page
         "scienceDesc": "Տեղեկատու ձեռնարկների, առցանց ուսումնական ռեսուրսների հղումների և հետազոտական նյութերի հավաքածու",
         "onlineResources": "Առցանց ռեսուրսներ",
         "universities": "Համալսարաններ",
         "learningPlatforms": "Ուսումնական պլատֆորմներ",
         "researchAcademic": "Հետազոտություն և ակադեմիա",
-        
-        // Science subjects
         "mathematics": "Մաթեմատիկա",
         "computerscience": "Ինֆորմատիկա",
         "ai": "Արհեստական բանականություն",
@@ -436,29 +367,20 @@ const translations = {
         "literature": "Գրականություն",
         "music": "Երաժշտություն",
         "artHistory": "Արվեստի պատմություն",
-        
-        // Language learning
         "english": "Անգլերեն",
         "russian": "Ռուսերեն",
         "spanish": "Իսպաներեն",
         "french": "Ֆրանսերեն",
         "german": "Գերմաներեն",
         "armenian": "Հայերեն",
-        
-        // Global Resources page
         "globalResourcesDesc": "Համալսարաններ, ուսումնական պլատֆորմներ և հետազոտական տվյալների բազաներ ամբողջ աշխարհում",
         "searchPlaceholder": "Որոնել համալսարաններ, պլատֆորմներ կամ ռեսուրսներ...",
-        "searchButton": "Որոնել",
         "filterByCountry": "Զտել ըստ երկրի",
         "allCountries": "Բոլոր երկրները",
-        
-        // About page
         "ourMission": "Մեր առաքելությունը",
         "missionText": "Աշխարհով մեկ ուսումնական ռեսուրսների և հետազոտական նյութերի հասանելիություն",
         "ourTeam": "Մեր թիմը",
         "achievements": "Ձեռքբերումներ",
-        
-        // Contact page
         "contactUs": "Կապ մեզ հետ",
         "contactDescription": "Մենք ուրախ կլինենք լսել ձեզ։ Կապնվեք մեզ հետ ցանկացած հարցով, առաջարկով կամ համագործակցության հնարավորություններով։",
         "getInTouch": "Կապնվել",
@@ -495,16 +417,12 @@ const translations = {
         "successMessage": "Շնորհակալություն ձեր հաղորդագրության համար: Մենք կկապվենք ձեզ հետ մոտակայքում:",
         "errorMessage": "Ներողություն, ձեր հաղորդագրությունը ուղարկելիս սխալ տեղի ունեցավ: Խնդրում ենք փորձել կրկին կամ գրել մեզ ուղղակիորեն՝ PogosyanRudolf@gmail.com",
         "sending": "Ուղարկում...",
-        
-        // Consultants page
         "ourExperts": "Մեր փորձագետ-խորհրդատուները",
         "consultantsDesc": "Ծանոթացեք մեր մասնագետների թիմին, որոնք տրամադրում են խորհրդատվություն և փորձաքննություն տարբեր առարկաներով",
         "expertise": "Փորձաքննություն",
         "experience": "Փորձ",
         "contactExpert": "Կապնվել փորձագետի հետ",
         "consultationAreas": "Խորհրդատվության ոլորտներ",
-        
-        // Culture News page
         "latestCulturalNews": "Մշակույթի նորություններ, իրադարձություններ, փաստեր",
         "culturalEvents": "Մշակութային միջոցառումներ",
         "exhibitions": "Ցուցահանդեսներ",
@@ -533,21 +451,15 @@ const translations = {
         "news1Desc": "Երևանի Ազգային թանգարանում մեծ հետահայաց ցուցադրությունը ներկայացնում է հազվագյուտ արտեֆակտներ...",
         "news2Title": "Նոր բալետային ադապտացիայի պրեմիերա",
         "news2Desc": "Մոսկվայի Մեծ թատրոնը ներկայացնում է նորարարական ադապտացիա...",
-        
-        // Common
         "learnMore": "Իմանալ ավելին",
         "viewDetails": "Մանրամասներ",
         "backToHome": "Գլխավոր էջ",
         "allRightsReserved": "Բոլոր իրավունքները պաշտպանված են",
         "followUs": "Հետևեք մեզ",
-        
-        // Footer
         "footerText": "Տեղեկատու Ձեռնարկներ, Հղումներ, Առաջնային Աղբյուրներ — Ստանդարտ Տեղեկատու",
         "quickLinks": "Արագ հղումներ",
         "resources": "Ռեսուրսներ",
         "contactInfo": "Կոնտակտային տվյալներ",
-        
-        // NEW: Search functionality
         "searchSite": "Որոնել կայքում",
         "searchWeb": "Որոնել համացանցում",
         "searchPlaceholderSite": "Որոնել կայքում...",
@@ -556,8 +468,6 @@ const translations = {
         "searchResults": "Որոնման արդյունքներ",
         "noResults": "Ոչինչ չի գտնվել",
         "searchTips": "Որոնման խորհուրդներ: Փորձեք այլ հիմնաբառեր",
-        
-        // NEW: GitHub in resources
         "githubResources": "GitHub Պահոցներ",
         "githubDesc": "Բաց կոդով նախագծեր, կոդի օրինակներ և մշակողների ռեսուրսներ",
         "githubLink": "Անցնել GitHub",
@@ -567,7 +477,6 @@ const translations = {
     },
 
     de: {
-        // Basic navigation
         "siteTitle": "Referenzleitfäden, Links, Primärquellen",
         "tagline": "Standard-Referenz",
         "home": "Startseite",
@@ -577,16 +486,12 @@ const translations = {
         "globalResources": "Globale Ressourcen",
         "consultants": "Unsere Berater",
         "cultureNews": "Kulturnachrichten",
-        
-        // Main page
         "heroTitle": "Umfassende Wissensdatenbank",
         "heroText": "Zugang zu kuratierten Bildungsressourcen, Forschungsmaterialien und Primärquellen aus der ganzen Welt",
         "heroDescription": "Ihr umfassender Zugang zu globalen Bildungsressourcen und Forschungsmaterialien",
         "exploreResources": "Ressourcen erkunden",
         "latestNews": "Kulturnachrichten, Ereignisse, Fakten",
         "viewAllNews": "Alle Nachrichten anzeigen",
-        
-        // Categories
         "categories": "Kategorien",
         "formalSciences": "Formale Wissenschaften",
         "formalSciencesDesc": "Mathematik, Informatik, KI und Datenwissenschaft",
@@ -596,15 +501,11 @@ const translations = {
         "languages": "Sprachen",
         "artsCulture": "Kunst & Kultur",
         "lawGovernment": "Recht & Regierung",
-        
-        // Science page
         "scienceDesc": "Sammlung von Referenzleitfäden, Links zu verfügbaren Online-Bildungsressourcen und Forschungsmaterialien",
         "onlineResources": "Verfügbare Online-Ressourcen",
         "universities": "Universitäten",
         "learningPlatforms": "Lernplattformen",
         "researchAcademic": "Forschung & Akademie",
-        
-        // Science subjects
         "mathematics": "Mathematik",
         "computerscience": "Informatik",
         "ai": "Künstliche Intelligenz",
@@ -625,29 +526,20 @@ const translations = {
         "literature": "Literatur",
         "music": "Musik",
         "artHistory": "Kunstgeschichte",
-        
-        // Language learning
         "english": "Englisch",
         "russian": "Russisch",
         "spanish": "Spanisch",
         "french": "Französisch",
         "german": "Deutsch",
         "armenian": "Armenisch",
-        
-        // Global Resources page
         "globalResourcesDesc": "Universitäten, Lernplattformen und Forschungsdatenbanken weltweit",
         "searchPlaceholder": "Universitäten, Plattformen oder Ressourcen suchen...",
-        "searchButton": "Suchen",
         "filterByCountry": "Nach Land filtern",
         "allCountries": "Alle Länder",
-        
-        // About page
         "ourMission": "Unsere Mission",
         "missionText": "Weltweiter Zugang zu Bildungsressourcen und Forschungsmaterialien",
         "ourTeam": "Unser Team",
         "achievements": "Leistungen",
-        
-        // Contact page
         "contactUs": "Kontaktieren Sie uns",
         "contactDescription": "Wir würden uns freuen, von Ihnen zu hören. Kontaktieren Sie uns bei Fragen, Vorschlägen oder Kooperationsmöglichkeiten.",
         "getInTouch": "Kontakt aufnehmen",
@@ -684,16 +576,12 @@ const translations = {
         "successMessage": "Vielen Dank für Ihre Nachricht! Wir werden uns in Kürze bei Ihnen melden.",
         "errorMessage": "Es tut uns leid, beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an PogosyanRudolf@gmail.com",
         "sending": "Wird gesendet...",
-        
-        // Consultants page
         "ourExperts": "Unsere Expertenberater",
         "consultantsDesc": "Lernen Sie unser Team von Spezialisten kennen, die Beratung und Expertise in verschiedenen Disziplinen bieten",
         "expertise": "Expertise",
         "experience": "Erfahrung",
         "contactExpert": "Experten kontaktieren",
         "consultationAreas": "Beratungsbereiche",
-        
-        // Culture News page
         "latestCulturalNews": "Kulturnachrichten, Ereignisse, Fakten",
         "culturalEvents": "Kulturelle Veranstaltungen",
         "exhibitions": "Ausstellungen",
@@ -722,21 +610,15 @@ const translations = {
         "news1Desc": "Große Retrospektive im Nationalmuseum zeigt seltene Artefakte...",
         "news2Title": "Premiere neuer Ballettadaption",
         "news2Desc": "Moskauer Bolschoi-Theater präsentiert innovative Adaption...",
-        
-        // Common
         "learnMore": "Mehr erfahren",
         "viewDetails": "Details anzeigen",
         "backToHome": "Zurück zur Startseite",
         "allRightsReserved": "Alle Rechte vorbehalten",
         "followUs": "Folgen Sie uns",
-        
-        // Footer
         "footerText": "Referenzleitfäden, Links, Primärquellen — Standard-Referenz",
         "quickLinks": "Schnelllinks",
         "resources": "Ressourcen",
         "contactInfo": "Kontaktinformationen",
-        
-        // NEW: Search functionality
         "searchSite": "Website durchsuchen",
         "searchWeb": "Web durchsuchen",
         "searchPlaceholderSite": "Website durchsuchen...",
@@ -745,8 +627,6 @@ const translations = {
         "searchResults": "Suchergebnisse",
         "noResults": "Keine Ergebnisse gefunden",
         "searchTips": "Suchtipps: Probieren Sie andere Schlüsselwörter",
-        
-        // NEW: GitHub in resources
         "githubResources": "GitHub-Repositories",
         "githubDesc": "Open-Source-Projekte, Codebeispiele und Entwicklerressourcen",
         "githubLink": "GitHub besuchen",
@@ -756,7 +636,6 @@ const translations = {
     },
 
     es: {
-        // Basic navigation
         "siteTitle": "Guías de Referencia, Enlaces, Fuentes Primarias",
         "tagline": "Referencia Estándar",
         "home": "Inicio",
@@ -766,16 +645,12 @@ const translations = {
         "globalResources": "Recursos Globales",
         "consultants": "Nuestros Consultores",
         "cultureNews": "Noticias Culturales",
-        
-        // Main page
         "heroTitle": "Base de Conocimiento Integral",
         "heroText": "Acceso a recursos educativos curados, materiales de investigación y fuentes primarias de todo el mundo",
         "heroDescription": "Su puerta de acceso integral a recursos educativos globales y materiales de investigación",
         "exploreResources": "Explorar Recursos",
         "latestNews": "Noticias Culturales, Eventos, Hechos",
         "viewAllNews": "Ver Todas las Noticias",
-        
-        // Categories
         "categories": "Categorías",
         "formalSciences": "Ciencias Formales",
         "formalSciencesDesc": "Matemáticas, Ciencias de la Computación, IA y Ciencia de Datos",
@@ -785,15 +660,11 @@ const translations = {
         "languages": "Idiomas",
         "artsCulture": "Arte y Cultura",
         "lawGovernment": "Derecho y Gobierno",
-        
-        // Science page
         "scienceDesc": "Colección de guías de referencia, enlaces a recursos educativos en línea disponibles y materiales de investigación",
         "onlineResources": "Recursos en Línea Disponibles",
         "universities": "Universidades",
         "learningPlatforms": "Plataformas de Aprendizaje",
         "researchAcademic": "Investigación y Académico",
-        
-        // Science subjects
         "mathematics": "Matemáticas",
         "computerscience": "Ciencias de la Computación",
         "ai": "Inteligencia Artificial",
@@ -814,29 +685,20 @@ const translations = {
         "literature": "Literatura",
         "music": "Música",
         "artHistory": "Historia del Arte",
-        
-        // Language learning
         "english": "Inglés",
         "russian": "Ruso",
         "spanish": "Español",
         "french": "Francés",
         "german": "Alemán",
         "armenian": "Armenio",
-        
-        // Global Resources page
         "globalResourcesDesc": "Universidades, plataformas de aprendizaje y bases de datos de investigación en todo el mundo",
         "searchPlaceholder": "Buscar universidades, plataformas o recursos...",
-        "searchButton": "Buscar",
         "filterByCountry": "Filtrar por País",
         "allCountries": "Todos los Países",
-        
-        // About page
         "ourMission": "Nuestra Misión",
         "missionText": "Acceso integral a recursos educativos y materiales de investigación en todo el mundo",
         "ourTeam": "Nuestro Equipo",
         "achievements": "Logros",
-        
-        // Contact page
         "contactUs": "Contáctenos",
         "contactDescription": "Nos encantaría saber de usted. Póngase en contacto con nosotros para cualquier pregunta, sugerencia u oportunidad de colaboración.",
         "getInTouch": "Ponerse en contacto",
@@ -873,16 +735,12 @@ const translations = {
         "successMessage": "¡Gracias por su mensaje! Nos pondremos en contacto con usted pronto.",
         "errorMessage": "Lo sentimos, hubo un error al enviar su mensaje. Por favor, inténtelo de nuevo o envíenos un correo directamente a PogosyanRudolf@gmail.com",
         "sending": "Enviando...",
-        
-        // Consultants page
         "ourExperts": "Nuestros Consultores Expertos",
         "consultantsDesc": "Conozca a nuestro equipo de especialistas que brindan orientación y experiencia en diversas disciplinas",
         "expertise": "Experiencia",
         "experience": "Experiencia",
         "contactExpert": "Contactar Experto",
         "consultationAreas": "Áreas de Consulta",
-        
-        // Culture News page
         "latestCulturalNews": "Noticias Culturales, Eventos, Hechos",
         "culturalEvents": "Eventos Culturales",
         "exhibitions": "Exposiciones",
@@ -911,21 +769,15 @@ const translations = {
         "news1Desc": "Gran retrospectiva en el Museo Nacional presenta artefactos raros...",
         "news2Title": "Estrena Nueva Adaptación de Ballet",
         "news2Desc": "El Teatro Bolshoi de Moscú presenta adaptación innovadora...",
-        
-        // Common
         "learnMore": "Aprender Más",
         "viewDetails": "Ver Detalles",
         "backToHome": "Volver al Inicio",
         "allRightsReserved": "Todos los derechos reservados",
         "followUs": "Síganos",
-        
-        // Footer
         "footerText": "Guías de Referencia, Enlaces, Fuentes Primarias — Referencia Estándar",
         "quickLinks": "Enlaces Rápidos",
         "resources": "Recursos",
         "contactInfo": "Información de Contacto",
-        
-        // NEW: Search functionality
         "searchSite": "Buscar en el Sitio",
         "searchWeb": "Buscar en la Web",
         "searchPlaceholderSite": "Buscar en este sitio...",
@@ -934,8 +786,6 @@ const translations = {
         "searchResults": "Resultados de Búsqueda",
         "noResults": "No se encontraron resultados",
         "searchTips": "Consejos de búsqueda: Pruebe diferentes palabras clave",
-        
-        // NEW: GitHub in resources
         "githubResources": "Repositorios de GitHub",
         "githubDesc": "Proyectos de código abierto, ejemplos de código y recursos para desarrolladores",
         "githubLink": "Visitar GitHub",
@@ -945,7 +795,6 @@ const translations = {
     },
 
     fr: {
-        // Basic navigation
         "siteTitle": "Guides de Référence, Liens, Sources Primaires",
         "tagline": "Référence Standard",
         "home": "Accueil",
@@ -955,16 +804,12 @@ const translations = {
         "globalResources": "Ressources Mondiales",
         "consultants": "Nos Consultants",
         "cultureNews": "Actualités Culturelles",
-        
-        // Main page
         "heroTitle": "Base de Connaissances Complète",
         "heroText": "Accès à des ressources éducatives sélectionnées, matériaux de recherche et sources primaires du monde entier",
         "heroDescription": "Votre porte d'accès complète aux ressources éducatives mondiales et matériaux de recherche",
         "exploreResources": "Explorer les Ressources",
         "latestNews": "Actualités Culturelles, Événements, Faits",
         "viewAllNews": "Voir Toutes les Actualités",
-        
-        // Categories
         "categories": "Catégories",
         "formalSciences": "Sciences Formelles",
         "formalSciencesDesc": "Mathématiques, Informatique, IA et Science des Données",
@@ -974,15 +819,11 @@ const translations = {
         "languages": "Langues",
         "artsCulture": "Art et Culture",
         "lawGovernment": "Droit et Gouvernement",
-        
-        // Science page
         "scienceDesc": "Collection de guides de référence, liens vers ressources éducatives en ligne disponibles et matériaux de recherche",
         "onlineResources": "Ressources en Ligne Disponibles",
         "universities": "Universités",
         "learningPlatforms": "Plateformes d'Apprentissage",
         "researchAcademic": "Recherche et Académique",
-        
-        // Science subjects
         "mathematics": "Mathématiques",
         "computerscience": "Informatique",
         "ai": "Intelligence Artificielle",
@@ -1003,29 +844,20 @@ const translations = {
         "literature": "Littérature",
         "music": "Musique",
         "artHistory": "Histoire de l'Art",
-        
-        // Language learning
         "english": "Anglais",
         "russian": "Russe",
         "spanish": "Espagnol",
         "french": "Français",
         "german": "Allemand",
         "armenian": "Arménien",
-        
-        // Global Resources page
         "globalResourcesDesc": "Universités, plateformes d'apprentissage et bases de données de recherche dans le monde entier",
         "searchPlaceholder": "Rechercher des universités, plateformes ou ressources...",
-        "searchButton": "Rechercher",
         "filterByCountry": "Filtrer par Pays",
         "allCountries": "Tous les Pays",
-        
-        // About page
         "ourMission": "Notre Mission",
         "missionText": "Accès complet aux ressources éducatives et matériaux de recherche dans le monde entier",
         "ourTeam": "Notre Équipe",
         "achievements": "Réalisations",
-        
-        // Contact page
         "contactUs": "Contactez-nous",
         "contactDescription": "Nous serions ravis d'avoir de vos nouvelles. Contactez-nous pour toute question, suggestion ou opportunité de collaboration.",
         "getInTouch": "Entrer en contact",
@@ -1062,16 +894,12 @@ const translations = {
         "successMessage": "Merci pour votre message ! Nous vous répondrons bientôt.",
         "errorMessage": "Désolé, une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer ou nous envoyer un e-mail directement à PogosyanRudolf@gmail.com",
         "sending": "Envoi en cours...",
-        
-        // Consultants page
         "ourExperts": "Nos Experts-Consultants",
         "consultantsDesc": "Rencontrez notre équipe de spécialistes qui fournissent des conseils et une expertise dans diverses disciplines",
         "expertise": "Expertise",
         "experience": "Expérience",
         "contactExpert": "Contacter l'Expert",
         "consultationAreas": "Domaines de Consultation",
-        
-        // Culture News page
         "latestCulturalNews": "Actualités Culturelles, Événements, Faits",
         "culturalEvents": "Événements Culturels",
         "exhibitions": "Expositions",
@@ -1100,21 +928,15 @@ const translations = {
         "news1Desc": "Grande rétrospective au Musée National présente des artefacts rares...",
         "news2Title": "Première Nouvelle Adaptation de Ballet",
         "news2Desc": "Le Théâtre Bolchoï de Moscou présente une adaptation innovante...",
-        
-        // Common
         "learnMore": "En Savoir Plus",
         "viewDetails": "Voir les Détails",
         "backToHome": "Retour à l'Accueil",
         "allRightsReserved": "Tous droits réservés",
         "followUs": "Suivez-nous",
-        
-        // Footer
         "footerText": "Guides de Référence, Liens, Sources Primaires — Référence Standard",
         "quickLinks": "Liens Rapides",
         "resources": "Ressources",
         "contactInfo": "Informations de Contact",
-        
-        // NEW: Search functionality
         "searchSite": "Rechercher sur le Site",
         "searchWeb": "Rechercher sur le Web",
         "searchPlaceholderSite": "Rechercher sur ce site...",
@@ -1123,8 +945,6 @@ const translations = {
         "searchResults": "Résultats de Recherche",
         "noResults": "Aucun résultat trouvé",
         "searchTips": "Conseils de recherche: Essayez différents mots-clés",
-        
-        // NEW: GitHub in resources
         "githubResources": "Dépôts GitHub",
         "githubDesc": "Projets open source, exemples de code et ressources pour développeurs",
         "githubLink": "Visiter GitHub",
