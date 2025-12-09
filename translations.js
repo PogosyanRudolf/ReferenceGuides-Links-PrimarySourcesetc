@@ -14,6 +14,7 @@ const translations = {
         // Main page
         "heroTitle": "Comprehensive Knowledge Database",
         "heroText": "Access curated educational resources, research materials, and primary sources from around the world",
+        "heroDescription": "Your comprehensive gateway to global educational resources and research materials",
         "exploreResources": "Explore Resources",
         "latestNews": "Culture News, Events, Facts",
         "viewAllNews": "View All News",
@@ -21,6 +22,7 @@ const translations = {
         // Categories
         "categories": "Categories",
         "formalSciences": "Formal Sciences",
+        "formalSciencesDesc": "Mathematics, Computer Science, AI, and Data Science",
         "naturalSciences": "Natural Sciences",
         "appliedSciences": "Applied Sciences",
         "socialSciences": "Social Sciences",
@@ -66,7 +68,7 @@ const translations = {
         "armenian": "Armenian",
         
         // Global Resources page
-        "globalResourcesDesc": "Comprehensive collection of universities, learning platforms, and academic resources from around the world",
+        "globalResourcesDesc": "Universities, learning platforms, and research databases worldwide",
         "searchPlaceholder": "Search universities, platforms, or resources...",
         "searchButton": "Search",
         "filterByCountry": "Filter by Country",
@@ -78,7 +80,7 @@ const translations = {
         "ourTeam": "Our Team",
         "achievements": "Achievements",
         
-        // Contact page - ДОБАВЛЕНЫ ВСЕ НЕОБХОДИМЫЕ ПЕРЕВОДЫ
+        // Contact page
         "contactUs": "Contact Us",
         "contactDescription": "We'd love to hear from you. Get in touch with any questions, suggestions, or collaboration opportunities.",
         "getInTouch": "Get In Touch",
@@ -144,11 +146,15 @@ const translations = {
         "literaryEvents": "Literary Events",
         "festivalCalendar": "Festival Calendar",
         "culturalInstitutions": "Cultural Institutions",
-        "emailLabel": "Email: culture@standardreference.org",
+        "emailLabel": "Email: PogosyanRudolf@gmail.com",
         "phoneLabel": "Phone: +374 10 654321",
-        "pressLabel": "Press Inquiries: press@standardreference.org",
-        "eventsLabel": "Event Submissions: events@standardreference.org",
+        "pressLabel": "Press Inquiries: PogosyanRudolf@gmail.com",
+        "eventsLabel": "Event Submissions: PogosyanRudolf@gmail.com",
         "allNews": "All News",
+        "news1Title": "Armenian Chronicles Exhibition",
+        "news1Desc": "Major retrospective at National Museum features rare artifacts...",
+        "news2Title": "New Ballet Adaptation Premieres",
+        "news2Desc": "Moscow Bolshoi Theatre presents innovative adaptation...",
         
         // Common
         "learnMore": "Learn More",
@@ -161,7 +167,25 @@ const translations = {
         "footerText": "Reference Guides, Links, Primary Sources — Standard Reference",
         "quickLinks": "Quick Links",
         "resources": "Resources",
-        "contactInfo": "Contact Information"
+        "contactInfo": "Contact Information",
+        
+        // NEW: Search functionality
+        "searchSite": "Search Site",
+        "searchWeb": "Search Web",
+        "searchPlaceholderSite": "Search this site...",
+        "searchPlaceholderWeb": "Search the web...",
+        "searchButton": "Search",
+        "searchResults": "Search Results",
+        "noResults": "No results found",
+        "searchTips": "Search tips: Try different keywords",
+        
+        // NEW: GitHub in resources
+        "githubResources": "GitHub Repositories",
+        "githubDesc": "Open source projects, code samples, and developer resources",
+        "githubLink": "Visit GitHub",
+        "openSource": "Open Source",
+        "developerTools": "Developer Tools",
+        "codeSamples": "Code Samples"
     },
 
     ru: {
@@ -179,6 +203,7 @@ const translations = {
         // Main page
         "heroTitle": "Комплексная база знаний",
         "heroText": "Доступ к курируемым образовательным ресурсам, исследовательским материалам и первоисточникам со всего мира",
+        "heroDescription": "Ваш всеобъемлющий доступ к глобальным образовательным ресурсам и исследовательским материалам",
         "exploreResources": "Исследовать ресурсы",
         "latestNews": "Новости культуры, события, факты",
         "viewAllNews": "Все новости",
@@ -186,6 +211,7 @@ const translations = {
         // Categories
         "categories": "Категории",
         "formalSciences": "Формальные науки",
+        "formalSciencesDesc": "Математика, информатика, искусственный интеллект и наука о данных",
         "naturalSciences": "Естественные науки",
         "appliedSciences": "Прикладные науки",
         "socialSciences": "Социальные науки",
@@ -231,7 +257,7 @@ const translations = {
         "armenian": "Армянский",
         
         // Global Resources page
-        "globalResourcesDesc": "Комплексная коллекция университетов, образовательных платформ и академических ресурсов со всего мира",
+        "globalResourcesDesc": "Университеты, образовательные платформы и исследовательские базы данных по всему миру",
         "searchPlaceholder": "Поиск университетов, платформ или ресурсов...",
         "searchButton": "Поиск",
         "filterByCountry": "Фильтр по стране",
@@ -243,7 +269,7 @@ const translations = {
         "ourTeam": "Наша команда",
         "achievements": "Достижения",
         
-        // Contact page - ДОБАВЛЕНЫ ВСЕ НЕОБХОДИМЫЕ ПЕРЕВОДЫ
+        // Contact page
         "contactUs": "Связаться с нами",
         "contactDescription": "Мы будем рады услышать вас. Свяжитесь с нами по любым вопросам, предложениям или возможностям сотрудничества.",
         "getInTouch": "Связаться",
@@ -314,6 +340,10 @@ const translations = {
         "pressLabel": "Пресс-запросы: PogosyanRudolf@gmail.com",
         "eventsLabel": "Предложения мероприятий: PogosyanRudolf@gmail.com",
         "allNews": "Все новости",
+        "news1Title": "Выставка «Армянские хроники»",
+        "news1Desc": "Крупная ретроспектива в Национальном музее представляет редкие артефакты...",
+        "news2Title": "Премьера новой балетной адаптации",
+        "news2Desc": "Московский Большой театр представляет инновационную адаптацию...",
         
         // Common
         "learnMore": "Узнать больше",
@@ -326,7 +356,25 @@ const translations = {
         "footerText": "Справочники, Ссылки, Первоисточники — Стандартный Справочник",
         "quickLinks": "Быстрые ссылки",
         "resources": "Ресурсы",
-        "contactInfo": "Контактная информация"
+        "contactInfo": "Контактная информация",
+        
+        // NEW: Search functionality
+        "searchSite": "Поиск по сайту",
+        "searchWeb": "Поиск в интернете",
+        "searchPlaceholderSite": "Поиск по сайту...",
+        "searchPlaceholderWeb": "Поиск в интернете...",
+        "searchButton": "Найти",
+        "searchResults": "Результаты поиска",
+        "noResults": "Ничего не найдено",
+        "searchTips": "Советы по поиску: Попробуйте другие ключевые слова",
+        
+        // NEW: GitHub in resources
+        "githubResources": "Репозитории GitHub",
+        "githubDesc": "Открытые проекты, примеры кода и ресурсы для разработчиков",
+        "githubLink": "Перейти на GitHub",
+        "openSource": "Открытое ПО",
+        "developerTools": "Инструменты разработчика",
+        "codeSamples": "Примеры кода"
     },
 
     hy: {
@@ -344,6 +392,7 @@ const translations = {
         // Main page
         "heroTitle": "Համապարփակ գիտելիքների բազա",
         "heroText": "Մուտք դեպի համաշխարհային կրթական ռեսուրսներ, հետազոտական նյութեր և առաջնային աղբյուրներ",
+        "heroDescription": "Ձեր համապարփակ մուտքը դեպի գլոբալ կրթական ռեսուրսներ և հետազոտական նյութեր",
         "exploreResources": "Դիտել ռեսուրսները",
         "latestNews": "Մշակույթի նորություններ, իրադարձություններ, փաստեր",
         "viewAllNews": "Բոլոր նորությունները",
@@ -351,6 +400,7 @@ const translations = {
         // Categories
         "categories": "Կատեգորիաներ",
         "formalSciences": "Ֆորմալ գիտություններ",
+        "formalSciencesDesc": "Մաթեմատիկա, ինֆորմատիկա, արհեստական բանականություն և տվյալների գիտություն",
         "naturalSciences": "Բնական գիտություններ",
         "appliedSciences": "Կիրառական գիտություններ",
         "socialSciences": "Հասարակագիտություն",
@@ -396,7 +446,7 @@ const translations = {
         "armenian": "Հայերեն",
         
         // Global Resources page
-        "globalResourcesDesc": "Համալսարանների, ուսումնական պլատֆորմների և ակադեմիական ռեսուրսների համապարփակ հավաքածու",
+        "globalResourcesDesc": "Համալսարաններ, ուսումնական պլատֆորմներ և հետազոտական տվյալների բազաներ ամբողջ աշխարհում",
         "searchPlaceholder": "Որոնել համալսարաններ, պլատֆորմներ կամ ռեսուրսներ...",
         "searchButton": "Որոնել",
         "filterByCountry": "Զտել ըստ երկրի",
@@ -479,6 +529,10 @@ const translations = {
         "pressLabel": "Մամուլի հարցումներ: PogosyanRudolf@gmail.com",
         "eventsLabel": "Միջոցառումների առաջարկներ: PogosyanRudolf@gmail.com",
         "allNews": "Բոլոր նորությունները",
+        "news1Title": "«Հայկական տարեգրություններ» ցուցահանդես",
+        "news1Desc": "Երևանի Ազգային թանգարանում մեծ հետահայաց ցուցադրությունը ներկայացնում է հազվագյուտ արտեֆակտներ...",
+        "news2Title": "Նոր բալետային ադապտացիայի պրեմիերա",
+        "news2Desc": "Մոսկվայի Մեծ թատրոնը ներկայացնում է նորարարական ադապտացիա...",
         
         // Common
         "learnMore": "Իմանալ ավելին",
@@ -491,10 +545,29 @@ const translations = {
         "footerText": "Տեղեկատու Ձեռնարկներ, Հղումներ, Առաջնային Աղբյուրներ — Ստանդարտ Տեղեկատու",
         "quickLinks": "Արագ հղումներ",
         "resources": "Ռեսուրսներ",
-        "contactInfo": "Կոնտակտային տվյալներ"
+        "contactInfo": "Կոնտակտային տվյալներ",
+        
+        // NEW: Search functionality
+        "searchSite": "Որոնել կայքում",
+        "searchWeb": "Որոնել համացանցում",
+        "searchPlaceholderSite": "Որոնել կայքում...",
+        "searchPlaceholderWeb": "Որոնել համացանցում...",
+        "searchButton": "Որոնել",
+        "searchResults": "Որոնման արդյունքներ",
+        "noResults": "Ոչինչ չի գտնվել",
+        "searchTips": "Որոնման խորհուրդներ: Փորձեք այլ հիմնաբառեր",
+        
+        // NEW: GitHub in resources
+        "githubResources": "GitHub Պահոցներ",
+        "githubDesc": "Բաց կոդով նախագծեր, կոդի օրինակներ և մշակողների ռեսուրսներ",
+        "githubLink": "Անցնել GitHub",
+        "openSource": "Բաց կոդ",
+        "developerTools": "Մշակողի գործիքներ",
+        "codeSamples": "Կոդի օրինակներ"
     },
 
     de: {
+        // Basic navigation
         "siteTitle": "Referenzleitfäden, Links, Primärquellen",
         "tagline": "Standard-Referenz",
         "home": "Startseite",
@@ -504,6 +577,123 @@ const translations = {
         "globalResources": "Globale Ressourcen",
         "consultants": "Unsere Berater",
         "cultureNews": "Kulturnachrichten",
+        
+        // Main page
+        "heroTitle": "Umfassende Wissensdatenbank",
+        "heroText": "Zugang zu kuratierten Bildungsressourcen, Forschungsmaterialien und Primärquellen aus der ganzen Welt",
+        "heroDescription": "Ihr umfassender Zugang zu globalen Bildungsressourcen und Forschungsmaterialien",
+        "exploreResources": "Ressourcen erkunden",
+        "latestNews": "Kulturnachrichten, Ereignisse, Fakten",
+        "viewAllNews": "Alle Nachrichten anzeigen",
+        
+        // Categories
+        "categories": "Kategorien",
+        "formalSciences": "Formale Wissenschaften",
+        "formalSciencesDesc": "Mathematik, Informatik, KI und Datenwissenschaft",
+        "naturalSciences": "Naturwissenschaften",
+        "appliedSciences": "Angewandte Wissenschaften",
+        "socialSciences": "Sozialwissenschaften",
+        "languages": "Sprachen",
+        "artsCulture": "Kunst & Kultur",
+        "lawGovernment": "Recht & Regierung",
+        
+        // Science page
+        "scienceDesc": "Sammlung von Referenzleitfäden, Links zu verfügbaren Online-Bildungsressourcen und Forschungsmaterialien",
+        "onlineResources": "Verfügbare Online-Ressourcen",
+        "universities": "Universitäten",
+        "learningPlatforms": "Lernplattformen",
+        "researchAcademic": "Forschung & Akademie",
+        
+        // Science subjects
+        "mathematics": "Mathematik",
+        "computerscience": "Informatik",
+        "ai": "Künstliche Intelligenz",
+        "statistics": "Statistik & Data Science",
+        "cybersecurity": "Cybersecurity",
+        "programming": "Programmierung",
+        "engineering": "Ingenieurwesen",
+        "medicine": "Medizin",
+        "architecture": "Architektur",
+        "physics": "Physik",
+        "chemistry": "Chemie",
+        "biology": "Biologie",
+        "astronomy": "Astronomie",
+        "economics": "Wirtschaft",
+        "psychology": "Psychologie",
+        "history": "Geschichte",
+        "philosophy": "Philosophie",
+        "literature": "Literatur",
+        "music": "Musik",
+        "artHistory": "Kunstgeschichte",
+        
+        // Language learning
+        "english": "Englisch",
+        "russian": "Russisch",
+        "spanish": "Spanisch",
+        "french": "Französisch",
+        "german": "Deutsch",
+        "armenian": "Armenisch",
+        
+        // Global Resources page
+        "globalResourcesDesc": "Universitäten, Lernplattformen und Forschungsdatenbanken weltweit",
+        "searchPlaceholder": "Universitäten, Plattformen oder Ressourcen suchen...",
+        "searchButton": "Suchen",
+        "filterByCountry": "Nach Land filtern",
+        "allCountries": "Alle Länder",
+        
+        // About page
+        "ourMission": "Unsere Mission",
+        "missionText": "Weltweiter Zugang zu Bildungsressourcen und Forschungsmaterialien",
+        "ourTeam": "Unser Team",
+        "achievements": "Leistungen",
+        
+        // Contact page
+        "contactUs": "Kontaktieren Sie uns",
+        "contactDescription": "Wir würden uns freuen, von Ihnen zu hören. Kontaktieren Sie uns bei Fragen, Vorschlägen oder Kooperationsmöglichkeiten.",
+        "getInTouch": "Kontakt aufnehmen",
+        "emailUs": "E-Mail senden",
+        "sendMessage": "Nachricht senden",
+        "fullName": "Vollständiger Name",
+        "emailAddress": "E-Mail-Adresse",
+        "message": "Nachricht",
+        "subject": "Betreff",
+        "submit": "Senden",
+        "emailResponse": "Wir antworten in der Regel innerhalb von 24 Stunden",
+        "suggestResources": "Ressourcen vorschlagen",
+        "suggestResourcesDesc": "Haben Sie eine großartige Bildungsressource zum Teilen? Lassen Sie es uns wissen!",
+        "collaboration": "Zusammenarbeit",
+        "collaborationDesc": "Interessiert an einer Partnerschaft mit uns? Wir sind immer offen für neue Kooperationen",
+        "reportIssues": "Probleme melden",
+        "reportIssuesDesc": "Einen defekten Link oder falsche Informationen gefunden? Helfen Sie uns, uns zu verbessern",
+        "selectSubject": "Thema auswählen",
+        "generalInquiry": "Allgemeine Anfrage",
+        "resourceSuggestion": "Ressourcenvorschlag",
+        "collaborationOpportunity": "Kooperationsmöglichkeit",
+        "technicalIssue": "Technisches Problem",
+        "translationHelp": "Übersetzungshilfe",
+        "other": "Anderes",
+        "frequentlyAskedQuestions": "Häufig gestellte Fragen",
+        "faq1Question": "Wie kann ich eine Ressource vorschlagen?",
+        "faq1Answer": "Verwenden Sie das Kontaktformular oben und wählen Sie \"Ressourcenvorschlag\" als Thema. Geben Sie die Ressourcen-URL und eine kurze Beschreibung an.",
+        "faq2Question": "Bieten Sie Übersetzungsdienste an?",
+        "faq2Answer": "Wir suchen immer nach freiwilligen Übersetzern, um unseren mehrsprachigen Inhalt zu erweitern. Kontaktieren Sie uns, wenn Sie beitragen möchten.",
+        "faq3Question": "Kann ich Ihre Ressourcen für meine Institution nutzen?",
+        "faq3Answer": "Ja! Alle unsere kuratierten Ressourcen sind frei für Bildungszwecke verfügbar. Wir ermutigen zum Teilen und zur akademischen Nutzung.",
+        "faq4Question": "Wie oft wird der Inhalt aktualisiert?",
+        "faq4Answer": "Wir überprüfen und aktualisieren regelmäßig unsere Ressourcendatenbank, um sicherzustellen, dass alle Links funktionieren und der Inhalt relevant bleibt.",
+        "successMessage": "Vielen Dank für Ihre Nachricht! Wir werden uns in Kürze bei Ihnen melden.",
+        "errorMessage": "Es tut uns leid, beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an PogosyanRudolf@gmail.com",
+        "sending": "Wird gesendet...",
+        
+        // Consultants page
+        "ourExperts": "Unsere Expertenberater",
+        "consultantsDesc": "Lernen Sie unser Team von Spezialisten kennen, die Beratung und Expertise in verschiedenen Disziplinen bieten",
+        "expertise": "Expertise",
+        "experience": "Erfahrung",
+        "contactExpert": "Experten kontaktieren",
+        "consultationAreas": "Beratungsbereiche",
+        
+        // Culture News page
         "latestCulturalNews": "Kulturnachrichten, Ereignisse, Fakten",
         "culturalEvents": "Kulturelle Veranstaltungen",
         "exhibitions": "Ausstellungen",
@@ -528,48 +718,45 @@ const translations = {
         "pressLabel": "Presseanfragen: PogosyanRudolf@gmail.com",
         "eventsLabel": "Veranstaltungsvorschläge: PogosyanRudolf@gmail.com",
         "allNews": "Alle Nachrichten",
-        "contactUs": "Kontaktieren Sie uns",
-        "contactDescription": "Wir würden uns freuen, von Ihnen zu hören. Kontaktieren Sie uns bei Fragen, Vorschlägen oder Kooperationsmöglichkeiten.",
-        "getInTouch": "In Kontakt treten",
-        "emailUs": "E-Mail senden",
-        "sendMessage": "Nachricht senden",
-        "fullName": "Vollständiger Name",
-        "emailAddress": "E-Mail-Adresse",
-        "message": "Nachricht",
-        "subject": "Betreff",
-        "submit": "Senden",
-        "emailResponse": "Wir antworten in der Regel innerhalb von 24 Stunden",
-        "suggestResources": "Ressourcen vorschlagen",
-        "suggestResourcesDesc": "Haben Sie eine großartige Bildungsressource zum Teilen? Lassen Sie es uns wissen!",
-        "collaboration": "Zusammenarbeit",
-        "collaborationDesc": "Interessiert an einer Partnerschaft mit uns? Wir sind immer offen für neue Kooperationen",
-        "reportIssues": "Probleme melden",
-        "reportIssuesDesc": "Einen defekten Link oder falsche Informationen gefunden? Helfen Sie uns, uns zu verbessern",
-        "selectSubject": "Thema auswählen",
-        "generalInquiry": "Allgemeine Anfrage",
-        "resourceSuggestion": "Ressourcenvorschlag",
-        "collaborationOpportunity": "Kooperationsmöglichkeit",
-        "technicalIssue": "Technisches Problem",
-        "translationHelp": "Übersetzungshilfe",
-        "other": "Anderes",
-        "frequentlyAskedQuestions": "Häufig gestellte Fragen",
-        "faq1Question": "Wie kann ich eine Ressource vorschlagen?",
-        "faq1Answer": "Verwenden Sie das obenstehende Kontaktformular und wählen Sie \"Ressourcenvorschlag\" als Thema. Geben Sie die Ressourcen-URL und eine kurze Beschreibung an.",
-        "faq2Question": "Bieten Sie Übersetzungsdienste an?",
-        "faq2Answer": "Wir suchen immer nach freiwilligen Übersetzern, um unseren mehrsprachigen Inhalt zu erweitern. Kontaktieren Sie uns, wenn Sie beitragen möchten.",
-        "faq3Question": "Kann ich Ihre Ressourcen für meine Institution nutzen?",
-        "faq3Answer": "Ja! Alle unsere kuratierten Ressourcen sind frei für Bildungszwecke verfügbar. Wir ermutigen zum Teilen und zur akademischen Nutzung.",
-        "faq4Question": "Wie oft wird der Inhalt aktualisiert?",
-        "faq4Answer": "Wir überprüfen und aktualisieren regelmäßig unsere Ressourcendatenbank, um sicherzustellen, dass alle Links funktionieren und der Inhalt relevant bleibt.",
-        "successMessage": "Vielen Dank für Ihre Nachricht! Wir werden uns in Kürze bei Ihnen melden.",
-        "errorMessage": "Es tut uns leid, beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an PogosyanRudolf@gmail.com",
-        "sending": "Wird gesendet...",
+        "news1Title": "Ausstellung Armenische Chroniken",
+        "news1Desc": "Große Retrospektive im Nationalmuseum zeigt seltene Artefakte...",
+        "news2Title": "Premiere neuer Ballettadaption",
+        "news2Desc": "Moskauer Bolschoi-Theater präsentiert innovative Adaption...",
+        
+        // Common
+        "learnMore": "Mehr erfahren",
+        "viewDetails": "Details anzeigen",
+        "backToHome": "Zurück zur Startseite",
+        "allRightsReserved": "Alle Rechte vorbehalten",
+        "followUs": "Folgen Sie uns",
+        
+        // Footer
         "footerText": "Referenzleitfäden, Links, Primärquellen — Standard-Referenz",
-        "latestNews": "Kulturnachrichten, Ereignisse, Fakten",
-        "allRightsReserved": "Alle Rechte vorbehalten"
+        "quickLinks": "Schnelllinks",
+        "resources": "Ressourcen",
+        "contactInfo": "Kontaktinformationen",
+        
+        // NEW: Search functionality
+        "searchSite": "Website durchsuchen",
+        "searchWeb": "Web durchsuchen",
+        "searchPlaceholderSite": "Website durchsuchen...",
+        "searchPlaceholderWeb": "Web durchsuchen...",
+        "searchButton": "Suchen",
+        "searchResults": "Suchergebnisse",
+        "noResults": "Keine Ergebnisse gefunden",
+        "searchTips": "Suchtipps: Probieren Sie andere Schlüsselwörter",
+        
+        // NEW: GitHub in resources
+        "githubResources": "GitHub-Repositories",
+        "githubDesc": "Open-Source-Projekte, Codebeispiele und Entwicklerressourcen",
+        "githubLink": "GitHub besuchen",
+        "openSource": "Open Source",
+        "developerTools": "Entwicklertools",
+        "codeSamples": "Codebeispiele"
     },
 
     es: {
+        // Basic navigation
         "siteTitle": "Guías de Referencia, Enlaces, Fuentes Primarias",
         "tagline": "Referencia Estándar",
         "home": "Inicio",
@@ -579,30 +766,77 @@ const translations = {
         "globalResources": "Recursos Globales",
         "consultants": "Nuestros Consultores",
         "cultureNews": "Noticias Culturales",
-        "latestCulturalNews": "Noticias Culturales, Eventos, Hechos",
-        "culturalEvents": "Eventos Culturales",
-        "exhibitions": "Exposiciones",
-        "performances": "Representaciones",
-        "publications": "Publicaciones",
-        "readMore": "Leer Más",
-        "film": "Cine",
-        "cultureDescription": "Descubra exposiciones, actuaciones, literatura y eventos culturales de todo el mundo",
-        "stayUpdated": "Manténgase actualizado con las Noticias Culturales",
-        "newsletterDescription": "Suscríbase a nuestro boletín semanal para recibir las últimas actualizaciones sobre exposiciones, actuaciones y eventos culturales en todo el mundo",
-        "emailPlaceholder": "Su dirección de correo electrónico",
-        "subscribe": "Suscribirse",
-        "subscriptionThankYou": "Gracias por suscribirse",
-        "culturalResources": "Recursos Culturales",
-        "museumDirectories": "Directorio de Museos",
-        "theaterSchedules": "Horarios de Teatro",
-        "literaryEvents": "Eventos Literarios",
-        "festivalCalendar": "Calendario de Festivales",
-        "culturalInstitutions": "Instituciones Culturales",
-        "emailLabel": "Correo: PogosyanRudolf@gmail.com",
-        "phoneLabel": "Teléfono: +374 10 654321",
-        "pressLabel": "Consultas de prensa: PogosyanRudolf@gmail.com",
-        "eventsLabel": "Propuestas de eventos: PogosyanRudolf@gmail.com",
-        "allNews": "Todas las noticias",
+        
+        // Main page
+        "heroTitle": "Base de Conocimiento Integral",
+        "heroText": "Acceso a recursos educativos curados, materiales de investigación y fuentes primarias de todo el mundo",
+        "heroDescription": "Su puerta de acceso integral a recursos educativos globales y materiales de investigación",
+        "exploreResources": "Explorar Recursos",
+        "latestNews": "Noticias Culturales, Eventos, Hechos",
+        "viewAllNews": "Ver Todas las Noticias",
+        
+        // Categories
+        "categories": "Categorías",
+        "formalSciences": "Ciencias Formales",
+        "formalSciencesDesc": "Matemáticas, Ciencias de la Computación, IA y Ciencia de Datos",
+        "naturalSciences": "Ciencias Naturales",
+        "appliedSciences": "Ciencias Aplicadas",
+        "socialSciences": "Ciencias Sociales",
+        "languages": "Idiomas",
+        "artsCulture": "Arte y Cultura",
+        "lawGovernment": "Derecho y Gobierno",
+        
+        // Science page
+        "scienceDesc": "Colección de guías de referencia, enlaces a recursos educativos en línea disponibles y materiales de investigación",
+        "onlineResources": "Recursos en Línea Disponibles",
+        "universities": "Universidades",
+        "learningPlatforms": "Plataformas de Aprendizaje",
+        "researchAcademic": "Investigación y Académico",
+        
+        // Science subjects
+        "mathematics": "Matemáticas",
+        "computerscience": "Ciencias de la Computación",
+        "ai": "Inteligencia Artificial",
+        "statistics": "Estadística y Ciencia de Datos",
+        "cybersecurity": "Ciberseguridad",
+        "programming": "Programación",
+        "engineering": "Ingeniería",
+        "medicine": "Medicina",
+        "architecture": "Arquitectura",
+        "physics": "Física",
+        "chemistry": "Química",
+        "biology": "Biología",
+        "astronomy": "Astronomía",
+        "economics": "Economía",
+        "psychology": "Psicología",
+        "history": "Historia",
+        "philosophy": "Filosofía",
+        "literature": "Literatura",
+        "music": "Música",
+        "artHistory": "Historia del Arte",
+        
+        // Language learning
+        "english": "Inglés",
+        "russian": "Ruso",
+        "spanish": "Español",
+        "french": "Francés",
+        "german": "Alemán",
+        "armenian": "Armenio",
+        
+        // Global Resources page
+        "globalResourcesDesc": "Universidades, plataformas de aprendizaje y bases de datos de investigación en todo el mundo",
+        "searchPlaceholder": "Buscar universidades, plataformas o recursos...",
+        "searchButton": "Buscar",
+        "filterByCountry": "Filtrar por País",
+        "allCountries": "Todos los Países",
+        
+        // About page
+        "ourMission": "Nuestra Misión",
+        "missionText": "Acceso integral a recursos educativos y materiales de investigación en todo el mundo",
+        "ourTeam": "Nuestro Equipo",
+        "achievements": "Logros",
+        
+        // Contact page
         "contactUs": "Contáctenos",
         "contactDescription": "Nos encantaría saber de usted. Póngase en contacto con nosotros para cualquier pregunta, sugerencia u oportunidad de colaboración.",
         "getInTouch": "Ponerse en contacto",
@@ -639,12 +873,79 @@ const translations = {
         "successMessage": "¡Gracias por su mensaje! Nos pondremos en contacto con usted pronto.",
         "errorMessage": "Lo sentimos, hubo un error al enviar su mensaje. Por favor, inténtelo de nuevo o envíenos un correo directamente a PogosyanRudolf@gmail.com",
         "sending": "Enviando...",
+        
+        // Consultants page
+        "ourExperts": "Nuestros Consultores Expertos",
+        "consultantsDesc": "Conozca a nuestro equipo de especialistas que brindan orientación y experiencia en diversas disciplinas",
+        "expertise": "Experiencia",
+        "experience": "Experiencia",
+        "contactExpert": "Contactar Experto",
+        "consultationAreas": "Áreas de Consulta",
+        
+        // Culture News page
+        "latestCulturalNews": "Noticias Culturales, Eventos, Hechos",
+        "culturalEvents": "Eventos Culturales",
+        "exhibitions": "Exposiciones",
+        "performances": "Representaciones",
+        "publications": "Publicaciones",
+        "readMore": "Leer Más",
+        "film": "Cine",
+        "cultureDescription": "Descubra exposiciones, actuaciones, literatura y eventos culturales de todo el mundo",
+        "stayUpdated": "Manténgase actualizado con las Noticias Culturales",
+        "newsletterDescription": "Suscríbase a nuestro boletín semanal para recibir las últimas actualizaciones sobre exposiciones, actuaciones y eventos culturales en todo el mundo",
+        "emailPlaceholder": "Su dirección de correo electrónico",
+        "subscribe": "Suscribirse",
+        "subscriptionThankYou": "Gracias por suscribirse",
+        "culturalResources": "Recursos Culturales",
+        "museumDirectories": "Directorio de Museos",
+        "theaterSchedules": "Horarios de Teatro",
+        "literaryEvents": "Eventos Literarios",
+        "festivalCalendar": "Calendario de Festivales",
+        "culturalInstitutions": "Instituciones Culturales",
+        "emailLabel": "Correo: PogosyanRudolf@gmail.com",
+        "phoneLabel": "Teléfono: +374 10 654321",
+        "pressLabel": "Consultas de prensa: PogosyanRudolf@gmail.com",
+        "eventsLabel": "Propuestas de eventos: PogosyanRudolf@gmail.com",
+        "allNews": "Todas las noticias",
+        "news1Title": "Exposición Crónicas Armenias",
+        "news1Desc": "Gran retrospectiva en el Museo Nacional presenta artefactos raros...",
+        "news2Title": "Estrena Nueva Adaptación de Ballet",
+        "news2Desc": "El Teatro Bolshoi de Moscú presenta adaptación innovadora...",
+        
+        // Common
+        "learnMore": "Aprender Más",
+        "viewDetails": "Ver Detalles",
+        "backToHome": "Volver al Inicio",
+        "allRightsReserved": "Todos los derechos reservados",
+        "followUs": "Síganos",
+        
+        // Footer
         "footerText": "Guías de Referencia, Enlaces, Fuentes Primarias — Referencia Estándar",
-        "latestNews": "Noticias Culturales, Eventos, Hechos",
-        "allRightsReserved": "Todos los derechos reservados"
+        "quickLinks": "Enlaces Rápidos",
+        "resources": "Recursos",
+        "contactInfo": "Información de Contacto",
+        
+        // NEW: Search functionality
+        "searchSite": "Buscar en el Sitio",
+        "searchWeb": "Buscar en la Web",
+        "searchPlaceholderSite": "Buscar en este sitio...",
+        "searchPlaceholderWeb": "Buscar en la web...",
+        "searchButton": "Buscar",
+        "searchResults": "Resultados de Búsqueda",
+        "noResults": "No se encontraron resultados",
+        "searchTips": "Consejos de búsqueda: Pruebe diferentes palabras clave",
+        
+        // NEW: GitHub in resources
+        "githubResources": "Repositorios de GitHub",
+        "githubDesc": "Proyectos de código abierto, ejemplos de código y recursos para desarrolladores",
+        "githubLink": "Visitar GitHub",
+        "openSource": "Código Abierto",
+        "developerTools": "Herramientas de Desarrollo",
+        "codeSamples": "Ejemplos de Código"
     },
 
     fr: {
+        // Basic navigation
         "siteTitle": "Guides de Référence, Liens, Sources Primaires",
         "tagline": "Référence Standard",
         "home": "Accueil",
@@ -654,30 +955,77 @@ const translations = {
         "globalResources": "Ressources Mondiales",
         "consultants": "Nos Consultants",
         "cultureNews": "Actualités Culturelles",
-        "latestCulturalNews": "Actualités Culturelles, Événements, Faits",
-        "culturalEvents": "Événements Culturels",
-        "exhibitions": "Expositions",
-        "performances": "Spectacles",
-        "publications": "Publications",
-        "readMore": "Lire la suite",
-        "film": "Cinéma",
-        "cultureDescription": "Découvrez des expositions, des spectacles, de la littérature et des événements culturels du monde entier",
-        "stayUpdated": "Restez informé des Actualités Culturelles",
-        "newsletterDescription": "Abonnez-vous à notre newsletter hebdomadaire pour recevoir les dernières mises à jour sur les expositions, spectacles et événements culturels du monde entier",
-        "emailPlaceholder": "Votre adresse e-mail",
-        "subscribe": "S'abonner",
-        "subscriptionThankYou": "Merci de votre abonnement",
-        "culturalResources": "Ressources Culturelles",
-        "museumDirectories": "Répertoires des Musées",
-        "theaterSchedules": "Programmes des Théâtres",
-        "literaryEvents": "Événements Littéraires",
-        "festivalCalendar": "Calendrier des Festivals",
-        "culturalInstitutions": "Institutions Culturelles",
-        "emailLabel": "Email: PogosyanRudolf@gmail.com",
-        "phoneLabel": "Téléphone: +374 10 654321",
-        "pressLabel": "Demandes de presse: PogosyanRudolf@gmail.com",
-        "eventsLabel": "Propositions d'événements: PogosyanRudolf@gmail.com",
-        "allNews": "Toutes les actualités",
+        
+        // Main page
+        "heroTitle": "Base de Connaissances Complète",
+        "heroText": "Accès à des ressources éducatives sélectionnées, matériaux de recherche et sources primaires du monde entier",
+        "heroDescription": "Votre porte d'accès complète aux ressources éducatives mondiales et matériaux de recherche",
+        "exploreResources": "Explorer les Ressources",
+        "latestNews": "Actualités Culturelles, Événements, Faits",
+        "viewAllNews": "Voir Toutes les Actualités",
+        
+        // Categories
+        "categories": "Catégories",
+        "formalSciences": "Sciences Formelles",
+        "formalSciencesDesc": "Mathématiques, Informatique, IA et Science des Données",
+        "naturalSciences": "Sciences Naturelles",
+        "appliedSciences": "Sciences Appliquées",
+        "socialSciences": "Sciences Sociales",
+        "languages": "Langues",
+        "artsCulture": "Art et Culture",
+        "lawGovernment": "Droit et Gouvernement",
+        
+        // Science page
+        "scienceDesc": "Collection de guides de référence, liens vers ressources éducatives en ligne disponibles et matériaux de recherche",
+        "onlineResources": "Ressources en Ligne Disponibles",
+        "universities": "Universités",
+        "learningPlatforms": "Plateformes d'Apprentissage",
+        "researchAcademic": "Recherche et Académique",
+        
+        // Science subjects
+        "mathematics": "Mathématiques",
+        "computerscience": "Informatique",
+        "ai": "Intelligence Artificielle",
+        "statistics": "Statistiques et Science des Données",
+        "cybersecurity": "Cybersécurité",
+        "programming": "Programmation",
+        "engineering": "Ingénierie",
+        "medicine": "Médecine",
+        "architecture": "Architecture",
+        "physics": "Physique",
+        "chemistry": "Chimie",
+        "biology": "Biologie",
+        "astronomy": "Astronomie",
+        "economics": "Économie",
+        "psychology": "Psychologie",
+        "history": "Histoire",
+        "philosophy": "Philosophie",
+        "literature": "Littérature",
+        "music": "Musique",
+        "artHistory": "Histoire de l'Art",
+        
+        // Language learning
+        "english": "Anglais",
+        "russian": "Russe",
+        "spanish": "Espagnol",
+        "french": "Français",
+        "german": "Allemand",
+        "armenian": "Arménien",
+        
+        // Global Resources page
+        "globalResourcesDesc": "Universités, plateformes d'apprentissage et bases de données de recherche dans le monde entier",
+        "searchPlaceholder": "Rechercher des universités, plateformes ou ressources...",
+        "searchButton": "Rechercher",
+        "filterByCountry": "Filtrer par Pays",
+        "allCountries": "Tous les Pays",
+        
+        // About page
+        "ourMission": "Notre Mission",
+        "missionText": "Accès complet aux ressources éducatives et matériaux de recherche dans le monde entier",
+        "ourTeam": "Notre Équipe",
+        "achievements": "Réalisations",
+        
+        // Contact page
         "contactUs": "Contactez-nous",
         "contactDescription": "Nous serions ravis d'avoir de vos nouvelles. Contactez-nous pour toute question, suggestion ou opportunité de collaboration.",
         "getInTouch": "Entrer en contact",
@@ -714,8 +1062,74 @@ const translations = {
         "successMessage": "Merci pour votre message ! Nous vous répondrons bientôt.",
         "errorMessage": "Désolé, une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer ou nous envoyer un e-mail directement à PogosyanRudolf@gmail.com",
         "sending": "Envoi en cours...",
+        
+        // Consultants page
+        "ourExperts": "Nos Experts-Consultants",
+        "consultantsDesc": "Rencontrez notre équipe de spécialistes qui fournissent des conseils et une expertise dans diverses disciplines",
+        "expertise": "Expertise",
+        "experience": "Expérience",
+        "contactExpert": "Contacter l'Expert",
+        "consultationAreas": "Domaines de Consultation",
+        
+        // Culture News page
+        "latestCulturalNews": "Actualités Culturelles, Événements, Faits",
+        "culturalEvents": "Événements Culturels",
+        "exhibitions": "Expositions",
+        "performances": "Spectacles",
+        "publications": "Publications",
+        "readMore": "Lire la suite",
+        "film": "Cinéma",
+        "cultureDescription": "Découvrez des expositions, des spectacles, de la littérature et des événements culturels du monde entier",
+        "stayUpdated": "Restez informé des Actualités Culturelles",
+        "newsletterDescription": "Abonnez-vous à notre newsletter hebdomadaire pour recevoir les dernières mises à jour sur les expositions, spectacles et événements culturels du monde entier",
+        "emailPlaceholder": "Votre adresse e-mail",
+        "subscribe": "S'abonner",
+        "subscriptionThankYou": "Merci de votre abonnement",
+        "culturalResources": "Ressources Culturelles",
+        "museumDirectories": "Répertoires des Musées",
+        "theaterSchedules": "Programmes des Théâtres",
+        "literaryEvents": "Événements Littéraires",
+        "festivalCalendar": "Calendrier des Festivals",
+        "culturalInstitutions": "Institutions Culturelles",
+        "emailLabel": "Email: PogosyanRudolf@gmail.com",
+        "phoneLabel": "Téléphone: +374 10 654321",
+        "pressLabel": "Demandes de presse: PogosyanRudolf@gmail.com",
+        "eventsLabel": "Propositions d'événements: PogosyanRudolf@gmail.com",
+        "allNews": "Toutes les actualités",
+        "news1Title": "Exposition Chroniques Arméniennes",
+        "news1Desc": "Grande rétrospective au Musée National présente des artefacts rares...",
+        "news2Title": "Première Nouvelle Adaptation de Ballet",
+        "news2Desc": "Le Théâtre Bolchoï de Moscou présente une adaptation innovante...",
+        
+        // Common
+        "learnMore": "En Savoir Plus",
+        "viewDetails": "Voir les Détails",
+        "backToHome": "Retour à l'Accueil",
+        "allRightsReserved": "Tous droits réservés",
+        "followUs": "Suivez-nous",
+        
+        // Footer
         "footerText": "Guides de Référence, Liens, Sources Primaires — Référence Standard",
-        "latestNews": "Actualités Culturelles, Événements, Faits",
-        "allRightsReserved": "Tous droits réservés"
+        "quickLinks": "Liens Rapides",
+        "resources": "Ressources",
+        "contactInfo": "Informations de Contact",
+        
+        // NEW: Search functionality
+        "searchSite": "Rechercher sur le Site",
+        "searchWeb": "Rechercher sur le Web",
+        "searchPlaceholderSite": "Rechercher sur ce site...",
+        "searchPlaceholderWeb": "Rechercher sur le web...",
+        "searchButton": "Rechercher",
+        "searchResults": "Résultats de Recherche",
+        "noResults": "Aucun résultat trouvé",
+        "searchTips": "Conseils de recherche: Essayez différents mots-clés",
+        
+        // NEW: GitHub in resources
+        "githubResources": "Dépôts GitHub",
+        "githubDesc": "Projets open source, exemples de code et ressources pour développeurs",
+        "githubLink": "Visiter GitHub",
+        "openSource": "Open Source",
+        "developerTools": "Outils de Développement",
+        "codeSamples": "Exemples de Code"
     }
 };
