@@ -95,6 +95,34 @@
             transform: translateY(-2px);
         }
         
+        /* Search Buttons in Navigation */
+        .search-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+        
+        .search-btn {
+            background: var(--accent-yellow);
+            color: var(--primary-green);
+            border: none;
+            border-radius: 4px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .search-btn:hover {
+            background: var(--hover-yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
         .language-selector {
             position: relative;
         }
@@ -160,6 +188,27 @@
             background-color: var(--hover-green);
         }
         
+        .mobile-search-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .mobile-search-btn {
+            flex: 1;
+            background: var(--accent-yellow);
+            color: var(--primary-green);
+            border: none;
+            border-radius: 4px;
+            padding: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
         .mobile-language-selector {
             margin-top: 1rem;
             padding-top: 1rem;
@@ -174,6 +223,84 @@
             background: rgba(255,255,255,0.1);
             color: var(--white);
             font-size: 1rem;
+        }
+        
+        /* Search Modal */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .search-modal.active {
+            display: flex;
+        }
+        
+        .search-modal-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .search-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+        
+        .search-modal h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .search-input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--light-green);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+        }
+        
+        .search-submit {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--primary-green) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            padding: 0 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-submit:hover {
+            background: linear-gradient(135deg, var(--hover-green) 0%, #2c822c 100%);
         }
         
         /* Main Content */
@@ -309,7 +436,7 @@
             display: block;
             width: 100px;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow);
             margin: 0.5rem auto 0;
             border-radius: 2px;
         }
@@ -435,50 +562,6 @@
             font-size: 0.9rem;
         }
         
-        /* Features Section */
-        .features-section {
-            padding: 3rem 1rem;
-            margin: 3rem 0;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .feature-card {
-            background: var(--white);
-            border: 2px solid var(--light-green);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .feature-card:hover {
-            border-color: var(--accent-yellow);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-green);
-        }
-        
-        .feature-card h3 {
-            color: var(--primary-green);
-            margin-bottom: 0.5rem;
-        }
-        
-        .feature-card p {
-            color: var(--dark-gray);
-            font-size: 0.95rem;
-        }
-        
         /* Mobile Styles */
         @media (max-width: 768px) {
             .nav-links {
@@ -552,11 +635,6 @@
                 padding: 1.5rem;
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
             .view-all-btn {
                 width: 100%;
                 text-align: center;
@@ -564,6 +642,10 @@
             
             main {
                 padding: 0.5rem;
+            }
+            
+            .search-buttons {
+                display: none;
             }
         }
         
@@ -599,7 +681,8 @@
             .news-item,
             .cta-button,
             .view-all-btn,
-            .nav-links a {
+            .nav-links a,
+            .search-btn {
                 transition: none !important;
                 transform: none !important;
             }
@@ -624,6 +707,33 @@
     </style>
 </head>
 <body>
+    <!-- Search Modal -->
+    <div class="search-modal" id="siteSearchModal">
+        <div class="search-modal-content">
+            <button class="search-modal-close" id="closeSiteSearch">×</button>
+            <h3 data-translate="searchSite">Search the Site</h3>
+            <div class="search-input-group">
+                <input type="text" class="search-input" id="siteSearchInput" data-translate="searchPlaceholder" placeholder="Search articles, resources...">
+                <button class="search-submit" id="siteSearchSubmit" data-translate="search">Search</button>
+            </div>
+            <div id="siteSearchResults" style="display: none;"></div>
+        </div>
+    </div>
+    
+    <div class="search-modal" id="webSearchModal">
+        <div class="search-modal-content">
+            <button class="search-modal-close" id="closeWebSearch">×</button>
+            <h3 data-translate="searchWeb">Search the Web</h3>
+            <div class="search-input-group">
+                <input type="text" class="search-input" id="webSearchInput" data-translate="searchWebPlaceholder" placeholder="Search the web for information...">
+                <button class="search-submit" id="webSearchSubmit" data-translate="searchWebButton">Search Web</button>
+            </div>
+            <p style="text-align: center; color: var(--dark-gray); margin-top: 1rem; font-size: 0.9rem;">
+                <span data-translate="externalSearch">Search results will open in a new window</span>
+            </p>
+        </div>
+    </div>
+
     <header>
         <nav>
             <div class="logo-container">
@@ -639,6 +749,18 @@
                 <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
+                
+                <div class="search-buttons">
+                    <button class="search-btn" id="siteSearchBtn">
+                        <span>🔍</span>
+                        <span data-translate="searchSiteShort">Site</span>
+                    </button>
+                    <button class="search-btn" id="webSearchBtn">
+                        <span>🌐</span>
+                        <span data-translate="searchWebShort">Web</span>
+                    </button>
+                </div>
+                
                 <div class="language-selector">
                     <select class="language-dropdown" id="languageSelect">
                         <option value="en">🇬🇧 English</option>
@@ -664,6 +786,18 @@
                 <a href="about.html" data-translate="about">About</a>
                 <a href="contact.html" data-translate="contact">Contact</a>
             </div>
+            
+            <div class="mobile-search-buttons">
+                <button class="mobile-search-btn" id="mobileSiteSearchBtn">
+                    <span>🔍</span>
+                    <span data-translate="searchSite">Search Site</span>
+                </button>
+                <button class="mobile-search-btn" id="mobileWebSearchBtn">
+                    <span>🌐</span>
+                    <span data-translate="searchWeb">Search Web</span>
+                </button>
+            </div>
+            
             <div class="mobile-language-selector">
                 <select id="mobileLanguageSelect">
                     <option value="en">🇬🇧 English</option>
@@ -710,48 +844,17 @@
             </a>
         </section>
 
-        <section class="features-section">
-            <h2 style="text-align: center; color: var(--primary-green); margin-bottom: 1rem; font-size: 2rem;" data-translate="whyChooseUs">Why Choose Standard Reference</h2>
-            <p style="text-align: center; color: var(--dark-gray); max-width: 600px; margin: 0 auto 2rem;" data-translate="featuresDesc">Comprehensive resources and expert support for all your educational and research needs</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3 data-translate="feature1Title">Curated Resources</h3>
-                    <p data-translate="feature1Desc">Carefully selected and organized educational materials</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍🏫</div>
-                    <h3 data-translate="feature2Title">Expert Guidance</h3>
-                    <p data-translate="feature2Desc">Access to professional consultants across disciplines</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
-                    <h3 data-translate="feature3Title">Multilingual</h3>
-                    <p data-translate="feature3Desc">Available in multiple languages for global accessibility</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3 data-translate="feature4Title">Quality Content</h3>
-                    <p data-translate="feature4Desc">Verified and reliable information from trusted sources</p>
-                </div>
-            </div>
-        </section>
-
         <section class="news-preview">
             <h2 data-translate="latestNews">Culture News, Events, Facts</h2>
             <div class="news-grid-preview">
                 <div class="news-item">
-                    <h3 data-translate="news1Title">Armenian Chronicles Exhibition</h3>
-                    <p data-translate="news1Desc">Major retrospective at National Museum features rare artifacts and historical documents from Armenian heritage collections.</p>
+                    <h3 data-translate="news1Title">Armenian Cultural Heritage Exhibition</h3>
+                    <p data-translate="news1Desc">The History Museum of Armenia presents "Armenian Chronicles" featuring rare manuscripts and artifacts from Matenadaran collection.</p>
                     <a href="culture-news.html" data-translate="readMore">Read More →</a>
                 </div>
                 <div class="news-item">
-                    <h3 data-translate="news2Title">New Ballet Adaptation Premieres</h3>
-                    <p data-translate="news2Desc">Moscow Bolshoi Theatre presents innovative adaptation of classical ballet with modern choreography and cultural influences.</p>
+                    <h3 data-translate="news2Title">International Film Festival</h3>
+                    <p data-translate="news2Desc">The Golden Apricot Yerevan International Film Festival announces its upcoming program with focus on regional cinema.</p>
                     <a href="culture-news.html" data-translate="readMore">Read More →</a>
                 </div>
             </div>
@@ -795,6 +898,117 @@
     </footer>
 
     <script>
+        // Search functionality
+        const siteSearchModal = document.getElementById('siteSearchModal');
+        const webSearchModal = document.getElementById('webSearchModal');
+        const siteSearchBtn = document.getElementById('siteSearchBtn');
+        const webSearchBtn = document.getElementById('webSearchBtn');
+        const mobileSiteSearchBtn = document.getElementById('mobileSiteSearchBtn');
+        const mobileWebSearchBtn = document.getElementById('mobileWebSearchBtn');
+        const closeSiteSearch = document.getElementById('closeSiteSearch');
+        const closeWebSearch = document.getElementById('closeWebSearch');
+        const siteSearchInput = document.getElementById('siteSearchInput');
+        const webSearchInput = document.getElementById('webSearchInput');
+        const siteSearchSubmit = document.getElementById('siteSearchSubmit');
+        const webSearchSubmit = document.getElementById('webSearchSubmit');
+
+        // Open search modals
+        siteSearchBtn.addEventListener('click', () => {
+            siteSearchModal.classList.add('active');
+            siteSearchInput.focus();
+        });
+
+        webSearchBtn.addEventListener('click', () => {
+            webSearchModal.classList.add('active');
+            webSearchInput.focus();
+        });
+
+        mobileSiteSearchBtn.addEventListener('click', () => {
+            siteSearchModal.classList.add('active');
+            siteSearchInput.focus();
+        });
+
+        mobileWebSearchBtn.addEventListener('click', () => {
+            webSearchModal.classList.add('active');
+            webSearchInput.focus();
+        });
+
+        // Close search modals
+        closeSiteSearch.addEventListener('click', () => {
+            siteSearchModal.classList.remove('active');
+        });
+
+        closeWebSearch.addEventListener('click', () => {
+            webSearchModal.classList.remove('active');
+        });
+
+        // Close modals on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target === siteSearchModal) {
+                siteSearchModal.classList.remove('active');
+            }
+            if (e.target === webSearchModal) {
+                webSearchModal.classList.remove('active');
+            }
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                siteSearchModal.classList.remove('active');
+                webSearchModal.classList.remove('active');
+            }
+        });
+
+        // Site search functionality
+        siteSearchSubmit.addEventListener('click', performSiteSearch);
+        siteSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSiteSearch();
+            }
+        });
+
+        function performSiteSearch() {
+            const query = siteSearchInput.value.trim();
+            if (!query) return;
+            
+            // In a real implementation, this would search your database
+            // For now, we'll show a message
+            const searchResults = document.getElementById('siteSearchResults');
+            searchResults.innerHTML = `
+                <div style="background: var(--light-green); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="color: var(--primary-green); font-weight: 600;">Searching for: "${query}"</p>
+                    <p style="color: var(--dark-gray); margin-top: 0.5rem;">
+                        <span data-translate="searchInProgress">Search functionality coming soon. For now, please navigate through the site categories.</span>
+                    </p>
+                </div>
+            `;
+            searchResults.style.display = 'block';
+        }
+
+        // Web search functionality
+        webSearchSubmit.addEventListener('click', performWebSearch);
+        webSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performWebSearch();
+            }
+        });
+
+        function performWebSearch() {
+            const query = webSearchInput.value.trim();
+            if (!query) return;
+            
+            // Encode the query for URL
+            const encodedQuery = encodeURIComponent(query);
+            
+            // Open Google search in a new tab
+            window.open(`https://www.google.com/search?q=${encodedQuery}+site:standardreference.org`, '_blank');
+            
+            // Close the modal
+            webSearchModal.classList.remove('active');
+            webSearchInput.value = '';
+        }
+
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
@@ -834,10 +1048,11 @@
             elements.forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[language] && translations[language][key]) {
-                    element.textContent = translations[language][key];
-                } else if (translations['en'] && translations['en'][key]) {
-                    // Fallback to English if translation missing
-                    element.textContent = translations['en'][key];
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[language][key];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
                 }
             });
             
