@@ -98,13 +98,14 @@ const translations = {
         "contactExpert": "Contact Expert",
         "consultationAreas": "Consultation Areas",
         
-        // Culture News page
-        "latestCulturalNews": "Latest Cultural News",
+        // Culture News page - изменено
+        "latestCulturalNews": "Culture News, Events, Facts",
         "culturalEvents": "Cultural Events",
         "exhibitions": "Exhibitions",
         "performances": "Performances",
         "publications": "Publications",
         "readMore": "Read More",
+        "film": "Film",
         
         // Common
         "learnMore": "Learn More",
@@ -136,7 +137,7 @@ const translations = {
         "heroTitle": "Комплексная база знаний",
         "heroText": "Доступ к курируемым образовательным ресурсам, исследовательским материалам и первоисточникам со всего мира",
         "exploreResources": "Исследовать ресурсы",
-        "latestNews": "Последние новости",
+        "latestNews": "Новости культуры, события, факты",
         "viewAllNews": "Все новости",
         
         // Categories
@@ -219,13 +220,14 @@ const translations = {
         "contactExpert": "Связаться с экспертом",
         "consultationAreas": "Области консультаций",
         
-        // Culture News page
-        "latestCulturalNews": "Последние новости культуры",
+        // Culture News page - ИЗМЕНЕНО: убрано "Последние", добавлены недостающие переводы
+        "latestCulturalNews": "Новости культуры, события, факты",
         "culturalEvents": "Культурные события",
         "exhibitions": "Выставки",
         "performances": "Спектакли",
         "publications": "Публикации",
         "readMore": "Читать далее",
+        "film": "Кино",
         
         // Common
         "learnMore": "Узнать больше",
@@ -257,7 +259,7 @@ const translations = {
         "heroTitle": "Համապարփակ գիտելիքների բազա",
         "heroText": "Մուտք դեպի համաշխարհային կրթական ռեսուրսներ, հետազոտական նյութեր և առաջնային աղբյուրներ",
         "exploreResources": "Դիտել ռեսուրսները",
-        "latestNews": "Վերջին նորությունները",
+        "latestNews": "Մշակույթի նորություններ, իրադարձություններ, փաստեր",
         "viewAllNews": "Բոլոր նորությունները",
         
         // Categories
@@ -341,12 +343,13 @@ const translations = {
         "consultationAreas": "Խորհրդատվության ոլորտներ",
         
         // Culture News page
-        "latestCulturalNews": "Մշակույթի վերջին նորությունները",
+        "latestCulturalNews": "Մշակույթի նորություններ, իրադարձություններ, փաստեր",
         "culturalEvents": "Մշակութային միջոցառումներ",
         "exhibitions": "Ցուցահանդեսներ",
         "performances": "Բեմադրություններ",
         "publications": "Հրապարակումներ",
         "readMore": "Կարդալ ավելին",
+        "film": "Ֆիլմ",
         
         // Common
         "learnMore": "Իմանալ ավելին",
@@ -372,7 +375,15 @@ const translations = {
         "globalResources": "Globale Ressourcen",
         "consultants": "Unsere Berater",
         "cultureNews": "Kulturnachrichten",
-        "footerText": "Referenzleitfäden, Links, Primärquellen — Standard-Referenz"
+        "latestCulturalNews": "Kulturnachrichten, Ereignisse, Fakten",
+        "culturalEvents": "Kulturelle Veranstaltungen",
+        "exhibitions": "Ausstellungen",
+        "performances": "Aufführungen",
+        "publications": "Veröffentlichungen",
+        "readMore": "Weiterlesen",
+        "film": "Film",
+        "footerText": "Referenzleitfäden, Links, Primärquellen — Standard-Referenz",
+        "latestNews": "Kulturnachrichten, Ereignisse, Fakten"
     },
 
     es: {
@@ -385,7 +396,15 @@ const translations = {
         "globalResources": "Recursos Globales",
         "consultants": "Nuestros Consultores",
         "cultureNews": "Noticias Culturales",
-        "footerText": "Guías de Referencia, Enlaces, Fuentes Primarias — Referencia Estándar"
+        "latestCulturalNews": "Noticias Culturales, Eventos, Hechos",
+        "culturalEvents": "Eventos Culturales",
+        "exhibitions": "Exposiciones",
+        "performances": "Representaciones",
+        "publications": "Publicaciones",
+        "readMore": "Leer Más",
+        "film": "Cine",
+        "footerText": "Guías de Referencia, Enlaces, Fuentes Primarias — Referencia Estándar",
+        "latestNews": "Noticias Culturales, Eventos, Hechos"
     },
 
     fr: {
@@ -398,6 +417,14 @@ const translations = {
         "globalResources": "Ressources Mondiales",
         "consultants": "Nos Consultants",
         "cultureNews": "Actualités Culturelles",
-        "footerText": "Guides de Référence, Liens, Sources Primaires — Référence Standard"
+        "latestCulturalNews": "Actualités Culturelles, Événements, Faits",
+        "culturalEvents": "Événements Culturels",
+        "exhibitions": "Expositions",
+        "performances": "Spectacles",
+        "publications": "Publications",
+        "readMore": "Lire la suite",
+        "film": "Cinéma",
+        "footerText": "Guides de Référence, Liens, Sources Primaires — Référence Standard",
+        "latestNews": "Actualités Culturelles, Événements, Faits"
     }
 };
