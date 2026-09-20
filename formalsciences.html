@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="formalSciences">Formal Sciences - Standard Reference</title>
-    <script src="translations.js"></script>
-    <style>
+---
+layout: default
+title: "Formal Sciences - Standard Reference"
+---
+<style>
         :root {
             --primary-green: #1a5d1a;
             --accent-green: #2c822c;
@@ -409,76 +406,10 @@
             }
         }
     </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo-container">
-                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
-                <div class="subtitle" data-translate="tagline">Standard Reference</div>
-            </div>
-            
-            <!-- Добавлен поиск -->
-            <div class="search-container">
-                <div class="search-box">
-                    <input type="text" id="siteSearch" data-translate="searchPlaceholderSite" placeholder="Search this site...">
-                    <button class="search-btn" data-translate="searchButton" onclick="searchSiteContent()">Search</button>
-                </div>
-                <div class="search-box">
-                    <input type="text" id="webSearch" data-translate="searchPlaceholderWeb" placeholder="Search the web...">
-                    <button class="search-btn" data-translate="searchButton" onclick="searchWeb()">Search</button>
-                </div>
-            </div>
-            
-            <div class="nav-links">
-                <a href="index.html" data-translate="home">Home</a>
-                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
-                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
-                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
-                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
-                <a href="about.html" data-translate="about">About</a>
-                <a href="contact.html" data-translate="contact">Contact</a>
-                <div class="language-selector">
-                    <select class="language-dropdown" id="languageSelect">
-                        <option value="en">🇬🇧 English</option>
-                        <option value="de">🇩🇪 Deutsch</option>
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="hy">🇦🇲 Հայերեն</option>
-                        <option value="ru">🇷🇺 Русский</option>
-                    </select>
-                </div>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-        </nav>
-        
-        <div class="mobile-nav" id="mobileNav">
-            <div class="mobile-nav-links">
-                <a href="index.html" data-translate="home">Home</a>
-                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
-                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
-                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
-                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
-                <a href="about.html" data-translate="about">About</a>
-                <a href="contact.html" data-translate="contact">Contact</a>
-            </div>
-            <div class="mobile-language-selector">
-                <select id="mobileLanguageSelect">
-                    <option value="en">🇬🇧 English</option>
-                    <option value="de">🇩🇪 Deutsch</option>
-                    <option value="es">🇪🇸 Español</option>
-                    <option value="fr">🇫🇷 Français</option>
-                    <option value="hy">🇦🇲 Հայերեն</option>
-                    <option value="ru">🇷🇺 Русский</option>
-                </select>
-            </div>
-        </div>
-    </header>
 
-    <main>
+<main>
         <div class="breadcrumb">
-            <a href="index.html" data-translate="home">Home</a> > <a href="educationandsciences.html" data-translate="science">Science & Education</a> > <span data-translate="formalSciences">Formal Sciences</span>
+            <a href="{{ '/index.html' | relative_url }}" data-translate="home">Home</a> > <a href="{{ '/educationandsciences.html' | relative_url }}" data-translate="science">Science & Education</a> > <span data-translate="formalSciences">Formal Sciences</span>
         </div>
         
         <h1 data-translate="formalSciences">Formal Sciences</h1>
@@ -559,9 +490,7 @@
         </div>
     </main>
 
-    <footer>
-        <p data-translate="footerText">Reference Guides, Links, Primary Sources — Standard Reference</p>
-    </footer>
+    
 
     <script>
         // РЕАЛЬНЫЙ ПОИСК ПО САЙТУ - УПРОЩЕННАЯ ВЕРСИЯ
@@ -980,5 +909,3 @@
             if (e.key === 'Enter') searchWeb();
         });
     </script>
-</body>
-</html>

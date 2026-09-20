@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Law & Government - Common Source of Precision</title>
-    <style>
+---
+layout: default
+title: "Law & Government - Common Source of Precision"
+---
+<style>
         /* Все стили из главной страницы плюс дополнительные */
         .breadcrumb {
             margin: 1rem 0;
@@ -186,32 +184,10 @@
             }
         }
     </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Common Source of Precision</div>
-            <div class="tagline">The Primary Reference</div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="#categories">Categories</a>
-                <a href="about.html">About</a>
-                <div class="language-selector">
-                    <select class="language-dropdown" id="languageSelect">
-                        <option value="en">English</option>
-                        <option value="ru">Русский</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                    </select>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <main>
+<main>
         <div class="breadcrumb">
-            <a href="index.html">Home</a> > Law & Government
+            <a href="{{ '/index.html' | relative_url }}">Home</a> > Law & Government
         </div>
         
         <h1>Law & Government Sources</h1>
@@ -246,9 +222,7 @@
         </div>
     </main>
 
-    <footer>
-        <p>Common Source of Precision — Curating the foundation of knowledge.</p>
-    </footer>
+    
 
     <script>
         document.getElementById('languageSelect').addEventListener('change', function() {
@@ -266,5 +240,3 @@
             localStorage.setItem('preferredLanguage', this.value);
         });
     </script>
-</body>
-</html>

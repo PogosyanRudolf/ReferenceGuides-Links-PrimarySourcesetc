@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <script src="{{ '/translations.js' | relative_url }}"></script>
+    <style>
+        .site-topnav {
+            background: #000 !important;
+            color: #fff !important;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+        }
+
+        .site-topnav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem 1rem;
+        }
+
+        .site-topnav a {
+            color: #fff;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .site-topnav a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-consultants {
+            background: #ffeb3b;
+            color: #000 !important;
+            font-weight: 700;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+        }
+
+        .nav-consultants:hover {
+            text-decoration: none;
+            background: #ffe066;
+        }
+
+        .nav-whatsapp {
+            background: #25d366;
+            color: #fff !important;
+            font-weight: 700;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+        }
+
+        .nav-whatsapp:hover {
+            text-decoration: none;
+            background: #1ebe57;
+        }
+
+        .site-topnav .language-dropdown {
+            margin-left: auto;
+            background: #111;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 0.35rem 0.5rem;
+        }
+
+        .site-footer {
+            background: #000 !important;
+            color: #fff !important;
+            text-align: center;
+            padding: 1.25rem 1rem;
+            font-family: Arial, sans-serif;
+            margin-top: 3rem;
+        }
+
+        .sr-only-utils {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <header class="site-topnav">
+        <nav class="site-topnav-inner" aria-label="Main">
+            <a href="{{ '/index.html' | relative_url }}">Главная</a>
+            <a class="nav-consultants" href="{{ '/consultants.html' | relative_url }}">Консультанты</a>
+            <a class="nav-whatsapp" href="https://wa.me/37499117067" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <select class="language-dropdown" id="languageSelect" aria-label="Language">
+                <option value="en">🇬🇧 English</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="hy">🇦🇲 Հայերեն</option>
+                <option value="ru">🇷🇺 Русский</option>
+            </select>
+        </nav>
+        <div class="sr-only-utils" aria-hidden="true">
+            <button type="button" id="mobileMenuBtn">Menu</button>
+            <div id="mobileNav"></div>
+            <select id="mobileLanguageSelect">
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="hy">Հայերեն</option>
+                <option value="ru">Русский</option>
+            </select>
+            <button type="button" id="siteSearchBtn">Site</button>
+            <button type="button" id="webSearchBtn">Web</button>
+            <button type="button" id="mobileSiteSearchBtn">Site</button>
+            <button type="button" id="mobileWebSearchBtn">Web</button>
+        </div>
+    </header>
+
+    {{ content }}
+
+    <footer class="site-footer">
+        <p>ReferenceGuides 2026</p>
+    </footer>
+</body>
+</html>

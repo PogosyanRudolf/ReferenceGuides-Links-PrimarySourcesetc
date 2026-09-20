@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="cultureNews">Culture News - Standard Reference</title>
-    <script src="translations.js"></script>
-    <style>
+---
+layout: default
+title: "Culture News - Standard Reference"
+---
+<style>
         :root {
             --primary-green: #1a5d1a;
             --accent-green: #2c822c;
@@ -902,9 +899,8 @@
             }
         }
     </style>
-</head>
-<body>
-    <!-- Search Modals -->
+
+<!-- Search Modals -->
     <div class="search-modal" id="siteSearchModal">
         <div class="search-modal-content">
             <button class="search-modal-close" id="closeSiteSearch">×</button>
@@ -931,86 +927,11 @@
         </div>
     </div>
 
-    <header>
-        <nav>
-            <div class="logo-container">
-                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
-                <div class="subtitle" data-translate="tagline">Standard Reference</div>
-            </div>
-            
-            <div class="nav-links">
-                <a href="index.html" data-translate="home">Home</a>
-                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
-                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
-                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
-                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
-                <a href="about.html" data-translate="about">About</a>
-                <a href="contact.html" data-translate="contact">Contact</a>
-                
-                <div class="search-buttons">
-                    <button class="search-btn" id="siteSearchBtn">
-                        <span>🔍</span>
-                        <span data-translate="searchSiteShort">Site</span>
-                    </button>
-                    <button class="search-btn" id="webSearchBtn">
-                        <span>🌐</span>
-                        <span data-translate="searchWebShort">Web</span>
-                    </button>
-                </div>
-                
-                <div class="language-selector">
-                    <select class="language-dropdown" id="languageSelect">
-                        <option value="en">🇬🇧 English</option>
-                        <option value="de">🇩🇪 Deutsch</option>
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="hy">🇦🇲 Հայերեն</option>
-                        <option value="ru">🇷🇺 Русский</option>
-                    </select>
-                </div>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-        </nav>
-        
-        <div class="mobile-nav" id="mobileNav">
-            <div class="mobile-nav-links">
-                <a href="index.html" data-translate="home">Home</a>
-                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
-                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
-                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
-                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
-                <a href="about.html" data-translate="about">About</a>
-                <a href="contact.html" data-translate="contact">Contact</a>
-            </div>
-            
-            <div class="mobile-search-buttons">
-                <button class="mobile-search-btn" id="mobileSiteSearchBtn">
-                    <span>🔍</span>
-                    <span data-translate="searchSite">Search Site</span>
-                </button>
-                <button class="mobile-search-btn" id="mobileWebSearchBtn">
-                    <span>🌐</span>
-                    <span data-translate="searchWeb">Search Web</span>
-                </button>
-            </div>
-            
-            <div class="mobile-language-selector">
-                <select id="mobileLanguageSelect">
-                    <option value="en">🇬🇧 English</option>
-                    <option value="de">🇩🇪 Deutsch</option>
-                    <option value="es">🇪🇸 Español</option>
-                    <option value="fr">🇫🇷 Français</option>
-                    <option value="hy">🇦🇲 Հայերեն</option>
-                    <option value="ru">🇷🇺 Русский</option>
-                </select>
-            </div>
-        </div>
-    </header>
+    
 
     <main>
         <div class="breadcrumb">
-            <a href="index.html" data-translate="home">Home</a> > <span data-translate="cultureNews">Culture News</span>
+            <a href="{{ '/index.html' | relative_url }}" data-translate="home">Home</a> > <span data-translate="cultureNews">Culture News</span>
         </div>
         
         <section class="page-header">
@@ -1048,52 +969,7 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 data-translate="siteTitle">Reference Guides, Links, Primary Sources</h3>
-                <p data-translate="tagline">Standard Reference</p>
-                <p data-translate="cultureDescription">Discover exhibitions, performances, literature, and cultural events from around the world</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3 data-translate="quickLinks">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html" data-translate="home">Home</a></li>
-                    <li><a href="culture-news.html" data-translate="cultureNews">Culture News</a></li>
-                    <li><a href="consultants.html" data-translate="consultants">Our Consultants</a></li>
-                    <li><a href="educationandsciences.html" data-translate="science">Science & Education</a></li>
-                    <li><a href="about.html" data-translate="about">About</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 data-translate="culturalResources">Cultural Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="https://www.historymuseum.am/" target="_blank" rel="noopener">History Museum of Armenia</a></li>
-                    <li><a href="https://matenadaran.am/" target="_blank" rel="noopener">Matenadaran</a></li>
-                    <li><a href="https://www.gaiff.am/" target="_blank" rel="noopener">Golden Apricot Film Festival</a></li>
-                    <li><a href="https://www.opera.am/" target="_blank" rel="noopener">Armenian National Opera</a></li>
-                    <li><a href="https://www.armmonuments.am/" target="_blank" rel="noopener">Armenian Monuments</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 data-translate="contactInfo">Contact Information</h3>
-                <ul class="footer-links">
-                    <li>Email: culture@standardreference.org</li>
-                    <li>Phone: +374 10 654321</li>
-                    <li>For event submissions: events@standardreference.org</li>
-                    <li>Yerevan, Armenia</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p data-translate="footerText">Reference Guides, Links, Primary Sources — Standard Reference</p>
-            <p data-translate="allRightsReserved">© 2024 All rights reserved</p>
-        </div>
-    </footer>
+    
 
     <script>
         // Данные новостей с реальными событиями на текущую дату (декабрь 2024)
@@ -1657,5 +1533,3 @@
             });
         });
     </script>
-</body>
-</html>

@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="siteTitle">Reference Guides, Links, Primary Sources - Standard Reference</title>
-    <script src="translations.js"></script>
-    <style>
+---
+layout: default
+title: "Reference Guides, Links, Primary Sources - Standard Reference"
+---
+<style>
         :root {
             --primary-green: #1a5d1a;
             --accent-green: #2c822c;
@@ -705,9 +702,8 @@
             }
         }
     </style>
-</head>
-<body>
-    <!-- Search Modal -->
+
+<!-- Search Modal -->
     <div class="search-modal" id="siteSearchModal">
         <div class="search-modal-content">
             <button class="search-modal-close" id="closeSiteSearch">×</button>
@@ -734,110 +730,35 @@
         </div>
     </div>
 
-    <header>
-        <nav>
-            <div class="logo-container">
-                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
-                <div class="subtitle" data-translate="tagline">Standard Reference</div>
-            </div>
-            
-            <div class="nav-links">
-                <a href="index.html" data-translate="home">Home</a>
-                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
-                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
-                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
-                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
-                <a href="about.html" data-translate="about">About</a>
-                <a href="contact.html" data-translate="contact">Contact</a>
-                
-                <div class="search-buttons">
-                    <button class="search-btn" id="siteSearchBtn">
-                        <span>🔍</span>
-                        <span data-translate="searchSiteShort">Site</span>
-                    </button>
-                    <button class="search-btn" id="webSearchBtn">
-                        <span>🌐</span>
-                        <span data-translate="searchWebShort">Web</span>
-                    </button>
-                </div>
-                
-                <div class="language-selector">
-                    <select class="language-dropdown" id="languageSelect">
-                        <option value="en">🇬🇧 English</option>
-                        <option value="de">🇩🇪 Deutsch</option>
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="hy">🇦🇲 Հայերեն</option>
-                        <option value="ru">🇷🇺 Русский</option>
-                    </select>
-                </div>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-        </nav>
-        
-        <div class="mobile-nav" id="mobileNav">
-            <div class="mobile-nav-links">
-                <a href="index.html" data-translate="home">Home</a>
-                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
-                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
-                <a href="consultants.html" data-translate="consultants">Our Consultants</a>
-                <a href="culture-news.html" data-translate="cultureNews">Culture News</a>
-                <a href="about.html" data-translate="about">About</a>
-                <a href="contact.html" data-translate="contact">Contact</a>
-            </div>
-            
-            <div class="mobile-search-buttons">
-                <button class="mobile-search-btn" id="mobileSiteSearchBtn">
-                    <span>🔍</span>
-                    <span data-translate="searchSite">Search Site</span>
-                </button>
-                <button class="mobile-search-btn" id="mobileWebSearchBtn">
-                    <span>🌐</span>
-                    <span data-translate="searchWeb">Search Web</span>
-                </button>
-            </div>
-            
-            <div class="mobile-language-selector">
-                <select id="mobileLanguageSelect">
-                    <option value="en">🇬🇧 English</option>
-                    <option value="de">🇩🇪 Deutsch</option>
-                    <option value="es">🇪🇸 Español</option>
-                    <option value="fr">🇫🇷 Français</option>
-                    <option value="hy">🇦🇲 Հայերեն</option>
-                    <option value="ru">🇷🇺 Русский</option>
-                </select>
-            </div>
-        </div>
-    </header>
+    
 
     <main id="main-content">
         <section class="hero">
             <h1 data-translate="siteTitle">Reference Guides, Links, Primary Sources</h1>
             <p data-translate="heroDescription">Your comprehensive gateway to global educational resources, expert consulting, and research materials</p>
-            <a href="educationandsciences.html" class="cta-button" data-translate="science">Explore Science & Education</a>
+            <a href="{{ '/educationandsciences.html' | relative_url }}" class="cta-button" data-translate="science">Explore Science & Education</a>
         </section>
 
         <section class="categories-grid">
-            <a href="educationandsciences.html" class="category-card">
+            <a href="{{ '/educationandsciences.html' | relative_url }}" class="category-card">
                 <div class="category-icon">🔬</div>
                 <h3 data-translate="science">Science & Education</h3>
                 <p data-translate="scienceDesc">Comprehensive collection across all scientific disciplines with expert guidance</p>
             </a>
             
-            <a href="educationalresources.html" class="category-card">
+            <a href="{{ '/educationalresources.html' | relative_url }}" class="category-card">
                 <div class="category-icon">🌍</div>
                 <h3 data-translate="globalResources">Global Resources</h3>
                 <p data-translate="globalResourcesDesc">Universities, learning platforms, and research databases worldwide</p>
             </a>
             
-            <a href="formalsciences.html" class="category-card">
+            <a href="{{ '/formalsciences.html' | relative_url }}" class="category-card">
                 <div class="category-icon">🧮</div>
                 <h3 data-translate="formalSciences">Formal Sciences</h3>
                 <p data-translate="formalSciencesDesc">Mathematics, Computer Science, AI, and Data Science resources</p>
             </a>
             
-            <a href="consultants.html" class="category-card">
+            <a href="{{ '/consultants.html' | relative_url }}" class="category-card">
                 <div class="category-icon">👨‍💼</div>
                 <h3 data-translate="consultants">Expert Consultants</h3>
                 <p data-translate="consultantsDesc">Professional guidance and consulting services across various disciplines</p>
@@ -850,52 +771,19 @@
                 <div class="news-item">
                     <h3 data-translate="news1Title">Armenian Cultural Heritage Exhibition</h3>
                     <p data-translate="news1Desc">The History Museum of Armenia presents "Armenian Chronicles" featuring rare manuscripts and artifacts from Matenadaran collection.</p>
-                    <a href="culture-news.html" data-translate="readMore">Read More →</a>
+                    <a href="{{ '/culture-news.html' | relative_url }}" data-translate="readMore">Read More →</a>
                 </div>
                 <div class="news-item">
                     <h3 data-translate="news2Title">International Film Festival</h3>
                     <p data-translate="news2Desc">The Golden Apricot Yerevan International Film Festival announces its upcoming program with focus on regional cinema.</p>
-                    <a href="culture-news.html" data-translate="readMore">Read More →</a>
+                    <a href="{{ '/culture-news.html' | relative_url }}" data-translate="readMore">Read More →</a>
                 </div>
             </div>
-            <a href="culture-news.html" class="view-all-btn" data-translate="viewAllNews">View All News</a>
+            <a href="{{ '/culture-news.html' | relative_url }}" class="view-all-btn" data-translate="viewAllNews">View All News</a>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 data-translate="siteTitle">Reference Guides, Links, Primary Sources</h3>
-                <p data-translate="tagline">Standard Reference</p>
-                <p>Comprehensive knowledge database and expert consulting services</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3 data-translate="quickLinks">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html" data-translate="home">Home</a></li>
-                    <li><a href="educationandsciences.html" data-translate="science">Science & Education</a></li>
-                    <li><a href="consultants.html" data-translate="consultants">Our Consultants</a></li>
-                    <li><a href="culture-news.html" data-translate="cultureNews">Culture News</a></li>
-                    <li><a href="about.html" data-translate="about">About</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 data-translate="contactInfo">Contact Information</h3>
-                <ul class="footer-links">
-                    <li>Email: info@standardreference.org</li>
-                    <li>Phone: +374 10 123456</li>
-                    <li>Yerevan, Armenia</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p data-translate="footerText">Reference Guides, Links, Primary Sources — Standard Reference</p>
-            <p data-translate="allRightsReserved">© 2024 All rights reserved</p>
-        </div>
-    </footer>
+    
 
     <script>
         // Search functionality
@@ -1123,5 +1011,3 @@
             }
         });
     </script>
-</body>
-</html>

@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science & Education - Standard Reference</title>
-    <script src="translations.js"></script>
-    <style>
+---
+layout: default
+title: "Science & Education - Standard Reference"
+---
+<style>
         :root {
             --primary-green: #1a5d1a;
             --accent-green: #2c822c;
@@ -497,60 +494,10 @@
             }
         }
     </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo-container">
-                <div class="main-title" data-translate="siteTitle">Reference Guides, Links, Primary Sources</div>
-                <div class="subtitle" data-translate="tagline">Standard Reference</div>
-            </div>
-            
-            <div class="nav-links">
-                <a href="index.html" data-translate="home">Home</a>
-                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
-                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
-                <a href="about.html" data-translate="about">About</a>
-                <a href="contact.html" data-translate="contact">Contact</a>
-                <div class="language-selector">
-                    <select class="language-dropdown" id="languageSelect">
-                        <option value="en">🇬🇧 English</option>
-                        <option value="de">🇩🇪 Deutsch</option>
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="hy">🇦🇲 Հայերեն</option>
-                        <option value="ru">🇷🇺 Русский</option>
-                    </select>
-                </div>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-        </nav>
-        
-        <div class="mobile-nav" id="mobileNav">
-            <div class="mobile-nav-links">
-                <a href="index.html" data-translate="home">Home</a>
-                <a href="educationandsciences.html" data-translate="science">Science & Education</a>
-                <a href="educationalresources.html" data-translate="globalResources">Global Resources</a>
-                <a href="about.html" data-translate="about">About</a>
-                <a href="contact.html" data-translate="contact">Contact</a>
-            </div>
-            <div class="mobile-language-selector">
-                <select id="mobileLanguageSelect">
-                    <option value="en">🇬🇧 English</option>
-                    <option value="de">🇩🇪 Deutsch</option>
-                    <option value="es">🇪🇸 Español</option>
-                    <option value="fr">🇫🇷 Français</option>
-                    <option value="hy">🇦🇲 Հայերեն</option>
-                    <option value="ru">🇷🇺 Русский</option>
-                </select>
-            </div>
-        </div>
-    </header>
 
-    <main>
+<main>
         <div class="breadcrumb">
-            <a href="index.html" data-translate="home">Home</a> > <span data-translate="science">Science & Education</span>
+            <a href="{{ '/index.html' | relative_url }}" data-translate="home">Home</a> > <span data-translate="science">Science & Education</span>
         </div>
         
         <h1 data-translate="science">Science & Education</h1>
@@ -599,79 +546,79 @@
         <div class="science-grid">
             <!-- Applied Sciences -->
             <div class="science-category">
-                <h3><a href="applied-sciences.html" data-translate="appliedSciences">Applied Sciences</a></h3>
+                <h3><a href="{{ '/applied-sciences.html' | relative_url }}" data-translate="appliedSciences">Applied Sciences</a></h3>
                 <ul class="subjects-list">
-                    <li><a href="applied-sciences.html#engineering" data-translate="engineering">Engineering</a></li>
-                    <li><a href="applied-sciences.html#medicine" data-translate="medicine">Medicine & Healthcare</a></li>
-                    <li><a href="applied-sciences.html#architecture" data-translate="architecture">Architecture</a></li>
-                    <li><a href="applied-sciences.html#agriculture" data-translate="agriculture">Agricultural Science</a></li>
-                    <li><a href="applied-sciences.html#materials" data-translate="materials">Materials Science</a></li>
-                    <li><a href="applied-sciences.html#robotics" data-translate="robotics">Robotics & Automation</a></li>
+                    <li><a href="{{ '/applied-sciences.html' | relative_url }}#engineering" data-translate="engineering">Engineering</a></li>
+                    <li><a href="{{ '/applied-sciences.html' | relative_url }}#medicine" data-translate="medicine">Medicine & Healthcare</a></li>
+                    <li><a href="{{ '/applied-sciences.html' | relative_url }}#architecture" data-translate="architecture">Architecture</a></li>
+                    <li><a href="{{ '/applied-sciences.html' | relative_url }}#agriculture" data-translate="agriculture">Agricultural Science</a></li>
+                    <li><a href="{{ '/applied-sciences.html' | relative_url }}#materials" data-translate="materials">Materials Science</a></li>
+                    <li><a href="{{ '/applied-sciences.html' | relative_url }}#robotics" data-translate="robotics">Robotics & Automation</a></li>
                 </ul>
             </div>
 
             <!-- Formal Sciences -->
             <div class="science-category">
-                <h3><a href="formalsciences.html" data-translate="formalSciences">Formal Sciences</a></h3>
+                <h3><a href="{{ '/formalsciences.html' | relative_url }}" data-translate="formalSciences">Formal Sciences</a></h3>
                 <ul class="subjects-list">
-                    <li><a href="formalsciences.html#mathematics" data-translate="mathematics">Mathematics</a></li>
-                    <li><a href="formalsciences.html#computerscience" data-translate="computerscience">Computer Science</a></li>
-                    <li><a href="formalsciences.html#ai" data-translate="ai">Artificial Intelligence</a></li>
-                    <li><a href="formalsciences.html#statistics" data-translate="statistics">Statistics & Data Science</a></li>
-                    <li><a href="formalsciences.html#cybersecurity" data-translate="cybersecurity">Cybersecurity</a></li>
-                    <li><a href="formalsciences.html#programming" data-translate="programming">Programming</a></li>
+                    <li><a href="{{ '/formalsciences.html' | relative_url }}#mathematics" data-translate="mathematics">Mathematics</a></li>
+                    <li><a href="{{ '/formalsciences.html' | relative_url }}#computerscience" data-translate="computerscience">Computer Science</a></li>
+                    <li><a href="{{ '/formalsciences.html' | relative_url }}#ai" data-translate="ai">Artificial Intelligence</a></li>
+                    <li><a href="{{ '/formalsciences.html' | relative_url }}#statistics" data-translate="statistics">Statistics & Data Science</a></li>
+                    <li><a href="{{ '/formalsciences.html' | relative_url }}#cybersecurity" data-translate="cybersecurity">Cybersecurity</a></li>
+                    <li><a href="{{ '/formalsciences.html' | relative_url }}#programming" data-translate="programming">Programming</a></li>
                 </ul>
             </div>
 
             <!-- Natural Sciences -->
             <div class="science-category">
-                <h3><a href="natural-sciences.html" data-translate="naturalSciences">Natural Sciences</a></h3>
+                <h3><a href="{{ '/natural-sciences.html' | relative_url }}" data-translate="naturalSciences">Natural Sciences</a></h3>
                 <ul class="subjects-list">
-                    <li><a href="natural-sciences.html#physics" data-translate="physics">Physics & Astrophysics</a></li>
-                    <li><a href="natural-sciences.html#chemistry" data-translate="chemistry">Chemistry & Biochemistry</a></li>
-                    <li><a href="natural-sciences.html#biology" data-translate="biology">Biology & Genetics</a></li>
-                    <li><a href="natural-sciences.html#astronomy" data-translate="astronomy">Astronomy & Space Science</a></li>
-                    <li><a href="natural-sciences.html#geology" data-translate="geology">Geology & Earth Sciences</a></li>
-                    <li><a href="natural-sciences.html#environmental" data-translate="environmental">Environmental Science</a></li>
+                    <li><a href="{{ '/natural-sciences.html' | relative_url }}#physics" data-translate="physics">Physics & Astrophysics</a></li>
+                    <li><a href="{{ '/natural-sciences.html' | relative_url }}#chemistry" data-translate="chemistry">Chemistry & Biochemistry</a></li>
+                    <li><a href="{{ '/natural-sciences.html' | relative_url }}#biology" data-translate="biology">Biology & Genetics</a></li>
+                    <li><a href="{{ '/natural-sciences.html' | relative_url }}#astronomy" data-translate="astronomy">Astronomy & Space Science</a></li>
+                    <li><a href="{{ '/natural-sciences.html' | relative_url }}#geology" data-translate="geology">Geology & Earth Sciences</a></li>
+                    <li><a href="{{ '/natural-sciences.html' | relative_url }}#environmental" data-translate="environmental">Environmental Science</a></li>
                 </ul>
             </div>
 
             <!-- Social Sciences & Humanities -->
             <div class="science-category">
-                <h3><a href="social-sciences.html" data-translate="socialSciences">Social Sciences & Humanities</a></h3>
+                <h3><a href="{{ '/social-sciences.html' | relative_url }}" data-translate="socialSciences">Social Sciences & Humanities</a></h3>
                 <ul class="subjects-list">
-                    <li><a href="social-sciences.html#economics" data-translate="economics">Economics</a></li>
-                    <li><a href="social-sciences.html#psychology" data-translate="psychology">Psychology</a></li>
-                    <li><a href="social-sciences.html#history" data-translate="history">History</a></li>
-                    <li><a href="social-sciences.html#linguistics" data-translate="linguistics">Linguistics</a></li>
-                    <li><a href="social-sciences.html#philosophy" data-translate="philosophy">Philosophy</a></li>
-                    <li><a href="social-sciences.html#languagesLearning" data-translate="languagesLearning">Language Learning</a></li>
+                    <li><a href="{{ '/social-sciences.html' | relative_url }}#economics" data-translate="economics">Economics</a></li>
+                    <li><a href="{{ '/social-sciences.html' | relative_url }}#psychology" data-translate="psychology">Psychology</a></li>
+                    <li><a href="{{ '/social-sciences.html' | relative_url }}#history" data-translate="history">History</a></li>
+                    <li><a href="{{ '/social-sciences.html' | relative_url }}#linguistics" data-translate="linguistics">Linguistics</a></li>
+                    <li><a href="{{ '/social-sciences.html' | relative_url }}#philosophy" data-translate="philosophy">Philosophy</a></li>
+                    <li><a href="{{ '/social-sciences.html' | relative_url }}#languagesLearning" data-translate="languagesLearning">Language Learning</a></li>
                 </ul>
             </div>
 
             <!-- Languages -->
             <div class="science-category">
-                <h3><a href="languages.html" data-translate="languages">Languages</a></h3>
+                <h3><a href="{{ '/languages.html' | relative_url }}" data-translate="languages">Languages</a></h3>
                 <ul class="subjects-list">
-                    <li><a href="languages.html#english" data-translate="english">English Language</a></li>
-                    <li><a href="languages.html#russian" data-translate="russian">Russian Language</a></li>
-                    <li><a href="languages.html#spanish" data-translate="spanish">Spanish Language</a></li>
-                    <li><a href="languages.html#french" data-translate="french">French Language</a></li>
-                    <li><a href="languages.html#german" data-translate="german">German Language</a></li>
-                    <li><a href="languages.html#armenian" data-translate="armenian">Armenian Language</a></li>
+                    <li><a href="{{ '/languages.html' | relative_url }}#english" data-translate="english">English Language</a></li>
+                    <li><a href="{{ '/languages.html' | relative_url }}#russian" data-translate="russian">Russian Language</a></li>
+                    <li><a href="{{ '/languages.html' | relative_url }}#spanish" data-translate="spanish">Spanish Language</a></li>
+                    <li><a href="{{ '/languages.html' | relative_url }}#french" data-translate="french">French Language</a></li>
+                    <li><a href="{{ '/languages.html' | relative_url }}#german" data-translate="german">German Language</a></li>
+                    <li><a href="{{ '/languages.html' | relative_url }}#armenian" data-translate="armenian">Armenian Language</a></li>
                 </ul>
             </div>
 
             <!-- Arts & Culture -->
             <div class="science-category">
-                <h3><a href="arts-culture.html" data-translate="artsCulture">Arts & Culture</a></h3>
+                <h3><a href="{{ '/arts-culture.html' | relative_url }}" data-translate="artsCulture">Arts & Culture</a></h3>
                 <ul class="subjects-list">
-                    <li><a href="arts-culture.html#arthistory" data-translate="arthistory">Art History</a></li>
-                    <li><a href="arts-culture.html#literature" data-translate="literature">Literature</a></li>
-                    <li><a href="arts-culture.html#music" data-translate="music">Musicology</a></li>
-                    <li><a href="arts-culture.html#film" data-translate="film">Film Studies</a></li>
-                    <li><a href="arts-culture.html#theatre" data-translate="theatre">Theatre Studies</a></li>
-                    <li><a href="arts-culture.html#cultural" data-translate="cultural">Cultural Studies</a></li>
+                    <li><a href="{{ '/arts-culture.html' | relative_url }}#arthistory" data-translate="arthistory">Art History</a></li>
+                    <li><a href="{{ '/arts-culture.html' | relative_url }}#literature" data-translate="literature">Literature</a></li>
+                    <li><a href="{{ '/arts-culture.html' | relative_url }}#music" data-translate="music">Musicology</a></li>
+                    <li><a href="{{ '/arts-culture.html' | relative_url }}#film" data-translate="film">Film Studies</a></li>
+                    <li><a href="{{ '/arts-culture.html' | relative_url }}#theatre" data-translate="theatre">Theatre Studies</a></li>
+                    <li><a href="{{ '/arts-culture.html' | relative_url }}#cultural" data-translate="cultural">Cultural Studies</a></li>
                 </ul>
             </div>
         </div>
@@ -729,9 +676,7 @@
         </div>
     </main>
 
-    <footer>
-        <p data-translate="footerText">Reference Guides, Links, Primary Sources — Standard Reference</p>
-    </footer>
+    
 
     <script>
         // Mobile menu functionality
@@ -804,5 +749,3 @@
             }
         });
     </script>
-</body>
-</html>
